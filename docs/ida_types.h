@@ -85,11 +85,11 @@ struct REQUEST_INFO {
     uint32_t moredown_flags;
     uint32_t texts1_flags[MAX_REQLINES];
     uint32_t texts2_flags[MAX_REQLINES];
-    TEXTSTRING *heading1text;
-    TEXTSTRING *heading2text;
-    TEXTSTRING *backgroundtext;
-    TEXTSTRING *moreuptext;
-    TEXTSTRING *moredowntext;
+    TEXTSTRING *heading1_text;
+    TEXTSTRING *heading2_text;
+    TEXTSTRING *background_text;
+    TEXTSTRING *moreup_text;
+    TEXTSTRING *moredown_text;
     TEXTSTRING *texts1[MAX_REQLINES];
     TEXTSTRING *texts2[MAX_REQLINES];
     char heading1_str[32];
@@ -97,3 +97,43 @@ struct REQUEST_INFO {
     int original_render_width;
     int original_render_height;
 };
+
+struct INVENTORY_SPRITE {
+    int16_t shape;
+    int16_t x;
+    int16_t y;
+    int16_t z;
+    int32_t param1;
+    int32_t param2;
+    SG_COL *grdptr;
+    int16_t sprnum;
+};
+
+struct INVENTORY_ITEM {
+    char *item_text;
+    int16_t object_number;
+    int16_t frames_total;
+    int16_t current_frame;
+    int16_t goal_frame;
+    int16_t open_frame;
+    int16_t anim_direction;
+    int16_t anim_speed;
+    int16_t anim_count;
+    PHD_ANGLE pt_xrot_sel;
+    PHD_ANGLE pt_xrot;
+    PHD_ANGLE x_rot_sel;
+    PHD_ANGLE x_rot_nosel;
+    PHD_ANGLE x_rot;
+    PHD_ANGLE y_rot_sel;
+    PHD_ANGLE y_rot;
+    int32_t ytrans_sel;
+    int32_t ytrans;
+    int32_t ztrans_sel;
+    int32_t ztrans;
+    uint32_t which_meshes;
+    uint32_t drawn_meshes;
+    int16_t inv_pos;
+    INVENTORY_SPRITE **sprlist;
+    int32_t misc_data[4];
+};
+

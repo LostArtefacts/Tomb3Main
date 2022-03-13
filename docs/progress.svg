@@ -452,17 +452,17 @@
 <rect width="12.00" height="12.00" x="686.00" y="129.00" class="todo"><title>void Inv_RingMotionCameraPitch();</title></rect>
 <rect width="12.00" height="12.00" x="0.00" y="143.00" class="todo"><title>void Inv_RingMotionItemSelect();</title></rect>
 <rect width="12.00" height="12.00" x="14.00" y="143.00" class="todo"><title>void Inv_RingMotionItemDeselect();</title></rect>
-<rect width="12.00" height="12.00" x="28.00" y="143.00" class="todo"><title>void Init_Requester();</title></rect>
-<rect width="12.00" height="12.00" x="42.00" y="143.00" class="todo"><title>void RemoveRequester();</title></rect>
-<rect width="12.00" height="12.00" x="56.00" y="143.00" class="todo"><title>void ReqItemCenteralign();</title></rect>
-<rect width="12.00" height="12.00" x="70.00" y="143.00" class="todo"><title>void ReqItemLeftalign();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="143.00" class="todo"><title>void ReqItemRightalign();</title></rect>
-<rect width="12.00" height="12.00" x="98.00" y="143.00" class="todo"><title>void Display_Requester();</title></rect>
-<rect width="12.00" height="12.00" x="112.00" y="143.00" class="todo"><title>void SetRequesterHeading();</title></rect>
+<rect width="12.00" height="12.00" x="28.00" y="143.00" class="named"><title>void Init_Requester(REQUEST_INFO *req);</title></rect>
+<rect width="12.00" height="12.00" x="42.00" y="143.00" class="named"><title>void Remove_Requester(REQUEST_INFO *req);</title></rect>
+<rect width="12.00" height="12.00" x="56.00" y="143.00" class="named"><title>void ReqItemCenterAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="70.00" y="143.00" class="named"><title>void ReqItemLeftAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="143.00" class="named"><title>void ReqItemRightAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="98.00" y="143.00" class="named"><title>int32_t Display_Requester(REQUEST_INFO *req, int32_t des, int32_t backgrounds);</title></rect>
+<rect width="12.00" height="12.00" x="112.00" y="143.00" class="named"><title>void SetRequesterHeading(REQUEST_INFO *req, char *text1, uint32_t flags1, char *text2, uint32_t flags2);</title></rect>
 <rect width="12.00" height="12.00" x="126.00" y="143.00" class="named"><title>void RemoveAllReqItems(REQUEST_INFO *req);</title></rect>
 <rect width="12.00" height="12.00" x="140.00" y="143.00" class="named"><title>void ChangeRequesterItem(REQUEST_INFO *req, int32_t item, char *text1, uint32_t flags1, char *text2, uint32_t flags2);</title></rect>
 <rect width="12.00" height="12.00" x="154.00" y="143.00" class="named"><title>void AddRequesterItem(REQUEST_INFO *req, char *text1, uint32_t flags1, char *text2, uint32_t flags2);</title></rect>
-<rect width="12.00" height="12.00" x="168.00" y="143.00" class="todo"><title>void SetPCRequesterSize();</title></rect>
+<rect width="12.00" height="12.00" x="168.00" y="143.00" class="named"><title>void SetPCRequesterSize(REQUEST_INFO *req, int maxlines, int ypos);</title></rect>
 <rect width="12.00" height="12.00" x="182.00" y="143.00" class="todo"><title>void AddAssaultTime();</title></rect>
 <rect width="12.00" height="12.00" x="196.00" y="143.00" class="todo"><title>void AddQuadbikeTime();</title></rect>
 <rect width="12.00" height="12.00" x="210.00" y="143.00" class="todo"><title>void ShowGymStatsText();</title></rect>
@@ -949,26 +949,26 @@
 <rect width="12.00" height="12.00" x="644.00" y="269.00" class="todo"><title>void sub_46A8B0();</title></rect>
 <rect width="12.00" height="12.00" x="658.00" y="269.00" class="todo"><title>void TargetControl();</title></rect>
 <rect width="12.00" height="12.00" x="672.00" y="269.00" class="todo"><title>void sub_46AC00();</title></rect>
-<rect width="12.00" height="12.00" x="686.00" y="269.00" class="todo"><title>void T_InitPrint();</title></rect>
-<rect width="12.00" height="12.00" x="0.00" y="283.00" class="todo"><title>void T_Print();</title></rect>
-<rect width="12.00" height="12.00" x="14.00" y="283.00" class="todo"><title>void T_ChangeText();</title></rect>
-<rect width="12.00" height="12.00" x="28.00" y="283.00" class="todo"><title>void sub_46ADD0();</title></rect>
-<rect width="12.00" height="12.00" x="42.00" y="283.00" class="todo"><title>void sub_46AE00();</title></rect>
-<rect width="12.00" height="12.00" x="56.00" y="283.00" class="todo"><title>void sub_46AE90();</title></rect>
-<rect width="12.00" height="12.00" x="70.00" y="283.00" class="todo"><title>void sub_46AEA0();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="283.00" class="todo"><title>void sub_46AED0();</title></rect>
-<rect width="12.00" height="12.00" x="98.00" y="283.00" class="todo"><title>void T_CentreH();</title></rect>
-<rect width="12.00" height="12.00" x="112.00" y="283.00" class="todo"><title>void sub_46AF00();</title></rect>
-<rect width="12.00" height="12.00" x="126.00" y="283.00" class="todo"><title>void T_RightAlign();</title></rect>
-<rect width="12.00" height="12.00" x="140.00" y="283.00" class="todo"><title>void T_BottomAlign();</title></rect>
-<rect width="12.00" height="12.00" x="154.00" y="283.00" class="todo"><title>void T_GetTextWidth();</title></rect>
-<rect width="12.00" height="12.00" x="168.00" y="283.00" class="todo"><title>void T_RemovePrint();</title></rect>
-<rect width="12.00" height="12.00" x="182.00" y="283.00" class="todo"><title>void sub_46B0C0();</title></rect>
-<rect width="12.00" height="12.00" x="196.00" y="283.00" class="todo"><title>void T_DrawText();</title></rect>
-<rect width="12.00" height="12.00" x="210.00" y="283.00" class="todo"><title>void sub_46B120();</title></rect>
-<rect width="12.00" height="12.00" x="224.00" y="283.00" class="todo"><title>void sub_46B340();</title></rect>
-<rect width="12.00" height="12.00" x="238.00" y="283.00" class="todo"><title>void GetTextScaleH();</title></rect>
-<rect width="12.00" height="12.00" x="252.00" y="283.00" class="todo"><title>void sub_46B720();</title></rect>
+<rect width="12.00" height="12.00" x="686.00" y="269.00" class="named"><title>void T_InitPrint(void);</title></rect>
+<rect width="12.00" height="12.00" x="0.00" y="283.00" class="named"><title>TEXTSTRING *T_Print(int32_t x_pos, int32_t y_pos, int32_t z_pos, const char *string);</title></rect>
+<rect width="12.00" height="12.00" x="14.00" y="283.00" class="named"><title>void T_ChangeText(TEXTSTRING *txt, const char *string);</title></rect>
+<rect width="12.00" height="12.00" x="28.00" y="283.00" class="named"><title>void T_FlashText(TEXTSTRING *txt, int16_t enabled, int16_t rate);</title></rect>
+<rect width="12.00" height="12.00" x="42.00" y="283.00" class="named"><title>void T_AddBackground(TEXTSTRING *txt, int16_t x_size, int16_t y_size, int16_t x_off, int16_t y_off, int16_t z_off, int16_t colour, SG_COL *gourptr, uint16_t flags);</title></rect>
+<rect width="12.00" height="12.00" x="56.00" y="283.00" class="named"><title>void T_RemoveBackground(TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="70.00" y="283.00" class="named"><title>void T_AddOutline(TEXTSTRING *txt, int16_t enabled, int16_t colour, SG_COL *gourptr, uint16_t flags);</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="283.00" class="named"><title>void T_RemoveOutline(TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="98.00" y="283.00" class="named"><title>void T_CentreH(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="12.00" height="12.00" x="112.00" y="283.00" class="named"><title>void T_CentreV(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="12.00" height="12.00" x="126.00" y="283.00" class="named"><title>void T_RightAlign(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="12.00" height="12.00" x="140.00" y="283.00" class="named"><title>void T_BottomAlign(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="12.00" height="12.00" x="154.00" y="283.00" class="named"><title>int32_t T_GetTextWidth(TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="168.00" y="283.00" class="named"><title>int32_t T_RemovePrint(TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="182.00" y="283.00" class="named"><title>void T_RemoveAllPrints(void);</title></rect>
+<rect width="12.00" height="12.00" x="196.00" y="283.00" class="named"><title>void T_DrawText(void);</title></rect>
+<rect width="12.00" height="12.00" x="210.00" y="283.00" class="named"><title>void T_DrawBorder(int32_t xpos, int32_t ypos, int32_t zpos, int32_t width, int32_t height);</title></rect>
+<rect width="12.00" height="12.00" x="224.00" y="283.00" class="named"><title>void T_DrawThisText(TEXTSTRING *txt);</title></rect>
+<rect width="12.00" height="12.00" x="238.00" y="283.00" class="named"><title>uint32_t GetTextScaleH(uint32_t scale_h);</title></rect>
+<rect width="12.00" height="12.00" x="252.00" y="283.00" class="named"><title>uint32_t GetTextScaleV(uint32_t scale_v);</title></rect>
 <rect width="12.00" height="12.00" x="266.00" y="283.00" class="todo"><title>void TigerControl();</title></rect>
 <rect width="12.00" height="12.00" x="280.00" y="283.00" class="todo"><title>void TonyBossControl();</title></rect>
 <rect width="12.00" height="12.00" x="294.00" y="283.00" class="todo"><title>void S_DrawTonyBoss();</title></rect>
@@ -1170,8 +1170,8 @@
 <rect width="12.00" height="12.00" x="238.00" y="339.00" class="named"><title>int32_t GetRandomDraw();</title></rect>
 <rect width="12.00" height="12.00" x="252.00" y="339.00" class="named"><title>void SeedRandomDraw(int32_t seed);</title></rect>
 <rect width="12.00" height="12.00" x="266.00" y="339.00" class="named"><title>void GetValidLevelsList(REQUEST_INFO *req);</title></rect>
-<rect width="12.00" height="12.00" x="280.00" y="339.00" class="todo"><title>void sub_4842A0();</title></rect>
-<rect width="12.00" height="12.00" x="294.00" y="339.00" class="todo"><title>void DisplayCredits();</title></rect>
+<rect width="12.00" height="12.00" x="280.00" y="339.00" class="named"><title>void GetSavedGamesList(REQUEST_INFO *req);</title></rect>
+<rect width="12.00" height="12.00" x="294.00" y="339.00" class="named"><title>void DisplayCredits(void);</title></rect>
 <rect width="12.00" height="12.00" x="308.00" y="339.00" class="todo"><title>void S_FrontEndCheck();</title></rect>
 <rect width="12.00" height="12.00" x="322.00" y="339.00" class="todo"><title>void S_SaveGame();</title></rect>
 <rect width="12.00" height="12.00" x="336.00" y="339.00" class="todo"><title>void sub_4846A0();</title></rect>
@@ -1214,7 +1214,7 @@
 <rect width="12.00" height="12.00" x="154.00" y="353.00" class="todo"><title>void sub_487720();</title></rect>
 <rect width="12.00" height="12.00" x="168.00" y="353.00" class="todo"><title>void do_inventory_options();</title></rect>
 <rect width="12.00" height="12.00" x="182.00" y="353.00" class="todo"><title>void sub_487870();</title></rect>
-<rect width="12.00" height="12.00" x="196.00" y="353.00" class="todo"><title>void sub_487BE0();</title></rect>
+<rect width="12.00" height="12.00" x="196.00" y="353.00" class="named"><title>void do_passport_option(INVENTORY_ITEM *item);</title></rect>
 <rect width="12.00" height="12.00" x="210.00" y="353.00" class="todo"><title>void sub_488260();</title></rect>
 <rect width="12.00" height="12.00" x="224.00" y="353.00" class="todo"><title>void sub_488F30();</title></rect>
 <rect width="12.00" height="12.00" x="238.00" y="353.00" class="todo"><title>void sub_4893D0();</title></rect>
@@ -1224,8 +1224,8 @@
 <rect width="12.00" height="12.00" x="294.00" y="353.00" class="todo"><title>void sub_489C70();</title></rect>
 <rect width="12.00" height="12.00" x="308.00" y="353.00" class="todo"><title>void sub_48A100();</title></rect>
 <rect width="12.00" height="12.00" x="322.00" y="353.00" class="todo"><title>void sub_48A1A0();</title></rect>
-<rect width="12.00" height="12.00" x="336.00" y="353.00" class="todo"><title>void sub_48A1F0();</title></rect>
-<rect width="12.00" height="12.00" x="350.00" y="353.00" class="todo"><title>void sub_48A200();</title></rect>
+<rect width="12.00" height="12.00" x="336.00" y="353.00" class="named"><title>int32_t GetRenderHeight(void);</title></rect>
+<rect width="12.00" height="12.00" x="350.00" y="353.00" class="named"><title>int32_t GetRenderWidth(void);</title></rect>
 <rect width="12.00" height="12.00" x="364.00" y="353.00" class="todo"><title>void S_InitialisePolyList();</title></rect>
 <rect width="12.00" height="12.00" x="378.00" y="353.00" class="todo"><title>void S_DumpCine();</title></rect>
 <rect width="12.00" height="12.00" x="392.00" y="353.00" class="todo"><title>void S_DumpScreen();</title></rect>
@@ -1540,7 +1540,7 @@
 <rect width="27.91" height="31.05" x="219.30" y="545.00" class="todo"><title>void sub_47AA80();</title></rect>
 <rect width="27.91" height="30.94" x="219.30" y="578.05" class="todo"><title>void SkidooDynamics();</title></rect>
 <rect width="27.91" height="30.49" x="219.30" y="610.99" class="todo"><title>void Inv_AddItem();</title></rect>
-<rect width="27.91" height="30.36" x="219.30" y="643.48" class="todo"><title>void Display_Requester();</title></rect>
+<rect width="27.91" height="30.36" x="219.30" y="643.48" class="named"><title>int32_t Display_Requester(REQUEST_INFO *req, int32_t des, int32_t backgrounds);</title></rect>
 <rect width="27.91" height="30.22" x="219.30" y="675.84" class="todo"><title>void sub_47BAA0();</title></rect>
 <rect width="27.91" height="30.09" x="219.30" y="708.06" class="todo"><title>void sub_446DD0();</title></rect>
 <rect width="27.91" height="29.92" x="219.30" y="740.15" class="todo"><title>void sub_48F3C0();</title></rect>
@@ -1569,7 +1569,7 @@
 <rect width="27.45" height="25.00" x="307.94" y="511.38" class="todo"><title>void sub_48D9B0();</title></rect>
 <rect width="26.93" height="25.00" x="337.40" y="511.38" class="todo"><title>void sub_43BF40();</title></rect>
 <rect width="26.93" height="25.00" x="366.33" y="511.38" class="todo"><title>void sub_4A4930();</title></rect>
-<rect width="26.86" height="25.00" x="395.25" y="511.38" class="todo"><title>void sub_487BE0();</title></rect>
+<rect width="26.86" height="25.00" x="395.25" y="511.38" class="named"><title>void do_passport_option(INVENTORY_ITEM *item);</title></rect>
 <rect width="26.55" height="25.00" x="424.11" y="511.38" class="todo"><title>void sub_4775C0();</title></rect>
 <rect width="25.92" height="25.00" x="452.66" y="511.38" class="todo"><title>void sub_409560();</title></rect>
 <rect width="25.81" height="25.00" x="480.58" y="511.38" class="todo"><title>void DialogFunc();</title></rect>
@@ -1652,7 +1652,7 @@
 <rect width="19.09" height="19.13" x="326.24" y="651.25" class="todo"><title>void sub_497C20();</title></rect>
 <rect width="19.09" height="19.09" x="326.24" y="672.38" class="todo"><title>void AnimateLara();</title></rect>
 <rect width="19.09" height="19.00" x="326.24" y="693.47" class="todo"><title>void WinstonControl();</title></rect>
-<rect width="19.09" height="18.84" x="326.24" y="714.47" class="todo"><title>void sub_46B340();</title></rect>
+<rect width="19.09" height="18.84" x="326.24" y="714.47" class="named"><title>void T_DrawThisText(TEXTSTRING *txt);</title></rect>
 <rect width="19.09" height="18.77" x="326.24" y="735.31" class="todo"><title>void AnimateItem();</title></rect>
 <rect width="19.09" height="18.64" x="326.24" y="756.08" class="todo"><title>void WingmuteControl();</title></rect>
 <rect width="19.09" height="18.51" x="326.24" y="776.72" class="todo"><title>void sub_491060();</title></rect>
@@ -1794,7 +1794,7 @@
 <rect width="14.16" height="13.92" x="681.84" y="643.35" class="todo"><title>void sub_48ADA0();</title></rect>
 <rect width="14.09" height="13.97" x="399.28" y="659.27" class="todo"><title>void sub_445020();</title></rect>
 <rect width="14.06" height="13.97" x="415.37" y="659.27" class="todo"><title>void sub_458880();</title></rect>
-<rect width="14.00" height="13.97" x="431.43" y="659.27" class="todo"><title>void sub_46B120();</title></rect>
+<rect width="14.00" height="13.97" x="431.43" y="659.27" class="named"><title>void T_DrawBorder(int32_t xpos, int32_t ypos, int32_t zpos, int32_t width, int32_t height);</title></rect>
 <rect width="13.97" height="13.97" x="447.42" y="659.27" class="todo"><title>void sub_440B90();</title></rect>
 <rect width="13.94" height="13.97" x="463.39" y="659.27" class="todo"><title>void sub_46C640();</title></rect>
 <rect width="13.82" height="13.97" x="479.33" y="659.27" class="todo"><title>void sub_402870();</title></rect>
@@ -2006,7 +2006,7 @@
 <rect width="9.97" height="9.99" x="470.65" y="840.41" class="todo"><title>void DrawAmmoInfo();</title></rect>
 <rect width="9.97" height="9.91" x="470.65" y="852.40" class="todo"><title>void sub_4302B0();</title></rect>
 <rect width="9.97" height="9.87" x="470.65" y="864.31" class="todo"><title>void sub_451980();</title></rect>
-<rect width="9.97" height="9.87" x="470.65" y="876.17" class="todo"><title>void T_GetTextWidth();</title></rect>
+<rect width="9.97" height="9.87" x="470.65" y="876.17" class="named"><title>int32_t T_GetTextWidth(TEXTSTRING *txt);</title></rect>
 <rect width="9.97" height="9.67" x="470.65" y="888.04" class="todo"><title>void sub_42E8C0();</title></rect>
 <rect width="9.97" height="9.67" x="470.65" y="899.72" class="todo"><title>void Inv_InsertItem();</title></rect>
 <rect width="9.97" height="9.67" x="470.65" y="911.39" class="todo"><title>void sub_44D060();</title></rect>
@@ -2034,7 +2034,7 @@
 <rect width="9.77" height="9.04" x="482.62" y="946.96" class="todo"><title>void S_SaveGame();</title></rect>
 <rect width="9.54" height="9.21" x="494.39" y="743.02" class="todo"><title>void sub_415820();</title></rect>
 <rect width="9.54" height="9.21" x="505.93" y="743.02" class="todo"><title>void sub_431F00();</title></rect>
-<rect width="9.50" height="9.21" x="517.47" y="743.02" class="todo"><title>void DisplayCredits();</title></rect>
+<rect width="9.50" height="9.21" x="517.47" y="743.02" class="named"><title>void DisplayCredits(void);</title></rect>
 <rect width="9.41" height="9.21" x="528.96" y="743.02" class="todo"><title>void StartCinematic();</title></rect>
 <rect width="9.41" height="9.21" x="540.38" y="743.02" class="todo"><title>void sub_42C400();</title></rect>
 <rect width="9.41" height="9.21" x="551.79" y="743.02" class="todo"><title>void Inv_RemoveItem();</title></rect>
@@ -2105,7 +2105,7 @@
 <rect width="8.30" height="8.56" x="505.13" y="926.60" class="todo"><title>void sub_48E5E0();</title></rect>
 <rect width="8.30" height="8.51" x="505.13" y="937.16" class="todo"><title>void sub_417210();</title></rect>
 <rect width="8.30" height="8.33" x="505.13" y="947.67" class="todo"><title>void sub_413F00();</title></rect>
-<rect width="8.30" height="8.32" x="515.43" y="765.46" class="todo"><title>void T_Print();</title></rect>
+<rect width="8.30" height="8.32" x="515.43" y="765.46" class="named"><title>TEXTSTRING *T_Print(int32_t x_pos, int32_t y_pos, int32_t z_pos, const char *string);</title></rect>
 <rect width="8.30" height="8.32" x="525.73" y="765.46" class="todo"><title>void sub_46DC20();</title></rect>
 <rect width="8.30" height="8.32" x="536.03" y="765.46" class="todo"><title>void sub_480A90();</title></rect>
 <rect width="8.26" height="8.32" x="546.34" y="765.46" class="todo"><title>void sub_43BD00();</title></rect>
@@ -2206,7 +2206,7 @@
 <rect width="6.89" height="7.05" x="534.74" y="868.13" class="todo"><title>void sub_43DFC0();</title></rect>
 <rect width="6.89" height="7.05" x="534.74" y="877.18" class="todo"><title>void S_AnimateTextures();</title></rect>
 <rect width="6.89" height="7.00" x="534.74" y="886.23" class="named"><title>void phd_RotX(PHD_ANGLE rx);</title></rect>
-<rect width="6.89" height="7.00" x="534.74" y="895.23" class="todo"><title>void SetRequesterHeading();</title></rect>
+<rect width="6.89" height="7.00" x="534.74" y="895.23" class="named"><title>void SetRequesterHeading(REQUEST_INFO *req, char *text1, uint32_t flags1, char *text2, uint32_t flags2);</title></rect>
 <rect width="6.89" height="7.00" x="534.74" y="904.23" class="todo"><title>void ItemNewRoom();</title></rect>
 <rect width="6.89" height="7.00" x="534.74" y="913.23" class="todo"><title>void sub_442830();</title></rect>
 <rect width="6.89" height="7.00" x="534.74" y="922.22" class="todo"><title>void find_target_point();</title></rect>
@@ -2228,7 +2228,7 @@
 <rect width="6.48" height="7.05" x="647.19" y="795.10" class="todo"><title>void S_DrawScreenSprite();</title></rect>
 <rect width="6.48" height="7.05" x="655.66" y="795.10" class="todo"><title>void InitialisePlayer1();</title></rect>
 <rect width="6.48" height="7.05" x="664.14" y="795.10" class="todo"><title>void sub_42BDA0();</title></rect>
-<rect width="6.48" height="7.05" x="672.62" y="795.10" class="todo"><title>void RemoveRequester();</title></rect>
+<rect width="6.48" height="7.05" x="672.62" y="795.10" class="named"><title>void Remove_Requester(REQUEST_INFO *req);</title></rect>
 <rect width="6.48" height="7.05" x="681.10" y="795.10" class="todo"><title>void sub_46E640();</title></rect>
 <rect width="6.43" height="7.05" x="689.57" y="795.10" class="todo"><title>void sub_48C0A0();</title></rect>
 <rect width="6.71" height="6.70" x="543.64" y="804.15" class="todo"><title>void gat_RotYXZsuperpack();</title></rect>
@@ -2284,7 +2284,7 @@
 <rect width="6.12" height="6.35" x="552.35" y="941.31" class="todo"><title>void sub_413B80();</title></rect>
 <rect width="6.12" height="6.35" x="552.35" y="949.65" class="todo"><title>void sub_4599C0();</title></rect>
 <rect width="6.20" height="6.26" x="560.46" y="812.57" class="todo"><title>void SkidoGetCollisionAnim();</title></rect>
-<rect width="6.20" height="6.26" x="568.67" y="812.57" class="todo"><title>void sub_46AE00();</title></rect>
+<rect width="6.20" height="6.26" x="568.67" y="812.57" class="named"><title>void T_AddBackground(TEXTSTRING *txt, int16_t x_size, int16_t y_size, int16_t x_off, int16_t y_off, int16_t z_off, int16_t colour, SG_COL *gourptr, uint16_t flags);</title></rect>
 <rect width="6.20" height="6.26" x="576.87" y="812.57" class="todo"><title>void sub_4742A0();</title></rect>
 <rect width="6.15" height="6.26" x="585.08" y="812.57" class="named"><title>void phd_NormaliseVector(int32_t x, int32_t y, int32_t z, int32_t *dest);</title></rect>
 <rect width="6.15" height="6.26" x="593.22" y="812.57" class="todo"><title>void InitialiseVulture();</title></rect>
@@ -2322,7 +2322,7 @@
 <rect width="5.74" height="5.97" x="583.92" y="820.83" class="todo"><title>void sub_443C10();</title></rect>
 <rect width="5.74" height="5.97" x="591.65" y="820.83" class="todo"><title>void sub_458B90();</title></rect>
 <rect width="5.68" height="5.97" x="599.39" y="820.83" class="todo"><title>void sub_42E460();</title></rect>
-<rect width="5.68" height="5.97" x="607.06" y="820.83" class="todo"><title>void Init_Requester();</title></rect>
+<rect width="5.68" height="5.97" x="607.06" y="820.83" class="named"><title>void Init_Requester(REQUEST_INFO *req);</title></rect>
 <rect width="5.68" height="5.97" x="614.74" y="820.83" class="todo"><title>void LaraDeflectEdge();</title></rect>
 <rect width="5.68" height="5.97" x="622.42" y="820.83" class="todo"><title>void sub_484E20();</title></rect>
 <rect width="5.62" height="5.97" x="630.09" y="820.83" class="todo"><title>void AnimateInventoryItem();</title></rect>
@@ -2477,13 +2477,13 @@
 <rect width="4.28" height="4.51" x="666.79" y="856.49" class="todo"><title>void sub_4837D0();</title></rect>
 <rect width="4.28" height="4.51" x="673.08" y="856.49" class="todo"><title>void sub_48FE40();</title></rect>
 <rect width="4.21" height="4.51" x="679.36" y="856.49" class="todo"><title>void sub_42F630();</title></rect>
-<rect width="4.21" height="4.51" x="685.58" y="856.49" class="todo"><title>void ReqItemRightalign();</title></rect>
+<rect width="4.21" height="4.51" x="685.58" y="856.49" class="named"><title>void ReqItemRightAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
 <rect width="4.21" height="4.51" x="691.79" y="856.49" class="todo"><title>void sub_4402F0();</title></rect>
 <rect width="4.20" height="4.45" x="596.51" y="863.00" class="todo"><title>void sub_41E630();</title></rect>
 <rect width="4.20" height="4.45" x="596.51" y="869.46" class="todo"><title>void TriggerActive();</title></rect>
 <rect width="4.20" height="4.45" x="596.51" y="875.91" class="todo"><title>void sub_42D510();</title></rect>
 <rect width="4.20" height="4.38" x="596.51" y="882.36" class="todo"><title>void sub_411FE0();</title></rect>
-<rect width="4.20" height="4.38" x="596.51" y="888.74" class="todo"><title>void ReqItemLeftalign();</title></rect>
+<rect width="4.20" height="4.38" x="596.51" y="888.74" class="named"><title>void ReqItemLeftAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
 <rect width="4.20" height="4.38" x="596.51" y="895.12" class="todo"><title>void LaraFallen();</title></rect>
 <rect width="4.20" height="4.38" x="596.51" y="901.50" class="todo"><title>void QuadBikeDoDynamics();</title></rect>
 <rect width="4.20" height="4.30" x="596.51" y="907.88" class="todo"><title>void sub_41EC30();</title></rect>
@@ -2523,7 +2523,7 @@
 <rect width="3.84" height="4.12" x="674.63" y="863.00" class="todo"><title>void sub_441CA0();</title></rect>
 <rect width="3.84" height="4.12" x="680.47" y="863.00" class="todo"><title>void sub_462E10();</title></rect>
 <rect width="3.84" height="4.12" x="686.32" y="863.00" class="todo"><title>void sub_46DBD0();</title></rect>
-<rect width="3.84" height="4.12" x="692.16" y="863.00" class="todo"><title>void sub_4842A0();</title></rect>
+<rect width="3.84" height="4.12" x="692.16" y="863.00" class="named"><title>void GetSavedGamesList(REQUEST_INFO *req);</title></rect>
 <rect width="3.91" height="3.97" x="608.75" y="869.12" class="todo"><title>void InitialiseAutogun();</title></rect>
 <rect width="3.91" height="3.97" x="608.75" y="875.09" class="todo"><title>void sub_413390();</title></rect>
 <rect width="3.91" height="3.97" x="608.75" y="881.07" class="todo"><title>void sub_4414E0();</title></rect>
@@ -2614,7 +2614,7 @@
 <rect width="3.21" height="3.24" x="631.22" y="885.72" class="todo"><title>void sub_41A8F0();</title></rect>
 <rect width="3.21" height="3.24" x="636.43" y="885.72" class="todo"><title>void S_DrawWillardBoss();</title></rect>
 <rect width="3.21" height="3.24" x="641.63" y="885.72" class="todo"><title>void sub_48D6A0();</title></rect>
-<rect width="3.12" height="3.24" x="646.84" y="885.72" class="todo"><title>void SetPCRequesterSize();</title></rect>
+<rect width="3.12" height="3.24" x="646.84" y="885.72" class="named"><title>void SetPCRequesterSize(REQUEST_INFO *req, int maxlines, int ypos);</title></rect>
 <rect width="3.12" height="3.24" x="651.95" y="885.72" class="todo"><title>void sub_4403C0();</title></rect>
 <rect width="3.12" height="3.24" x="657.07" y="885.72" class="todo"><title>void sub_4404A0();</title></rect>
 <rect width="3.12" height="3.24" x="662.19" y="885.72" class="todo"><title>void sub_4594C0();</title></rect>
@@ -2631,7 +2631,7 @@
 <rect width="3.05" height="3.22" x="625.93" y="911.85" class="todo"><title>void sub_4597E0();</title></rect>
 <rect width="3.05" height="3.13" x="625.93" y="917.07" class="todo"><title>void sub_41E690();</title></rect>
 <rect width="3.05" height="3.13" x="625.93" y="922.20" class="todo"><title>void DrawPhaseGame();</title></rect>
-<rect width="3.05" height="3.13" x="625.93" y="927.32" class="todo"><title>void T_ChangeText();</title></rect>
+<rect width="3.05" height="3.13" x="625.93" y="927.32" class="named"><title>void T_ChangeText(TEXTSTRING *txt, const char *string);</title></rect>
 <rect width="3.05" height="3.13" x="625.93" y="932.45" class="todo"><title>void sub_485CA0();</title></rect>
 <rect width="3.05" height="3.13" x="625.93" y="937.58" class="todo"><title>void sub_48E970();</title></rect>
 <rect width="3.05" height="3.13" x="625.93" y="942.71" class="todo"><title>void sub_48E9B0();</title></rect>
@@ -2728,23 +2728,23 @@
 <rect width="2.73" height="2.38" x="645.64" y="914.52" class="todo"><title>void Inv_RingCalcAdders();</title></rect>
 <rect width="2.73" height="2.38" x="645.64" y="918.90" class="todo"><title>void Inv_RingMotionSetup();</title></rect>
 <rect width="2.73" height="2.38" x="645.64" y="923.28" class="todo"><title>void sub_441730();</title></rect>
-<rect width="2.73" height="2.38" x="645.64" y="927.65" class="todo"><title>void T_InitPrint();</title></rect>
+<rect width="2.73" height="2.38" x="645.64" y="927.65" class="named"><title>void T_InitPrint(void);</title></rect>
 <rect width="2.73" height="2.38" x="645.64" y="932.03" class="todo"><title>void sub_4808F0();</title></rect>
 <rect width="2.73" height="2.38" x="645.64" y="936.41" class="todo"><title>void sub_48E500();</title></rect>
 <rect width="2.73" height="2.38" x="645.64" y="940.79" class="todo"><title>void phd_sqrt();</title></rect>
 <rect width="2.73" height="2.28" x="645.64" y="945.17" class="todo"><title>void sub_441630();</title></rect>
 <rect width="2.73" height="2.28" x="645.64" y="949.44" class="todo"><title>void undraw_shotgun_meshes();</title></rect>
-<rect width="2.73" height="2.28" x="645.64" y="953.72" class="todo"><title>void sub_46ADD0();</title></rect>
+<rect width="2.73" height="2.28" x="645.64" y="953.72" class="named"><title>void T_FlashText(TEXTSTRING *txt, int16_t enabled, int16_t rate);</title></rect>
 <rect width="2.36" height="2.53" x="650.37" y="910.14" class="todo"><title>void sub_429690();</title></rect>
 <rect width="2.36" height="2.53" x="654.73" y="910.14" class="todo"><title>void sub_441840();</title></rect>
 <rect width="2.36" height="2.53" x="659.09" y="910.14" class="todo"><title>void sub_469DE0();</title></rect>
-<rect width="2.36" height="2.53" x="663.45" y="910.14" class="todo"><title>void GetTextScaleH();</title></rect>
-<rect width="2.36" height="2.53" x="667.80" y="910.14" class="todo"><title>void sub_46B720();</title></rect>
+<rect width="2.36" height="2.53" x="663.45" y="910.14" class="named"><title>uint32_t GetTextScaleH(uint32_t scale_h);</title></rect>
+<rect width="2.36" height="2.53" x="667.80" y="910.14" class="named"><title>uint32_t GetTextScaleV(uint32_t scale_v);</title></rect>
 <rect width="2.36" height="2.53" x="672.16" y="910.14" class="todo"><title>void sub_480D10();</title></rect>
 <rect width="2.36" height="2.53" x="676.52" y="910.14" class="todo"><title>void sub_482990();</title></rect>
 <rect width="2.36" height="2.53" x="680.88" y="910.14" class="todo"><title>void sub_48D0A0();</title></rect>
 <rect width="2.25" height="2.53" x="685.24" y="910.14" class="todo"><title>void sub_43FA40();</title></rect>
-<rect width="2.25" height="2.53" x="689.49" y="910.14" class="todo"><title>void sub_46AEA0();</title></rect>
+<rect width="2.25" height="2.53" x="689.49" y="910.14" class="named"><title>void T_AddOutline(TEXTSTRING *txt, int16_t enabled, int16_t colour, SG_COL *gourptr, uint16_t flags);</title></rect>
 <rect width="2.25" height="2.53" x="693.75" y="910.14" class="todo"><title>void sub_475680();</title></rect>
 <rect width="2.29" height="2.50" x="650.37" y="914.68" class="todo"><title>void sub_4756F0();</title></rect>
 <rect width="2.29" height="2.50" x="650.37" y="919.18" class="todo"><title>void sub_4B3A40();</title></rect>
@@ -2754,7 +2754,7 @@
 <rect width="2.29" height="2.28" x="650.37" y="936.61" class="todo"><title>void sub_4293C0();</title></rect>
 <rect width="2.29" height="2.28" x="650.37" y="940.89" class="todo"><title>void sub_42FA00();</title></rect>
 <rect width="2.29" height="2.28" x="650.37" y="945.17" class="todo"><title>void sub_453930();</title></rect>
-<rect width="2.29" height="2.28" x="650.37" y="949.45" class="todo"><title>void T_DrawText();</title></rect>
+<rect width="2.29" height="2.28" x="650.37" y="949.45" class="named"><title>void T_DrawText(void);</title></rect>
 <rect width="2.29" height="2.28" x="650.37" y="953.72" class="todo"><title>void S_FadeOutInventory();</title></rect>
 <rect width="2.07" height="2.39" x="654.66" y="914.68" class="todo"><title>void sub_42F600();</title></rect>
 <rect width="2.07" height="2.39" x="654.66" y="919.07" class="todo"><title>void Inv_RingMotionRadius();</title></rect>
@@ -2764,14 +2764,14 @@
 <rect width="2.07" height="2.27" x="654.66" y="936.63" class="todo"><title>void Inv_RingMotionCameraPos();</title></rect>
 <rect width="2.07" height="2.27" x="654.66" y="940.90" class="todo"><title>void sub_457760();</title></rect>
 <rect width="2.07" height="2.27" x="654.66" y="945.18" class="todo"><title>void sub_461010();</title></rect>
-<rect width="2.07" height="2.27" x="654.66" y="949.45" class="todo"><title>void T_RemovePrint();</title></rect>
+<rect width="2.07" height="2.27" x="654.66" y="949.45" class="named"><title>int32_t T_RemovePrint(TEXTSTRING *txt);</title></rect>
 <rect width="2.07" height="2.27" x="654.66" y="953.73" class="todo"><title>void sub_490AE0();</title></rect>
 <rect width="2.07" height="2.28" x="658.73" y="914.68" class="todo"><title>void sub_4B1FD0();</title></rect>
 <rect width="1.96" height="2.28" x="662.80" y="914.68" class="todo"><title>void sub_423110();</title></rect>
 <rect width="1.96" height="2.28" x="666.76" y="914.68" class="todo"><title>void RemoveInventoryText();</title></rect>
 <rect width="1.96" height="2.28" x="670.72" y="914.68" class="todo"><title>void InitialiseLaraLoad();</title></rect>
 <rect width="1.96" height="2.28" x="674.68" y="914.68" class="todo"><title>void SOUND_Stop();</title></rect>
-<rect width="1.96" height="2.28" x="678.64" y="914.68" class="todo"><title>void sub_46B0C0();</title></rect>
+<rect width="1.96" height="2.28" x="678.64" y="914.68" class="named"><title>void T_RemoveAllPrints(void);</title></rect>
 <rect width="1.85" height="2.28" x="682.60" y="914.68" class="todo"><title>void sub_42EEA0();</title></rect>
 <rect width="1.85" height="2.28" x="686.45" y="914.68" class="todo"><title>void sub_42EF00();</title></rect>
 <rect width="1.85" height="2.28" x="690.30" y="914.68" class="todo"><title>void sub_442C70();</title></rect>
@@ -2806,10 +2806,10 @@
 <rect width="1.77" height="1.87" x="662.92" y="954.13" class="todo"><title>void sub_48D240();</title></rect>
 <rect width="2.03" height="1.62" x="666.69" y="922.95" class="todo"><title>void sub_48FFA0();</title></rect>
 <rect width="1.90" height="1.62" x="670.72" y="922.95" class="todo"><title>void sub_442C50();</title></rect>
-<rect width="1.90" height="1.62" x="674.61" y="922.95" class="todo"><title>void T_CentreH();</title></rect>
-<rect width="1.90" height="1.62" x="678.51" y="922.95" class="todo"><title>void sub_46AF00();</title></rect>
-<rect width="1.90" height="1.62" x="682.41" y="922.95" class="todo"><title>void T_RightAlign();</title></rect>
-<rect width="1.90" height="1.62" x="686.31" y="922.95" class="todo"><title>void T_BottomAlign();</title></rect>
+<rect width="1.90" height="1.62" x="674.61" y="922.95" class="named"><title>void T_CentreH(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="1.90" height="1.62" x="678.51" y="922.95" class="named"><title>void T_CentreV(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="1.90" height="1.62" x="682.41" y="922.95" class="named"><title>void T_RightAlign(TEXTSTRING *txt, int16_t enabled);</title></rect>
+<rect width="1.90" height="1.62" x="686.31" y="922.95" class="named"><title>void T_BottomAlign(TEXTSTRING *txt, int16_t enabled);</title></rect>
 <rect width="1.90" height="1.62" x="690.20" y="922.95" class="named"><title>int32_t GetRandomControl();</title></rect>
 <rect width="1.90" height="1.62" x="694.10" y="922.95" class="named"><title>int32_t GetRandomDraw();</title></rect>
 <rect width="1.64" height="1.88" x="666.69" y="926.58" class="todo"><title>void phd_PushMatrix();</title></rect>
@@ -2828,7 +2828,7 @@
 <rect width="1.79" height="1.47" x="666.69" y="944.35" class="todo"><title>void sub_480C20();</title></rect>
 <rect width="1.79" height="1.47" x="666.69" y="947.82" class="todo"><title>void sub_48D1E0();</title></rect>
 <rect width="1.79" height="1.35" x="666.69" y="951.30" class="todo"><title>void Inv_RemoveAllItems();</title></rect>
-<rect width="1.79" height="1.35" x="666.69" y="954.65" class="todo"><title>void ReqItemCenteralign();</title></rect>
+<rect width="1.79" height="1.35" x="666.69" y="954.65" class="named"><title>void ReqItemCenterAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
 <rect width="1.49" height="1.64" x="670.48" y="930.45" class="todo"><title>void sub_459820();</title></rect>
 <rect width="1.49" height="1.64" x="673.97" y="930.45" class="todo"><title>void sub_4748E0();</title></rect>
 <rect width="1.49" height="1.64" x="677.46" y="930.45" class="todo"><title>void sub_4B1FB0();</title></rect>
@@ -2883,8 +2883,8 @@
 <rect width="0.97" height="0.85" x="692.23" y="940.52" class="todo"><title>void sub_485A90();</title></rect>
 <rect width="0.80" height="0.85" x="695.20" y="940.52" class="todo"><title>void sub_48AD60();</title></rect>
 <rect width="0.61" height="1.07" x="683.33" y="943.38" class="todo"><title>void sub_48AD80();</title></rect>
-<rect width="0.61" height="0.89" x="683.33" y="946.44" class="todo"><title>void sub_46AE90();</title></rect>
-<rect width="0.61" height="0.89" x="683.33" y="949.33" class="todo"><title>void sub_46AED0();</title></rect>
+<rect width="0.61" height="0.89" x="683.33" y="946.44" class="named"><title>void T_RemoveBackground(TEXTSTRING *txt);</title></rect>
+<rect width="0.61" height="0.89" x="683.33" y="949.33" class="named"><title>void T_RemoveOutline(TEXTSTRING *txt);</title></rect>
 <rect width="0.61" height="0.89" x="683.33" y="952.22" class="todo"><title>void sub_48AC00();</title></rect>
 <rect width="0.61" height="0.89" x="683.33" y="955.11" class="todo"><title>void sub_4900B0();</title></rect>
 <rect width="0.55" height="0.77" x="685.93" y="943.38" class="todo"><title>void sub_4837B0();</title></rect>
@@ -2916,8 +2916,8 @@
 <rect width="-0.35" height="0.28" x="696.35" y="950.52" class="todo"><title>void sub_40FE90();</title></rect>
 <rect width="-0.37" height="-0.27" x="692.21" y="952.80" class="todo"><title>void LevelCompleteSequence();</title></rect>
 <rect width="-0.37" height="-0.27" x="692.21" y="954.53" class="todo"><title>void sub_484F00();</title></rect>
-<rect width="-0.37" height="-0.27" x="692.21" y="956.27" class="todo"><title>void sub_48A1F0();</title></rect>
-<rect width="0.08" height="-0.64" x="693.84" y="952.80" class="todo"><title>void sub_48A200();</title></rect>
+<rect width="-0.37" height="-0.27" x="692.21" y="956.27" class="named"><title>int32_t GetRenderHeight(void);</title></rect>
+<rect width="0.08" height="-0.64" x="693.84" y="952.80" class="named"><title>int32_t GetRenderWidth(void);</title></rect>
 <rect width="0.08" height="-0.64" x="695.92" y="952.80" class="todo"><title>void phd_cos();</title></rect>
 <rect width="-0.16" height="-0.72" x="693.84" y="954.16" class="todo"><title>void sub_42F190();</title></rect>
 <rect width="-0.16" height="-0.72" x="693.84" y="955.44" class="todo"><title>void sub_42F440();</title></rect>
@@ -2929,8 +2929,8 @@
 <rect width="-0.97" height="-1.54" x="696.97" y="957.54" class="todo"><title>void nullsub_1();</title></rect>
 <rect width="12.00" height="12.00" x="0.00" y="984.50" class="decompiled"/><text x="17.00" y="990.50">Functions decompiled (count): 0.00%</text>
 <rect width="12.00" height="12.00" x="0.00" y="1002.50" class="decompiled"/><text x="17.00" y="1008.50">Functions decompiled (bytesize): 0.00%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1020.50" class="named"/><text x="17.00" y="1026.50">Functions not decompiled, but with known names (count): 1.57%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1038.50" class="named"/><text x="17.00" y="1044.50">Functions not decompiled, but with known names (bytesize): 0.59%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1056.50" class="todo"/><text x="17.00" y="1062.50">Functions not decompiled, with unknown names (count): 98.43%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1074.50" class="todo"/><text x="17.00" y="1080.50">Functions not decompiled, with unknown names (bytesize): 99.41%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1020.50" class="named"/><text x="17.00" y="1026.50">Functions not decompiled, but with known names (count): 3.83%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1038.50" class="named"/><text x="17.00" y="1044.50">Functions not decompiled, but with known names (bytesize): 1.64%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1056.50" class="todo"/><text x="17.00" y="1062.50">Functions not decompiled, with unknown names (count): 96.17%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1074.50" class="todo"/><text x="17.00" y="1080.50">Functions not decompiled, with unknown names (bytesize): 98.36%</text>
 </svg>
