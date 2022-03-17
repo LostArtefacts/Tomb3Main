@@ -736,6 +736,12 @@ struct MESH_INFO {
     int16_t static_num;
 };
 
+struct DOORPOS_DATA {
+    FLOOR_INFO *floor;
+    FLOOR_INFO data;
+    int16_t block;
+};
+
 struct ROOM_INFO {
     int16_t *data;
     int16_t *door;
@@ -1015,6 +1021,15 @@ struct KAYAK_INFO {
     char forward;
     char true_water;
     char flags;
+};
+
+struct SUB_INFO {
+    int32_t vel;
+    int32_t rot;
+    int32_t rot_x;
+    int16_t fan_rot;
+    char flags;
+    char weapon_timer;
 };
 
 struct CART_INFO {
