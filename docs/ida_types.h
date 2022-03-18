@@ -1100,4 +1100,62 @@ struct EXPLOSION_RING {
     EXPLOSION_VERTS verts[16];
 };
 
+enum SORT_TYPE {
+    MID_SORT,
+    FAR_SORT,
+    BACK_SORT,
+};
+
+struct PHD_TEXTURE_STRUCT {
+    uint16_t drawtype;
+    uint16_t tpage;
+    uint16_t u1;
+    uint16_t v1;
+    uint16_t u2;
+    uint16_t v2;
+    uint16_t u3;
+    uint16_t v3;
+    uint16_t u4;
+    uint16_t v4;
+};
+
+struct PHD_SPRITE_STRUCT {
+    uint16_t tpage;
+    uint16_t offset;
+    uint16_t width;
+    uint16_t height;
+    int16_t x1;
+    int16_t y1;
+    int16_t x2;
+    int16_t y2;
+};
+
+struct PHD_VBUF {
+    float xv;
+    float yv;
+    float zv;
+    float ooz;
+    float xs;
+    float ys;
+    int32_t z;
+    int8_t clip;
+    uint8_t fog;
+    int16_t g;
+    uint16_t u;
+    uint16_t v;
+    int32_t dynamic;
+};
+
+struct VERTEX_INFO {
+    float x;
+    float y;
+    float ooz;
+    float u;
+    float v;
+    float g;
+    int32_t vr;
+    int32_t vg;
+    int32_t vb;
+};
+
 #pragma pack(pop)

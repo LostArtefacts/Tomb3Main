@@ -3,6 +3,7 @@ import re
 import typing as T
 from dataclasses import dataclass
 from enum import Enum
+from html import escape
 from pathlib import Path
 
 GRID_MAX_SQUARES = 50
@@ -269,7 +270,7 @@ class Rectangle(Shape):
             f'x="{self.x:.02f}" '
             f'y="{self.y:.02f}" '
             f'class="{self.class_name}"'
-            + (f"><title>{self.title}</title></rect>" if self.title else "/>")
+            + (f"><title>{escape(self.title)}</title></rect>" if self.title else "/>")
         )
 
 
