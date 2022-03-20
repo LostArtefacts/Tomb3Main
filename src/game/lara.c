@@ -27,13 +27,13 @@ void Lara_AsForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     if (g_Input & IN_LEFT) {
         g_Lara.turn_rate -= LARA_TURN_RATE;
-        if (g_Lara.turn_rate < -546) {
-            g_Lara.turn_rate = -546;
+        if (g_Lara.turn_rate < -LARA_JUMP_TURN) {
+            g_Lara.turn_rate = -LARA_JUMP_TURN;
         }
     } else if (g_Input & IN_RIGHT) {
         g_Lara.turn_rate += LARA_TURN_RATE;
-        if (g_Lara.turn_rate > 546) {
-            g_Lara.turn_rate = 546;
+        if (g_Lara.turn_rate > LARA_JUMP_TURN) {
+            g_Lara.turn_rate = LARA_JUMP_TURN;
         }
     }
 }
