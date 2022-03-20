@@ -52,9 +52,21 @@ def import_variables() -> None:
                 raise ValueError(line)
             if name.startswith("_"):
                 name = name[1:]
-            if not name.startswith('dword_') and not name.startswith('sub_'):
+            if not name.startswith("dword_") and not name.startswith("sub_"):
                 idaapi.set_name(offset, name)
-            idaapi.apply_tinfo(offset, ti, 'V' in flags or 'S' in flags)
+            idaapi.apply_tinfo(offset, ti, "V" in flags or "S" in flags)
+
+            if "F" in flags:
+                func_num = idaapi.get_func_num(offset)
+                if func_num != -1:
+                    func_struct = idaapi.getn_func(func_num)
+                    if func_struct:
+                        # BGR
+                        if "D" in flags:
+                            func_struct.color = 0x0080FF
+                        else:
+                            func_struct.color = 0xFFFFFF
+                        idaapi.update_func(func_struct)
 
     print("    done")
 
