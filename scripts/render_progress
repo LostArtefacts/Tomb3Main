@@ -20,6 +20,10 @@ REFERENCE_PATH = DOCS_DIR / "ida_variables.txt"
 OUTPUT_PATH = DOCS_DIR / "progress.svg"
 
 
+def smart_float(num: float) -> str:
+    return re.sub(r"(\.[0-9]*?)0+$", r"\1", f"{num:.02f}").rstrip(".")
+
+
 class FunctionStatus(Enum):
     todo = "todo"
     named = "named"
@@ -265,10 +269,10 @@ class Rectangle(Shape):
     def render(self) -> str:
         return (
             f"<rect "
-            f'width="{self.dx:.02f}" '
-            f'height="{self.dy:.02f}" '
-            f'x="{self.x:.02f}" '
-            f'y="{self.y:.02f}" '
+            f'width="{smart_float(self.dx)}" '
+            f'height="{smart_float(self.dy)}" '
+            f'x="{smart_float(self.x)}" '
+            f'y="{smart_float(self.y)}" '
             f'class="{self.class_name}"'
             + (
                 f"><title>{escape(self.title)}</title></rect>"
@@ -305,7 +309,7 @@ class Text(Shape):
     def render(self) -> str:
         return (
             f"<text "
-            f'x="{self.x:.02f}" y="{self.y + TEXT_SIZE/2:.02f}">'
+            f'x="{smart_float(self.x)}" y="{smart_float(self.y + TEXT_SIZE/2)}">'
             f"{self.text}"
             f"</text>"
         )
@@ -458,12 +462,12 @@ def main() -> None:
 
         svg = (
             f'<svg version="1.1" '
-            f'width="{bbox.dx:.02f}" '
-            f'height="{bbox.dy:.02f}" '
+            f'width="{smart_float(bbox.dx)}" '
+            f'height="{smart_float(bbox.dy)}" '
             f'xmlns="http://www.w3.org/2000/svg">'
             f"<style>"
-            'rect:hover{stroke:red;stroke-width:2px}'
-            'svg{background:white}'
+            "rect:hover{stroke:red;stroke-width:2px}"
+            "svg{background:white}"
         )
         for status in FunctionStatus:
             svg += f".{status.value}{{fill:{COLOR_MAP[status]}}}"
