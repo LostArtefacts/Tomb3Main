@@ -27,9 +27,9 @@ class FunctionStatus(Enum):
 
 
 COLOR_MAP = {
-    FunctionStatus.decompiled: "forestgreen",
-    FunctionStatus.named: "lightpink",
-    FunctionStatus.todo: "mistyrose",
+    FunctionStatus.decompiled: "orange",
+    FunctionStatus.named: "#e5e5e5",
+    FunctionStatus.todo: "#fff0f0",
 }
 
 
@@ -199,7 +199,7 @@ class Function:
 
     @property
     def is_named(self) -> bool:
-        return 'S' in self.flags
+        return "S" in self.flags
 
     @property
     def status(self) -> FunctionStatus:
@@ -216,7 +216,7 @@ def collect_functions() -> T.Iterable[Function]:
         if line.startswith("#") or not line:
             continue
         flags, offset, size, decl = line.split(maxsplit=3)
-        if 'F' not in flags:
+        if "F" not in flags:
             continue
         yield Function(
             name=decl,
@@ -270,7 +270,11 @@ class Rectangle(Shape):
             f'x="{self.x:.02f}" '
             f'y="{self.y:.02f}" '
             f'class="{self.class_name}"'
-            + (f"><title>{escape(self.title)}</title></rect>" if self.title else "/>")
+            + (
+                f"><title>{escape(self.title)}</title></rect>"
+                if self.title
+                else "/>"
+            )
         )
 
 
@@ -458,6 +462,8 @@ def main() -> None:
             f'height="{bbox.dy:.02f}" '
             f'xmlns="http://www.w3.org/2000/svg">'
             f"<style>"
+            'rect:hover{stroke:red;stroke-width:2px}'
+            'svg{background:white}'
         )
         for status in FunctionStatus:
             svg += f".{status.value}{{fill:{COLOR_MAP[status]}}}"
