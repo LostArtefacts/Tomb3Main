@@ -9,6 +9,7 @@ BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
     switch (fdwReason) {
     case DLL_PROCESS_ATTACH:
+        Log_Init();
         LOG_INFO("attached");
         hInstance = hinstDLL;
         Inject_All();

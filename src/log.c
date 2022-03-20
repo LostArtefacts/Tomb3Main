@@ -1,5 +1,8 @@
 #include "log.h"
 
+#include "filesystem.h"
+#include "memory.h"
+
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -7,8 +10,9 @@ FILE *m_LogHandle = NULL;
 
 void Log_Init(void)
 {
-    char *full_path = "Tomb3Main.log";
+    char *full_path = File_GetFullPath("Tomb3Main.log");
     m_LogHandle = fopen(full_path, "w");
+    Memory_FreePointer(&full_path);
 }
 
 void Log_Message(

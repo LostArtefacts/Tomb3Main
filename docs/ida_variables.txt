@@ -1462,7 +1462,7 @@ F-- 004B2E80 000000FA void sub_4B2E80();
 F-- 004B2F80 0000054F void sub_4B2F80();
 F-- 004B34D0 0000007F void sub_4B34D0();
 F-- 004B3550 0000026A void sub_4B3550();
-FS- 004B37C0 0000005B void S_ExitSystem(char* exit_message);
+FSC 004B37C0 0000005B void S_ExitSystem(char* exit_message);
 FS- 004B3830 000000D0 bool DD_SpinMessageLoop(bool wait);
 F-- 004B3900 0000002E void sub_4B3900();
 F-- 004B3930 00000016 void sub_4B3930();
