@@ -25,16 +25,15 @@ void Lara_AsForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
         }
     }
 
-    // TODO: g_Lara.target_angles[1] should be turn_rate
     if (g_Input & IN_LEFT) {
-        g_Lara.target_angles[1] -= LARA_TURN_RATE;
-        if (g_Lara.target_angles[1] < -546) {
-            g_Lara.target_angles[1] = -546;
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        if (g_Lara.turn_rate < -546) {
+            g_Lara.turn_rate = -546;
         }
     } else if (g_Input & IN_RIGHT) {
-        g_Lara.target_angles[1] += LARA_TURN_RATE;
-        if (g_Lara.target_angles[1] > 546) {
-            g_Lara.target_angles[1] = 546;
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        if (g_Lara.turn_rate > 546) {
+            g_Lara.turn_rate = 546;
         }
     }
 }
@@ -46,15 +45,14 @@ void Lara_AsWalk(struct ITEM_INFO *item, struct COLL_INFO *coll)
         return;
     }
 
-    // TODO: g_Lara.target_angles[1] should be turn_rate
     if (g_Input & IN_LEFT) {
-        g_Lara.target_angles[1] -= LARA_TURN_RATE;
-        if (g_Lara.target_angles[1] < -LARA_SLOW_TURN)
-            g_Lara.target_angles[1] = -LARA_SLOW_TURN;
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        if (g_Lara.turn_rate < -LARA_SLOW_TURN)
+            g_Lara.turn_rate = -LARA_SLOW_TURN;
     } else if (g_Input & IN_RIGHT) {
-        g_Lara.target_angles[1] += LARA_TURN_RATE;
-        if (g_Lara.target_angles[1] > LARA_SLOW_TURN)
-            g_Lara.target_angles[1] = LARA_SLOW_TURN;
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        if (g_Lara.turn_rate > LARA_SLOW_TURN)
+            g_Lara.turn_rate = LARA_SLOW_TURN;
     }
 
     if (g_Input & IN_FORWARD) {
