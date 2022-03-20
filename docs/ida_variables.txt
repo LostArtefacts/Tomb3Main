@@ -577,7 +577,7 @@ FS- 00440A20 00000013 void lara_as_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440A40 0000014F void lara_col_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440B90 0000021E int32_t LaraTestHangJumpUp(ITEM_INFO *item, COLL_INFO *coll);
 FSD 00440DB0 000000D3 void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsForwardJump
-FS- 00440E90 0000008B void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00440E90 0000008B void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsWalk
 FS- 00440F20 00000175 void lara_as_run(ITEM_INFO *item, COLL_INFO *coll);
 FS- 004410A0 00000057 void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441100 0000009E void lara_as_turn_r(ITEM_INFO *item, COLL_INFO *coll);

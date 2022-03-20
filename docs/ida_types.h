@@ -1183,6 +1183,23 @@ enum INPUT_STATE {
     IN_DASH = (1 << 30),
 };
 
+enum LARA_WATER_STATE {
+    LWS_ABOVEWATER,
+    LWS_UNDERWATER,
+    LWS_SURFACE,
+    LWS_CHEAT,
+    LWS_WADE,
+};
+
+enum LARA_GUN_STATE {
+    LG_ARMLESS,
+    LG_HANDSBUSY,
+    LG_DRAW,
+    LG_UNDRAW,
+    LG_READY,
+    LG_SPECIAL
+};
+
 enum LARA_STATE {
     AS_WALK = 0,
     AS_RUN = 1,
