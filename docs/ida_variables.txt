@@ -7,9 +7,9 @@
 # F - Function
 # V - Variable
 # S - Signature known
-# R - Reverse engineered
-# X - No reverse engineering needed or inlined in one of the reverse engineered functions
-# C - Called from within one or more of the reverse engineered functions
+# R - Decompiled
+# X - No reverse engineering needed or inlined in one of the decompiled functions
+# C - Called from within one or more of the decompiled functions
 
 FS- 00401000 000001D0 void phd_GenerateW2V(PHD_3DPOS *viewpos);
 FS- 004012D0 000000F7 void phd_GetVectorAngles(int32_t x, int32_t y, int32_t z, PHD_ANGLE *dest);
@@ -576,7 +576,7 @@ FS- 00440960 000000BF void lara_col_stop(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440A20 00000013 void lara_as_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440A40 0000014F void lara_col_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440B90 0000021E int32_t LaraTestHangJumpUp(ITEM_INFO *item, COLL_INFO *coll);
-FS- 00440DB0 000000D3 void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00440DB0 000000D3 void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsForwardJump
 FS- 00440E90 0000008B void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440F20 00000175 void lara_as_run(ITEM_INFO *item, COLL_INFO *coll);
 FS- 004410A0 00000057 void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll);

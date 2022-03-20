@@ -565,7 +565,7 @@
 <rect width="12.00" height="12.00" x="168.00" y="171.00" class="named"><title>void lara_as_upjump(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="12.00" height="12.00" x="182.00" y="171.00" class="named"><title>void lara_col_upjump(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="12.00" height="12.00" x="196.00" y="171.00" class="named"><title>int32_t LaraTestHangJumpUp(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
-<rect width="12.00" height="12.00" x="210.00" y="171.00" class="named"><title>void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
+<rect width="12.00" height="12.00" x="210.00" y="171.00" class="decompiled"><title>void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsForwardJump</title></rect>
 <rect width="12.00" height="12.00" x="224.00" y="171.00" class="named"><title>void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="12.00" height="12.00" x="238.00" y="171.00" class="named"><title>void lara_as_run(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="12.00" height="12.00" x="252.00" y="171.00" class="named"><title>void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
@@ -2144,7 +2144,7 @@
 <rect width="7.74" height="8.22" x="514.36" y="826.84" class="named"><title>void lara_col_stepright(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="7.74" height="8.22" x="514.36" y="837.06" class="named"><title>void DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);</title></rect>
 <rect width="7.74" height="8.22" x="514.36" y="847.28" class="todo"><title>void sub_4953B0();</title></rect>
-<rect width="7.74" height="8.17" x="514.36" y="857.50" class="named"><title>void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
+<rect width="7.74" height="8.17" x="514.36" y="857.50" class="decompiled"><title>void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsForwardJump</title></rect>
 <rect width="7.74" height="8.13" x="514.36" y="867.68" class="todo"><title>void sub_402640();</title></rect>
 <rect width="7.74" height="8.13" x="514.36" y="877.81" class="named"><title>int32_t Targetable(ITEM_INFO *item, AI_INFO *info);</title></rect>
 <rect width="7.74" height="8.08" x="514.36" y="887.93" class="named"><title>void BoatDoBoatShift(int32_t boat_num);</title></rect>
@@ -2953,10 +2953,10 @@
 <rect width="-0.04" height="-0.80" x="696.04" y="955.84" class="todo"><title>void sub_48D4E0();</title></rect>
 <rect width="-0.53" height="-1.04" x="696.04" y="957.04" class="todo"><title>void sub_4756B0();</title></rect>
 <rect width="-1.51" height="-1.04" x="697.51" y="957.04" class="todo"><title>void nullsub_1();</title></rect>
-<rect width="12.00" height="12.00" x="0.00" y="984.50" class="decompiled"/><text x="17.00" y="990.50">Functions decompiled (count): 0.00%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1002.50" class="decompiled"/><text x="17.00" y="1008.50">Functions decompiled (bytesize): 0.00%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1020.50" class="named"/><text x="17.00" y="1026.50">Functions not decompiled, but with known names (count): 82.05%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1038.50" class="named"/><text x="17.00" y="1044.50">Functions not decompiled, but with known names (bytesize): 74.16%</text>
+<rect width="12.00" height="12.00" x="0.00" y="984.50" class="decompiled"/><text x="17.00" y="990.50">Functions decompiled (count): 0.07%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1002.50" class="decompiled"/><text x="17.00" y="1008.50">Functions decompiled (bytesize): 0.03%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1020.50" class="named"/><text x="17.00" y="1026.50">Functions not decompiled, but with known names (count): 81.98%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1038.50" class="named"/><text x="17.00" y="1044.50">Functions not decompiled, but with known names (bytesize): 74.13%</text>
 <rect width="12.00" height="12.00" x="0.00" y="1056.50" class="todo"/><text x="17.00" y="1062.50">Functions not decompiled, with unknown names (count): 17.95%</text>
 <rect width="12.00" height="12.00" x="0.00" y="1074.50" class="todo"/><text x="17.00" y="1080.50">Functions not decompiled, with unknown names (bytesize): 25.84%</text>
 </svg>

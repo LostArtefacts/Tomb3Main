@@ -3,13 +3,12 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-void InjectFunc(void (*from)(void), void (*to)(void));
+void InjectImpl(void (*from)(void), void (*to)(void), bool enable);
 
 #define INJECT(from, to, enable)                                               \
     {                                                                          \
         InjectImpl((void (*)(void))from, (void (*)(void))to, enable);          \
     }
 
-#define VAR_U_(address, type) (*(type *)(address))
-#define VAR_I_(address, type, value) (*(type *)(address))
-#define ARRAY_(address, type, length) (*(type(*) length)(address))
+#define VAR(address, type) (*(type *)(address))
+#define ARR(address, type, length) (*(type(*) length)(address))
