@@ -1148,31 +1148,31 @@
 <rect width="12.00" height="12.00" x="630.00" y="325.00" class="named"><title>int32_t LoadDemo(HANDLE file);</title></rect>
 <rect width="12.00" height="12.00" x="644.00" y="325.00" class="named"><title>void LoadDemFile(char *filename);</title></rect>
 <rect width="12.00" height="12.00" x="658.00" y="325.00" class="named"><title>int32_t LoadSamples(HANDLE file);</title></rect>
-<rect width="12.00" height="12.00" x="672.00" y="325.00" class="todo"><title>void sub_482560();</title></rect>
-<rect width="12.00" height="12.00" x="686.00" y="325.00" class="todo"><title>void str_to_wstr();</title></rect>
-<rect width="12.00" height="12.00" x="0.00" y="339.00" class="todo"><title>void sub_4825D0();</title></rect>
+<rect width="12.00" height="12.00" x="672.00" y="325.00" class="named"><title>void build_ext(char *fname, char *ext);</title></rect>
+<rect width="12.00" height="12.00" x="686.00" y="325.00" class="named"><title>char *GetFullPath(char *filename);</title></rect>
+<rect width="12.00" height="12.00" x="0.00" y="339.00" class="named"><title>int32_t FindCdDrive(void);</title></rect>
 <rect width="12.00" height="12.00" x="14.00" y="339.00" class="named"><title>int32_t LoadLevel(char *filename, int32_t req_level);</title></rect>
-<rect width="12.00" height="12.00" x="28.00" y="339.00" class="todo"><title>void S_LoadLevelFile();</title></rect>
-<rect width="12.00" height="12.00" x="42.00" y="339.00" class="todo"><title>void sub_482990();</title></rect>
+<rect width="12.00" height="12.00" x="28.00" y="339.00" class="named"><title>int32_t S_LoadLevelFile(char *fname, int32_t level_num, int32_t type);</title></rect>
+<rect width="12.00" height="12.00" x="42.00" y="339.00" class="named"><title>void S_UnloadLevelFile(void);</title></rect>
 <rect width="12.00" height="12.00" x="56.00" y="339.00" class="todo"><title>void sub_4829C0();</title></rect>
-<rect width="12.00" height="12.00" x="70.00" y="339.00" class="todo"><title>void sub_482A90();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="339.00" class="todo"><title>void sub_483170();</title></rect>
-<rect width="12.00" height="12.00" x="98.00" y="339.00" class="todo"><title>void sub_483470();</title></rect>
-<rect width="12.00" height="12.00" x="112.00" y="339.00" class="todo"><title>void sub_4834C0();</title></rect>
-<rect width="12.00" height="12.00" x="126.00" y="339.00" class="todo"><title>void sub_483540();</title></rect>
+<rect width="12.00" height="12.00" x="70.00" y="339.00" class="named"><title>int32_t S_LoadGameFlow(char *filename);</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="339.00" class="named"><title>void Escape_Play(char* szMovieName, bool init_playbackmode);</title></rect>
+<rect width="12.00" height="12.00" x="98.00" y="339.00" class="named"><title>void Escape_Cleanup(bool return_playbackmode);</title></rect>
+<rect width="12.00" height="12.00" x="112.00" y="339.00" class="named"><title>int32_t FMV_Play(char* movie);</title></rect>
+<rect width="12.00" height="12.00" x="126.00" y="339.00" class="named"><title>int32_t FMV_PlayIntro(char *movie1, char *movie2);</title></rect>
 <rect width="12.00" height="12.00" x="140.00" y="339.00" class="named"><title>SG_COL S_COLOUR(int32_t r, int32_t g, int32_t b);</title></rect>
 <rect width="12.00" height="12.00" x="154.00" y="339.00" class="named"><title>void S_DrawScreenLine(int32_t sx, int32_t sy, int32_t z, int32_t w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags);</title></rect>
 <rect width="12.00" height="12.00" x="168.00" y="339.00" class="named"><title>void S_DrawScreenBox(int32_t sx, int32_t sy, int32_t z, int32_t    w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags);</title></rect>
 <rect width="12.00" height="12.00" x="182.00" y="339.00" class="named"><title>void S_DrawScreenFBox(int32_t sx, int32_t sy, int32_t z, int32_t    w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags);</title></rect>
-<rect width="12.00" height="12.00" x="196.00" y="339.00" class="todo"><title>void sub_4837B0();</title></rect>
+<rect width="12.00" height="12.00" x="196.00" y="339.00" class="todo"><title>void S_FinishInventory(void);</title></rect>
 <rect width="12.00" height="12.00" x="210.00" y="339.00" class="todo"><title>void nullsub_1();</title></rect>
-<rect width="12.00" height="12.00" x="224.00" y="339.00" class="todo"><title>void sub_4837D0();</title></rect>
-<rect width="12.00" height="12.00" x="238.00" y="339.00" class="todo"><title>void sub_483830();</title></rect>
-<rect width="12.00" height="12.00" x="252.00" y="339.00" class="todo"><title>void sub_483840();</title></rect>
-<rect width="12.00" height="12.00" x="266.00" y="339.00" class="todo"><title>void mGetAngle();</title></rect>
+<rect width="12.00" height="12.00" x="224.00" y="339.00" class="named"><title>void S_Wait(int32_t frames, int32_t any_key);</title></rect>
+<rect width="12.00" height="12.00" x="238.00" y="339.00" class="named"><title>int32_t S_PlayFMV(char *fname, int32_t sequence);</title></rect>
+<rect width="12.00" height="12.00" x="252.00" y="339.00" class="named"><title>int32_t S_IntroFMV(char *movie1, char *movie2);</title></rect>
+<rect width="12.00" height="12.00" x="266.00" y="339.00" class="named"><title>uint32_t mGetAngle(int32_t x1, int32_t y1, int32_t x2, int32_t y2);</title></rect>
 <rect width="12.00" height="12.00" x="280.00" y="339.00" class="todo"><title>void sub_4838E0();</title></rect>
-<rect width="12.00" height="12.00" x="294.00" y="339.00" class="todo"><title>void StartGame();</title></rect>
-<rect width="12.00" height="12.00" x="308.00" y="339.00" class="todo"><title>void GameLoop();</title></rect>
+<rect width="12.00" height="12.00" x="294.00" y="339.00" class="named"><title>int32_t StartGame(int32_t level_num, int32_t type);</title></rect>
+<rect width="12.00" height="12.00" x="308.00" y="339.00" class="named"><title>int32_t GameLoop(int32_t demo_mode);</title></rect>
 <rect width="12.00" height="12.00" x="322.00" y="339.00" class="named"><title>int32_t LevelCompleteSequence(int32_t level_num);</title></rect>
 <rect width="12.00" height="12.00" x="336.00" y="339.00" class="named"><title>int32_t LevelStats(int32_t level_num);</title></rect>
 <rect width="12.00" height="12.00" x="350.00" y="339.00" class="todo"><title>void sub_483FA0();</title></rect>
@@ -1205,15 +1205,15 @@
 <rect width="12.00" height="12.00" x="28.00" y="353.00" class="todo"><title>void sub_485130();</title></rect>
 <rect width="12.00" height="12.00" x="42.00" y="353.00" class="todo"><title>void sub_485350();</title></rect>
 <rect width="12.00" height="12.00" x="56.00" y="353.00" class="todo"><title>void sub_4854C0();</title></rect>
-<rect width="12.00" height="12.00" x="70.00" y="353.00" class="todo"><title>void sub_4855C0();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="353.00" class="todo"><title>void sub_485900();</title></rect>
-<rect width="12.00" height="12.00" x="98.00" y="353.00" class="todo"><title>void sub_4859C0();</title></rect>
+<rect width="12.00" height="12.00" x="70.00" y="353.00" class="named"><title>void HWR_DrawPolyList(int32_t num, int32_t *sortptr);</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="353.00" class="named"><title>void HWR_LoadTexturePages(int32_t pages, char *image, uint8_t *palette);</title></rect>
+<rect width="12.00" height="12.00" x="98.00" y="353.00" class="named"><title>void HWR_FreeTexturePages(void);</title></rect>
 <rect width="12.00" height="12.00" x="112.00" y="353.00" class="todo"><title>void sub_485A10();</title></rect>
 <rect width="12.00" height="12.00" x="126.00" y="353.00" class="todo"><title>void sub_485A90();</title></rect>
 <rect width="12.00" height="12.00" x="140.00" y="353.00" class="todo"><title>void sub_485AB0();</title></rect>
 <rect width="12.00" height="12.00" x="154.00" y="353.00" class="todo"><title>void sub_485CA0();</title></rect>
 <rect width="12.00" height="12.00" x="168.00" y="353.00" class="todo"><title>void sub_485CE0();</title></rect>
-<rect width="12.00" height="12.00" x="182.00" y="353.00" class="todo"><title>void sub_485EA0();</title></rect>
+<rect width="12.00" height="12.00" x="182.00" y="353.00" class="named"><title>void Finish(void);</title></rect>
 <rect width="12.00" height="12.00" x="196.00" y="353.00" class="todo"><title>void sub_485F60();</title></rect>
 <rect width="12.00" height="12.00" x="210.00" y="353.00" class="named"><title>void *game_malloc(int32_t size, int32_t type);</title></rect>
 <rect width="12.00" height="12.00" x="224.00" y="353.00" class="named"><title>void game_free(int32_t size, int32_t type);</title></rect>
@@ -1243,7 +1243,7 @@
 <rect width="12.00" height="12.00" x="560.00" y="353.00" class="named"><title>int32_t S_DumpCine(void);</title></rect>
 <rect width="12.00" height="12.00" x="574.00" y="353.00" class="named"><title>int32_t S_DumpScreen(void);</title></rect>
 <rect width="12.00" height="12.00" x="588.00" y="353.00" class="named"><title>void S_ClearScreen(void);</title></rect>
-<rect width="12.00" height="12.00" x="602.00" y="353.00" class="todo"><title>void sub_48A330();</title></rect>
+<rect width="12.00" height="12.00" x="602.00" y="353.00" class="named"><title>void S_InitialiseScreen(int32_t type);</title></rect>
 <rect width="12.00" height="12.00" x="616.00" y="353.00" class="named"><title>void S_OutputPolyList(void);</title></rect>
 <rect width="12.00" height="12.00" x="630.00" y="353.00" class="named"><title>int32_t S_GetObjectBounds(int16_t *obj_ptr);</title></rect>
 <rect width="12.00" height="12.00" x="644.00" y="353.00" class="todo"><title>void sub_48A760();</title></rect>
@@ -1255,8 +1255,8 @@
 <rect width="12.00" height="12.00" x="28.00" y="367.00" class="named"><title>void S_AnimateTextures(int32_t nframes);</title></rect>
 <rect width="12.00" height="12.00" x="42.00" y="367.00" class="named"><title>void ScreenPartialDump(void);</title></rect>
 <rect width="12.00" height="12.00" x="56.00" y="367.00" class="named"><title>void ScreenClear(void);</title></rect>
-<rect width="12.00" height="12.00" x="70.00" y="367.00" class="todo"><title>void sub_48AC20();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="367.00" class="todo"><title>void sub_48ACC0();</title></rect>
+<rect width="12.00" height="12.00" x="70.00" y="367.00" class="named"><title>void mCalcPoint(int32_t dx, int32_t dy, int32_t dz, int32_t *result);</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="367.00" class="named"><title>void ProjectPCoord(int32_t x, int32_t y, int32_t z, int32_t *result, int32_t cx, int32_t cy, int32_t fov);</title></rect>
 <rect width="12.00" height="12.00" x="98.00" y="367.00" class="todo"><title>void sub_48AD60();</title></rect>
 <rect width="12.00" height="12.00" x="112.00" y="367.00" class="todo"><title>void sub_48AD80();</title></rect>
 <rect width="12.00" height="12.00" x="126.00" y="367.00" class="todo"><title>void sub_48ADA0();</title></rect>
@@ -1278,9 +1278,9 @@
 <rect width="12.00" height="12.00" x="350.00" y="367.00" class="todo"><title>void sub_48C0A0();</title></rect>
 <rect width="12.00" height="12.00" x="364.00" y="367.00" class="named"><title>int32_t GameMain(void);</title></rect>
 <rect width="12.00" height="12.00" x="378.00" y="367.00" class="named"><title>int32_t TitleSequence(void);</title></rect>
-<rect width="12.00" height="12.00" x="392.00" y="367.00" class="todo"><title>void CheckCheatMode();</title></rect>
-<rect width="12.00" height="12.00" x="406.00" y="367.00" class="todo"><title>void S_SaveSettings();</title></rect>
-<rect width="12.00" height="12.00" x="420.00" y="367.00" class="todo"><title>void S_LoadSettings();</title></rect>
+<rect width="12.00" height="12.00" x="392.00" y="367.00" class="named"><title>void CheckCheatMode(void);</title></rect>
+<rect width="12.00" height="12.00" x="406.00" y="367.00" class="named"><title>void S_SaveSettings(void);</title></rect>
+<rect width="12.00" height="12.00" x="420.00" y="367.00" class="named"><title>void S_LoadSettings(void);</title></rect>
 <rect width="12.00" height="12.00" x="434.00" y="367.00" class="named"><title>int32_t CalcVolume(int32_t game_volume);</title></rect>
 <rect width="12.00" height="12.00" x="448.00" y="367.00" class="named"><title>int32_t S_SoundPlaySample(int32_t sample_num, uint16_t vol, int32_t pitch, int16_t pan);</title></rect>
 <rect width="12.00" height="12.00" x="462.00" y="367.00" class="named"><title>int32_t CalcPan(int16_t angle);</title></rect>
@@ -1305,8 +1305,8 @@
 <rect width="12.00" height="12.00" x="28.00" y="381.00" class="named"><title>int16_t *calc_object_vertices(int16_t *obj_ptr);</title></rect>
 <rect width="12.00" height="12.00" x="42.00" y="381.00" class="named"><title>int16_t *calc_roomvert(int16_t *obj_ptr, int32_t far_clip);</title></rect>
 <rect width="12.00" height="12.00" x="56.00" y="381.00" class="todo"><title>void sub_48E050();</title></rect>
-<rect width="12.00" height="12.00" x="70.00" y="381.00" class="todo"><title>void sub_48E3E0();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="381.00" class="todo"><title>void sub_48E440();</title></rect>
+<rect width="12.00" height="12.00" x="70.00" y="381.00" class="named"><title>void UT_InitAccurateTimer(void);</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="381.00" class="named"><title>double UT_GetAccurateTimer(void);</title></rect>
 <rect width="12.00" height="12.00" x="98.00" y="381.00" class="todo"><title>void sub_48E490();</title></rect>
 <rect width="12.00" height="12.00" x="112.00" y="381.00" class="todo"><title>void sub_48E500();</title></rect>
 <rect width="12.00" height="12.00" x="126.00" y="381.00" class="todo"><title>void sub_48E530();</title></rect>
@@ -1425,7 +1425,7 @@
 <rect width="12.00" height="12.00" x="308.00" y="409.00" class="todo"><title>void sub_4AD550();</title></rect>
 <rect width="12.00" height="12.00" x="322.00" y="409.00" class="todo"><title>void sub_4AFC10();</title></rect>
 <rect width="12.00" height="12.00" x="336.00" y="409.00" class="todo"><title>void sub_4B0B50();</title></rect>
-<rect width="12.00" height="12.00" x="350.00" y="409.00" class="todo"><title>void sub_4B1B70();</title></rect>
+<rect width="12.00" height="12.00" x="350.00" y="409.00" class="named"><title>void DXTextureSetGreyScale(bool v);</title></rect>
 <rect width="12.00" height="12.00" x="364.00" y="409.00" class="todo"><title>void sub_4B1B80();</title></rect>
 <rect width="12.00" height="12.00" x="378.00" y="409.00" class="todo"><title>void sub_4B1BF0();</title></rect>
 <rect width="12.00" height="12.00" x="392.00" y="409.00" class="todo"><title>void sub_4B1D90();</title></rect>
@@ -1451,12 +1451,12 @@
 <rect width="12.00" height="12.00" x="672.00" y="409.00" class="todo"><title>void sub_4B2F80();</title></rect>
 <rect width="12.00" height="12.00" x="686.00" y="409.00" class="todo"><title>void sub_4B34D0();</title></rect>
 <rect width="12.00" height="12.00" x="0.00" y="423.00" class="todo"><title>void sub_4B3550();</title></rect>
-<rect width="12.00" height="12.00" x="14.00" y="423.00" class="todo"><title>void S_ExitSystem();</title></rect>
+<rect width="12.00" height="12.00" x="14.00" y="423.00" class="named"><title>void S_ExitSystem(char* exit_message);</title></rect>
 <rect width="12.00" height="12.00" x="28.00" y="423.00" class="named"><title>bool DD_SpinMessageLoop(bool wait);</title></rect>
 <rect width="12.00" height="12.00" x="42.00" y="423.00" class="todo"><title>void sub_4B3900();</title></rect>
 <rect width="12.00" height="12.00" x="56.00" y="423.00" class="todo"><title>void sub_4B3930();</title></rect>
 <rect width="12.00" height="12.00" x="70.00" y="423.00" class="todo"><title>void sub_4B3950();</title></rect>
-<rect width="12.00" height="12.00" x="84.00" y="423.00" class="todo"><title>void sub_4B39A0();</title></rect>
+<rect width="12.00" height="12.00" x="84.00" y="423.00" class="named"><title>HRESULT DD_EnsureSurfaceAvailable(IDirectDrawSurface3 *surf, IDirectDrawSurface3 *top_surf, bool clear_if_lost);</title></rect>
 <rect width="12.00" height="12.00" x="98.00" y="423.00" class="todo"><title>void sub_4B39F0();</title></rect>
 <rect width="12.00" height="12.00" x="112.00" y="423.00" class="named"><title>void DX_DoFlipWait(void);</title></rect>
 <rect width="12.00" height="12.00" x="126.00" y="423.00" class="named"><title>void DX_ClearBuffers(DWORD dwClrFlags, DWORD dwColour);</title></rect>
@@ -1576,7 +1576,7 @@
 <rect width="27.25" height="26.69" x="554.32" y="508.86" class="named"><title>void CombatCamera(ITEM_INFO *item);</title></rect>
 <rect width="26.79" height="26.69" x="583.56" y="508.86" class="named"><title>void RaptorControl(int16_t item_num);</title></rect>
 <rect width="26.79" height="26.69" x="612.35" y="508.86" class="named"><title>void ShivaControl(int16_t item_num);</title></rect>
-<rect width="26.58" height="26.69" x="641.14" y="508.86" class="todo"><title>void sub_482A90();</title></rect>
+<rect width="26.58" height="26.69" x="641.14" y="508.86" class="named"><title>int32_t S_LoadGameFlow(char *filename);</title></rect>
 <rect width="26.28" height="26.69" x="669.72" y="508.86" class="named"><title>void ClawmuteControl(int16_t item_num);</title></rect>
 <rect width="24.93" height="28.02" x="251.26" y="537.55" class="named"><title>void ChaseCamera(ITEM_INFO *item);</title></rect>
 <rect width="24.93" height="27.48" x="251.26" y="567.57" class="named"><title>int16_t *calc_roomvert(int16_t *obj_ptr, int32_t far_clip);</title></rect>
@@ -1626,7 +1626,7 @@
 <rect width="22.73" height="20.80" x="278.20" y="912.41" class="named"><title>void DrawInventoryItem(INVENTORY_ITEM *inv_item);</title></rect>
 <rect width="22.73" height="20.80" x="278.20" y="935.20" class="named"><title>int32_t SoundEffect(int32_t sfx_num, PHD_3DPOS *pos, int32_t flags);</title></rect>
 <rect width="21.12" height="22.14" x="302.93" y="563.53" class="todo"><title>void sub_494E30();</title></rect>
-<rect width="21.12" height="22.08" x="302.93" y="587.68" class="todo"><title>void S_LoadSettings();</title></rect>
+<rect width="21.12" height="22.08" x="302.93" y="587.68" class="named"><title>void S_LoadSettings(void);</title></rect>
 <rect width="21.12" height="22.04" x="302.93" y="611.76" class="named"><title>int32_t GetCeiling(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);</title></rect>
 <rect width="21.12" height="22.02" x="302.93" y="635.80" class="named"><title>void ControlTonyFireBall(int16_t fx_num);</title></rect>
 <rect width="21.12" height="22.00" x="302.93" y="659.83" class="named"><title>void do_sound_option(INVENTORY_ITEM *inv_item);</title></rect>
@@ -1687,12 +1687,12 @@
 <rect width="18.30" height="17.47" x="326.04" y="746.85" class="todo"><title>void sub_492620();</title></rect>
 <rect width="18.30" height="17.44" x="326.04" y="766.32" class="todo"><title>void sub_493920();</title></rect>
 <rect width="18.30" height="17.37" x="326.04" y="785.76" class="named"><title>void AutogunControl(int16_t item_num);</title></rect>
-<rect width="18.30" height="17.37" x="326.04" y="805.13" class="todo"><title>void CheckCheatMode();</title></rect>
+<rect width="18.30" height="17.37" x="326.04" y="805.13" class="named"><title>void CheckCheatMode(void);</title></rect>
 <rect width="18.30" height="17.28" x="326.04" y="824.51" class="todo"><title>void sub_4B48CC();</title></rect>
 <rect width="18.30" height="17.24" x="326.04" y="843.79" class="named"><title>void ControlWillbossPlasmaBall(int16_t fx_num);</title></rect>
 <rect width="18.30" height="17.12" x="326.04" y="863.03" class="named"><title>void S_DrawSprite(uint32_t flags, int32_t x, int32_t y, int32_t z, int16_t sprite, int16_t shade, int16_t scale);</title></rect>
 <rect width="18.30" height="17.03" x="326.04" y="882.15" class="named"><title>void ItemPushLara(ITEM_INFO *item, ITEM_INFO *lara_item, COLL_INFO *coll, int32_t spaz_on, int32_t big_push);</title></rect>
-<rect width="18.30" height="17.00" x="326.04" y="901.17" class="todo"><title>void sub_4855C0();</title></rect>
+<rect width="18.30" height="17.00" x="326.04" y="901.17" class="named"><title>void HWR_DrawPolyList(int32_t num, int32_t *sortptr);</title></rect>
 <rect width="18.30" height="16.93" x="326.04" y="920.18" class="named"><title>void PuzzleHoleCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);</title></rect>
 <rect width="18.30" height="16.89" x="326.04" y="939.11" class="named"><title>void TriggerGunShell(int16_t left_right, int32_t shell_type, int32_t weapon);</title></rect>
 <rect width="16.93" height="18.23" x="346.34" y="606.76" class="named"><title>void GetJointAbsPosition(ITEM_INFO *item, PHD_VECTOR *vec, int32_t joint);</title></rect>
@@ -1700,7 +1700,7 @@
 <rect width="16.93" height="18.18" x="346.34" y="647.19" class="named"><title>void DiverControl(int16_t item_num);</title></rect>
 <rect width="16.93" height="18.15" x="346.34" y="667.37" class="named"><title>void InitialiseLara(int32_t type);</title></rect>
 <rect width="16.93" height="18.15" x="346.34" y="687.52" class="todo"><title>void sub_491940();</title></rect>
-<rect width="16.93" height="18.13" x="346.34" y="707.68" class="todo"><title>void S_SaveSettings();</title></rect>
+<rect width="16.93" height="18.13" x="346.34" y="707.68" class="named"><title>void S_SaveSettings(void);</title></rect>
 <rect width="16.93" height="18.10" x="346.34" y="727.80" class="named"><title>bool DX_UpdateFrame(bool tSpinMessageLoop, RECT *prcWindow);</title></rect>
 <rect width="16.93" height="17.53" x="346.34" y="747.91" class="named"><title>void PrintObjects(int16_t room_num);</title></rect>
 <rect width="16.93" height="17.48" x="346.34" y="767.44" class="named"><title>void ControlClawmutePlasmaBall(int16_t fx_num);</title></rect>
@@ -1710,7 +1710,7 @@
 <rect width="16.93" height="17.06" x="346.34" y="844.75" class="named"><title>void LaraHangTest(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="16.93" height="16.99" x="346.34" y="863.81" class="named"><title>int32_t ClipLine(int32_t *x1, int32_t *y1, int32_t *x2, int32_t *y2, int32_t sw, int32_t sh);</title></rect>
 <rect width="16.93" height="16.99" x="346.34" y="882.80" class="todo"><title>void sub_4B45CF();</title></rect>
-<rect width="16.93" height="16.79" x="346.34" y="901.79" class="todo"><title>void sub_483170();</title></rect>
+<rect width="16.93" height="16.79" x="346.34" y="901.79" class="named"><title>void Escape_Play(char* szMovieName, bool init_playbackmode);</title></rect>
 <rect width="16.93" height="16.74" x="346.34" y="920.57" class="todo"><title>void sub_490400();</title></rect>
 <rect width="16.93" height="16.69" x="346.34" y="939.31" class="named"><title>void QuadBikeDraw(ITEM_INFO *item);</title></rect>
 <rect width="17.10" height="16.49" x="365.27" y="606.76" class="named"><title>void TigerControl(int16_t item_num);</title></rect>
@@ -1999,7 +1999,7 @@
 <rect width="10.03" height="10.54" x="555.39" y="729.60" class="named"><title>void DrawGunFlash(int32_t weapon_type, int32_t clip);</title></rect>
 <rect width="9.99" height="10.54" x="567.42" y="729.60" class="todo"><title>void sub_406FA0();</title></rect>
 <rect width="9.96" height="10.54" x="579.41" y="729.60" class="named"><title>int32_t IsRoomOutside(int32_t x, int32_t y, int32_t z);</title></rect>
-<rect width="9.96" height="10.54" x="591.37" y="729.60" class="todo"><title>void StartGame();</title></rect>
+<rect width="9.96" height="10.54" x="591.37" y="729.60" class="named"><title>int32_t StartGame(int32_t level_num, int32_t type);</title></rect>
 <rect width="9.92" height="10.54" x="603.33" y="729.60" class="named"><title>void Inv_RingDoMotions(RING_INFO *ring);</title></rect>
 <rect width="9.92" height="10.54" x="615.25" y="729.60" class="named"><title>int32_t GetOnQuadBike(int16_t item_num, COLL_INFO *coll);</title></rect>
 <rect width="9.88" height="10.54" x="627.16" y="729.60" class="named"><title>void lara_col_back(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
@@ -2110,7 +2110,7 @@
 <rect width="8.26" height="8.81" x="504.10" y="840.87" class="todo"><title>void sub_4854C0();</title></rect>
 <rect width="8.26" height="8.76" x="504.10" y="851.67" class="named"><title>void lara_col_turn_r(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="8.26" height="8.76" x="504.10" y="862.43" class="named"><title>int32_t LaraLandedBad(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
-<rect width="8.26" height="8.72" x="504.10" y="873.20" class="todo"><title>void sub_4825D0();</title></rect>
+<rect width="8.26" height="8.72" x="504.10" y="873.20" class="named"><title>int32_t FindCdDrive(void);</title></rect>
 <rect width="8.26" height="8.62" x="504.10" y="883.91" class="todo"><title>void sub_486050();</title></rect>
 <rect width="8.26" height="8.62" x="504.10" y="894.53" class="todo"><title>void sub_48EEE0();</title></rect>
 <rect width="8.26" height="8.58" x="504.10" y="905.16" class="named"><title>void S_InsertRoom(int16_t *obj_ptr, bool outside);</title></rect>
@@ -2202,11 +2202,11 @@
 <rect width="7.15" height="7.40" x="617.64" y="784.58" class="named"><title>void LaraCheatGetStuff(void);</title></rect>
 <rect width="7.00" height="7.40" x="626.78" y="784.58" class="named"><title>void ShivaDamage(ITEM_INFO *item, CREATURE_INFO *shiva, int32_t damage);</title></rect>
 <rect width="6.95" height="7.40" x="635.78" y="784.58" class="named"><title>void FlipMap(void);</title></rect>
-<rect width="6.95" height="7.40" x="644.72" y="784.58" class="todo"><title>void sub_485900();</title></rect>
+<rect width="6.95" height="7.40" x="644.72" y="784.58" class="named"><title>void HWR_LoadTexturePages(int32_t pages, char *image, uint8_t *palette);</title></rect>
 <rect width="6.95" height="7.40" x="653.67" y="784.58" class="todo"><title>void sub_4B20C0();</title></rect>
 <rect width="6.90" height="7.40" x="662.62" y="784.58" class="named"><title>int16_t GetDoor(FLOOR_INFO *floor);</title></rect>
 <rect width="6.85" height="7.40" x="671.51" y="784.58" class="named"><title>int32_t OnDrawBridge(ITEM_INFO *item, int32_t x, int32_t y);</title></rect>
-<rect width="6.85" height="7.40" x="680.36" y="784.58" class="todo"><title>void sub_485EA0();</title></rect>
+<rect width="6.85" height="7.40" x="680.36" y="784.58" class="named"><title>void Finish(void);</title></rect>
 <rect width="6.80" height="7.40" x="689.20" y="784.58" class="named"><title>int32_t LaraTestClimbPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift);</title></rect>
 <rect width="6.84" height="7.30" x="533.58" y="793.98" class="named"><title>int32_t ValidBox(ITEM_INFO *item, int16_t zone_num, int16_t box_num);</title></rect>
 <rect width="6.84" height="7.25" x="533.58" y="803.29" class="named"><title>void CreatureFloat(int16_t item_num);</title></rect>
@@ -2238,7 +2238,7 @@
 <rect width="6.58" height="6.98" x="621.04" y="793.98" class="named"><title>int32_t EscapeBox(ITEM_INFO *item, ITEM_INFO *enemy, int16_t box_num);</title></rect>
 <rect width="6.58" height="6.98" x="629.62" y="793.98" class="named"><title>void DoLotsOfBlood(int32_t x, int32_t y, int32_t z, int16_t speed, PHD_ANGLE direction, int16_t room_num, int32_t num);</title></rect>
 <rect width="6.58" height="6.98" x="638.20" y="793.98" class="named"><title>void InitialiseTarget(int16_t item_num);</title></rect>
-<rect width="6.58" height="6.98" x="646.78" y="793.98" class="todo"><title>void GameLoop();</title></rect>
+<rect width="6.58" height="6.98" x="646.78" y="793.98" class="named"><title>int32_t GameLoop(int32_t demo_mode);</title></rect>
 <rect width="6.53" height="6.98" x="655.36" y="793.98" class="named"><title>void S_DrawScreenSprite(int32_t sx, int32_t sy, int32_t z, int32_t scale_h, int32_t scale_v, int16_t spr_num, int16_t shade, uint16_t flags);</title></rect>
 <rect width="6.53" height="6.98" x="663.89" y="793.98" class="named"><title>void InitialisePlayer1(int16_t item_num);</title></rect>
 <rect width="6.53" height="6.98" x="672.42" y="793.98" class="named"><title>void TriggerAlertLight(int32_t x, int32_t y, int32_t z, int32_t r, int32_t g, int32_t b, int32_t angle, int16_t room_num);</title></rect>
@@ -2258,7 +2258,7 @@
 <rect width="6.65" height="6.58" x="542.41" y="898.30" class="named"><title>void lara_as_turn_l(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="6.65" height="6.58" x="542.41" y="906.88" class="named"><title>void draw_pistols(int32_t weapon_type);</title></rect>
 <rect width="6.65" height="6.53" x="542.41" y="915.47" class="named"><title>void InitialiseTonyBoss(int16_t item_num);</title></rect>
-<rect width="6.65" height="6.53" x="542.41" y="923.99" class="todo"><title>void sub_48ACC0();</title></rect>
+<rect width="6.65" height="6.53" x="542.41" y="923.99" class="named"><title>void ProjectPCoord(int32_t x, int32_t y, int32_t z, int32_t *result, int32_t cx, int32_t cy, int32_t fov);</title></rect>
 <rect width="6.65" height="6.53" x="542.41" y="932.52" class="named"><title>void FadePictureUp(void);</title></rect>
 <rect width="6.65" height="6.47" x="542.41" y="941.05" class="named"><title>void RemoveRoomFlipItems(ROOM_INFO *r);</title></rect>
 <rect width="6.65" height="6.47" x="542.41" y="949.53" class="named"><title>void lara_col_compress(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
@@ -2279,8 +2279,8 @@
 <rect width="6.55" height="6.35" x="672.46" y="802.96" class="todo"><title>void sub_4B1F10();</title></rect>
 <rect width="6.49" height="6.35" x="681.01" y="802.96" class="named"><title>void lara_col_roll(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="6.49" height="6.35" x="689.51" y="802.96" class="named"><title>void ResetLook(void);</title></rect>
-<rect width="6.52" height="6.33" x="551.06" y="811.32" class="todo"><title>void sub_483540();</title></rect>
-<rect width="6.52" height="6.33" x="551.06" y="819.64" class="todo"><title>void sub_48AC20();</title></rect>
+<rect width="6.52" height="6.33" x="551.06" y="811.32" class="named"><title>int32_t FMV_PlayIntro(char *movie1, char *movie2);</title></rect>
+<rect width="6.52" height="6.33" x="551.06" y="819.64" class="named"><title>void mCalcPoint(int32_t dx, int32_t dy, int32_t dz, int32_t *result);</title></rect>
 <rect width="6.52" height="6.27" x="551.06" y="827.97" class="named"><title>int32_t SwitchTrigger(int16_t item_num, int16_t timer);</title></rect>
 <rect width="6.52" height="6.27" x="551.06" y="836.24" class="named"><title>void LavaBurn(ITEM_INFO *item);</title></rect>
 <rect width="6.52" height="6.27" x="551.06" y="844.51" class="named"><title>int32_t S_LoadGame(void *data, int32_t size, int32_t slot);</title></rect>
@@ -2352,7 +2352,7 @@
 <rect width="5.82" height="5.57" x="575.29" y="827.29" class="named"><title>int16_t LaraCeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist);</title></rect>
 <rect width="5.82" height="5.57" x="583.11" y="827.29" class="named"><title>void FlashConflicts(void);</title></rect>
 <rect width="5.82" height="5.57" x="590.93" y="827.29" class="named"><title>void S_CDLoop(void);</title></rect>
-<rect width="5.76" height="5.57" x="598.76" y="827.29" class="todo"><title>void S_LoadLevelFile();</title></rect>
+<rect width="5.76" height="5.57" x="598.76" y="827.29" class="named"><title>int32_t S_LoadLevelFile(char *fname, int32_t level_num, int32_t type);</title></rect>
 <rect width="5.70" height="5.57" x="606.51" y="827.29" class="named"><title>int16_t *GetBoundsAccurate(ITEM_INFO *item);</title></rect>
 <rect width="5.70" height="5.57" x="614.21" y="827.29" class="named"><title>void lara_as_stepright(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="5.70" height="5.57" x="621.91" y="827.29" class="named"><title>void lara_as_stepleft(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
@@ -2363,8 +2363,8 @@
 <rect width="5.57" height="5.57" x="660.14" y="827.29" class="named"><title>void DisplayModeInfo(char *string);</title></rect>
 <rect width="5.57" height="5.57" x="667.71" y="827.29" class="named"><title>void lara_as_all4s(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="5.57" height="5.57" x="675.28" y="827.29" class="named"><title>void TriggerPlasmaBall2(PHD_VECTOR *pos, int16_t room_num, int16_t angle, int16_t type);</title></rect>
-<rect width="5.57" height="5.57" x="682.86" y="827.29" class="todo"><title>void sub_4834C0();</title></rect>
-<rect width="5.57" height="5.57" x="690.43" y="827.29" class="todo"><title>void mGetAngle();</title></rect>
+<rect width="5.57" height="5.57" x="682.86" y="827.29" class="named"><title>int32_t FMV_Play(char* movie);</title></rect>
+<rect width="5.57" height="5.57" x="690.43" y="827.29" class="named"><title>uint32_t mGetAngle(int32_t x1, int32_t y1, int32_t x2, int32_t y2);</title></rect>
 <rect width="5.24" height="5.85" x="567.47" y="834.86" class="named"><title>void LaraRapidsDrown(void);</title></rect>
 <rect width="5.24" height="5.85" x="567.47" y="842.71" class="named"><title>int32_t LoadCinematic(HANDLE file);</title></rect>
 <rect width="5.24" height="5.85" x="567.47" y="850.56" class="todo"><title>void sub_484B70();</title></rect>
@@ -2450,7 +2450,7 @@
 <rect width="4.52" height="4.92" x="588.75" y="848.95" class="named"><title>void S_DrawLondonBoss(ITEM_INFO *item);</title></rect>
 <rect width="4.52" height="4.92" x="588.75" y="855.87" class="named"><title>int32_t LoadCameras(HANDLE file);</title></rect>
 <rect width="4.52" height="4.92" x="588.75" y="862.79" class="named"><title>int32_t LoadSoundEffects(HANDLE file);</title></rect>
-<rect width="4.52" height="4.92" x="588.75" y="869.71" class="todo"><title>void sub_48E3E0();</title></rect>
+<rect width="4.52" height="4.92" x="588.75" y="869.71" class="named"><title>void UT_InitAccurateTimer(void);</title></rect>
 <rect width="4.52" height="4.85" x="588.75" y="876.63" class="named"><title>void TranslateItem(ITEM_INFO *item, int32_t x, int32_t y, int32_t z);</title></rect>
 <rect width="4.52" height="4.85" x="588.75" y="883.48" class="named"><title>int32_t AddAssaultTime(uint32_t time);</title></rect>
 <rect width="4.52" height="4.85" x="588.75" y="890.32" class="named"><title>int32_t AddQuadbikeTime(uint32_t time);</title></rect>
@@ -2476,7 +2476,7 @@
 <rect width="4.38" height="4.70" x="659.88" y="848.95" class="named"><title>void ClearBodyBag(void);</title></rect>
 <rect width="4.38" height="4.70" x="666.26" y="848.95" class="named"><title>void lara_as_pickupflare(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="4.38" height="4.70" x="672.63" y="848.95" class="named"><title>void lara_col_uwdeath(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
-<rect width="4.38" height="4.70" x="679.01" y="848.95" class="todo"><title>void S_ExitSystem();</title></rect>
+<rect width="4.38" height="4.70" x="679.01" y="848.95" class="named"><title>void S_ExitSystem(char* exit_message);</title></rect>
 <rect width="4.31" height="4.70" x="685.39" y="848.95" class="named"><title>void lara_as_fastdive(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="4.31" height="4.70" x="691.69" y="848.95" class="todo"><title>void sub_475450();</title></rect>
 <rect width="4.45" height="4.56" x="595.27" y="855.66" class="todo"><title>void sub_4934D0();</title></rect>
@@ -2490,7 +2490,7 @@
 <rect width="4.45" height="4.41" x="595.27" y="907.45" class="todo"><title>void sub_490B40();</title></rect>
 <rect width="4.45" height="4.34" x="595.27" y="913.86" class="named"><title>void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="4.45" height="4.34" x="595.27" y="920.19" class="named"><title>void lara_col_surftread(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
-<rect width="4.45" height="4.34" x="595.27" y="926.53" class="todo"><title>void sub_4837D0();</title></rect>
+<rect width="4.45" height="4.34" x="595.27" y="926.53" class="named"><title>void S_Wait(int32_t frames, int32_t any_key);</title></rect>
 <rect width="4.45" height="4.34" x="595.27" y="932.87" class="todo"><title>void sub_48FE40();</title></rect>
 <rect width="4.45" height="4.26" x="595.27" y="939.21" class="named"><title>void QuadFinished(ITEM_INFO *item);</title></rect>
 <rect width="4.45" height="4.26" x="595.27" y="945.47" class="named"><title>void ReqItemRightAlign(REQUEST_INFO *req, TEXTSTRING *txt);</title></rect>
@@ -2531,7 +2531,7 @@
 <rect width="4.07" height="4.04" x="620.36" y="861.76" class="named"><title>void InitialiseSparks(void);</title></rect>
 <rect width="4.07" height="4.04" x="626.43" y="861.76" class="named"><title>int32_t TestBlockMovable(ITEM_INFO *item, int32_t blokhite);</title></rect>
 <rect width="4.07" height="4.04" x="632.50" y="861.76" class="named"><title>int32_t S_DumpScreen(void);</title></rect>
-<rect width="4.07" height="4.04" x="638.56" y="861.76" class="todo"><title>void sub_48E440();</title></rect>
+<rect width="4.07" height="4.04" x="638.56" y="861.76" class="named"><title>double UT_GetAccurateTimer(void);</title></rect>
 <rect width="3.99" height="4.04" x="644.63" y="861.76" class="named"><title>void InitialiseCreature(int16_t item_num);</title></rect>
 <rect width="3.99" height="4.04" x="650.62" y="861.76" class="named"><title>void extra_as_startanim(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="3.99" height="4.04" x="656.61" y="861.76" class="todo"><title>void sub_4B39F0();</title></rect>
@@ -2560,7 +2560,7 @@
 <rect width="3.96" height="3.75" x="608.07" y="879.37" class="named"><title>BOOL MyReadFile(HANDLE hFile, void *pBuffer, DWORD nNumberOfBytesToRead, DWORD *pNumberOfBytesRead, OVERLAPPED* pOverlapped);</title></rect>
 <rect width="3.96" height="3.67" x="608.07" y="885.12" class="named"><title>int32_t KeyTrigger(int16_t item_num);</title></rect>
 <rect width="3.96" height="3.67" x="608.07" y="890.80" class="named"><title>void FallingBlockFloor(ITEM_INFO *item, int32_t x, int32_t y, int32_t z, int32_t *height);</title></rect>
-<rect width="3.96" height="3.67" x="608.07" y="896.47" class="todo"><title>void sub_483470();</title></rect>
+<rect width="3.96" height="3.67" x="608.07" y="896.47" class="named"><title>void Escape_Cleanup(bool return_playbackmode);</title></rect>
 <rect width="3.96" height="3.67" x="608.07" y="902.14" class="todo"><title>void sub_48FF10();</title></rect>
 <rect width="3.96" height="3.67" x="608.07" y="907.81" class="todo"><title>void sub_4900C0();</title></rect>
 <rect width="3.96" height="3.67" x="608.07" y="913.49" class="named"><title>int32_t phd_atan(int32_t x, int32_t y);</title></rect>
@@ -2570,7 +2570,7 @@
 <rect width="3.96" height="3.52" x="608.07" y="935.94" class="named"><title>int32_t S_SoundPlaySample(int32_t sample_num, uint16_t vol, int32_t pitch, int16_t pan);</title></rect>
 <rect width="3.96" height="3.52" x="608.07" y="941.45" class="named"><title>int32_t S_SoundPlaySampleLooped(int32_t sample_num, uint16_t vol, int32_t pitch, int16_t pan);</title></rect>
 <rect width="3.96" height="3.52" x="608.07" y="946.97" class="todo"><title>void sub_48FDB0();</title></rect>
-<rect width="3.96" height="3.52" x="608.07" y="952.48" class="todo"><title>void sub_4B39A0();</title></rect>
+<rect width="3.96" height="3.52" x="608.07" y="952.48" class="named"><title>HRESULT DD_EnsureSurfaceAvailable(IDirectDrawSurface3 *surf, IDirectDrawSurface3 *top_surf, bool clear_if_lost);</title></rect>
 <rect width="3.69" height="3.70" x="614.03" y="873.62" class="named"><title>void MonkeySwingSnap(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="3.69" height="3.70" x="619.72" y="873.62" class="named"><title>void TrapDoorCeiling(ITEM_INFO *item, int32_t x, int32_t y, int32_t z, int32_t *height);</title></rect>
 <rect width="3.69" height="3.70" x="625.41" y="873.62" class="named"><title>bool DS_IsChannelPlaying(int32_t channel);</title></rect>
@@ -2578,7 +2578,7 @@
 <rect width="3.61" height="3.70" x="636.80" y="873.62" class="named"><title>void Richochet(GAME_VECTOR *pos);</title></rect>
 <rect width="3.61" height="3.70" x="642.41" y="873.62" class="named"><title>void FallingBlockCeiling(ITEM_INFO *item, int32_t x, int32_t y, int32_t z, int32_t *height);</title></rect>
 <rect width="3.61" height="3.70" x="648.01" y="873.62" class="named"><title>void GetValidLevelsList(REQUEST_INFO *req);</title></rect>
-<rect width="3.61" height="3.70" x="653.62" y="873.62" class="todo"><title>void sub_4859C0();</title></rect>
+<rect width="3.61" height="3.70" x="653.62" y="873.62" class="named"><title>void HWR_FreeTexturePages(void);</title></rect>
 <rect width="3.61" height="3.70" x="659.23" y="873.62" class="named"><title>void S_LightRoom(ROOM_INFO *r);</title></rect>
 <rect width="3.61" height="3.70" x="664.84" y="873.62" class="todo"><title>void sub_4B3950();</title></rect>
 <rect width="3.53" height="3.70" x="670.45" y="873.62" class="named"><title>void draw_right_gun(ITEM_INFO *item);</title></rect>
@@ -2659,8 +2659,8 @@
 <rect width="2.91" height="3.17" x="634.78" y="889.74" class="todo"><title>void sub_401F20();</title></rect>
 <rect width="2.91" height="3.17" x="639.70" y="889.74" class="named"><title>void Exercise8_109Sp(ITEM_INFO *item);</title></rect>
 <rect width="2.91" height="3.17" x="644.61" y="889.74" class="todo"><title>void sub_475240();</title></rect>
-<rect width="2.91" height="3.17" x="649.52" y="889.74" class="todo"><title>void sub_482560();</title></rect>
-<rect width="2.91" height="3.17" x="654.43" y="889.74" class="todo"><title>void sub_48A330();</title></rect>
+<rect width="2.91" height="3.17" x="649.52" y="889.74" class="named"><title>void build_ext(char *fname, char *ext);</title></rect>
+<rect width="2.91" height="3.17" x="654.43" y="889.74" class="named"><title>void S_InitialiseScreen(int32_t type);</title></rect>
 <rect width="2.91" height="3.17" x="659.34" y="889.74" class="todo"><title>void sub_48E6D0();</title></rect>
 <rect width="2.82" height="3.17" x="664.26" y="889.74" class="todo"><title>void sub_402500();</title></rect>
 <rect width="2.82" height="3.17" x="669.08" y="889.74" class="todo"><title>void sub_402540();</title></rect>
@@ -2765,7 +2765,7 @@
 <rect width="2.38" height="2.51" x="684.87" y="908.88" class="named"><title>uint32_t GetTextScaleH(uint32_t scale_h);</title></rect>
 <rect width="2.38" height="2.51" x="689.25" y="908.88" class="named"><title>uint32_t GetTextScaleV(uint32_t scale_v);</title></rect>
 <rect width="2.38" height="2.51" x="693.62" y="908.88" class="named"><title>void DS_Finish(void);</title></rect>
-<rect width="2.29" height="2.60" x="649.14" y="913.39" class="todo"><title>void sub_482990();</title></rect>
+<rect width="2.29" height="2.60" x="649.14" y="913.39" class="named"><title>void S_UnloadLevelFile(void);</title></rect>
 <rect width="2.29" height="2.60" x="649.14" y="917.99" class="named"><title>int32_t CalcVolume(int32_t game_volume);</title></rect>
 <rect width="2.29" height="2.49" x="649.14" y="922.59" class="named"><title>void lara_as_dashdive(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="2.29" height="2.49" x="649.14" y="927.09" class="named"><title>void T_AddOutline(TEXTSTRING *txt, int16_t enabled, int16_t colour, SG_COL *gourptr, uint16_t flags);</title></rect>
@@ -2783,7 +2783,7 @@
 <rect width="2.40" height="2.06" x="676.00" y="913.39" class="named"><title>void QuadStop(ITEM_INFO *item);</title></rect>
 <rect width="2.40" height="2.06" x="680.40" y="913.39" class="named"><title>void Inv_RingMotionRadius(RING_INFO *ring, int16_t target);</title></rect>
 <rect width="2.40" height="2.06" x="684.80" y="913.39" class="named"><title>void KayakDraw(ITEM_INFO *v);</title></rect>
-<rect width="2.40" height="2.06" x="689.20" y="913.39" class="todo"><title>void str_to_wstr();</title></rect>
+<rect width="2.40" height="2.06" x="689.20" y="913.39" class="named"><title>char *GetFullPath(char *filename);</title></rect>
 <rect width="2.40" height="2.06" x="693.60" y="913.39" class="named"><title>int32_t CalcPan(int16_t angle);</title></rect>
 <rect width="2.24" height="2.10" x="653.42" y="917.44" class="named"><title>void Inv_RingMotionCameraPos(RING_INFO *ring, int16_t target);</title></rect>
 <rect width="2.24" height="2.10" x="653.42" y="921.54" class="named"><title>void DrawMovableBlock(ITEM_INFO *item);</title></rect>
@@ -2900,7 +2900,7 @@
 <rect width="0.87" height="1.11" x="679.05" y="954.89" class="named"><title>void lara_col_tread(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="1.22" height="0.77" x="681.91" y="939.31" class="named"><title>void lara_col_dive(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="1.22" height="0.77" x="685.13" y="939.31" class="named"><title>void lara_col_waterroll(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
-<rect width="1.22" height="0.77" x="688.35" y="939.31" class="todo"><title>void sub_483840();</title></rect>
+<rect width="1.22" height="0.77" x="688.35" y="939.31" class="named"><title>int32_t S_IntroFMV(char *movie1, char *movie2);</title></rect>
 <rect width="1.22" height="0.77" x="691.56" y="939.31" class="todo"><title>void sub_48E710();</title></rect>
 <rect width="1.22" height="0.77" x="694.78" y="939.31" class="todo"><title>void sub_490970();</title></rect>
 <rect width="0.63" height="1.22" x="681.91" y="942.08" class="named"><title>void ResetExercises(ITEM_INFO *item);</title></rect>
@@ -2913,11 +2913,11 @@
 <rect width="0.66" height="0.83" x="690.02" y="942.08" class="named"><title>void T_RemoveOutline(TEXTSTRING *txt);</title></rect>
 <rect width="0.66" height="0.83" x="692.68" y="942.08" class="named"><title>void ScreenPartialDump(void);</title></rect>
 <rect width="0.66" height="0.83" x="695.34" y="942.08" class="todo"><title>void sub_4900B0();</title></rect>
-<rect width="0.55" height="0.77" x="684.54" y="944.91" class="todo"><title>void sub_4837B0();</title></rect>
+<rect width="0.55" height="0.77" x="684.54" y="944.91" class="todo"><title>void S_FinishInventory(void);</title></rect>
 <rect width="0.55" height="0.58" x="684.54" y="947.68" class="named"><title>void dynamic_light_off(ITEM_INFO *item);</title></rect>
 <rect width="0.55" height="0.58" x="684.54" y="950.26" class="named"><title>void lara_as_null(ITEM_INFO *item, COLL_INFO *coll);</title></rect>
 <rect width="0.55" height="0.58" x="684.54" y="952.84" class="named"><title>bool DS_IsSoundEnabled(void);</title></rect>
-<rect width="0.55" height="0.58" x="684.54" y="955.42" class="todo"><title>void sub_483830();</title></rect>
+<rect width="0.55" height="0.58" x="684.54" y="955.42" class="named"><title>int32_t S_PlayFMV(char *fname, int32_t sequence);</title></rect>
 <rect width="0.42" height="0.71" x="687.09" y="944.91" class="named"><title>void S_CDVolume(int32_t volume);</title></rect>
 <rect width="0.25" height="0.71" x="689.51" y="944.91" class="named"><title>void ScreenClear(void);</title></rect>
 <rect width="0.08" height="0.71" x="691.76" y="944.91" class="named"><title>void invisibility_on(ITEM_INFO *item);</title></rect>
@@ -2938,7 +2938,7 @@
 <rect width="0.35" height="0.00" x="689.67" y="956.00" class="named"><title>void SeedRandomControl(int32_t seed);</title></rect>
 <rect width="-0.01" height="0.36" x="692.02" y="949.99" class="named"><title>void SeedRandomDraw(int32_t seed);</title></rect>
 <rect width="-0.01" height="0.36" x="694.01" y="949.99" class="named"><title>void S_SoundSetMasterVolume(int32_t volume);</title></rect>
-<rect width="-0.01" height="0.36" x="696.01" y="949.99" class="todo"><title>void sub_4B1B70();</title></rect>
+<rect width="-0.01" height="0.36" x="696.01" y="949.99" class="named"><title>void DXTextureSetGreyScale(bool v);</title></rect>
 <rect width="-0.34" height="0.26" x="692.02" y="952.35" class="named"><title>void InitialiseArea51Struts(int16_t item_num);</title></rect>
 <rect width="-0.34" height="-0.30" x="692.02" y="954.61" class="named"><title>int32_t LevelCompleteSequence(int32_t level_num);</title></rect>
 <rect width="-0.34" height="-0.30" x="692.02" y="956.30" class="todo"><title>void sub_484F00();</title></rect>
@@ -2955,8 +2955,8 @@
 <rect width="-1.51" height="-1.04" x="697.51" y="957.04" class="todo"><title>void nullsub_1();</title></rect>
 <rect width="12.00" height="12.00" x="0.00" y="984.50" class="decompiled"/><text x="17.00" y="990.50">Functions decompiled (count): 0.00%</text>
 <rect width="12.00" height="12.00" x="0.00" y="1002.50" class="decompiled"/><text x="17.00" y="1008.50">Functions decompiled (bytesize): 0.00%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1020.50" class="named"/><text x="17.00" y="1026.50">Functions not decompiled, but with known names (count): 79.95%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1038.50" class="named"/><text x="17.00" y="1044.50">Functions not decompiled, but with known names (bytesize): 72.91%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1056.50" class="todo"/><text x="17.00" y="1062.50">Functions not decompiled, with unknown names (count): 20.05%</text>
-<rect width="12.00" height="12.00" x="0.00" y="1074.50" class="todo"/><text x="17.00" y="1080.50">Functions not decompiled, with unknown names (bytesize): 27.09%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1020.50" class="named"/><text x="17.00" y="1026.50">Functions not decompiled, but with known names (count): 82.05%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1038.50" class="named"/><text x="17.00" y="1044.50">Functions not decompiled, but with known names (bytesize): 74.16%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1056.50" class="todo"/><text x="17.00" y="1062.50">Functions not decompiled, with unknown names (count): 17.95%</text>
+<rect width="12.00" height="12.00" x="0.00" y="1074.50" class="todo"/><text x="17.00" y="1080.50">Functions not decompiled, with unknown names (bytesize): 25.84%</text>
 </svg>
