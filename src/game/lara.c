@@ -1,10 +1,21 @@
 #include "game/lara.h"
 
 #include "global/const.h"
+#include "global/stubs.h"
 #include "global/vars.h"
 #include "util.h"
 
+#define FALL_DAMAGE_START 140
+#define FALL_DAMAGE_LENGTH 14
+
 static bool m_JumpOK = true;
+
+static void Lara_State_FastFallFriction(struct ITEM_INFO *item);
+
+static void Lara_State_FastFallFriction(struct ITEM_INFO *item)
+{
+    item->speed = (item->speed * 95) / 100;
+}
 
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
@@ -208,4 +219,12 @@ void Lara_State_Death(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Lara.look = 0;
     coll->enable_spaz = 0;
     coll->enable_baddie_push = 0;
+}
+
+void Lara_State_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Lara_State_FastFallFriction(item);
+    if (item->fallspeed == FALL_DAMAGE_START + FALL_DAMAGE_LENGTH) {
+        SoundEffect(SFX_LARA_FALL, &item->pos, 0);
+    }
 }

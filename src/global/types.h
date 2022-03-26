@@ -40,6 +40,10 @@ enum INPUT_STATE {
     IN_DASH        = (1 << 30),
 };
 
+enum SOUND_EFFECT_ID {
+    SFX_LARA_FALL = 30,
+};
+
 enum LARA_WATER_STATE {
     LWS_ABOVE_WATER = 0,
     LWS_UNDERWATER  = 1,

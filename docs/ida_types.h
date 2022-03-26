@@ -18,6 +18,10 @@ enum MOOD_TYPE {
     STALK_MOOD,
 };
 
+enum SOUND_EFFECT_ID {
+    SFX_LARA_FALL = 30,
+};
+
 enum OBJECT_ID {
     O_INVALID = -1,
     O_LARA = 0,

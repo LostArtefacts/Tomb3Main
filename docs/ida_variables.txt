@@ -583,7 +583,7 @@ FSD 004410A0 00000057 void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll); /
 FSD 00441100 0000009E void lara_as_turn_r(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_TurnRight
 FSD 004411A0 0000009E void lara_as_turn_l(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_TurnLeft
 FSD 00441240 00000017 void lara_as_death(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Death
-FS- 00441260 00000040 void lara_as_fastfall(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441260 00000040 void lara_as_fastfall(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastFall
 FS- 004412A0 00000065 void lara_as_hang(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441310 0000001C void lara_as_reach(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441330 0000000A void lara_as_splat(ITEM_INFO *item, COLL_INFO *coll);
@@ -942,7 +942,7 @@ FS- 00466E00 00000203 void TriggerShivaSmoke(int32_t x, int32_t y, int32_t z, in
 FS- 00467010 0000005F void InitialiseShiva(int16_t item_num);
 FS- 00467070 000006DE void ShivaControl(int16_t item_num);
 FS- 00467780 000000B4 void ShivaDamage(ITEM_INFO *item, CREATURE_INFO *shiva, int32_t damage);
-FS- 00467840 000004B0 int32_t SoundEffect(int32_t sfx_num, PHD_3DPOS *pos, int32_t flags);
+FSC 00467840 000004B0 int32_t SoundEffect(int32_t sfx_num, PHD_3DPOS *pos, int32_t flags);
 FS- 00467D00 0000005E void StopSoundEffect(int32_t sfx_num);
 FS- 00467D60 00000086 void SOUND_EndScene(void);
 FS- 00467DF0 00000024 void SOUND_Stop(void);
