@@ -6,6 +6,7 @@
 
 #define LARA_TURN_UNDO       (2 * ONE_DEGREE) // = 364
 #define LARA_TURN_RATE       ((ONE_DEGREE / 4) + LARA_TURN_UNDO) // = 409
+#define LARA_MED_TURN_RATE   ((ONE_DEGREE * 4) + LARA_TURN_UNDO) // = 1092
 #define LARA_FAST_TURN_RATE  ((ONE_DEGREE * 6) + LARA_TURN_UNDO) // = 1456
 #define LARA_LEAN_UNDO       (ONE_DEGREE) // = 182
 #define LARA_LEAN_RATE       ((ONE_DEGREE / 2) + LARA_LEAN_UNDO) // = 273

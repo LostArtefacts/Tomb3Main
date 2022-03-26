@@ -127,3 +127,16 @@ void Lara_AsRun(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_RUN;
     }
 }
+
+void Lara_AsFastBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->goal_anim_state = LS_STOP;
+
+    if (g_Input & IN_LEFT) {
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        CLAMPL(g_Lara.turn_rate, -LARA_MED_TURN_RATE);
+    } else if (g_Input & IN_RIGHT) {
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        CLAMPG(g_Lara.turn_rate, +LARA_MED_TURN_RATE);
+    }
+}
