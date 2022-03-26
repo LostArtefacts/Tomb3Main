@@ -259,3 +259,8 @@ void Lara_State_Reach(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_FAST_FALL;
     }
 }
+
+void Lara_State_Splat(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+}
