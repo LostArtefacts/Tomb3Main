@@ -1,4 +1,5 @@
 import ctypes
+import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -31,6 +32,12 @@ def import_types() -> None:
     error_count = idaapi.idc_parse_types(str(TYPES_FILE), idc.PT_FILE)
     print(f"    done ({error_count} errors)")
 
+    print(f"Copying type information to IDB...")
+    til = idaapi.get_idati()
+    types = TYPES_FILE.read_text()
+    for result in re.finditer(r'^(enum|struct)\s+(?P<name>[\w_]+)\s*{', types, flags=re.M):
+        idaapi.import_type(til, -1, result.group('name'))
+    print("    done")
 
 def import_variables() -> None:
     print(f"Importing variables information from {VARIABLES_FILE}:")
