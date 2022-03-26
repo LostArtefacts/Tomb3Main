@@ -578,7 +578,7 @@ FS- 00440A40 0000014F void lara_col_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440B90 0000021E int32_t LaraTestHangJumpUp(ITEM_INFO *item, COLL_INFO *coll);
 FSD 00440DB0 000000D3 void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsForwardJump
 FSD 00440E90 0000008B void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsWalk
-FS- 00440F20 00000175 void lara_as_run(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00440F20 00000175 void lara_as_run(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsRun
 FS- 004410A0 00000057 void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441100 0000009E void lara_as_turn_r(ITEM_INFO *item, COLL_INFO *coll);
 FS- 004411A0 0000009E void lara_as_turn_l(ITEM_INFO *item, COLL_INFO *coll);
@@ -1521,3 +1521,4 @@ V-- 006D76E0 - uint32_t SaveGameReqFlags2[24]; // MAX_LEVELS;
 V-- 006D7740 - uint32_t SaveGameReqFlags1[24]; // MAX_LEVELS;
 V-- 006D78A4 - char **g_GF_Level_Names;
 V-- 006DCAC0 - OBJECT_INFO g_Objects[376];
+V-- 006E2074 - ANIM_STRUCT *g_Anims;

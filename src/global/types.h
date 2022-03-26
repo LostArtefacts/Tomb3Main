@@ -282,6 +282,22 @@ struct RGB888 {
     uint8_t b;
 };
 
+struct ANIM_STRUCT {
+    int16_t *frame_ptr;
+    int16_t interpolation;
+    int16_t current_anim_state;
+    int32_t velocity;
+    int32_t acceleration;
+    int16_t frame_base;
+    int16_t frame_end;
+    int16_t jump_anim_num;
+    int16_t jump_frame_num;
+    int16_t number_changes;
+    int16_t change_index;
+    int16_t number_commands;
+    int16_t command_index;
+};
+
 struct ITEM_LIGHT {
     struct PHD_VECTOR sun_pos;
     struct PHD_VECTOR bulb_pos;
