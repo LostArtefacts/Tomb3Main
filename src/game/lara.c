@@ -321,3 +321,23 @@ void Lara_State_Back(struct ITEM_INFO *item, struct COLL_INFO *coll)
         CLAMPG(g_Lara.turn_rate, +LARA_SLOW_TURN);
     }
 }
+
+void Lara_State_FastTurn(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_STOP;
+        return;
+    }
+
+    if (g_Lara.turn_rate < 0) {
+        g_Lara.turn_rate = -LARA_FAST_TURN;
+        if (!(g_Input & IN_LEFT)) {
+            item->goal_anim_state = LS_STOP;
+        }
+    } else {
+        g_Lara.turn_rate = LARA_FAST_TURN;
+        if (!(g_Input & IN_RIGHT)) {
+            item->goal_anim_state = LS_STOP;
+        }
+    }
+}
