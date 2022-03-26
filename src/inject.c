@@ -16,4 +16,5 @@ void Inject_All(void)
     INJECT(0x004412A0, Lara_State_Hang, 1);
     INJECT(0x00441310, Lara_State_Reach, 1);
     INJECT(0x00441330, Lara_State_Splat, 1);
+    INJECT(0x00441340, Lara_State_Compress, 1);
 }

@@ -264,3 +264,37 @@ void Lara_State_Splat(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Lara.look = 0;
 }
+
+void Lara_State_Compress(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (g_Lara.water_status != LWS_WADE) {
+        if ((g_Input & IN_FORWARD)
+            && (Lara_FloorFront(item, item->pos.y_rot, 256)
+                >= -LARA_STEP_UP_HEIGHT)) {
+            item->goal_anim_state = LS_FORWARD_JUMP;
+            g_Lara.move_angle = item->pos.y_rot;
+        } else if (
+            (g_Input & IN_LEFT)
+            && (Lara_FloorFront(item, item->pos.y_rot - DEG_90, 256)
+                >= -LARA_STEP_UP_HEIGHT)) {
+            item->goal_anim_state = LS_LEFT_JUMP;
+            g_Lara.move_angle = item->pos.y_rot - DEG_90;
+        } else if (
+            (g_Input & IN_RIGHT)
+            && (Lara_FloorFront(item, item->pos.y_rot + DEG_90, 256)
+                >= -LARA_STEP_UP_HEIGHT)) {
+            item->goal_anim_state = LS_RIGHT_JUMP;
+            g_Lara.move_angle = item->pos.y_rot + DEG_90;
+        } else if (
+            (g_Input & IN_BACK)
+            && (Lara_FloorFront(item, item->pos.y_rot + DEG_180, 256)
+                >= -LARA_STEP_UP_HEIGHT)) {
+            item->goal_anim_state = LS_BACK_JUMP;
+            g_Lara.move_angle = item->pos.y_rot + DEG_180;
+        }
+    }
+
+    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+        item->goal_anim_state = LS_FAST_FALL;
+    }
+}

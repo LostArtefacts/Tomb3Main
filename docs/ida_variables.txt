@@ -587,7 +587,7 @@ FSD 00441260 00000040 void lara_as_fastfall(ITEM_INFO *item, COLL_INFO *coll); /
 FSD 004412A0 00000065 void lara_as_hang(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Hang
 FSD 00441310 0000001C void lara_as_reach(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Reach
 FSD 00441330 0000000A void lara_as_splat(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Splat
-FS- 00441340 0000010C void lara_as_compress(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441340 0000010C void lara_as_compress(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Compress
 FS- 00441450 00000084 void lara_as_back(ITEM_INFO *item, COLL_INFO *coll);
 FS- 004414E0 0000004B void lara_as_fastturn(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441530 0000007C void lara_as_stepright(ITEM_INFO *item, COLL_INFO *coll);
@@ -663,7 +663,7 @@ FS- 004448A0 000000D4 void DeathSlideCollision(int16_t item_num, ITEM_INFO *lara
 FS- 00444980 0000029F void ControlDeathSlide(int16_t item_num);
 FS- 00444C20 000000EB int32_t LaraLandedBad(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00444D10 0000006A int32_t LaraHitCeiling(ITEM_INFO *item, COLL_INFO *coll);
-FS- 00444D80 00000075 int16_t LaraFloorFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist);
+FSC 00444D80 00000075 int16_t LaraFloorFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // Lara_FloorFront
 FS- 00444E00 0000007E int16_t LaraCeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist);
 FS- 00444E80 00000054 int32_t LaraFallen(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00444EE0 000000AD int32_t LaraTestEdgeCatch(ITEM_INFO *item, COLL_INFO *coll, int32_t *edge);
