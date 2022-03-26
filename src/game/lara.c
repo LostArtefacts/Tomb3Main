@@ -5,23 +5,23 @@
 
 void Lara_AsForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
-    if (item->goal_anim_state == AS_SWANDIVE
-        || item->goal_anim_state == AS_REACH) {
-        item->goal_anim_state = AS_FORWARDJUMP;
+    if (item->goal_anim_state == LS_SWANDIVE
+        || item->goal_anim_state == LS_REACH) {
+        item->goal_anim_state = LS_FORWARDJUMP;
     }
-    if (item->goal_anim_state != AS_DEATH && item->goal_anim_state != AS_STOP
-        && item->goal_anim_state != AS_RUN) {
+    if (item->goal_anim_state != LS_DEATH && item->goal_anim_state != LS_STOP
+        && item->goal_anim_state != LS_RUN) {
         if ((g_Input & IN_ACTION) && g_Lara.gun_status == LG_ARMLESS) {
-            item->goal_anim_state = AS_REACH;
+            item->goal_anim_state = LS_REACH;
         }
         if ((g_Input & IN_ROLL) || (g_Input & IN_BACK)) {
-            item->goal_anim_state = AS_TWIST;
+            item->goal_anim_state = LS_TWIST;
         }
         if ((g_Input & IN_SLOW) && g_Lara.gun_status == LG_ARMLESS) {
-            item->goal_anim_state = AS_SWANDIVE;
+            item->goal_anim_state = LS_SWANDIVE;
         }
         if (item->fallspeed > LARA_FASTFALL_SPEED) {
-            item->goal_anim_state = AS_FASTFALL;
+            item->goal_anim_state = LS_FASTFALL;
         }
     }
 
@@ -41,7 +41,7 @@ void Lara_AsForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_AsWalk(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->hit_points <= 0) {
-        item->goal_anim_state = AS_STOP;
+        item->goal_anim_state = LS_STOP;
         return;
     }
 
@@ -57,13 +57,13 @@ void Lara_AsWalk(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     if (g_Input & IN_FORWARD) {
         if (g_Lara.water_status == LWS_WADE) {
-            item->goal_anim_state = AS_WADE;
+            item->goal_anim_state = LS_WADE;
         } else if (g_Input & IN_SLOW) {
-            item->goal_anim_state = AS_WALK;
+            item->goal_anim_state = LS_WALK;
         } else {
-            item->goal_anim_state = AS_RUN;
+            item->goal_anim_state = LS_RUN;
         }
     } else {
-        item->goal_anim_state = AS_STOP;
+        item->goal_anim_state = LS_STOP;
     }
 }
