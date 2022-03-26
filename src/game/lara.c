@@ -6,7 +6,7 @@
 
 static bool m_JumpOK = true;
 
-void Lara_AsForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
         || item->goal_anim_state == LS_REACH) {
@@ -38,7 +38,7 @@ void Lara_AsForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
-void Lara_AsWalk(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->hit_points <= 0) {
         item->goal_anim_state = LS_STOP;
@@ -66,7 +66,7 @@ void Lara_AsWalk(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
-void Lara_AsRun(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_State_Run(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->hit_points <= 0) {
         item->goal_anim_state = LS_DEATH;
@@ -128,7 +128,7 @@ void Lara_AsRun(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
-void Lara_AsFastBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_State_FastBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->goal_anim_state = LS_STOP;
 

@@ -576,10 +576,10 @@ FS- 00440960 000000BF void lara_col_stop(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440A20 00000013 void lara_as_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440A40 0000014F void lara_col_upjump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00440B90 0000021E int32_t LaraTestHangJumpUp(ITEM_INFO *item, COLL_INFO *coll);
-FSD 00440DB0 000000D3 void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsForwardJump
-FSD 00440E90 0000008B void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsWalk
-FSD 00440F20 00000175 void lara_as_run(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsRun
-FSD 004410A0 00000057 void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll); // Lara_AsFastBack
+FSD 00440DB0 000000D3 void lara_as_forwardjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_ForwardJump
+FSD 00440E90 0000008B void lara_as_walk(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Walk
+FSD 00440F20 00000175 void lara_as_run(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Run
+FSD 004410A0 00000057 void lara_as_fastback(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastBack
 FS- 00441100 0000009E void lara_as_turn_r(ITEM_INFO *item, COLL_INFO *coll);
 FS- 004411A0 0000009E void lara_as_turn_l(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441240 00000017 void lara_as_death(ITEM_INFO *item, COLL_INFO *coll);
