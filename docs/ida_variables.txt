@@ -585,7 +585,7 @@ FSD 004411A0 0000009E void lara_as_turn_l(ITEM_INFO *item, COLL_INFO *coll); // 
 FSD 00441240 00000017 void lara_as_death(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Death
 FSD 00441260 00000040 void lara_as_fastfall(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastFall
 FSD 004412A0 00000065 void lara_as_hang(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Hang
-FS- 00441310 0000001C void lara_as_reach(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441310 0000001C void lara_as_reach(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Reach
 FS- 00441330 0000000A void lara_as_splat(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441340 0000010C void lara_as_compress(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441450 00000084 void lara_as_back(ITEM_INFO *item, COLL_INFO *coll);

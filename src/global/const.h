@@ -20,4 +20,5 @@
 
 #define CAMERA_HANG_ANGLE     0
 #define CAMERA_HANG_ELEVATION (ONE_DEGREE * -60) // = -10920
+#define CAMERA_REACH_ANGLE    (85 * ONE_DEGREE) // = 15470
 // clang-format on
