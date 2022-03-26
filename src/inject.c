@@ -13,4 +13,5 @@ void Inject_All(void)
     INJECT(0x004411A0, Lara_State_TurnLeft, 1);
     INJECT(0x00441240, Lara_State_Death, 1);
     INJECT(0x00441260, Lara_State_FastFall, 1);
+    INJECT(0x004412A0, Lara_State_Hang, 1);
 }

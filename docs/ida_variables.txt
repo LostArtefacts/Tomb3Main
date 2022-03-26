@@ -213,7 +213,7 @@ FS- 0041F750 000005D1 void CompyControl(int16_t item_num);
 FS- 0041FD50 0000024B void CarcassControl(int16_t item_num);
 FS- 0041FFA0 000005EC int32_t ControlPhase(int32_t nframes, int32_t demo_mode);
 FS- 00420590 000003A3 void AnimateItem(ITEM_INFO *item);
-FS- 00420970 000000AB int32_t GetChange(ITEM_INFO *item, ANIM_STRUCT *anim);
+FS- 00420970 000000AB int32_t GetChange(ITEM_INFO *item, ANIM_INFO *anim);
 FS- 00420A20 0000005F void TranslateItem(ITEM_INFO *item, int32_t x, int32_t y, int32_t z);
 FS- 00420A80 000001E1 FLOOR_INFO *GetFloor(int32_t x, int32_t y, int32_t z, int16_t *room_num);
 FS- 00420C70 00000192 int32_t GetWaterHeight(int32_t x, int32_t y, int32_t z, int16_t room_num);
@@ -584,7 +584,7 @@ FSD 00441100 0000009E void lara_as_turn_r(ITEM_INFO *item, COLL_INFO *coll); // 
 FSD 004411A0 0000009E void lara_as_turn_l(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_TurnLeft
 FSD 00441240 00000017 void lara_as_death(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Death
 FSD 00441260 00000040 void lara_as_fastfall(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastFall
-FS- 004412A0 00000065 void lara_as_hang(ITEM_INFO *item, COLL_INFO *coll);
+FSD 004412A0 00000065 void lara_as_hang(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Hang
 FS- 00441310 0000001C void lara_as_reach(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441330 0000000A void lara_as_splat(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441340 0000010C void lara_as_compress(ITEM_INFO *item, COLL_INFO *coll);
@@ -656,7 +656,7 @@ FS- 004432E0 00000077 void lara_col_jumper(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00443360 00000863 void GetLaraHandAbsPosition(PHD_VECTOR *vec, int32_t left_right);
 FS- 00443C10 00000083 void AddJointPos(ITEM_INFO *item, int32_t mesh);
 FS- 00443CA0 000009FD void GetLHAInt(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, int32_t left_right);
-FS- 004446E0 00000084 void LookUpDown(void);
+FSC 004446E0 00000084 void LookUpDown(void); // Lara_LookUpDown
 FS- 00444770 00000086 void LookLeftRight(void);
 FS- 00444800 00000097 void ResetLook(void);
 FS- 004448A0 000000D4 void DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
@@ -1521,4 +1521,5 @@ V-- 006D76E0 - uint32_t SaveGameReqFlags2[24]; // MAX_LEVELS;
 V-- 006D7740 - uint32_t SaveGameReqFlags1[24]; // MAX_LEVELS;
 V-- 006D78A4 - char **g_GF_Level_Names;
 V-- 006DCAC0 - OBJECT_INFO g_Objects[376];
-V-- 006E2074 - ANIM_STRUCT *g_Anims;
+V-- 006E2074 - ANIM_INFO *g_Anims;
+V-- 006E3040 - CAMERA_INFO g_Camera;

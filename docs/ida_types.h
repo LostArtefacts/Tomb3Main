@@ -5,17 +5,10 @@
 typedef int16_t PHD_ANGLE;
 typedef uint16_t SG_COL;
 
-enum TARGET_TYPE {
-    NO_TARGET,
-    PRIME_TARGET,
-    SECONDARY_TARGET,
-};
-
-enum MOOD_TYPE {
-    BORED_MOOD,
-    ATTACK_MOOD,
-    ESCAPE_MOOD,
-    STALK_MOOD,
+enum SORT_TYPE {
+    MID_SORT,
+    FAR_SORT,
+    BACK_SORT,
 };
 
 enum SOUND_EFFECT_ID {
@@ -403,10 +396,26 @@ enum OBJECT_ID {
     O_NUMBER_OF = 376,
 };
 
-enum SORT_TYPE {
-    MID_SORT,
-    FAR_SORT,
-    BACK_SORT,
+enum TARGET_TYPE {
+    TARGET_NONE = 0,
+    TARGET_PRIMARY = 1,
+    TARGET_SECONDARY = 2,
+};
+
+enum MOOD_TYPE {
+    MOOD_BORED = 0,
+    MOOD_ATTACK = 1,
+    MOOD_ESCAPE = 2,
+    MOOD_STALK = 3,
+};
+
+enum CAMERA_TYPE {
+    CT_CHASE = 0,
+    CT_FIXED = 1,
+    CT_LOOK = 2,
+    CT_COMBAT = 3,
+    CT_CINEMATIC = 4,
+    CT_HEAVY = 5,
 };
 
 enum INPUT_STATE {
@@ -1195,7 +1204,36 @@ struct OBJECT_VECTOR {
     int16_t flags;
 };
 
-struct ANIM_STRUCT {
+struct CAMERA_INFO {
+    GAME_VECTOR pos;
+    GAME_VECTOR target;
+    int32_t type; // CAMERA_TYPE
+    int32_t old_type; // CAMERA_TYPE
+    int32_t shift;
+    int32_t flags;
+    int32_t fixed_camera;
+    int32_t number_frames;
+    int32_t bounce;
+    int32_t underwater;
+    int32_t target_distance;
+    int32_t target_square;
+    int16_t target_angle;
+    int16_t actual_angle;
+    int16_t target_elevation;
+    int16_t box;
+    int16_t number;
+    int16_t last;
+    int16_t timer;
+    int16_t speed;
+    int32_t min_ypos;
+    ITEM_INFO *item;
+    ITEM_INFO *last_item;
+    OBJECT_VECTOR *fixed;
+    int32_t mike_at_lara;
+    PHD_VECTOR mike_pos;
+};
+
+struct ANIM_INFO {
     int16_t *frame_ptr;
     int16_t interpolation;
     int16_t current_anim_state;

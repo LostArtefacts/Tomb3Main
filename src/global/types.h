@@ -44,6 +44,15 @@ enum SOUND_EFFECT_ID {
     SFX_LARA_FALL = 30,
 };
 
+enum CAMERA_TYPE {
+    CT_CHASE = 0,
+    CT_FIXED = 1,
+    CT_LOOK = 2,
+    CT_COMBAT = 3,
+    CT_CINEMATIC = 4,
+    CT_HEAVY = 5,
+};
+
 enum LARA_WATER_STATE {
     LWS_ABOVE_WATER = 0,
     LWS_UNDERWATER  = 1,
@@ -243,6 +252,51 @@ struct PHD_VECTOR {
     int32_t z;
 };
 
+struct GAME_VECTOR {
+    int32_t x;
+    int32_t y;
+    int32_t z;
+    int16_t room_num;
+    int16_t box_num;
+};
+
+struct OBJECT_VECTOR {
+    int32_t x;
+    int32_t y;
+    int32_t z;
+    int16_t data;
+    int16_t flags;
+};
+
+struct CAMERA_INFO {
+    struct GAME_VECTOR pos;
+    struct GAME_VECTOR target;
+    int32_t type; // CAMERA_TYPE
+    int32_t old_type; // CAMERA_TYPE
+    int32_t shift;
+    int32_t flags;
+    int32_t fixed_camera;
+    int32_t number_frames;
+    int32_t bounce;
+    int32_t underwater;
+    int32_t target_distance;
+    int32_t target_square;
+    int16_t target_angle;
+    int16_t actual_angle;
+    int16_t target_elevation;
+    int16_t box;
+    int16_t number;
+    int16_t last;
+    int16_t timer;
+    int16_t speed;
+    int32_t min_ypos;
+    struct ITEM_INFO *item;
+    struct ITEM_INFO *last_item;
+    struct OBJECT_VECTOR *fixed;
+    int32_t mike_at_lara;
+    struct PHD_VECTOR mike_pos;
+};
+
 struct COLL_INFO {
     int32_t mid_floor;
     int32_t mid_ceiling;
@@ -286,7 +340,7 @@ struct RGB888 {
     uint8_t b;
 };
 
-struct ANIM_STRUCT {
+struct ANIM_INFO {
     int16_t *frame_ptr;
     int16_t interpolation;
     int16_t current_anim_state;
