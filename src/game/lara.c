@@ -202,3 +202,10 @@ void Lara_State_TurnLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_STOP;
     }
 }
+
+void Lara_State_Death(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+}

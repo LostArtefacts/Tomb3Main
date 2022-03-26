@@ -8,3 +8,4 @@ void Lara_State_Run(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_FastBack(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_TurnRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_TurnLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_Death(struct ITEM_INFO *item, struct COLL_INFO *coll);
