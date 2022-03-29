@@ -30,21 +30,24 @@
 #define LARA_DASH_TIME         (30 * 4) // 4 seconds
 #define LARA_STEP_UP_HEIGHT    ((STEP_L * 3) / 2) // = 384
 
-#define CAMERA_HANG_ANGLE      0
-#define CAMERA_HANG_ELEVATION  (DEG_1 * -60) // = -10920
-#define CAMERA_SLIDE_ELEVATION (DEG_1 * -45) // = -8190
-#define CAMERA_REACH_ANGLE     (DEG_1 * 85) // = 15470
-#define CAMERA_PUSHBLOCK_ANGLE (DEG_1 * 35) // = 6370
-#define CAMERA_PUSHBLOCK_ELEVATION (DEG_1 * -25) // = -4550
-#define CAMERA_PICKUP_ANGLE    (DEG_1 * -130) // = -23660
-#define CAMERA_PICKUP_ELEVATION (DEG_1 * -15) // = -2730
-#define CAMERA_PICKUP_DISTANCE WALL_L // = 1024
-#define CAMERA_SWITCHON_ANGLE     (DEG_1 * 80) // = 14560
-#define CAMERA_SWITCHON_ELEVATION (DEG_1 * -25) // = -4550
-#define CAMERA_SWITCHON_DISTANCE  WALL_L // = 1024
-#define CAMERA_SWITCHON_SPEED     6
-#define CAMERA_PUSHPULL_ANGLE  (DEG_1 * 75) // = 13650
-#define CAMERA_FOLLOW_CENTRE   1
-#define CAMERA_NO_CHUNKY       2
-#define CAMERA_BACKJUMP_ANGLE  (DEG_1 * 135) // = 24570
+#define CAMERA_HANG_ANGLE            0
+#define CAMERA_HANG_ELEVATION        (DEG_1 * -60) // = -10920
+#define CAMERA_SLIDE_ELEVATION       (DEG_1 * -45) // = -8190
+#define CAMERA_REACH_ANGLE           (DEG_1 * 85) // = 15470
+#define CAMERA_PUSHBLOCK_ANGLE       (DEG_1 * 35) // = 6370
+#define CAMERA_PUSHBLOCK_ELEVATION   (DEG_1 * -25) // = -4550
+#define CAMERA_PICKUP_ANGLE          (DEG_1 * -130) // = -23660
+#define CAMERA_PICKUP_ELEVATION      (DEG_1 * -15) // = -2730
+#define CAMERA_PICKUP_DISTANCE       WALL_L // = 1024
+#define CAMERA_PICKUPFLARE_ANGLE     (DEG_1 * 130) // = 23660
+#define CAMERA_PICKUPFLARE_ELEVATION (DEG_1 * -15) // = -2730
+#define CAMERA_PICKUPFLARE_DISTANCE  WALL_L // = 1024
+#define CAMERA_SWITCHON_ANGLE        (DEG_1 * 80) // = 14560
+#define CAMERA_SWITCHON_ELEVATION    (DEG_1 * -25) // = -4550
+#define CAMERA_SWITCHON_DISTANCE     WALL_L // = 1024
+#define CAMERA_SWITCHON_SPEED        6
+#define CAMERA_PUSHPULL_ANGLE        (DEG_1 * 75) // = 13650
+#define CAMERA_FOLLOW_CENTRE         1
+#define CAMERA_NO_CHUNKY             2
+#define CAMERA_BACKJUMP_ANGLE        (DEG_1 * 135) // = 24570
 // clang-format on

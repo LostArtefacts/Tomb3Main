@@ -29,4 +29,5 @@ void Lara_State_SlideBack(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_PushBlock(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_PushPullReady(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Pickup(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_PickupFlare(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_SwitchOn(struct ITEM_INFO *item, struct COLL_INFO *coll);

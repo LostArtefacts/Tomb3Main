@@ -499,6 +499,19 @@ void Lara_State_Pickup(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_distance = CAMERA_PICKUP_DISTANCE;
 }
 
+void Lara_State_PickupFlare(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_angle = CAMERA_PICKUPFLARE_ANGLE;
+    g_Camera.target_elevation = CAMERA_PICKUPFLARE_ELEVATION;
+    g_Camera.target_distance = CAMERA_PICKUPFLARE_DISTANCE;
+    if (item->frame_num == g_Anims[item->anim_num].frame_end - 1) {
+        g_Lara.gun_status = LG_ARMLESS;
+    }
+}
+
 void Lara_State_SwitchOn(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Lara.look = 0;
