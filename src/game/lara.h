@@ -20,3 +20,4 @@ void Lara_State_StepRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_StepLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Slide(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_BackJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_RightJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
