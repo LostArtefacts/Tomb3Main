@@ -590,7 +590,7 @@ FSD 00441330 0000000A void lara_as_splat(ITEM_INFO *item, COLL_INFO *coll); // L
 FSD 00441340 0000010C void lara_as_compress(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Compress
 FSD 00441450 00000084 void lara_as_back(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Back
 FSD 004414E0 0000004B void lara_as_fastturn(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastTurn
-FS- 00441530 0000007C void lara_as_stepright(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441530 0000007C void lara_as_stepright(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_StepRight
 FS- 004415B0 0000007C void lara_as_stepleft(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441630 0000002B void lara_as_slide(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441660 0000004A void lara_as_backjump(ITEM_INFO *item, COLL_INFO *coll);

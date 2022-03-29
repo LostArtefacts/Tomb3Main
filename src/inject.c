@@ -19,4 +19,5 @@ void Inject_All(void)
     INJECT(0x00441340, Lara_State_Compress, 1);
     INJECT(0x00441450, Lara_State_Back, 1);
     INJECT(0x004414E0, Lara_State_FastTurn, 1);
+    INJECT(0x00441530, Lara_State_StepRight, 1);
 }
