@@ -49,6 +49,8 @@
 #define CAMERA_USEKEY_ANGLE          (DEG_1 * -80) // = -14560
 #define CAMERA_USEKEY_ELEVATION      (DEG_1 * -25) // = -4550
 #define CAMERA_USEKEY_DISTANCE       WALL_L // 1024
+#define CAMERA_EXTRA_ANGLE           (DEG_1 * 170) // = 30940
+#define CAMERA_EXTRA_ELEVATION       (DEG_1 * -25) // = -4550
 #define CAMERA_PUSHPULL_ANGLE        (DEG_1 * 75) // = 13650
 #define CAMERA_FOLLOW_CENTRE         1
 #define CAMERA_NO_CHUNKY             2
