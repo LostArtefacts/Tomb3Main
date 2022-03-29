@@ -498,3 +498,14 @@ void Lara_State_Pickup(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_elevation = CAMERA_PICKUP_ELEVATION;
     g_Camera.target_distance = CAMERA_PICKUP_DISTANCE;
 }
+
+void Lara_State_SwitchOn(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_angle = CAMERA_SWITCHON_ANGLE;
+    g_Camera.target_elevation = CAMERA_SWITCHON_ELEVATION;
+    g_Camera.target_distance = CAMERA_SWITCHON_DISTANCE;
+    g_Camera.speed = CAMERA_SWITCHON_SPEED;
+}
