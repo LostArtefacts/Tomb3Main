@@ -439,3 +439,14 @@ void Lara_State_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_REACH;
     }
 }
+
+void Lara_State_HangLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_angle = CAMERA_HANG_ANGLE;
+    g_Camera.target_elevation = CAMERA_HANG_ELEVATION;
+    if (!(g_Input & IN_LEFT) && !(g_Input & IN_STEPL)) {
+        item->goal_anim_state = LS_HANG;
+    }
+}

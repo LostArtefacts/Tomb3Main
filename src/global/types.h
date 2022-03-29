@@ -310,6 +310,12 @@ struct COLL_INFO {
     int32_t right_floor;
     int32_t right_ceiling;
     int32_t right_type;
+    int32_t left_floor2;
+    int32_t left_ceiling2;
+    int32_t left_type2;
+    int32_t right_floor2;
+    int32_t right_ceiling2;
+    int32_t right_type2;
     int32_t radius;
     int32_t bad_pos;
     int32_t bad_neg;
