@@ -419,3 +419,13 @@ void Lara_State_RightJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_TWIST;
     }
 }
+
+void Lara_State_LeftJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+        item->goal_anim_state = LS_FAST_FALL;
+    } else if ((g_Input & IN_RIGHT) && item->goal_anim_state != LS_STOP) {
+        item->goal_anim_state = LS_TWIST;
+    }
+}
