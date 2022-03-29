@@ -37,4 +37,5 @@ void Inject_All(void)
     INJECT(0x00441950, Lara_State_UseKey, 1);
     INJECT(0x00441990, Lara_State_Special, 1);
     INJECT(0x004419B0, Lara_State_SwanDive, 1);
+    INJECT(0x004419F0, Lara_State_FastDive, 1);
 }

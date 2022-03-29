@@ -549,3 +549,13 @@ void Lara_State_SwanDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_FAST_DIVE;
     }
 }
+
+void Lara_State_FastDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 1;
+    if ((g_Input & IN_ROLL) && item->goal_anim_state == LS_FAST_DIVE) {
+        item->goal_anim_state = LS_TWIST;
+    }
+    Lara_State_FastFallFriction(item);
+}
