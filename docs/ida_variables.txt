@@ -602,7 +602,7 @@ FSD 004417A0 00000038 void lara_as_hangright(ITEM_INFO *item, COLL_INFO *coll); 
 FSD 004417E0 00000018 void lara_as_slideback(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_SlideBack
 FSD 00441800 00000033 void lara_as_pushblock(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_PushBlock
 FSD 00441840 0000002A void lara_as_ppready(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_PushPullReady
-FS- 00441870 00000033 void lara_as_pickup(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441870 00000033 void lara_as_pickup(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Pickup
 FS- 004418B0 0000005B void lara_as_pickupflare(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441910 0000003C void lara_as_switchon(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441950 00000033 void lara_as_usekey(ITEM_INFO *item, COLL_INFO *coll);

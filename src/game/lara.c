@@ -488,3 +488,13 @@ void Lara_State_PushPullReady(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_STOP;
     }
 }
+
+void Lara_State_Pickup(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_angle = CAMERA_PICKUP_ANGLE;
+    g_Camera.target_elevation = CAMERA_PICKUP_ELEVATION;
+    g_Camera.target_distance = CAMERA_PICKUP_DISTANCE;
+}
