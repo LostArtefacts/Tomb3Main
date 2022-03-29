@@ -35,4 +35,5 @@
 #define CAMERA_SLIDE_ELEVATION (DEG_1 * -45) // = -8190
 #define CAMERA_REACH_ANGLE     (85 * DEG_1) // = 15470
 #define CAMERA_NO_CHUNKY       2
+#define CAMERA_BACKJUMP_ANGLE  (DEG_1 * 135) // = 24570
 // clang-format on

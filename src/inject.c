@@ -22,4 +22,5 @@ void Inject_All(void)
     INJECT(0x00441530, Lara_State_StepRight, 1);
     INJECT(0x004415B0, Lara_State_StepLeft, 1);
     INJECT(0x00441630, Lara_State_Slide, 1);
+    INJECT(0x00441660, Lara_State_BackJump, 1);
 }
