@@ -33,3 +33,4 @@ void Lara_State_PickupFlare(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_SwitchOn(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_UseKey(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Special(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_SwanDive(struct ITEM_INFO *item, struct COLL_INFO *coll);
