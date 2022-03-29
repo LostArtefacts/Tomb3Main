@@ -478,3 +478,13 @@ void Lara_State_PushBlock(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_angle = CAMERA_PUSHBLOCK_ANGLE;
     g_Camera.target_elevation = CAMERA_PUSHBLOCK_ELEVATION;
 }
+
+void Lara_State_PushPullReady(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_angle = CAMERA_PUSHPULL_ANGLE;
+    if (!(g_Input & IN_ACTION)) {
+        item->goal_anim_state = LS_STOP;
+    }
+}

@@ -30,4 +30,5 @@ void Inject_All(void)
     INJECT(0x004417A0, Lara_State_HangRight, 1);
     INJECT(0x004417E0, Lara_State_SlideBack, 1);
     INJECT(0x00441800, Lara_State_PushBlock, 1);
+    INJECT(0x00441840, Lara_State_PushPullReady, 1);
 }
