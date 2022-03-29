@@ -565,3 +565,10 @@ void Lara_State_Null(struct ITEM_INFO *item, struct COLL_INFO *coll)
     coll->enable_spaz = 0;
     coll->enable_baddie_push = 0;
 }
+
+void Lara_State_WaterOut(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.flags = CAMERA_FOLLOW_CENTRE;
+}
