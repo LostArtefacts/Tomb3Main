@@ -859,7 +859,7 @@ struct ITEM_INFO {
     int16_t next_item;
     int16_t next_active;
     int16_t speed;
-    int16_t fallspeed;
+    int16_t fall_speed;
     int16_t hit_points;
     uint16_t box_num;
     int16_t timer;
@@ -1046,7 +1046,7 @@ struct FX_INFO {
     int16_t next_fx;
     int16_t next_active;
     int16_t speed;
-    int16_t fallspeed;
+    int16_t fall_speed;
     int16_t frame_num;
     int16_t counter;
     int16_t shade;
@@ -1142,7 +1142,7 @@ struct LARA_INFO {
     int16_t gun_type;
     int16_t request_gun_type;
     int16_t last_gun_type;
-    int16_t calc_fallspeed;
+    int16_t calc_fall_speed;
     int16_t water_status;
     int16_t climb_status;
     int16_t pose_count;

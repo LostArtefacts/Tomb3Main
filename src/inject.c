@@ -41,4 +41,5 @@ void Inject_All(void)
     INJECT(0x00441A50, Lara_State_Null, 1);
     INJECT(0x00441A60, Lara_State_WaterOut, 1);
     INJECT(0x00441A80, Lara_State_Wade, 1);
+    INJECT(0x00441C00, Lara_State_DeathSlide, 1);
 }

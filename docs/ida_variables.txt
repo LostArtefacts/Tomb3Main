@@ -124,7 +124,7 @@ FS- 00413B80 00000090 int32_t BoatGetCollisionAnim(ITEM_INFO *skidoo, PHD_VECTOR
 FS- 00413C10 000000D1 void BoatDoBoatShift(int32_t boat_num);
 FS- 00413CF0 00000027 void DrawBoat(ITEM_INFO *item);
 FS- 00413D20 000001D7 void TriggerBoatMist(int32_t x, int32_t y, int32_t z, int32_t speed, int16_t angle, int32_t snow);
-FS- 00413F00 000000E2 void BoatSplash(ITEM_INFO *item, int32_t fallspeed, int32_t water);
+FS- 00413F00 000000E2 void BoatSplash(ITEM_INFO *item, int32_t fall_speed, int32_t water);
 FS- 00413FF0 000000A6 void BoomuteControl(int16_t item_num);
 FS- 004140A0 0000023F int16_t TriggerBoomuteGasThrower(ITEM_INFO *item, BITE_INFO *bite, int16_t speed);
 FS- 004142E0 0000004D void InitialiseCreature(int16_t item_num);
@@ -215,9 +215,9 @@ FS- 0041FFA0 000005EC int32_t ControlPhase(int32_t nframes, int32_t demo_mode);
 FS- 00420590 000003A3 void AnimateItem(ITEM_INFO *item);
 FS- 00420970 000000AB int32_t GetChange(ITEM_INFO *item, ANIM_INFO *anim);
 FS- 00420A20 0000005F void TranslateItem(ITEM_INFO *item, int32_t x, int32_t y, int32_t z);
-FS- 00420A80 000001E1 FLOOR_INFO *GetFloor(int32_t x, int32_t y, int32_t z, int16_t *room_num);
+FSC 00420A80 000001E1 FLOOR_INFO *GetFloor(int32_t x, int32_t y, int32_t z, int16_t *room_num);
 FS- 00420C70 00000192 int32_t GetWaterHeight(int32_t x, int32_t y, int32_t z, int16_t room_num);
-FS- 00420E10 00000514 int32_t GetHeight(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
+FSC 00420E10 00000514 int32_t GetHeight(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 00421370 000000EE void RefreshCamera(int16_t type, int16_t *data);
 FS- 00421460 000008C7 void TestTriggers(int16_t *data, int32_t heavy);
 FS- 00421D80 00000055 int32_t TriggerActive(ITEM_INFO *item);
@@ -612,7 +612,7 @@ FSD 004419F0 0000005A void lara_as_fastdive(ITEM_INFO *item, COLL_INFO *coll); /
 FSD 00441A50 0000000E void lara_as_null(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Null
 FSD 00441A60 00000018 void lara_as_waterout(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_WaterOut
 FSD 00441A80 0000017C void lara_as_wade(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Wade
-FS- 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_DeathSlide
 FS- 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441D90 00000013 void extra_as_airlock(ITEM_INFO *item, COLL_INFO *coll);
@@ -739,7 +739,7 @@ FS- 0044C6F0 000008A4 void LaraControl(int16_t item_num);
 FS- 0044CFC0 0000009C void LaraCheat(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0044D060 00000129 void LaraInitialiseMeshes(int32_t level_num);
 FS- 0044D1A0 000000FF void LaraCheatyBits(void);
-FS- 0044D2A0 000003B1 void AnimateLara(ITEM_INFO *item);
+FSC 0044D2A0 000003B1 void AnimateLara(ITEM_INFO *item);
 FS- 0044D690 00000164 void UseItem(int16_t obj_num);
 FS- 0044D880 0000001F void ControlLaraExtra(int16_t item_num);
 FS- 0044D8A0 00000024 void InitialiseLaraLoad(int16_t item_num);
@@ -1524,3 +1524,4 @@ V-- 006DCAC0 - OBJECT_INFO g_Objects[376];
 V-- 006E2074 - ANIM_INFO *g_Anims;
 V-- 006E3040 - CAMERA_INFO g_Camera;
 V-- 006E2890 - ROOM_INFO *g_Rooms;
+V-- 006E29A8 - int16_t *g_TriggerIndex;

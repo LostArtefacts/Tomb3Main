@@ -38,3 +38,4 @@ void Lara_State_FastDive(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Null(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_WaterOut(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Wade(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_DeathSlide(struct ITEM_INFO *item, struct COLL_INFO *coll);

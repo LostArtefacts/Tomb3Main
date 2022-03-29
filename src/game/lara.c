@@ -35,7 +35,7 @@ void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
         if ((g_Input & IN_SLOW) && g_Lara.gun_status == LG_ARMLESS) {
             item->goal_anim_state = LS_SWAN_DIVE;
         }
-        if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+        if (item->fall_speed > LARA_FAST_FALL_SPEED) {
             item->goal_anim_state = LS_FAST_FALL;
         }
     }
@@ -224,7 +224,7 @@ void Lara_State_Death(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_State_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     Lara_State_FastFallFriction(item);
-    if (item->fallspeed == FALL_DAMAGE_START + FALL_DAMAGE_LENGTH) {
+    if (item->fall_speed == FALL_DAMAGE_START + FALL_DAMAGE_LENGTH) {
         SoundEffect(SFX_LARA_FALL, &item->pos, 0);
     }
 }
@@ -255,7 +255,7 @@ void Lara_State_Hang(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_State_Reach(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Camera.target_angle = CAMERA_REACH_ANGLE;
-    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
     }
 }
@@ -294,7 +294,7 @@ void Lara_State_Compress(struct ITEM_INFO *item, struct COLL_INFO *coll)
         }
     }
 
-    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
     }
 }
@@ -399,7 +399,7 @@ void Lara_State_BackJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Camera.target_angle = CAMERA_BACKJUMP_ANGLE;
 
-    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
     } else if (item->goal_anim_state == LS_RUN) {
         item->goal_anim_state = LS_STOP;
@@ -413,7 +413,7 @@ void Lara_State_BackJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_State_RightJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Lara.look = 0;
-    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
     } else if ((g_Input & IN_LEFT) && item->goal_anim_state != LS_STOP) {
         item->goal_anim_state = LS_TWIST;
@@ -423,7 +423,7 @@ void Lara_State_RightJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_State_LeftJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Lara.look = 0;
-    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
     } else if ((g_Input & IN_RIGHT) && item->goal_anim_state != LS_STOP) {
         item->goal_anim_state = LS_TWIST;
@@ -432,7 +432,7 @@ void Lara_State_LeftJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
 void Lara_State_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
-    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
     }
     if ((g_Input & IN_ACTION) && g_Lara.gun_status == LG_ARMLESS) {
@@ -544,7 +544,7 @@ void Lara_State_SwanDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->enable_spaz = 0;
     coll->enable_baddie_push = 1;
-    if (item->fallspeed > LARA_FAST_FALL_SPEED
+    if (item->fall_speed > LARA_FAST_FALL_SPEED
         && item->goal_anim_state != LS_DIVE) {
         item->goal_anim_state = LS_FAST_DIVE;
     }
@@ -605,5 +605,25 @@ void Lara_State_Wade(struct ITEM_INFO *item, struct COLL_INFO *coll)
         }
     } else {
         item->goal_anim_state = LS_STOP;
+    }
+}
+
+void Lara_State_DeathSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Camera.target_angle = 12740;
+
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
+    coll->trigger = g_TriggerIndex;
+
+    if (!(g_Input & IN_ACTION)) {
+        item->goal_anim_state = LS_FORWARD_JUMP;
+        AnimateLara(item);
+        item->gravity_status = 1;
+        item->speed = 100;
+        item->fall_speed = 40;
+        g_Lara.move_angle = item->pos.y_rot;
     }
 }

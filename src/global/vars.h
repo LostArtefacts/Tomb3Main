@@ -9,3 +9,4 @@
 #define g_DashTimer VAR(0x006D62A0, int16_t)
 #define g_Camera VAR(0x006E3040, struct CAMERA_INFO)
 #define g_Rooms VAR(0x006E2890, struct ROOM_INFO *)
+#define g_TriggerIndex VAR(0x006E29A8, int16_t *);
