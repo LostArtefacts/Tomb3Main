@@ -24,3 +24,4 @@ void Lara_State_RightJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_LeftJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_HangLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_HangRight(struct ITEM_INFO *item, struct COLL_INFO *coll);

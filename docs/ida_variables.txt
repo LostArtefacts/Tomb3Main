@@ -598,7 +598,7 @@ FSD 004416B0 00000033 void lara_as_rightjump(ITEM_INFO *item, COLL_INFO *coll); 
 FSD 004416F0 00000033 void lara_as_leftjump(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_LeftJump
 FSD 00441730 0000002C void lara_as_fallback(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FallBack
 FSD 00441760 00000038 void lara_as_hangleft(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_HangLeft
-FS- 004417A0 00000038 void lara_as_hangright(ITEM_INFO *item, COLL_INFO *coll);
+FSD 004417A0 00000038 void lara_as_hangright(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_HangRight
 FS- 004417E0 00000018 void lara_as_slideback(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441800 00000033 void lara_as_pushblock(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441840 0000002A void lara_as_ppready(ITEM_INFO *item, COLL_INFO *coll);
