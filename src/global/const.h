@@ -33,7 +33,10 @@
 #define CAMERA_HANG_ANGLE      0
 #define CAMERA_HANG_ELEVATION  (DEG_1 * -60) // = -10920
 #define CAMERA_SLIDE_ELEVATION (DEG_1 * -45) // = -8190
-#define CAMERA_REACH_ANGLE     (85 * DEG_1) // = 15470
+#define CAMERA_REACH_ANGLE     (DEG_1 * 85) // = 15470
+#define CAMERA_PUSHBLOCK_ANGLE (DEG_1 * 35) // = 6370
+#define CAMERA_PUSHBLOCK_ELEVATION (DEG_1 * -25) // = -4550
+#define CAMERA_FOLLOW_CENTRE   1
 #define CAMERA_NO_CHUNKY       2
 #define CAMERA_BACKJUMP_ANGLE  (DEG_1 * 135) // = 24570
 // clang-format on

@@ -468,3 +468,13 @@ void Lara_State_SlideBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_BACK_JUMP;
     }
 }
+
+void Lara_State_PushBlock(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.look = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.flags = CAMERA_FOLLOW_CENTRE;
+    g_Camera.target_angle = CAMERA_PUSHBLOCK_ANGLE;
+    g_Camera.target_elevation = CAMERA_PUSHBLOCK_ELEVATION;
+}
