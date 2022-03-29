@@ -609,7 +609,7 @@ FSD 00441950 00000033 void lara_as_usekey(ITEM_INFO *item, COLL_INFO *coll); // 
 FSD 00441990 0000001D void lara_as_special(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Special
 FSD 004419B0 00000035 void lara_as_swandive(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_SwanDive
 FSD 004419F0 0000005A void lara_as_fastdive(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastDive
-FS- 00441A50 0000000E void lara_as_null(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441A50 0000000E void lara_as_null(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Null
 FS- 00441A60 00000018 void lara_as_waterout(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441A80 0000017C void lara_as_wade(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll);

@@ -559,3 +559,9 @@ void Lara_State_FastDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
     Lara_State_FastFallFriction(item);
 }
+
+void Lara_State_Null(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+}
