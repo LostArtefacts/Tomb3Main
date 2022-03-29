@@ -429,3 +429,13 @@ void Lara_State_LeftJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_TWIST;
     }
 }
+
+void Lara_State_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->fallspeed > LARA_FAST_FALL_SPEED) {
+        item->goal_anim_state = LS_FAST_FALL;
+    }
+    if ((g_Input & IN_ACTION) && g_Lara.gun_status == LG_ARMLESS) {
+        item->goal_anim_state = LS_REACH;
+    }
+}
