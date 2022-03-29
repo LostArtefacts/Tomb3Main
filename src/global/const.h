@@ -46,6 +46,9 @@
 #define CAMERA_SWITCHON_ELEVATION    (DEG_1 * -25) // = -4550
 #define CAMERA_SWITCHON_DISTANCE     WALL_L // = 1024
 #define CAMERA_SWITCHON_SPEED        6
+#define CAMERA_USEKEY_ANGLE          (DEG_1 * -80) // = -14560
+#define CAMERA_USEKEY_ELEVATION      (DEG_1 * -25) // = -4550
+#define CAMERA_USEKEY_DISTANCE       WALL_L // 1024
 #define CAMERA_PUSHPULL_ANGLE        (DEG_1 * 75) // = 13650
 #define CAMERA_FOLLOW_CENTRE         1
 #define CAMERA_NO_CHUNKY             2

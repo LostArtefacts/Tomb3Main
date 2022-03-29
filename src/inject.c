@@ -34,4 +34,5 @@ void Inject_All(void)
     INJECT(0x00441870, Lara_State_Pickup, 1);
     INJECT(0x004418B0, Lara_State_PickupFlare, 1);
     INJECT(0x00441910, Lara_State_SwitchOn, 1);
+    INJECT(0x00441950, Lara_State_UseKey, 1);
 }
