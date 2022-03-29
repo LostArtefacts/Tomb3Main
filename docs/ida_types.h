@@ -452,6 +452,15 @@ enum INPUT_STATE {
     IN_DASH = (1 << 30),
 };
 
+enum ROOM_FLAG {
+    RF_UNDERWATER = 1,
+    RF_OUTSIDE = 8,
+    RF_DYNAMIC_LIT = 16,
+    RF_NOT_INSIDE = 32,
+    RF_INSIDE = 64,
+    RF_SWAMP = 128,
+};
+
 enum LARA_WATER_STATE {
     LWS_ABOVE_WATER = 0,
     LWS_UNDERWATER = 1,

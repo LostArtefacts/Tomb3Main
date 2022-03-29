@@ -40,6 +40,15 @@ enum INPUT_STATE {
     IN_DASH        = (1 << 30),
 };
 
+enum ROOM_FLAG {
+    RF_UNDERWATER  = 1,
+    RF_OUTSIDE     = 8,
+    RF_DYNAMIC_LIT = 16,
+    RF_NOT_INSIDE  = 32,
+    RF_INSIDE      = 64,
+    RF_SWAMP       = 128,
+};
+
 enum SOUND_EFFECT_ID {
     SFX_LARA_FALL = 30,
 };
@@ -258,6 +267,40 @@ struct GAME_VECTOR {
     int32_t z;
     int16_t room_num;
     int16_t box_num;
+};
+
+struct ROOM_INFO {
+    int16_t *data;
+    int16_t *door;
+    struct FLOOR_INFO *floor;
+    struct LIGHT_INFO *light;
+    struct MESH_INFO *mesh;
+    int32_t x;
+    int32_t y;
+    int32_t z;
+    int32_t min_floor;
+    int32_t max_ceiling;
+    int16_t x_size;
+    int16_t y_size;
+    int16_t ambient;
+    int16_t lighting;
+    int16_t num_lights;
+    int16_t num_meshes;
+    int16_t reverb_type;
+    char mesh_effect;
+    char bound_active;
+    int16_t left;
+    int16_t right;
+    int16_t top;
+    int16_t bottom;
+    int16_t test_left;
+    int16_t test_right;
+    int16_t test_top;
+    int16_t test_bottom;
+    int16_t item_num;
+    int16_t fx_num;
+    int16_t flipped_room;
+    uint16_t flags;
 };
 
 struct OBJECT_VECTOR {

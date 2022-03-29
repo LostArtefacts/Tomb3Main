@@ -611,7 +611,7 @@ FSD 004419B0 00000035 void lara_as_swandive(ITEM_INFO *item, COLL_INFO *coll); /
 FSD 004419F0 0000005A void lara_as_fastdive(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_FastDive
 FSD 00441A50 0000000E void lara_as_null(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Null
 FSD 00441A60 00000018 void lara_as_waterout(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_WaterOut
-FS- 00441A80 0000017C void lara_as_wade(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441A80 0000017C void lara_as_wade(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Wade
 FS- 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll);
@@ -1523,3 +1523,4 @@ V-- 006D78A4 - char **g_GF_Level_Names;
 V-- 006DCAC0 - OBJECT_INFO g_Objects[376];
 V-- 006E2074 - ANIM_INFO *g_Anims;
 V-- 006E3040 - CAMERA_INFO g_Camera;
+V-- 006E2890 - ROOM_INFO *g_Rooms;
