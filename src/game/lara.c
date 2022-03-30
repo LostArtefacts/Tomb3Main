@@ -672,3 +672,14 @@ void Lara_StateExtra_GongBong(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_elevation = DEG_1 * -20;
     g_Camera.target_distance = WALL_L * 3;
 }
+
+void Lara_StateExtra_TRexDeath(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Camera.flags = CAMERA_FOLLOW_CENTRE;
+    g_Camera.target_angle = DEG_1 * 170;
+    g_Camera.target_elevation = DEG_1 * -25;
+    g_Lara.hit_direction = -1;
+    if (item->frame_num < g_Anims[item->anim_num].frame_end - 30) {
+        g_Lara.death_count = 1;
+    }
+}
