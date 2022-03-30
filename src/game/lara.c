@@ -683,3 +683,12 @@ void Lara_StateExtra_TRexDeath(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.death_count = 1;
     }
 }
+
+void Lara_StateExtra_StartAnim(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
+    TestTriggers(g_TriggerIndex, 0);
+}

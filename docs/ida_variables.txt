@@ -219,7 +219,7 @@ FSC 00420A80 000001E1 FLOOR_INFO *GetFloor(int32_t x, int32_t y, int32_t z, int1
 FSC 00420C70 00000192 int32_t GetWaterHeight(int32_t x, int32_t y, int32_t z, int16_t room_num);
 FSC 00420E10 00000514 int32_t GetHeight(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 00421370 000000EE void RefreshCamera(int16_t type, int16_t *data);
-FS- 00421460 000008C7 void TestTriggers(int16_t *data, int32_t heavy);
+FSC 00421460 000008C7 void TestTriggers(int16_t *data, int32_t heavy);
 FS- 00421D80 00000055 int32_t TriggerActive(ITEM_INFO *item);
 FS- 00421DE0 0000049F int32_t GetCeiling(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 004222B0 000000B2 int16_t GetDoor(FLOOR_INFO *floor);
@@ -618,7 +618,7 @@ FSD 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll);
 FSD 00441D90 00000013 void extra_as_airlock(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_AirLock
 FSD 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_GongBong
 FSD 00441DD0 00000051 void extra_as_dinokill(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_TRexDeath
-FS- 00441E30 0000004D void extra_as_startanim(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441E30 0000004D void extra_as_startanim(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_StartAnim
 FS- 00441E80 0000007E void extra_as_trainkill(ITEM_INFO *item, COLL_INFO *col);
 FS- 00441F00 00000088 void extra_as_rapidsdrown(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441F90 000001A7 void lara_col_walk(ITEM_INFO *item, COLL_INFO *coll);
