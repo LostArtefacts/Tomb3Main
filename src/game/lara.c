@@ -710,3 +710,22 @@ void Lara_StateExtra_TrainKill(struct ITEM_INFO *item, struct COLL_INFO *col)
     item->gravity_status = 0;
     item->hit_points = -1;
 }
+
+void Lara_StateExtra_RapidsDrown(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    GetLaraCollisionInfo(item, coll);
+
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    int32_t height = GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
+
+    item->pos.y_rot += 1024;
+    item->pos.y = height + 384;
+    g_Lara.death_count++;
+
+    if (!(g_Wibble & 3)) {
+        TriggerWaterfallMist(
+            item->pos.x, item->pos.y, item->pos.z, GetRandomControl() & 0xFFF);
+    }
+}

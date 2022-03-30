@@ -307,7 +307,7 @@ FS- 0042CED0 000001A1 void UpdateSplashes(void);
 FS- 0042D080 00000085 RIPPLE_STRUCT *SetupRipple(int32_t x, int32_t y, int32_t z, int32_t size, int32_t more_trans);
 FS- 0042D110 00000065 void TriggerUnderwaterBlood(int32_t x, int32_t y, int32_t z, int32_t size);
 FS- 0042D180 00000065 void TriggerUnderwaterBloodD(int32_t x, int32_t y, int32_t z, int32_t size);
-FS- 0042D1F0 000001D7 void TriggerWaterfallMist(int32_t x, int32_t y, int32_t z, int32_t angle);
+FSC 0042D1F0 000001D7 void TriggerWaterfallMist(int32_t x, int32_t y, int32_t z, int32_t angle);
 FS- 0042D3D0 00000135 void UpdateBats(void);
 FS- 0042D510 00000055 void BatEmitterControl(int16_t item_num);
 FS- 0042D570 000000C5 void TriggerBats(int32_t x, int32_t y, int32_t z, int32_t angle);
@@ -526,7 +526,7 @@ FS- 0043D780 00000139 int32_t TestLaraSlide(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0043D8C0 000000BE int32_t LaraTestClimbStance(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0043D980 0000036E int32_t TestLaraVault(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0043DCF0 00000105 void lara_slide_slope(ITEM_INFO *item, COLL_INFO *coll);
-FS- 0043DE00 00000032 void GetLaraCollisionInfo(ITEM_INFO *item, COLL_INFO *coll);
+FSC 0043DE00 00000032 void GetLaraCollisionInfo(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0043DE40 00000136 void LaraDeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0043DFC0 000000AB void LaraSlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0043E0B0 000000F5 int32_t LaraTestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll);
@@ -620,7 +620,7 @@ FSD 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll); 
 FSD 00441DD0 00000051 void extra_as_dinokill(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_TRexDeath
 FSD 00441E30 0000004D void extra_as_startanim(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_StartAnim
 FSD 00441E80 0000007E void extra_as_trainkill(ITEM_INFO *item, COLL_INFO *col); // Lara_StateExtra_TrainKill
-FS- 00441F00 00000088 void extra_as_rapidsdrown(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441F00 00000088 void extra_as_rapidsdrown(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_RapidsDrown
 FS- 00441F90 000001A7 void lara_col_walk(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00442140 00000189 void lara_col_run(ITEM_INFO *item, COLL_INFO *coll);
 FS- 004422D0 000000DA void lara_col_forward_jump(ITEM_INFO *item, COLL_INFO *coll);
@@ -1189,7 +1189,7 @@ FS- 00483B60 00000435 int32_t LevelStats(int32_t level_num);
 F-- 00483FA0 00000033 void sub_483FA0();
 F-- 00483FE0 00000030 void sub_483FE0();
 FS- 00484010 000001D4 int32_t GameStats(int32_t level_num, int32_t type);
-FS- 004841F0 0000001E int32_t GetRandomControl(void);
+FSC 004841F0 0000001E int32_t GetRandomControl(void);
 FS- 00484210 0000000A void SeedRandomControl(int32_t seed);
 FS- 00484220 0000001E int32_t GetRandomDraw(void);
 FS- 00484240 0000000A void SeedRandomDraw(int32_t seed);
@@ -1525,3 +1525,4 @@ V-- 006E2074 - ANIM_INFO *g_Anims;
 V-- 006E3040 - CAMERA_INFO g_Camera;
 V-- 006E2890 - ROOM_INFO *g_Rooms;
 V-- 006E29A8 - int16_t *g_TriggerIndex;
+V-- 006261A8 - int32_t g_Wibble;
