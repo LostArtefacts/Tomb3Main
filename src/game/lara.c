@@ -659,3 +659,9 @@ void Lara_StateExtra_SharkKill(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.death_count = 1;
     }
 }
+
+void Lara_StateExtra_AirLock(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Camera.target_angle = DEG_1 * 80;
+    g_Camera.target_elevation = DEG_1 * -25;
+}
