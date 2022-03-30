@@ -679,6 +679,7 @@ void Lara_StateExtra_TRexDeath(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_angle = DEG_1 * 170;
     g_Camera.target_elevation = DEG_1 * -25;
     g_Lara.hit_direction = -1;
+
     if (item->frame_num < g_Anims[item->anim_num].frame_end - 30) {
         g_Lara.death_count = 1;
     }
@@ -691,4 +692,21 @@ void Lara_StateExtra_StartAnim(struct ITEM_INFO *item, struct COLL_INFO *coll)
         GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
     GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
     TestTriggers(g_TriggerIndex, 0);
+}
+
+void Lara_StateExtra_TrainKill(struct ITEM_INFO *item, struct COLL_INFO *col)
+{
+    g_Lara.hit_direction = -1;
+
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    item->pos.y = GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
+
+    if (item->frame_num < g_Anims[item->anim_num].frame_end - 30) {
+        g_Lara.death_count = 1;
+    }
+
+    item->gravity_status = 0;
+    item->hit_points = -1;
 }

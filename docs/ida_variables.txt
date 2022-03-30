@@ -619,7 +619,7 @@ FSD 00441D90 00000013 void extra_as_airlock(ITEM_INFO *item, COLL_INFO *coll); /
 FSD 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_GongBong
 FSD 00441DD0 00000051 void extra_as_dinokill(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_TRexDeath
 FSD 00441E30 0000004D void extra_as_startanim(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_StartAnim
-FS- 00441E80 0000007E void extra_as_trainkill(ITEM_INFO *item, COLL_INFO *col);
+FSD 00441E80 0000007E void extra_as_trainkill(ITEM_INFO *item, COLL_INFO *col); // Lara_StateExtra_TrainKill
 FS- 00441F00 00000088 void extra_as_rapidsdrown(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441F90 000001A7 void lara_col_walk(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00442140 00000189 void lara_col_run(ITEM_INFO *item, COLL_INFO *coll);

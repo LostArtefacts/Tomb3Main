@@ -48,4 +48,5 @@ void Inject_All(void)
     INJECT(0x00441DB0, Lara_StateExtra_GongBong, 1);
     INJECT(0x00441DD0, Lara_StateExtra_TRexDeath, 1);
     INJECT(0x00441E30, Lara_StateExtra_StartAnim, 1);
+    INJECT(0x00441E80, Lara_StateExtra_TrainKill, 1);
 }

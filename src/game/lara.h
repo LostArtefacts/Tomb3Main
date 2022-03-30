@@ -45,3 +45,4 @@ void Lara_StateExtra_AirLock(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_StateExtra_GongBong(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_StateExtra_TRexDeath(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_StateExtra_StartAnim(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_StateExtra_TrainKill(struct ITEM_INFO *item, struct COLL_INFO *col);
