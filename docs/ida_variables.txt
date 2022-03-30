@@ -616,7 +616,7 @@ FSD 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll);
 FSD 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_Breath
 FSD 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_SharkKill
 FSD 00441D90 00000013 void extra_as_airlock(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_AirLock
-FS- 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_GongBong
 FS- 00441DD0 00000051 void extra_as_dinokill(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441E30 0000004D void extra_as_startanim(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441E80 0000007E void extra_as_trainkill(ITEM_INFO *item, COLL_INFO *col);

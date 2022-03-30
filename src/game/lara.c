@@ -665,3 +665,10 @@ void Lara_StateExtra_AirLock(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_angle = DEG_1 * 80;
     g_Camera.target_elevation = DEG_1 * -25;
 }
+
+void Lara_StateExtra_GongBong(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Camera.target_angle = DEG_1 * -25;
+    g_Camera.target_elevation = DEG_1 * -20;
+    g_Camera.target_distance = WALL_L * 3;
+}
