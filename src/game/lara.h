@@ -39,4 +39,5 @@ void Lara_State_Null(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_WaterOut(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Wade(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_DeathSlide(struct ITEM_INFO *item, struct COLL_INFO *coll);
-void Lara_State_ExtraBreath(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_StateExtra_Breath(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_StateExtra_SharkKill(struct ITEM_INFO *item, struct COLL_INFO *coll);

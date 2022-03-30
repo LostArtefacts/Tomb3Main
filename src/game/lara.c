@@ -628,7 +628,7 @@ void Lara_State_DeathSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
-void Lara_State_ExtraBreath(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_StateExtra_Breath(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->goal_anim_state = LS_STOP;
     item->current_anim_state = LS_STOP;
@@ -640,4 +640,22 @@ void Lara_State_ExtraBreath(struct ITEM_INFO *item, struct COLL_INFO *coll)
     AlterFOV(DEG_1 * GAME_FOV);
 
     g_Lara.extra_anim = 0;
+}
+
+void Lara_StateExtra_SharkKill(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Camera.target_angle = DEG_1 * 160;
+    g_Camera.target_distance = WALL_L * 3;
+    g_Lara.hit_direction = -1;
+
+    if (item->frame_num == g_Anims[item->anim_num].frame_end) {
+        int32_t water_height = GetWaterHeight(
+            item->pos.x, item->pos.y, item->pos.z, item->room_num);
+        if (water_height != NO_HEIGHT && water_height < item->pos.y - 100) {
+            item->pos.y -= 5;
+        }
+    }
+    if (item->frame_num < g_Anims[item->anim_num].frame_end - 30) {
+        g_Lara.death_count = 1;
+    }
 }

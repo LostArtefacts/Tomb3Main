@@ -216,7 +216,7 @@ FS- 00420590 000003A3 void AnimateItem(ITEM_INFO *item);
 FS- 00420970 000000AB int32_t GetChange(ITEM_INFO *item, ANIM_INFO *anim);
 FS- 00420A20 0000005F void TranslateItem(ITEM_INFO *item, int32_t x, int32_t y, int32_t z);
 FSC 00420A80 000001E1 FLOOR_INFO *GetFloor(int32_t x, int32_t y, int32_t z, int16_t *room_num);
-FS- 00420C70 00000192 int32_t GetWaterHeight(int32_t x, int32_t y, int32_t z, int16_t room_num);
+FSC 00420C70 00000192 int32_t GetWaterHeight(int32_t x, int32_t y, int32_t z, int16_t room_num);
 FSC 00420E10 00000514 int32_t GetHeight(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 00421370 000000EE void RefreshCamera(int16_t type, int16_t *data);
 FS- 00421460 000008C7 void TestTriggers(int16_t *data, int32_t heavy);
@@ -613,8 +613,8 @@ FSD 00441A50 0000000E void lara_as_null(ITEM_INFO *item, COLL_INFO *coll); // La
 FSD 00441A60 00000018 void lara_as_waterout(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_WaterOut
 FSD 00441A80 0000017C void lara_as_wade(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Wade
 FSD 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_DeathSlide
-FSD 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_ExtraBreath
-FS- 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_Breath
+FSD 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll); // Lara_StateExtra_SharkKill
 FS- 00441D90 00000013 void extra_as_airlock(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441DD0 00000051 void extra_as_dinokill(ITEM_INFO *item, COLL_INFO *coll);

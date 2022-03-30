@@ -11,4 +11,5 @@
 #define GetFloor        ((struct FLOOR_INFO *(*)(int32_t x, int32_t y, int32_t z, int16_t *room_num))0x00420A80)
 #define AnimateLara     ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
 #define AlterFOV        ((void (*)(PHD_ANGLE fov))0x00402030)
+#define GetWaterHeight  ((int32_t (*)(int32_t x, int32_t y, int32_t z, int16_t room_num))0x00420C70)
 // clang-format on
