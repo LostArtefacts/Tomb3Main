@@ -225,7 +225,7 @@ void Lara_State_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     Lara_State_FastFallFriction(item);
     if (item->fall_speed == FALL_DAMAGE_START + FALL_DAMAGE_LENGTH) {
-        SoundEffect(SFX_LARA_FALL, &item->pos, 0);
+        Sound_PlayEffect(SFX_LARA_FALL, &item->pos, 0);
     }
 }
 
@@ -620,7 +620,7 @@ void Lara_State_DeathSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     if (!(g_Input & IN_ACTION)) {
         item->goal_anim_state = LS_FORWARD_JUMP;
-        AnimateLara(item);
+        Lara_Animate(item);
         item->gravity_status = 1;
         item->speed = 100;
         item->fall_speed = 40;
@@ -713,7 +713,7 @@ void Lara_StateExtra_TrainKill(struct ITEM_INFO *item, struct COLL_INFO *col)
 
 void Lara_StateExtra_RapidsDrown(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
-    GetLaraCollisionInfo(item, coll);
+    Lara_GetCollisionInfo(item, coll);
 
     int16_t room_num = item->room_num;
     struct FLOOR_INFO *floor =
@@ -726,6 +726,6 @@ void Lara_StateExtra_RapidsDrown(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     if (!(g_Wibble & 3)) {
         TriggerWaterfallMist(
-            item->pos.x, item->pos.y, item->pos.z, GetRandomControl() & 0xFFF);
+            item->pos.x, item->pos.y, item->pos.z, Random_GetControl() & 0xFFF);
     }
 }

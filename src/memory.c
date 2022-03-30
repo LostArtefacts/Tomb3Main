@@ -1,6 +1,6 @@
 #include "memory.h"
 
-#include "game/shell.h"
+#include "global/stubs.h"
 
 #include <assert.h>
 #include <stdlib.h>

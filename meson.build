@@ -64,7 +64,6 @@ sources = [
   'src/filesystem.c',
   'src/filesystem_win.c',
   'src/game/lara.c',
-  'src/game/shell.c',
   'src/init.c',
   'src/inject.c',
   'src/inject_util.c',
