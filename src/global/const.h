@@ -9,6 +9,7 @@
 #define DEG_135                (DEG_45 * 3) // = 24576 = 0x6000
 #define DEG_360                (DEG_FULL) // = 65536 = 0x10000
 
+#define GAME_FOV               80
 #define WALL_L                 1024 // = 0x1000
 #define WALL_SHIFT             10
 #define STEP_L                 (WALL_L / 4)

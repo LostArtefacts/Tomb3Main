@@ -29,7 +29,7 @@ FS- 00401D20 0000019F void S_InsertBackground(int16_t *obj_ptr);
 FS- 00401EC0 0000005D void phd_InitPolyList(void);
 F-- 00401F20 00000036 void sub_401F20();
 F-- 00401F60 000000C4 void sub_401F60();
-F-- 00402030 0000009E void sub_402030();
+FSC 00402030 0000009E void AlterFOV(PHD_ANGLE fov);
 FS- 00402130 00000095 void SetZNear(int32_t new_z_near);
 FS- 00402180 0000006B void SetZFar(int32_t new_z_far);
 FS- 004021A0 000001B2 void phd_InitWindow(int32_t x, int32_t y, int32_t width, int32_t height, int32_t near_z, int32_t far_z, int32_t view_angle, int32_t scr_width, int32_t scr_height);
@@ -613,7 +613,7 @@ FSD 00441A50 0000000E void lara_as_null(ITEM_INFO *item, COLL_INFO *coll); // La
 FSD 00441A60 00000018 void lara_as_waterout(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_WaterOut
 FSD 00441A80 0000017C void lara_as_wade(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_Wade
 FSD 00441C00 00000099 void lara_as_deathslide(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_DeathSlide
-FS- 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll);
+FSD 00441CA0 0000004C void extra_as_breath(ITEM_INFO *item, COLL_INFO *coll); // Lara_State_ExtraBreath
 FS- 00441CF0 00000091 void extra_as_sharkkill(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441D90 00000013 void extra_as_airlock(ITEM_INFO *item, COLL_INFO *coll);
 FS- 00441DB0 0000001D void extra_as_gongbong(ITEM_INFO *item, COLL_INFO *coll);

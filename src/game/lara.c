@@ -627,3 +627,17 @@ void Lara_State_DeathSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.move_angle = item->pos.y_rot;
     }
 }
+
+void Lara_State_ExtraBreath(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->goal_anim_state = LS_STOP;
+    item->current_anim_state = LS_STOP;
+    item->anim_num = LA_BREATH;
+    item->frame_num = g_Anims[LA_BREATH].frame_base;
+    g_Lara.gun_status = LG_ARMLESS;
+
+    g_Camera.type = CT_CHASE;
+    AlterFOV(DEG_1 * GAME_FOV);
+
+    g_Lara.extra_anim = 0;
+}
