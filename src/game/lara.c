@@ -105,6 +105,128 @@ bool Lara_TestClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll)
     return true;
 }
 
+bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!(g_Input & IN_ACTION) || g_Lara.gun_status != LG_ARMLESS
+        || coll->coll_type != COLL_FRONT) {
+        return false;
+    }
+
+    PHD_ANGLE angle = item->pos.y_rot;
+    if (angle >= -LARA_VAULT_ANGLE && angle <= LARA_VAULT_ANGLE) {
+        angle = 0;
+    } else if (
+        angle >= DEG_90 - LARA_VAULT_ANGLE
+        && angle <= DEG_90 + LARA_VAULT_ANGLE) {
+        angle = DEG_90;
+    } else if (
+        angle >= DEG_180 - LARA_VAULT_ANGLE
+        || angle <= DEG_180 + LARA_VAULT_ANGLE) {
+        angle = DEG_180;
+    } else if (
+        angle >= -DEG_90 - LARA_VAULT_ANGLE
+        && angle <= -DEG_90 + LARA_VAULT_ANGLE) {
+        angle = -DEG_90;
+    }
+
+    if (angle & 0x3FFF) {
+        return false;
+    }
+
+    int32_t hdif = coll->front_floor;
+    bool slope =
+        ABS(coll->left_floor2 - coll->right_floor2) >= LARA_VAULT_SLOPE_DIF;
+
+    if (hdif >= (-STEP_L * 2 - STEP_L / 2)
+        && hdif <= (-STEP_L * 2 + STEP_L / 2)) {
+        if (slope || (coll->front_floor - coll->front_ceiling < 0)
+            || (coll->left_floor2 - coll->left_ceiling2 < 0)
+            || (coll->right_floor2 - coll->right_ceiling2 < 0)) {
+            return false;
+        }
+
+        if ((g_Rooms[item->room_num].flags & RF_SWAMP)
+            && g_Lara.water_surface_dist < -768) {
+            return false;
+        }
+
+        item->current_anim_state = LS_NULL;
+        item->goal_anim_state = LS_STOP;
+        item->anim_num = LA_VAULT_12;
+        item->frame_num = g_Anims[LA_VAULT_12].frame_base;
+        item->pos.y += hdif + STEP_L * 2;
+        g_Lara.gun_status = LG_HANDSBUSY;
+    } else if (
+        hdif >= (-STEP_L * 3 - STEP_L / 2)
+        && hdif <= (-STEP_L * 3 + STEP_L / 2)) {
+        if (slope || (coll->front_floor - coll->front_ceiling < 0)
+            || (coll->left_floor2 - coll->left_ceiling2 < 0)
+            || (coll->right_floor2 - coll->right_ceiling2 < 0)) {
+            return false;
+        }
+
+        if ((g_Rooms[item->room_num].flags & RF_SWAMP)
+            && g_Lara.water_surface_dist < -768) {
+            return false;
+        }
+
+        item->current_anim_state = LS_NULL;
+        item->goal_anim_state = LS_STOP;
+        item->anim_num = LA_VAULT_34;
+        item->frame_num = g_Anims[LA_VAULT_34].frame_base;
+        item->pos.y += hdif + STEP_L * 3;
+        g_Lara.gun_status = LG_HANDSBUSY;
+    } else if (
+        !slope && hdif >= (-STEP_L * 7 - STEP_L / 2)
+        && hdif <= (-STEP_L * 4 + STEP_L / 2)) {
+        if (g_Rooms[item->room_num].flags & RF_SWAMP) {
+            return false;
+        }
+
+        item->current_anim_state = LS_STOP;
+        item->goal_anim_state = LS_UP_JUMP;
+        item->anim_num = LA_STOP;
+        item->frame_num = g_Anims[LA_STOP].frame_base;
+        g_Lara.calc_fall_speed =
+            -(int16_t)(phd_sqrt((int32_t)(-2 * GRAVITY * (hdif + 800))) + 3);
+        Lara_Animate(item);
+    } else if (
+        g_Lara.climb_status && hdif <= (-STEP_L * 8 + STEP_L / 2)
+        && g_Lara.water_status != LWS_WADE
+        && coll->left_floor2 <= (-STEP_L * 8 + STEP_L / 2)
+        && coll->right_floor2 <= (-STEP_L * 8)
+        && coll->mid_ceiling <= (-STEP_L * 8 + STEP_L / 2 + LARA_HITE)) {
+        item->current_anim_state = LS_STOP;
+        item->goal_anim_state = LS_UP_JUMP;
+        item->anim_num = LA_STOP;
+        item->frame_num = g_Anims[LA_STOP].frame_base;
+        g_Lara.calc_fall_speed = -116;
+        Lara_Animate(item);
+    } else if (
+        g_Lara.climb_status
+        && (hdif < -STEP_L * 4 || coll->front_ceiling >= LARA_HITE - STEP_L)
+        && (coll->mid_ceiling <= -STEP_L * 5 + LARA_HITE)) {
+        ShiftItem(item, coll);
+        if (Lara_TestClimbStance(item, coll)) {
+            item->current_anim_state = LS_STOP;
+            item->goal_anim_state = LS_CLIMB_STNC;
+            item->anim_num = LA_STOP;
+            item->frame_num = g_Anims[LA_STOP].frame_base;
+            Lara_Animate(item);
+            item->pos.y_rot = angle;
+            g_Lara.gun_status = LG_HANDSBUSY;
+            return true;
+        }
+        return false;
+    } else {
+        return false;
+    }
+
+    item->pos.y_rot = angle;
+    ShiftItem(item, coll);
+    return true;
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

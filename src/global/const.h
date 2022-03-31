@@ -15,7 +15,10 @@
 #define STEP_L                 (WALL_L / 4)
 #define NO_HEIGHT              (-32512)
 
+#define GRAVITY                6
 #define FAST_FALL_SPEED        128
+
+#define LARA_HITE              762
 
 #define LARA_TURN_UNDO         (DEG_1 * 2) // = 364
 #define LARA_TURN_RATE         ((DEG_1 / 4) + LARA_TURN_UNDO) // = 409
@@ -33,6 +36,8 @@
 #define LARA_STEP_UP_HEIGHT    ((STEP_L * 3) / 2) // = 384
 #define LARA_CLIMB_WIDTH_R     120
 #define LARA_CLIMB_WIDTH_L     120
+#define LARA_VAULT_ANGLE       (DEG_1 * 30)
+#define LARA_VAULT_SLOPE_DIF   60
 
 #define CAMERA_HANG_ANGLE            0
 #define CAMERA_HANG_ELEVATION        (DEG_1 * -60) // = -10920

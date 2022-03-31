@@ -524,7 +524,7 @@ FS- 0043D550 00000042 int32_t __cdecl KayakCanGetOut(ITEM_INFO *v, int32_t direc
 FS- 0043D5A0 000001D5 void __cdecl KayakToBaddieCollision(ITEM_INFO *v);
 FSD 0043D780 00000139 int32_t __cdecl Lara_TestSlide(ITEM_INFO *item, COLL_INFO *coll); // TestLaraSlide
 FSD 0043D8C0 000000BE int32_t __cdecl Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
-FS- 0043D980 0000036E int32_t __cdecl Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
+FSD 0043D980 0000036E int32_t __cdecl Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
 FS- 0043DCF0 00000105 void __cdecl Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope
 FSC 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
 FS- 0043DE40 00000136 void __cdecl Lara_DeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeJump

@@ -54,13 +54,23 @@ enum SOUND_EFFECT_ID {
     SFX_LARA_FALL = 30,
 };
 
+enum COLL_TYPE {
+    COLL_NONE     = 0,
+    COLL_FRONT    = 1,
+    COLL_LEFT     = 2,
+    COLL_RIGHT    = 4,
+    COLL_TOP      = 8,
+    COLL_TOPFRONT = 16,
+    COLL_CLAMP    = 32,
+};
+
 enum CAMERA_TYPE {
-    CT_CHASE = 0,
-    CT_FIXED = 1,
-    CT_LOOK = 2,
-    CT_COMBAT = 3,
+    CT_CHASE     = 0,
+    CT_FIXED     = 1,
+    CT_LOOK      = 2,
+    CT_COMBAT    = 3,
     CT_CINEMATIC = 4,
-    CT_HEAVY = 5,
+    CT_HEAVY     = 5,
 };
 
 enum LARA_WATER_STATE {

@@ -22,4 +22,5 @@
 #define AlterFOV              ((void (*)(PHD_ANGLE fov))0x00402030)
 #define TestTriggers          ((void (*)(int16_t *data, int32_t heavy))0x00421460)
 #define ShiftItem             ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0041E690)
+#define phd_sqrt              ((int32_t (*)(int32_t n))0x004B4C93)
 // clang-format on
