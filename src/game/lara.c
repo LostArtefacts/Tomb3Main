@@ -66,6 +66,45 @@ bool Lara_TestSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
     return true;
 }
 
+bool Lara_TestClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    int32_t shift_r;
+    int32_t result_r = Lara_TestClimbPos(
+        item, coll->radius, coll->radius + LARA_CLIMB_WIDTH_R, -700, STEP_L * 2,
+        &shift_r);
+    if (result_r != 1) {
+        return false;
+    }
+
+    int32_t shift_l;
+    int32_t result_l = Lara_TestClimbPos(
+        item, coll->radius, -coll->radius - LARA_CLIMB_WIDTH_L, -700,
+        STEP_L * 2, &shift_l);
+    if (result_l != 1) {
+        return false;
+    }
+
+    if (shift_r) {
+        if (shift_l) {
+            if ((shift_l < 0) != (shift_r < 0)) {
+                return false;
+            }
+
+            if (shift_r < 0 && shift_l < shift_r) {
+                shift_r = shift_l;
+            } else if (shift_r > 0 && shift_l > shift_r) {
+                shift_r = shift_l;
+            }
+        }
+
+        item->pos.y += shift_r;
+    } else if (shift_l) {
+        item->pos.y += shift_l;
+    }
+
+    return true;
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

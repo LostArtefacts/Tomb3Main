@@ -31,6 +31,8 @@
 #define LARA_FAST_FALL_SPEED   (FAST_FALL_SPEED + 3) // = 131
 #define LARA_DASH_TIME         (30 * 4) // 4 seconds
 #define LARA_STEP_UP_HEIGHT    ((STEP_L * 3) / 2) // = 384
+#define LARA_CLIMB_WIDTH_R     120
+#define LARA_CLIMB_WIDTH_L     120
 
 #define CAMERA_HANG_ANGLE            0
 #define CAMERA_HANG_ELEVATION        (DEG_1 * -60) // = -10920

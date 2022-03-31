@@ -523,7 +523,7 @@ FS- 0043D4A0 000000A8 void KayakDoRipple(ITEM_INFO *v, int16_t x_off, int16_t z_
 FS- 0043D550 00000042 int32_t KayakCanGetOut(ITEM_INFO *v, int32_t direction);
 FS- 0043D5A0 000001D5 void KayakToBaddieCollision(ITEM_INFO *v);
 FSD 0043D780 00000139 int32_t Lara_TestSlide(ITEM_INFO *item, COLL_INFO *coll); // TestLaraSlide
-FS- 0043D8C0 000000BE int32_t Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
+FSD 0043D8C0 000000BE int32_t Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
 FS- 0043D980 0000036E int32_t Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
 FS- 0043DCF0 00000105 void Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope
 FSC 0043DE00 00000032 void Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
@@ -696,7 +696,7 @@ FS- 00448440 00000205 void PistolHandler(int32_t weapon_type);
 FS- 00448650 00000582 void AnimatePistols(int32_t weapon_type);
 FS- 00448BE0 00000280 int32_t Lara_TestClimb(int32_t x, int32_t y, int32_t z, int32_t x_front, int32_t z_front, int32_t item_height, int16_t item_room, int32_t *shift); // LaraTestClimb
 FS- 00448E60 00000229 int32_t Lara_TestClimbUpPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t *shift, int32_t *ledge); // LaraTestClimbUpPos
-FS- 00449090 000000B0 int32_t Lara_TestClimbPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift); // LaraTestClimbPos
+FSC 00449090 000000B0 int32_t Lara_TestClimbPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift); // LaraTestClimbPos
 FS- 00449140 00000038 void Lara_State_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbleft
 FS- 00449180 00000038 void Lara_State_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbright
 FS- 004491C0 00000078 void Lara_State_ClimbSTNC(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbstnc
