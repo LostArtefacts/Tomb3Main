@@ -20,4 +20,5 @@
 #define GetFloor              ((struct FLOOR_INFO *(*)(int32_t x, int32_t y, int32_t z, int16_t *room_num))0x00420A80)
 #define AlterFOV              ((void (*)(PHD_ANGLE fov))0x00402030)
 #define TestTriggers          ((void (*)(int16_t *data, int32_t heavy))0x00421460)
+#define ShiftItem             ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0041E690)
 // clang-format on

@@ -8,6 +8,7 @@
 #define FALL_DAMAGE_START 140
 #define FALL_DAMAGE_LENGTH 14
 
+static PHD_ANGLE m_OldSlopeAngle = 1;
 static bool m_JumpOK = true;
 
 static void Lara_State_FastFallFriction(struct ITEM_INFO *item);
@@ -15,6 +16,54 @@ static void Lara_State_FastFallFriction(struct ITEM_INFO *item);
 static void Lara_State_FastFallFriction(struct ITEM_INFO *item)
 {
     item->speed = (item->speed * 95) / 100;
+}
+
+bool Lara_TestSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (ABS(coll->tilt_x) <= 2 && ABS(coll->tilt_z) <= 2) {
+        return false;
+    }
+
+    PHD_ANGLE angle = 0;
+    if (coll->tilt_x > 2) {
+        angle = -DEG_90;
+    } else if (coll->tilt_x < -2) {
+        angle = DEG_90;
+    }
+
+    if (coll->tilt_z > 2 && coll->tilt_z > ABS(coll->tilt_x)) {
+        angle = DEG_180;
+    } else if (coll->tilt_z < -2 && -coll->tilt_z > ABS(coll->tilt_x)) {
+        angle = 0;
+    }
+
+    ShiftItem(item, coll);
+
+    PHD_ANGLE angle_diff = angle - item->pos.y_rot;
+    if (angle_diff >= -DEG_90 && angle_diff <= DEG_90) {
+        if (item->current_anim_state != LS_SLIDE || m_OldSlopeAngle != angle) {
+            item->current_anim_state = LS_SLIDE;
+            item->goal_anim_state = LS_SLIDE;
+            item->anim_num = LA_SLIDE;
+            item->frame_num = g_Anims[LA_SLIDE].frame_base;
+            item->pos.y_rot = angle;
+            g_Lara.move_angle = angle;
+            m_OldSlopeAngle = angle;
+        }
+    } else {
+        if (item->current_anim_state != LS_SLIDE_BACK
+            || m_OldSlopeAngle != angle) {
+            item->current_anim_state = LS_SLIDE_BACK;
+            item->goal_anim_state = LS_SLIDE_BACK;
+            item->anim_num = LA_SLIDE_BACK;
+            item->frame_num = g_Anims[LA_SLIDE_BACK].frame_base;
+            item->pos.y_rot = angle + DEG_180;
+            g_Lara.move_angle = angle;
+            m_OldSlopeAngle = angle;
+        }
+    }
+
+    return true;
 }
 
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)

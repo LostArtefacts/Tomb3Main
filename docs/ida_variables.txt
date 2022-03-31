@@ -193,7 +193,7 @@ FS- 0041E140 0000002F int32_t FindGridShift(int32_t src, int32_t dst);
 FS- 0041E170 000003DB int32_t CollideStaticObjects(COLL_INFO *coll, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t hite);
 FS- 0041E560 000000C8 void GetNearByRooms(int32_t x, int32_t y, int32_t z, int32_t r, int32_t h, int16_t room_num);
 FS- 0041E630 00000055 void GetNewRoom(int32_t x, int32_t y, int32_t z, int16_t room_num);
-FS- 0041E690 00000037 void ShiftItem(ITEM_INFO *item, COLL_INFO *coll);
+FSC 0041E690 00000037 void ShiftItem(ITEM_INFO *item, COLL_INFO *coll);
 FS- 0041E6D0 0000005D void UpdateLaraRoom(ITEM_INFO *item, int32_t height);
 FS- 0041E730 0000019A int16_t GetTiltType(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 0041E8D0 0000018C void LaraBaddieCollision(ITEM_INFO *lara_item, COLL_INFO *coll);
@@ -522,7 +522,7 @@ FS- 0043CC00 00000859 void KayakUserInput(ITEM_INFO *v, ITEM_INFO *l, KAYAK_INFO
 FS- 0043D4A0 000000A8 void KayakDoRipple(ITEM_INFO *v, int16_t x_off, int16_t z_off);
 FS- 0043D550 00000042 int32_t KayakCanGetOut(ITEM_INFO *v, int32_t direction);
 FS- 0043D5A0 000001D5 void KayakToBaddieCollision(ITEM_INFO *v);
-FS- 0043D780 00000139 int32_t Lara_TestSlide(ITEM_INFO *item, COLL_INFO *coll); // TestLaraSlide
+FSD 0043D780 00000139 int32_t Lara_TestSlide(ITEM_INFO *item, COLL_INFO *coll); // TestLaraSlide
 FS- 0043D8C0 000000BE int32_t Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
 FS- 0043D980 0000036E int32_t Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
 FS- 0043DCF0 00000105 void Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope

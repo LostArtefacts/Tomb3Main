@@ -1,6 +1,7 @@
 #pragma once
 #pragma pack(push, 1)
 
+#include <stdbool.h>
 #include <stdint.h>
 
 typedef int16_t PHD_ANGLE;

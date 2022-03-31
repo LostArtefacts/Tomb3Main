@@ -5,6 +5,7 @@
 
 void Inject_All(void)
 {
+    INJECT(0x0043D780, Lara_TestSlide, 1);
     INJECT(0x00440DB0, Lara_State_ForwardJump, 1);
     INJECT(0x00440E90, Lara_State_Walk, 1);
     INJECT(0x00440F20, Lara_State_Run, 1);
@@ -43,8 +44,8 @@ void Inject_All(void)
     INJECT(0x00441A80, Lara_State_Wade, 1);
     INJECT(0x00441C00, Lara_State_DeathSlide, 1);
     INJECT(0x00441CA0, Lara_StateExtra_Breath, 1);
-    INJECT(0x00441D90, Lara_StateExtra_AirLock, 1);
     INJECT(0x00441CF0, Lara_StateExtra_SharkKill, 1);
+    INJECT(0x00441D90, Lara_StateExtra_AirLock, 1);
     INJECT(0x00441DB0, Lara_StateExtra_GongBong, 1);
     INJECT(0x00441DD0, Lara_StateExtra_TRexDeath, 1);
     INJECT(0x00441E30, Lara_StateExtra_StartAnim, 1);
