@@ -18,6 +18,20 @@ static void Lara_State_FastFallFriction(struct ITEM_INFO *item)
     item->speed = (item->speed * 95) / 100;
 }
 
+static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
+{
+    if (angle >= -snap && angle <= snap) {
+        return 0;
+    } else if (angle >= DEG_90 - snap && angle <= DEG_90 + snap) {
+        return DEG_90;
+    } else if (angle >= DEG_180 - 1 - snap || angle <= -(DEG_180 - 1) + snap) {
+        return DEG_180;
+    } else if (angle >= -DEG_90 - snap && angle <= -DEG_90 + snap) {
+        return -DEG_90;
+    }
+    return angle;
+}
+
 bool Lara_TestSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (ABS(coll->tilt_x) <= 2 && ABS(coll->tilt_z) <= 2) {
@@ -112,24 +126,8 @@ bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
         return false;
     }
 
-    PHD_ANGLE angle = item->pos.y_rot;
-    if (angle >= -LARA_VAULT_ANGLE && angle <= LARA_VAULT_ANGLE) {
-        angle = 0;
-    } else if (
-        angle >= DEG_90 - LARA_VAULT_ANGLE
-        && angle <= DEG_90 + LARA_VAULT_ANGLE) {
-        angle = DEG_90;
-    } else if (
-        angle >= DEG_180 - LARA_VAULT_ANGLE
-        || angle <= DEG_180 + LARA_VAULT_ANGLE) {
-        angle = DEG_180;
-    } else if (
-        angle >= -DEG_90 - LARA_VAULT_ANGLE
-        && angle <= -DEG_90 + LARA_VAULT_ANGLE) {
-        angle = -DEG_90;
-    }
-
-    if (angle & 0x3FFF) {
+    PHD_ANGLE angle = Lara_SnapAngle(item->pos.y_rot, LARA_VAULT_ANGLE);
+    if (angle % DEG_90 != 0) {
         return false;
     }
 
@@ -533,6 +531,79 @@ void Lara_TestHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 
     item->pos.y += hdif;
+}
+
+bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!(g_Input & IN_ACTION) || g_Lara.gun_status != LG_ARMLESS
+        || coll->hit_static) {
+        return false;
+    }
+
+    if (g_Lara.can_monkey_swing && coll->coll_type == COLL_TOP) {
+        g_Lara.head_x_rot = 0;
+        g_Lara.head_y_rot = 0;
+        g_Lara.torso_x_rot = 0;
+        g_Lara.torso_y_rot = 0;
+        item->current_anim_state = LS_HANG2;
+        item->goal_anim_state = LS_HANG2;
+        item->anim_num = LA_GRAB_LEDGE_IN;
+        item->frame_num = g_Anims[LA_GRAB_LEDGE_IN].frame_base;
+        item->gravity_status = 0;
+        item->speed = 0;
+        item->fall_speed = 0;
+        g_Lara.gun_status = LG_HANDSBUSY;
+        return true;
+    }
+
+    if (coll->mid_ceiling > -LARA_STEP_UP_HEIGHT || coll->mid_floor < 200
+        || coll->coll_type != COLL_FRONT) {
+        return false;
+    }
+
+    int32_t edge;
+    int32_t edge_catch = Lara_TestEdgeCatch(item, coll, &edge);
+    if (!edge_catch
+        || (edge_catch < 0 && !Lara_TestHangOnClimbWall(item, coll))) {
+        return false;
+    }
+
+    PHD_ANGLE angle = Lara_SnapAngle(item->pos.y_rot, LARA_HANG_ANGLE);
+    if (angle % DEG_90 != 0) {
+        return false;
+    }
+
+    if (Lara_TestHangSwingIn(item, angle)) {
+        g_Lara.head_x_rot = 0;
+        g_Lara.head_y_rot = 0;
+        g_Lara.torso_x_rot = 0;
+        g_Lara.torso_y_rot = 0;
+        item->current_anim_state = LS_HANG2;
+        item->goal_anim_state = LS_HANG2;
+        item->anim_num = LA_GRAB_LEDGE_IN;
+        item->frame_num = g_Anims[LA_GRAB_LEDGE_IN].frame_base;
+    } else {
+        item->current_anim_state = LS_HANG;
+        item->goal_anim_state = LS_HANG;
+        item->anim_num = LA_GRAB_LEDGE;
+        item->frame_num = g_Anims[LA_GRAB_LEDGE].frame_base;
+    }
+
+    int16_t *bounds = GetBoundsAccurate(item);
+    if (edge_catch > 0) {
+        item->pos.y += coll->front_floor - bounds[2];
+        item->pos.x += coll->shift.x;
+        item->pos.z += coll->shift.z;
+    } else {
+        item->pos.y = edge - bounds[2];
+    }
+
+    item->pos.y_rot = angle;
+    item->gravity_status = 1;
+    item->speed = 2;
+    item->fall_speed = 1;
+    g_Lara.gun_status = LG_HANDSBUSY;
+    return true;
 }
 
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
@@ -1239,7 +1310,7 @@ void Lara_StateExtra_RapidsDrown(struct ITEM_INFO *item, struct COLL_INFO *coll)
     int32_t height = GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
 
     item->pos.y_rot += 1024;
-    item->pos.y = height + 384;
+    item->pos.y = height + LARA_STEP_UP_HEIGHT;
     g_Lara.death_count++;
 
     if (!(g_Wibble & 3)) {

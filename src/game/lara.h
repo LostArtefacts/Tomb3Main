@@ -11,6 +11,7 @@ void Lara_DeflectEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_SlideEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestHangOnClimbWall(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_TestHang(struct ITEM_INFO *item, struct COLL_INFO *coll);
+bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);
