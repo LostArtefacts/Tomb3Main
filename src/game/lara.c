@@ -788,6 +788,39 @@ void Lara_State_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_ALL_FOURS;
+        return;
+    }
+
+    if (g_Input & IN_LOOK) {
+        Lara_LookUpDown();
+    }
+
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 1;
+    g_Camera.target_elevation = -23 * DEG_1;
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    if (!(g_Input & IN_FORWARD)
+        || (!(g_Input & IN_DUCK) && !g_Lara.keep_ducked)) {
+        item->goal_anim_state = LS_ALL_FOURS;
+    } else if (g_Input & IN_LEFT) {
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        CLAMPL(g_Lara.turn_rate, -LARA_JUMP_TURN);
+    } else if (g_Input & IN_RIGHT) {
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        CLAMPG(g_Lara.turn_rate, LARA_JUMP_TURN);
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
