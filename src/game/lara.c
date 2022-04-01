@@ -767,6 +767,27 @@ void Lara_State_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_DEATH;
+        return;
+    }
+    if (g_Input & IN_LOOK) {
+        Lara_LookUpDown();
+    }
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 1;
+    if (item->anim_num == LA_DUCK_TO_CRAWL) {
+        g_Lara.gun_status = LG_HANDSBUSY;
+    }
+    if (!Lara_TestSlide(item, coll)) {
+        g_Camera.target_elevation = -23 * DEG_1;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

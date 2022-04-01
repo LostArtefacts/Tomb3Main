@@ -576,6 +576,7 @@ enum LARA_ANIM {
     LA_DASH_DIVE = 231,
     LA_MONKEY_HANG = 235,
     LA_MONKEY_SWING = 237,
+    LA_DUCK_TO_CRAWL = 258,
 };
 
 enum LARA_STATE {

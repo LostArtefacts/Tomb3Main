@@ -536,7 +536,7 @@ FSD 0043E730 000000C1 int32_t __cdecl Lara_TestHangSwingIn(ITEM_INFO *item, PHD_
 FSD 0043E800 00000212 void __cdecl Lara_AboveWater(ITEM_INFO *item, COLL_INFO *coll); // LaraAboveWater
 FSD 0043EA20 00000080 void __cdecl Lara_State_Duck(ITEM_INFO *item, COLL_INFO *coll); // lara_as_duck
 FS- 0043EAA0 000000F2 void __cdecl Lara_Col_Duck(ITEM_INFO *item, COLL_INFO *coll); // lara_col_duck
-FS- 0043EBA0 0000007A void __cdecl Lara_State_AllFours(ITEM_INFO *item, COLL_INFO *coll); // lara_as_all4s
+FSD 0043EBA0 0000007A void __cdecl Lara_State_AllFours(ITEM_INFO *item, COLL_INFO *coll); // lara_as_all4s
 FS- 0043EC20 000002D8 void __cdecl Lara_Col_AllFours(ITEM_INFO *item, COLL_INFO *coll); // lara_col_all4s
 FS- 0043EF10 000000CE void __cdecl Lara_State_Crawl(ITEM_INFO *item, COLL_INFO *coll); // lara_as_crawl
 FS- 0043EFE0 000000EF void __cdecl Lara_Col_Crawl(ITEM_INFO *item, COLL_INFO *coll); // lara_col_crawl
