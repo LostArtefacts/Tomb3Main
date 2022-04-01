@@ -4,12 +4,15 @@
 
 // clang-format off
 #define Shell_ExitSystem      ((void (*)(const char *exit_message))0x004B37C0)
+#define Sound_StopEffect      ((void (*)(int32_t sfx_num))0x00467D00)
 #define Sound_PlayEffect      ((int32_t (*)(int32_t sfx_num, struct PHD_3DPOS *pos, int32_t flags))0x00467840)
 #define Lara_LookUpDown       ((void (*)(void))0x004446E0)
 #define Lara_FloorFront       ((int16_t (*)(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist))0x00444D80)
 #define Lara_Animate          ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
 #define Lara_GetCollisionInfo ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0043DE00)
+#define Lara_DeflectEdge      ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444F90)
 #define Lara_TestClimbPos     ((int32_t (*)(struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift))0x00449090)
+#define Lara_HitCeiling       ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444D10)
 #define Random_GetControl     ((int32_t (*)(void))0x004841F0)
 // clang-format on
 

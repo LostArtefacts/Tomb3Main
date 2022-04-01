@@ -14,6 +14,7 @@
 #define WALL_SHIFT             10
 #define STEP_L                 (WALL_L / 4)
 #define NO_HEIGHT              (-32512)
+#define NO_BAD_POS             32512
 
 #define GRAVITY                6
 #define FAST_FALL_SPEED        128

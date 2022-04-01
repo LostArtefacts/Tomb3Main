@@ -12,6 +12,7 @@ enum SORT_TYPE {
 };
 
 enum SOUND_EFFECT_ID {
+    SFX_LARA_SLIPPING = 3,
     SFX_LARA_FALL = 30,
 };
 

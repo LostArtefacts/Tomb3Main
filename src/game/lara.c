@@ -227,6 +227,46 @@ bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
     return true;
 }
 
+void Lara_SlideSlope(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -512;
+    coll->bad_ceiling = 0;
+
+    Lara_GetCollisionInfo(item, coll);
+    if (Lara_HitCeiling(item, coll)) {
+        return;
+    }
+    Lara_DeflectEdge(item, coll);
+
+    if (coll->mid_floor > 200) {
+        if (item->current_anim_state == LS_SLIDE) {
+            item->current_anim_state = LS_FORWARD_JUMP;
+            item->goal_anim_state = LS_FORWARD_JUMP;
+            item->anim_num = LA_FALL_DOWN;
+            item->frame_num = g_Anims[LA_FALL_DOWN].frame_base;
+        } else {
+            item->current_anim_state = LS_FALL_BACK;
+            item->goal_anim_state = LS_FALL_BACK;
+            item->anim_num = LA_FALL_BACK;
+            item->frame_num = g_Anims[LA_FALL_BACK].frame_base;
+        }
+
+        Sound_StopEffect(SFX_LARA_SLIPPING);
+        item->fall_speed = 0;
+        item->gravity_status = 1;
+        return;
+    }
+
+    Lara_TestSlide(item, coll);
+    item->pos.y += coll->mid_floor;
+
+    if (ABS(coll->tilt_x) <= 2 && ABS(coll->tilt_z) <= 2) {
+        item->goal_anim_state = LS_STOP;
+        Sound_StopEffect(SFX_LARA_SLIPPING);
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

@@ -525,7 +525,7 @@ FS- 0043D5A0 000001D5 void __cdecl KayakToBaddieCollision(ITEM_INFO *v);
 FSD 0043D780 00000139 int32_t __cdecl Lara_TestSlide(ITEM_INFO *item, COLL_INFO *coll); // TestLaraSlide
 FSD 0043D8C0 000000BE int32_t __cdecl Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
 FSD 0043D980 0000036E int32_t __cdecl Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
-FS- 0043DCF0 00000105 void __cdecl Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope
+FSD 0043DCF0 00000105 void __cdecl Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope
 FSC 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
 FS- 0043DE40 00000136 void __cdecl Lara_DeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeJump
 FS- 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraSlideEdgeJump
@@ -662,12 +662,12 @@ FS- 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
 FS- 004448A0 000000D4 void __cdecl DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 00444980 0000029F void __cdecl ControlDeathSlide(int16_t item_num);
 FS- 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
-FS- 00444D10 0000006A int32_t __cdecl Lara_HitCeiling(ITEM_INFO *item, COLL_INFO *coll); // LaraHitCeiling
+FSC 00444D10 0000006A int32_t __cdecl Lara_HitCeiling(ITEM_INFO *item, COLL_INFO *coll); // LaraHitCeiling
 FSC 00444D80 00000075 int16_t __cdecl Lara_FloorFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraFloorFront
 FS- 00444E00 0000007E int16_t __cdecl Lara_CeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraCeilingFront
 FS- 00444E80 00000054 int32_t __cdecl Lara_Fallen(ITEM_INFO *item, COLL_INFO *coll); // LaraFallen
 FS- 00444EE0 000000AD int32_t __cdecl Lara_TestEdgeCatch(ITEM_INFO *item, COLL_INFO *coll, int32_t *edge); // LaraTestEdgeCatch
-FS- 00444F90 00000082 int32_t __cdecl Lara_DeflectEdge(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdge
+FSC 00444F90 00000082 int32_t __cdecl Lara_DeflectEdge(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdge
 FS- 00445020 00000222 int32_t __cdecl GetStaticObjects(ITEM_INFO *item, PHD_ANGLE ang, int32_t hite, int32_t radius, int32_t dist);
 FS- 00445250 00000034 void __cdecl draw_shotgun_meshes(int32_t weapon_type);
 FS- 00445290 0000002B void __cdecl undraw_shotgun_meshes(int32_t weapon_type);
@@ -943,7 +943,7 @@ FS- 00467010 0000005F void __cdecl InitialiseShiva(int16_t item_num);
 FS- 00467070 000006DE void __cdecl ShivaControl(int16_t item_num);
 FS- 00467780 000000B4 void __cdecl ShivaDamage(ITEM_INFO *item, CREATURE_INFO *shiva, int32_t damage);
 FSC 00467840 000004B0 int32_t __cdecl Sound_PlayEffect(int32_t sfx_num, PHD_3DPOS *pos, int32_t flags); // SoundEffect
-FS- 00467D00 0000005E void __cdecl StopSoundEffect(int32_t sfx_num);
+FSC 00467D00 0000005E void __cdecl Sound_StopEffect(int32_t sfx_num); // StopSoundEffect
 FS- 00467D60 00000086 void __cdecl SOUND_EndScene(void);
 FS- 00467DF0 00000024 void __cdecl SOUND_Stop(void);
 FS- 00467E20 00000020 void __cdecl SOUND_Init(void);
