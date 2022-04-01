@@ -15,6 +15,7 @@ bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestHangSwingIn(struct ITEM_INFO *item, PHD_ANGLE angle);
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
+void Lara_State_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Run(struct ITEM_INFO *item, struct COLL_INFO *coll);

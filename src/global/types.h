@@ -554,7 +554,7 @@ enum LARA_ANIM {
     LA_PICKUP_FLARE_UW    = 206,
     LA_STAND_TO_DUCK      = 218,
     LA_DUCK_ROLL          = 219,
-    LA_DUCK_BREATHE       = 223,
+    LA_DUCK_BREATHE       = 222,
     LA_DASH               = 224,
     LA_DASH_DIVE          = 231,
     LA_MONKEY_HANG        = 235,
