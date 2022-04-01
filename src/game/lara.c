@@ -5,8 +5,8 @@
 #include "global/vars.h"
 #include "util.h"
 
-#define FALL_DAMAGE_START 140
-#define FALL_DAMAGE_LENGTH 14
+#define LARA_FALL_DAMAGE_START 140
+#define LARA_FALL_DAMAGE_LENGTH 14
 
 static PHD_ANGLE m_OldSlopeAngle = 1;
 static bool m_JumpOK = true;
@@ -274,6 +274,64 @@ void Lara_GetCollisionInfo(struct ITEM_INFO *item, struct COLL_INFO *coll)
         coll, item->pos.x, item->pos.y, item->pos.z, item->room_num, LARA_HITE);
 }
 
+void Lara_DeflectEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    ShiftItem(item, coll);
+
+    switch (coll->coll_type) {
+    case COLL_FRONT:
+    case COLL_TOP_FRONT:
+        if (g_Lara.climb_status && item->speed == 2) {
+            return;
+        }
+
+        if (coll->mid_floor > 512) {
+            item->current_anim_state = LS_FAST_FALL;
+            item->goal_anim_state = LS_FAST_FALL;
+            item->anim_num = LA_FAST_SPLAT;
+            item->frame_num = g_Anims[LA_FAST_SPLAT].frame_base + 1;
+        } else if (coll->mid_floor <= 128) {
+            item->current_anim_state = LS_LAND;
+            item->goal_anim_state = LS_LAND;
+            item->anim_num = LA_LAND;
+            item->frame_num = g_Anims[LA_LAND].frame_base;
+        }
+        item->speed /= 4;
+        g_Lara.move_angle += DEG_180;
+        if (item->fall_speed <= 0) {
+            item->fall_speed = 1;
+        }
+        break;
+
+    case COLL_LEFT:
+        item->pos.y_rot += LARA_DEF_ADD_EDGE;
+        break;
+
+    case COLL_RIGHT:
+        item->pos.y_rot -= LARA_DEF_ADD_EDGE;
+        break;
+
+    case COLL_TOP:
+        if (item->fall_speed <= 0) {
+            item->fall_speed = 1;
+        }
+        break;
+
+    case COLL_CLAMP:
+        item->pos.z -= (100 * phd_cos(coll->facing)) >> W2V_SHIFT;
+        item->pos.x -= (100 * phd_sin(coll->facing)) >> W2V_SHIFT;
+        item->speed = 0;
+        coll->mid_floor = 0;
+        if (item->fall_speed <= 0) {
+            item->fall_speed = 16;
+        }
+        break;
+
+    default:
+        break;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
@@ -481,7 +539,7 @@ void Lara_State_Death(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_State_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     Lara_State_FastFallFriction(item);
-    if (item->fall_speed == FALL_DAMAGE_START + FALL_DAMAGE_LENGTH) {
+    if (item->fall_speed == LARA_FALL_DAMAGE_START + LARA_FALL_DAMAGE_LENGTH) {
         Sound_PlayEffect(SFX_LARA_FALL, &item->pos, 0);
     }
 }

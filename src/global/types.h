@@ -56,13 +56,13 @@ enum SOUND_EFFECT_ID {
 };
 
 enum COLL_TYPE {
-    COLL_NONE     = 0,
-    COLL_FRONT    = 1,
-    COLL_LEFT     = 2,
-    COLL_RIGHT    = 4,
-    COLL_TOP      = 8,
-    COLL_TOPFRONT = 16,
-    COLL_CLAMP    = 32,
+    COLL_NONE      = 0,
+    COLL_FRONT     = 1,
+    COLL_LEFT      = 2,
+    COLL_RIGHT     = 4,
+    COLL_TOP       = 8,
+    COLL_TOP_FRONT = 16,
+    COLL_CLAMP     = 32,
 };
 
 enum CAMERA_TYPE {

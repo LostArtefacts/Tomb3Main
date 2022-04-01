@@ -11,6 +11,7 @@
 
 #define GAME_FOV               80
 #define WALL_L                 1024 // = 0x1000
+#define W2V_SHIFT              14
 #define WALL_SHIFT             10
 #define STEP_L                 (WALL_L / 4)
 #define NO_HEIGHT              (-32512)
@@ -39,6 +40,7 @@
 #define LARA_CLIMB_WIDTH_L     120
 #define LARA_VAULT_ANGLE       (DEG_1 * 30)
 #define LARA_VAULT_SLOPE_DIF   60
+#define LARA_DEF_ADD_EDGE      (DEG_1 * 5)
 
 #define CAMERA_HANG_ANGLE            0
 #define CAMERA_HANG_ELEVATION        (DEG_1 * -60) // = -10920
