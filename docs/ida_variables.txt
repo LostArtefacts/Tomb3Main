@@ -528,7 +528,7 @@ FSD 0043D980 0000036E int32_t __cdecl Lara_TestVault(ITEM_INFO *item, COLL_INFO 
 FSD 0043DCF0 00000105 void __cdecl Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope
 FSD 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
 FSD 0043DE40 00000136 void __cdecl Lara_DeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeJump
-FS- 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraSlideEdgeJump
+FSD 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraSlideEdgeJump
 FS- 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangOnClimbWall
 FS- 0043E1C0 00000300 void __cdecl Lara_TestHang(ITEM_INFO *item, COLL_INFO *coll); // LaraHangTest
 FS- 0043E4E0 0000024A int32_t __cdecl Lara_TestHangJump(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangJump

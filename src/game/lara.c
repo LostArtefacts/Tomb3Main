@@ -332,6 +332,41 @@ void Lara_DeflectEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_SlideEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    ShiftItem(item, coll);
+
+    switch (coll->coll_type) {
+    case COLL_LEFT:
+        item->pos.y_rot += LARA_DEF_ADD_EDGE;
+        break;
+
+    case COLL_RIGHT:
+        item->pos.y_rot -= LARA_DEF_ADD_EDGE;
+        break;
+
+    case COLL_TOP:
+    case COLL_TOP_FRONT:
+        if (item->fall_speed <= 0) {
+            item->fall_speed = 1;
+        }
+        break;
+
+    case COLL_CLAMP:
+        item->pos.z -= (100 * phd_cos(coll->facing)) >> W2V_SHIFT;
+        item->pos.x -= (100 * phd_sin(coll->facing)) >> W2V_SHIFT;
+        item->speed = 0;
+        coll->mid_floor = 0;
+        if (item->fall_speed <= 0) {
+            item->fall_speed = 16;
+        }
+        break;
+
+    default:
+        break;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
