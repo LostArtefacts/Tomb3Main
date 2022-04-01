@@ -134,8 +134,7 @@ bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 
     int32_t hdif = coll->front_floor;
-    bool slope =
-        ABS(coll->left_floor2 - coll->right_floor2) >= LARA_VAULT_SLOPE_DIF;
+    bool slope = ABS(coll->left_floor2 - coll->right_floor2) >= LARA_SLOPE_DIF;
 
     if (hdif >= (-STEP_L * 2 - STEP_L / 2)
         && hdif <= (-STEP_L * 2 + STEP_L / 2)) {
@@ -410,6 +409,130 @@ bool Lara_TestHangOnClimbWall(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += shift;
         return true;
     }
+}
+
+void Lara_TestHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    enum DIRECTION dir = (uint16_t)(item->pos.y_rot + DEG_45) / DEG_90;
+
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = NO_BAD_NEG;
+    coll->bad_ceiling = 0;
+    Lara_GetCollisionInfo(item, coll);
+
+    bool flag = coll->front_floor < 200;
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    g_Lara.move_angle = item->pos.y_rot;
+
+    switch (dir) {
+    case DIR_NORTH:
+        item->pos.z += 4;
+        break;
+
+    case DIR_EAST:
+        item->pos.x += 4;
+        break;
+
+    case DIR_SOUTH:
+        item->pos.z -= 4;
+        break;
+
+    case DIR_WEST:
+        item->pos.x -= 4;
+        break;
+    }
+
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    Lara_GetCollisionInfo(item, coll);
+
+    if (g_Lara.climb_status) {
+        if (!(g_Input & IN_ACTION) || item->hit_points <= 0) {
+            item->current_anim_state = LS_FORWARD_JUMP;
+            item->goal_anim_state = LS_FORWARD_JUMP;
+            item->anim_num = LA_FALL_DOWN;
+            item->frame_num = g_Anims[LA_FALL_DOWN].frame_base;
+            item->pos.y += 256;
+            item->gravity_status = 1;
+            item->speed = 2;
+            item->fall_speed = 1;
+            g_Lara.gun_status = LG_ARMLESS;
+            return;
+        }
+
+        if (!Lara_TestHangOnClimbWall(item, coll)) {
+            item->pos.x = coll->old.x;
+            item->pos.y = coll->old.y;
+            item->pos.z = coll->old.z;
+            item->current_anim_state = LS_HANG;
+            item->goal_anim_state = LS_HANG;
+            item->anim_num = LA_GRAB_LEDGE;
+            item->frame_num = g_Anims[LA_GRAB_LEDGE].frame_base + 21;
+            return;
+        }
+
+        if (item->anim_num == LA_GRAB_LEDGE
+            && item->frame_num == g_Anims[LA_GRAB_LEDGE].frame_base + 21) {
+            if (Lara_TestClimbStance(item, coll)) {
+                item->goal_anim_state = LS_CLIMB_STNC;
+            }
+        }
+        return;
+    }
+
+    if (!(g_Input & IN_ACTION) || item->hit_points <= 0
+        || coll->front_floor > 0) {
+        item->current_anim_state = LS_UP_JUMP;
+        item->goal_anim_state = LS_UP_JUMP;
+        item->anim_num = LA_STOP_HANG;
+        item->frame_num = g_Anims[LA_STOP_HANG].frame_base + 9;
+
+        int16_t *bounds = GetBoundsAccurate(item);
+        item->pos.y += bounds[3];
+        item->pos.x += coll->shift.x;
+        item->pos.z += coll->shift.z;
+        item->gravity_status = 1;
+        item->speed = 2;
+        item->fall_speed = 1;
+        g_Lara.gun_status = LG_ARMLESS;
+        return;
+    }
+
+    int16_t *bounds = GetBoundsAccurate(item);
+    int32_t hdif = coll->front_floor - bounds[2];
+
+    if (ABS(coll->left_floor2 - coll->right_floor2) >= LARA_SLOPE_DIF
+        || coll->mid_ceiling >= 0 || coll->coll_type != COLL_FRONT || flag
+        || coll->hit_static || hdif < -LARA_SLOPE_DIF
+        || hdif > LARA_SLOPE_DIF) {
+        item->pos.x = coll->old.x;
+        item->pos.y = coll->old.y;
+        item->pos.z = coll->old.z;
+        if (item->current_anim_state == LS_HANG_LEFT
+            || item->current_anim_state == LS_HANG_RIGHT) {
+            item->current_anim_state = LS_HANG;
+            item->goal_anim_state = LS_HANG;
+            item->anim_num = LA_GRAB_LEDGE;
+            item->frame_num = g_Anims[LA_GRAB_LEDGE].frame_base + 21;
+        }
+        return;
+    }
+
+    switch (dir) {
+    case DIR_NORTH:
+    case DIR_SOUTH:
+        item->pos.z += coll->shift.z;
+        break;
+
+    case DIR_EAST:
+    case DIR_WEST:
+        item->pos.x += coll->shift.x;
+        break;
+    }
+
+    item->pos.y += hdif;
 }
 
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)

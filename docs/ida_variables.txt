@@ -530,7 +530,7 @@ FSD 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_I
 FSD 0043DE40 00000136 void __cdecl Lara_DeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeJump
 FSD 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraSlideEdgeJump
 FSD 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangOnClimbWall
-FS- 0043E1C0 00000300 void __cdecl Lara_TestHang(ITEM_INFO *item, COLL_INFO *coll); // LaraHangTest
+FSD 0043E1C0 00000300 void __cdecl Lara_TestHang(ITEM_INFO *item, COLL_INFO *coll); // LaraHangTest
 FS- 0043E4E0 0000024A int32_t __cdecl Lara_TestHangJump(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangJump
 FS- 0043E730 000000C1 int32_t __cdecl Lara_TestHangSwingIn(ITEM_INFO *item, PHD_ANGLE angle); // TestHangSwingIn
 FS- 0043E800 00000212 void __cdecl Lara_AboveWater(ITEM_INFO *item, COLL_INFO *coll); // LaraAboveWater
