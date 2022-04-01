@@ -1186,7 +1186,7 @@ void Lara_State_HangRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
 void Lara_State_SlideBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
-    if (!(g_Input & IN_JUMP) && !(g_Input & IN_FORWARD)) {
+    if (g_Input & IN_JUMP && !(g_Input & IN_FORWARD)) {
         item->goal_anim_state = LS_BACK_JUMP;
     }
 }
