@@ -267,6 +267,13 @@ void Lara_SlideSlope(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_GetCollisionInfo(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->facing = g_Lara.move_angle;
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num, LARA_HITE);
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

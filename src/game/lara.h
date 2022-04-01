@@ -6,6 +6,7 @@ bool Lara_TestSlide(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_SlideSlope(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_GetCollisionInfo(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);

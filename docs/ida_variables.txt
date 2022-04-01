@@ -188,7 +188,7 @@ FS- 0041C440 00000C63 void __cdecl CleanerControl(int16_t item_num);
 FS- 0041D0B0 0000015E void __cdecl CleanerTriggerElectricSparks(PHD_VECTOR *pos, int16_t item_num, int16_t node);
 FS- 0041D210 00000071 void __cdecl InitialiseCobra(int16_t item_num);
 FS- 0041D290 00000260 void __cdecl CobraControl(int16_t item_num);
-FS- 0041D500 00000BF5 void __cdecl GetCollisionInfo(COLL_INFO *info, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t obj_height);
+FSC 0041D500 00000BF5 void __cdecl GetCollisionInfo(COLL_INFO *info, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t obj_height);
 FS- 0041E140 0000002F int32_t __cdecl FindGridShift(int32_t src, int32_t dst);
 FS- 0041E170 000003DB int32_t __cdecl CollideStaticObjects(COLL_INFO *coll, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t hite);
 FS- 0041E560 000000C8 void __cdecl GetNearByRooms(int32_t x, int32_t y, int32_t z, int32_t r, int32_t h, int16_t room_num);
@@ -526,7 +526,7 @@ FSD 0043D780 00000139 int32_t __cdecl Lara_TestSlide(ITEM_INFO *item, COLL_INFO 
 FSD 0043D8C0 000000BE int32_t __cdecl Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
 FSD 0043D980 0000036E int32_t __cdecl Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
 FSD 0043DCF0 00000105 void __cdecl Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *coll); // lara_slide_slope
-FSC 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
+FSD 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
 FS- 0043DE40 00000136 void __cdecl Lara_DeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeJump
 FS- 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraSlideEdgeJump
 FS- 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangOnClimbWall

@@ -9,7 +9,6 @@
 #define Lara_LookUpDown       ((void (*)(void))0x004446E0)
 #define Lara_FloorFront       ((int16_t (*)(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist))0x00444D80)
 #define Lara_Animate          ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
-#define Lara_GetCollisionInfo ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0043DE00)
 #define Lara_DeflectEdge      ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444F90)
 #define Lara_TestClimbPos     ((int32_t (*)(struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift))0x00449090)
 #define Lara_HitCeiling       ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444D10)
@@ -18,6 +17,7 @@
 
 // clang-format off
 // TODO: apply naming conventions
+#define GetCollisionInfo      ((void  (*)(struct COLL_INFO *info, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t obj_height))0x0041D500)
 #define GetWaterHeight        ((int32_t (*)(int32_t x, int32_t y, int32_t z, int16_t room_num))0x00420C70)
 #define TriggerWaterfallMist  ((void (*)(int32_t x, int32_t y, int32_t z, int32_t angle))0x0042D1F0)
 #define GetHeight             ((int32_t (*)(struct FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z))0x00420E10)
