@@ -221,7 +221,7 @@ FSC 00420E10 00000514 int32_t __cdecl GetHeight(FLOOR_INFO *floor, int32_t x, in
 FS- 00421370 000000EE void __cdecl RefreshCamera(int16_t type, int16_t *data);
 FSC 00421460 000008C7 void __cdecl TestTriggers(int16_t *data, int32_t heavy);
 FS- 00421D80 00000055 int32_t __cdecl TriggerActive(ITEM_INFO *item);
-FS- 00421DE0 0000049F int32_t __cdecl GetCeiling(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
+FSC 00421DE0 0000049F int32_t __cdecl GetCeiling(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 004222B0 000000B2 int16_t __cdecl GetDoor(FLOOR_INFO *floor);
 FS- 00422370 0000009F int32_t __cdecl LOS(GAME_VECTOR *start, GAME_VECTOR *target);
 FS- 00422410 000002EB int32_t __cdecl zLOS(GAME_VECTOR *start, GAME_VECTOR *target);
@@ -532,7 +532,7 @@ FSD 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO
 FSD 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangOnClimbWall
 FSD 0043E1C0 00000300 void __cdecl Lara_TestHang(ITEM_INFO *item, COLL_INFO *coll); // LaraHangTest
 FSD 0043E4E0 0000024A int32_t __cdecl Lara_TestHangJump(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangJump
-FS- 0043E730 000000C1 int32_t __cdecl Lara_TestHangSwingIn(ITEM_INFO *item, PHD_ANGLE angle); // TestHangSwingIn
+FSD 0043E730 000000C1 int32_t __cdecl Lara_TestHangSwingIn(ITEM_INFO *item, PHD_ANGLE angle); // TestHangSwingIn
 FS- 0043E800 00000212 void __cdecl Lara_AboveWater(ITEM_INFO *item, COLL_INFO *coll); // LaraAboveWater
 FS- 0043EA20 00000080 void __cdecl Lara_State_Duck(ITEM_INFO *item, COLL_INFO *coll); // lara_as_duck
 FS- 0043EAA0 000000F2 void __cdecl Lara_Col_Duck(ITEM_INFO *item, COLL_INFO *coll); // lara_col_duck

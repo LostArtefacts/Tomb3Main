@@ -606,6 +606,34 @@ bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
     return true;
 }
 
+bool Lara_TestHangSwingIn(struct ITEM_INFO *item, PHD_ANGLE angle)
+{
+    int32_t x = item->pos.x;
+    int32_t y = item->pos.y;
+    int32_t z = item->pos.z;
+    int16_t room_num = item->room_num;
+
+    switch (angle) {
+    case 0:
+        z += 256;
+        break;
+    case DEG_90:
+        x += 256;
+        break;
+    case -DEG_90:
+        x -= 256;
+        break;
+    case -DEG_180:
+        z -= 256;
+        break;
+    }
+
+    struct FLOOR_INFO *floor = GetFloor(x, y, z, &room_num);
+    int32_t h = GetHeight(floor, x, y, z);
+    int32_t c = GetCeiling(floor, x, y, z);
+    return h != NO_HEIGHT && h - y > 0 && c - y < -400 && y - 819 - c > -72;
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
