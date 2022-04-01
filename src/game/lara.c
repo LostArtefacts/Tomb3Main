@@ -367,6 +367,51 @@ void Lara_SlideEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+bool Lara_TestHangOnClimbWall(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!g_Lara.climb_status || item->fall_speed < 0) {
+        return false;
+    }
+
+    switch ((uint16_t)(item->pos.y_rot + DEG_45) / DEG_90) {
+    case DIR_NORTH:
+    case DIR_SOUTH:
+        item->pos.z += coll->shift.z;
+        break;
+
+    case DIR_EAST:
+    case DIR_WEST:
+        item->pos.x += coll->shift.x;
+        break;
+    }
+
+    int32_t shift;
+    int16_t *bounds = GetBoundsAccurate(item);
+
+    if (!Lara_TestClimbPos(
+            item, coll->radius, coll->radius, bounds[2], bounds[3] - bounds[2],
+            &shift)) {
+        return false;
+    }
+
+    if (!Lara_TestClimbPos(
+            item, coll->radius, -coll->radius, bounds[2], bounds[3] - bounds[2],
+            &shift)) {
+        return false;
+    }
+
+    int32_t result = Lara_TestClimbPos(
+        item, coll->radius, 0, bounds[2], bounds[3] - bounds[2], &shift);
+    if (result == 0) {
+        return false;
+    } else if (result == 1) {
+        return true;
+    } else {
+        item->pos.y += shift;
+        return true;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

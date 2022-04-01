@@ -65,6 +65,13 @@ enum COLL_TYPE {
     COLL_CLAMP     = 32,
 };
 
+enum DIRECTION {
+    DIR_NORTH = 0,
+    DIR_EAST = 1,
+    DIR_SOUTH = 2,
+    DIR_WEST = 3,
+};
+
 enum CAMERA_TYPE {
     CT_CHASE     = 0,
     CT_FIXED     = 1,

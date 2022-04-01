@@ -279,7 +279,7 @@ FS- 00429A30 00000141 void __cdecl DrawGunFlash(int32_t weapon_type, int32_t cli
 FS- 00429BA0 00000160 void __cdecl CalculateObjectLighting(ITEM_INFO *item, int16_t *frame);
 FS- 00429D00 000000A6 void __cdecl CalculateObjectLightingLara(void);
 FS- 00429DB0 00000092 int32_t __cdecl GetFrames(ITEM_INFO *item, int16_t *frm[], int32_t *rate);
-FS- 00429E50 0000007C int16_t *__cdecl GetBoundsAccurate(ITEM_INFO *item);
+FSC 00429E50 0000007C int16_t *__cdecl GetBoundsAccurate(ITEM_INFO *item);
 FS- 00429ED0 00000030 int16_t *__cdecl GetBestFrame(ITEM_INFO *item);
 FS- 00429F00 000000D9 void __cdecl DetatchSpark(int32_t num, int32_t type);
 FS- 00429FE0 0000009F int32_t __cdecl GetFreeSpark(void);
@@ -529,7 +529,7 @@ FSD 0043DCF0 00000105 void __cdecl Lara_SlideSlope(ITEM_INFO *item, COLL_INFO *c
 FSD 0043DE00 00000032 void __cdecl Lara_GetCollisionInfo(ITEM_INFO *item, COLL_INFO *coll); // GetLaraCollisionInfo
 FSD 0043DE40 00000136 void __cdecl Lara_DeflectEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeJump
 FSD 0043DFC0 000000AB void __cdecl Lara_SlideEdgeJump(ITEM_INFO *item, COLL_INFO *coll); // LaraSlideEdgeJump
-FS- 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangOnClimbWall
+FSD 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangOnClimbWall
 FS- 0043E1C0 00000300 void __cdecl Lara_TestHang(ITEM_INFO *item, COLL_INFO *coll); // LaraHangTest
 FS- 0043E4E0 0000024A int32_t __cdecl Lara_TestHangJump(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangJump
 FS- 0043E730 000000C1 int32_t __cdecl Lara_TestHangSwingIn(ITEM_INFO *item, PHD_ANGLE angle); // TestHangSwingIn

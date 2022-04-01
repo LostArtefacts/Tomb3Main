@@ -12,6 +12,7 @@ void Inject_All(void)
     INJECT(0x0043DE00, Lara_GetCollisionInfo, 1);
     INJECT(0x0043DE40, Lara_DeflectEdgeJump, 1);
     INJECT(0x0043DFC0, Lara_SlideEdgeJump, 1);
+    INJECT(0x0043E0B0, Lara_TestHangOnClimbWall, 1);
     INJECT(0x00440DB0, Lara_State_ForwardJump, 1);
     INJECT(0x00440E90, Lara_State_Walk, 1);
     INJECT(0x00440F20, Lara_State_Run, 1);
