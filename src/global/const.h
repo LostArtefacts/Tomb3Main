@@ -45,6 +45,7 @@
 #define LARA_SLOPE_DIF         60
 #define LARA_DEF_ADD_EDGE      (DEG_1 * 5) // = 910
 #define LARA_HANG_ANGLE        (DEG_1 * 35) // = 6370
+#define LARA_DUCK_DEFLECT      (DEG_1 * 2) // = 364
 
 #define CAMERA_HANG_ANGLE            0
 #define CAMERA_HANG_ELEVATION        (DEG_1 * -60) // = -10920

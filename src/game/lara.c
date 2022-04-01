@@ -545,8 +545,8 @@ bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.head_y_rot = 0;
         g_Lara.torso_x_rot = 0;
         g_Lara.torso_y_rot = 0;
-        item->current_anim_state = LS_HANG_2;
-        item->goal_anim_state = LS_HANG_2;
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
         item->anim_num = LA_GRAB_LEDGE_IN;
         item->frame_num = g_Anims[LA_GRAB_LEDGE_IN].frame_base;
         item->gravity_status = 0;
@@ -578,8 +578,8 @@ bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.head_y_rot = 0;
         g_Lara.torso_x_rot = 0;
         g_Lara.torso_y_rot = 0;
-        item->current_anim_state = LS_HANG_2;
-        item->goal_anim_state = LS_HANG_2;
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
         item->anim_num = LA_GRAB_LEDGE_IN;
         item->frame_num = g_Anims[LA_GRAB_LEDGE_IN].frame_base;
     } else {
@@ -632,6 +632,23 @@ bool Lara_TestHangSwingIn(struct ITEM_INFO *item, PHD_ANGLE angle)
     int32_t h = GetHeight(floor, x, y, z);
     int32_t c = GetCeiling(floor, x, y, z);
     return h != NO_HEIGHT && h - y > 0 && c - y < -400 && y - 819 - c > -72;
+}
+
+bool Lara_DeflectEdgeDuck(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (coll->coll_type == COLL_FRONT || coll->coll_type == COLL_TOP_FRONT) {
+        ShiftItem(item, coll);
+        item->speed = 0;
+        item->gravity_status = 0;
+        return true;
+    } else if (coll->coll_type == COLL_LEFT) {
+        ShiftItem(item, coll);
+        item->pos.y_rot += LARA_DUCK_DEFLECT;
+    } else if (coll->coll_type == COLL_RIGHT) {
+        ShiftItem(item, coll);
+        item->pos.y_rot -= LARA_DUCK_DEFLECT;
+    }
+    return false;
 }
 
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)

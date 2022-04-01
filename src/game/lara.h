@@ -13,6 +13,7 @@ bool Lara_TestHangOnClimbWall(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_TestHang(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestHangJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestHangSwingIn(struct ITEM_INFO *item, PHD_ANGLE angle);
+bool Lara_DeflectEdgeDuck(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 void Lara_State_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll);

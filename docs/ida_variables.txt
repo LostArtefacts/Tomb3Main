@@ -540,7 +540,7 @@ FSD 0043EBA0 0000007A void __cdecl Lara_State_AllFours(ITEM_INFO *item, COLL_INF
 FS- 0043EC20 000002D8 void __cdecl Lara_Col_AllFours(ITEM_INFO *item, COLL_INFO *coll); // lara_col_all4s
 FSD 0043EF10 000000CE void __cdecl Lara_State_Crawl(ITEM_INFO *item, COLL_INFO *coll); // lara_as_crawl
 FS- 0043EFE0 000000EF void __cdecl Lara_Col_Crawl(ITEM_INFO *item, COLL_INFO *coll); // lara_col_crawl
-FS- 0043F0D0 00000075 int32_t __cdecl Lara_DeflectEdgeDuck(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeDuck
+FSD 0043F0D0 00000075 int32_t __cdecl Lara_DeflectEdgeDuck(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdgeDuck
 FS- 0043F150 00000064 void __cdecl Lara_State_AllFoursTurnLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_all4turnl
 FS- 0043F1C0 00000028 void __cdecl Lara_Col_AllFoursTurnLR(ITEM_INFO *item, COLL_INFO *coll); // lara_col_all4turnlr
 FS- 0043F1F0 00000064 void __cdecl Lara_State_AllFoursTurnRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_all4turnr
