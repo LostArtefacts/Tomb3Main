@@ -17,10 +17,12 @@
 #define NO_HEIGHT              (-32512)
 #define NO_BAD_POS             32512
 #define NO_BAD_NEG             NO_HEIGHT
+#define NO_ITEM                (-1)
 
 #define GRAVITY                6
 #define FAST_FALL_SPEED        128
 
+#define LARA_RADIUS            100
 #define LARA_HITE              762
 
 #define LARA_TURN_UNDO         (DEG_1 * 2) // = 364

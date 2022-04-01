@@ -99,12 +99,12 @@ FS- 0040FEF0 00000052 void __cdecl InitialiseArmySMG(int16_t item_num);
 FS- 0040FF50 000007CA void __cdecl ArmySMGControl(int16_t item_num);
 FS- 00410750 0000004B void __cdecl InitialiseAutogun(int16_t item_num);
 FS- 004107A0 00000345 void __cdecl AutogunControl(int16_t item_num);
-FS- 00410AF0 0000020A void __cdecl FireBigGun(ITEM_INFO *v);
-FS- 00410D00 00000042 void __cdecl BigGunInitialise(int16_t item_num);
-FS- 00410D50 00000103 void __cdecl BigGunCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
-FS- 00410E60 00000052 int32_t __cdecl CanUseGun(ITEM_INFO *v, ITEM_INFO *l);
-FS- 00410EC0 0000023A void __cdecl BigGunDraw(ITEM_INFO *v);
-FS- 00411100 0000034D int32_t __cdecl BigGunControl(COLL_INFO *coll);
+FS- 00410AF0 0000020A void __cdecl BigGun_Fire(ITEM_INFO *v); // FireBigGun
+FS- 00410D00 00000042 void __cdecl BigGun_Initialise(int16_t item_num); // BigGunInitialise
+FS- 00410D50 00000103 void __cdecl BigGun_Collision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll); // BigGunCollision
+FS- 00410E60 00000052 int32_t __cdecl BigGun_CanUse(ITEM_INFO *v, ITEM_INFO *l); // CanUseGun
+FS- 00410EC0 0000023A void __cdecl BigGun_Draw(ITEM_INFO *v); // BigGunDraw // w
+FSC 00411100 0000034D int32_t __cdecl BigGun_Control(COLL_INFO *coll); // BigGunControl
 FS- 00411450 0000008F void __cdecl InitialiseVulture(int16_t item_num);
 FS- 004114E0 00000213 void __cdecl VultureControl(int16_t item_num);
 FS- 00411710 0000089B void __cdecl BlowpipeControl(int16_t item_num);
@@ -194,9 +194,9 @@ FS- 0041E170 000003DB int32_t __cdecl CollideStaticObjects(COLL_INFO *coll, int3
 FS- 0041E560 000000C8 void __cdecl GetNearByRooms(int32_t x, int32_t y, int32_t z, int32_t r, int32_t h, int16_t room_num);
 FS- 0041E630 00000055 void __cdecl GetNewRoom(int32_t x, int32_t y, int32_t z, int16_t room_num);
 FSC 0041E690 00000037 void __cdecl ShiftItem(ITEM_INFO *item, COLL_INFO *coll);
-FS- 0041E6D0 0000005D void __cdecl UpdateLaraRoom(ITEM_INFO *item, int32_t height);
+FSC 0041E6D0 0000005D void __cdecl UpdateLaraRoom(ITEM_INFO *item, int32_t height);
 FS- 0041E730 0000019A int16_t __cdecl GetTiltType(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
-FS- 0041E8D0 0000018C void __cdecl LaraBaddieCollision(ITEM_INFO *lara_item, COLL_INFO *coll);
+FSC 0041E8D0 0000018C void __cdecl LaraBaddieCollision(ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 0041EA60 00000170 void __cdecl CreatureCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 0041EBD0 0000005C void __cdecl ObjectCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 0041EC30 00000053 void __cdecl ObjectCollisionSub(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
@@ -503,25 +503,25 @@ FS- 0043B1A0 000000EE void __cdecl KillEffect(int16_t fx_num);
 FS- 0043B290 00000093 void __cdecl EffectNewRoom(int16_t fx_num, int16_t room_num);
 FS- 0043B330 0000005B void __cdecl ClearBodyBag(void);
 FS- 0043B390 00000079 void __cdecl LaraRapidsDrown(void);
-FS- 0043B410 00000073 void __cdecl KayakInitialise(int16_t item_num);
-FS- 0043B490 00000026 void __cdecl KayakDraw(ITEM_INFO *v);
-FS- 0043B4C0 00000159 void __cdecl KayakCollision(int16_t item_num, ITEM_INFO *l, COLL_INFO *coll);
-FS- 0043B620 00000108 int32_t __cdecl GetInKayak(int16_t item_num, COLL_INFO *coll);
-FS- 0043B730 00000386 int32_t __cdecl KayakControl(void);
-FS- 0043BAC0 000001D6 void __cdecl KayakDoWake(ITEM_INFO *v, int16_t x_off, int16_t z_off, int16_t rotate);
-FS- 0043BCA0 0000005C void __cdecl KayakUpdateWakeFX(void);
-FS- 0043BD00 000000E1 void __cdecl KayakSplash(ITEM_INFO *item, int32_t fall_speed, int32_t water);
-FS- 0043BDF0 0000014B void __cdecl KayakTriggerRapidsMist(int32_t x, int32_t y, int32_t z);
-FS- 0043BF40 0000067C void __cdecl KayakToBackground(ITEM_INFO *v, KAYAK_INFO *kayak);
-FS- 0043C5C0 00000087 int32_t __cdecl KayakGetCollisionAnim(ITEM_INFO *v, int32_t x_diff, int32_t z_diff);
-FS- 0043C650 00000051 int32_t __cdecl KayakDoDynamics(int32_t height, int32_t fall_speed, int32_t *y);
-FS- 0043C6B0 00000183 void __cdecl KayakDoCurrent(ITEM_INFO *item);
-FS- 0043C840 00000116 int32_t __cdecl KayakTestHeight(ITEM_INFO *item, int32_t x, int32_t z, PHD_VECTOR *pos);
-FS- 0043C960 000002A0 int32_t __cdecl KayakDoShift(ITEM_INFO *v, PHD_VECTOR *pos, PHD_VECTOR *old);
-FS- 0043CC00 00000859 void __cdecl KayakUserInput(ITEM_INFO *v, ITEM_INFO *l, KAYAK_INFO *kayak);
-FS- 0043D4A0 000000A8 void __cdecl KayakDoRipple(ITEM_INFO *v, int16_t x_off, int16_t z_off);
-FS- 0043D550 00000042 int32_t __cdecl KayakCanGetOut(ITEM_INFO *v, int32_t direction);
-FS- 0043D5A0 000001D5 void __cdecl KayakToBaddieCollision(ITEM_INFO *v);
+FS- 0043B410 00000073 void __cdecl Kayak_Initialise(int16_t item_num); // KayakInitialise
+FS- 0043B490 00000026 void __cdecl Kayak_Draw(ITEM_INFO *v); // KayakDraw
+FS- 0043B4C0 00000159 void __cdecl Kayak_Collision(int16_t item_num, ITEM_INFO *l, COLL_INFO *coll); // KayakCollision
+FS- 0043B620 00000108 int32_t __cdecl Kayak_GetIn(int16_t item_num, COLL_INFO *coll); // GetInKayak
+FSC 0043B730 00000386 int32_t __cdecl Kayak_Control(void); // KayakControl
+FS- 0043BAC0 000001D6 void __cdecl Kayak_DoWake(ITEM_INFO *v, int16_t x_off, int16_t z_off, int16_t rotate); // KayakDoWake
+FS- 0043BCA0 0000005C void __cdecl Kayak_UpdateWakeFX(void); // KayakUpdateWakeFX
+FS- 0043BD00 000000E1 void __cdecl Kayak_Splash(ITEM_INFO *item, int32_t fall_speed, int32_t water); // KayakSplash
+FS- 0043BDF0 0000014B void __cdecl Kayak_TriggerRapidsMist(int32_t x, int32_t y, int32_t z); // KayakTriggerRapidsMist
+FS- 0043BF40 0000067C void __cdecl Kayak_ToBackground(ITEM_INFO *v, KAYAK_INFO *kayak); // KayakToBackground
+FS- 0043C5C0 00000087 int32_t __cdecl Kayak_GetCollisionAnim(ITEM_INFO *v, int32_t x_diff, int32_t z_diff); // KayakGetCollisionAnim
+FS- 0043C650 00000051 int32_t __cdecl Kayak_DoDynamics(int32_t height, int32_t fall_speed, int32_t *y); // KayakDoDynamics
+FS- 0043C6B0 00000183 void __cdecl Kayak_DoCurrent(ITEM_INFO *item); // KayakDoCurrent
+FS- 0043C840 00000116 int32_t __cdecl Kayak_TestHeight(ITEM_INFO *item, int32_t x, int32_t z, PHD_VECTOR *pos); // KayakTestHeight
+FS- 0043C960 000002A0 int32_t __cdecl Kayak_DoShift(ITEM_INFO *v, PHD_VECTOR *pos, PHD_VECTOR *old); // KayakDoShift
+FS- 0043CC00 00000859 void __cdecl Kayak_UserInput(ITEM_INFO *v, ITEM_INFO *l, KAYAK_INFO *kayak); // KayakUserInput
+FS- 0043D4A0 000000A8 void __cdecl Kayak_DoRipple(ITEM_INFO *v, int16_t x_off, int16_t z_off); // KayakDoRipple
+FS- 0043D550 00000042 int32_t __cdecl Kayak_CanGetOut(ITEM_INFO *v, int32_t direction); // KayakCanGetOut
+FS- 0043D5A0 000001D5 void __cdecl Kayak_BaddieCollision(ITEM_INFO *v); // KayakToBaddieCollision
 FSD 0043D780 00000139 int32_t __cdecl Lara_TestSlide(ITEM_INFO *item, COLL_INFO *coll); // TestLaraSlide
 FSD 0043D8C0 000000BE int32_t __cdecl Lara_TestClimbStance(ITEM_INFO *item, COLL_INFO *coll); // LaraTestClimbStance
 FSD 0043D980 0000036E int32_t __cdecl Lara_TestVault(ITEM_INFO *item, COLL_INFO *coll); // TestLaraVault
@@ -533,7 +533,7 @@ FSD 0043E0B0 000000F5 int32_t __cdecl Lara_TestHangOnClimbWall(ITEM_INFO *item, 
 FSD 0043E1C0 00000300 void __cdecl Lara_TestHang(ITEM_INFO *item, COLL_INFO *coll); // LaraHangTest
 FSD 0043E4E0 0000024A int32_t __cdecl Lara_TestHangJump(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangJump
 FSD 0043E730 000000C1 int32_t __cdecl Lara_TestHangSwingIn(ITEM_INFO *item, PHD_ANGLE angle); // TestHangSwingIn
-FS- 0043E800 00000212 void __cdecl Lara_AboveWater(ITEM_INFO *item, COLL_INFO *coll); // LaraAboveWater
+FSD 0043E800 00000212 void __cdecl Lara_AboveWater(ITEM_INFO *item, COLL_INFO *coll); // LaraAboveWater
 FS- 0043EA20 00000080 void __cdecl Lara_State_Duck(ITEM_INFO *item, COLL_INFO *coll); // lara_as_duck
 FS- 0043EAA0 000000F2 void __cdecl Lara_Col_Duck(ITEM_INFO *item, COLL_INFO *coll); // lara_col_duck
 FS- 0043EBA0 0000007A void __cdecl Lara_State_AllFours(ITEM_INFO *item, COLL_INFO *coll); // lara_as_all4s
@@ -657,8 +657,8 @@ FS- 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, int3
 FS- 00443C10 00000083 void __cdecl AddJointPos(ITEM_INFO *item, int32_t mesh);
 FS- 00443CA0 000009FD void __cdecl GetLHAInt(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, int32_t left_right);
 FSC 004446E0 00000084 void __cdecl Lara_LookUpDown(void); // LookUpDown
-FS- 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
-FS- 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
+FSC 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
+FSC 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
 FS- 004448A0 000000D4 void __cdecl DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 00444980 0000029F void __cdecl ControlDeathSlide(int16_t item_num);
 FS- 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
@@ -711,7 +711,7 @@ FS- 00449530 0000020D void __cdecl Lara_Col_ClimbSTNC(ITEM_INFO *item, COLL_INFO
 FS- 00449740 0000014C void __cdecl Lara_Col_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbing
 FS- 00449890 0000019D void __cdecl Lara_Col_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbdown
 FS- 00449A30 0000017F void __cdecl UpdateElectricityPoints(void);
-FS- 00449BB0 0000055A void __cdecl LaraGun(void);
+FSC 00449BB0 0000055A void __cdecl Lara_Gun(void); // LaraGun
 FS- 0044A1A0 0000003B int32_t __cdecl CheckForHoldingState(int32_t state);
 FS- 0044A1E0 0000011D void __cdecl InitialiseNewWeapon(void);
 FS- 0044A330 00000194 void __cdecl LaraTargetInfo(WEAPON_INFO *winfo);
@@ -804,16 +804,16 @@ FS- 00453460 000000F7 void __cdecl CreateZone(ITEM_INFO *item);
 FS- 00453560 0000004B void __cdecl ClearLOT(LOT_INFO *LOT);
 FS- 004535B0 00000183 int32_t __cdecl EnableNonLotAI(int16_t item_num, int32_t always);
 FS- 00453740 000000F8 void __cdecl InitialiseNonLotAI(int16_t item_num, int32_t slot);
-FS- 00453890 00000098 int16_t __cdecl MineCartGetCollision(ITEM_INFO *v, int16_t ang, int32_t dist, int16_t *ceiling);
-FS- 00453930 00000027 void __cdecl MineCartInitialise(int16_t item_num);
-FS- 00453960 0000014D void __cdecl MineCartCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
-FS- 00453AB0 000000C1 int32_t __cdecl GetInMineCart(ITEM_INFO *v, ITEM_INFO *l, COLL_INFO *coll);
-FS- 00453B80 00000117 int32_t __cdecl MineCartControl(void);
-FS- 00453CA0 0000052B void __cdecl MoveCart(ITEM_INFO *v, ITEM_INFO *l, CART_INFO *cart);
-FS- 004541F0 000000A8 int32_t __cdecl MineCartTestHeight(ITEM_INFO *v, int32_t x, int32_t z);
-FS- 004542A0 00000903 void __cdecl MineCartDoUserInput(ITEM_INFO *v, ITEM_INFO *l, CART_INFO *cart);
-FS- 00454C00 0000010E int32_t __cdecl MineCartCanGetOut(int32_t direction);
-FS- 00454D10 00000292 void __cdecl CartToBaddieCollision(ITEM_INFO *v);
+FS- 00453890 00000098 int16_t __cdecl MineCart_GetCollision(ITEM_INFO *v, int16_t ang, int32_t dist, int16_t *ceiling); // MineCartGetCollision
+FS- 00453930 00000027 void __cdecl MineCart_Initialise(int16_t item_num); // MineCartInitialise
+FS- 00453960 0000014D void __cdecl MineCart_Collision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll); // MineCartCollision
+FS- 00453AB0 000000C1 int32_t __cdecl MineCart_GetIn(ITEM_INFO *v, ITEM_INFO *l, COLL_INFO *coll); // GetInMineCart
+FSC 00453B80 00000117 int32_t __cdecl MineCart_Control(void); // MineCartControl
+FS- 00453CA0 0000052B void __cdecl MineCart_Move(ITEM_INFO *v, ITEM_INFO *l, CART_INFO *cart); // MoveCart
+FS- 004541F0 000000A8 int32_t __cdecl MineCart_TestHeight(ITEM_INFO *v, int32_t x, int32_t z); // MineCartTestHeight
+FS- 004542A0 00000903 void __cdecl MineCart_UserInput(ITEM_INFO *v, ITEM_INFO *l, CART_INFO *cart); // MineCartDoUserInput
+FS- 00454C00 0000010E int32_t __cdecl MineCart_CanGetOut(int32_t direction); // MineCartCanGetOut
+FS- 00454D10 00000292 void __cdecl MineCart_BaddieCollision(ITEM_INFO *v); // CartToBaddieCollision
 FS- 00454FB0 00000308 void __cdecl ControlMissile(int16_t fx_num);
 FS- 004552C0 000000A7 void __cdecl ShootAtLara(FX_INFO *fx);
 FS- 00455370 0000042B int32_t __cdecl ExplodingDeath(int16_t item_num, int32_t mesh_bits, int16_t damage);
@@ -896,21 +896,21 @@ FS- 0045D050 00000B2B void __cdecl PrisonerControl(int16_t item_num);
 FS- 0045DBD0 00000052 void __cdecl InitialisePunk(int16_t item_num);
 FS- 0045DC30 00000961 void __cdecl PunkControl(int16_t item_num);
 FS- 0045E5E0 000001F1 void __cdecl TriggerPunkFlame(int16_t item_num);
-FS- 0045E7E0 0000004B void __cdecl InitialiseQuadBike(int16_t item_num);
-FS- 0045E830 000001A8 void __cdecl QuadBikeCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
-FS- 0045E9E0 0000013E int32_t __cdecl GetOnQuadBike(int16_t item_num, COLL_INFO *coll);
-FS- 0045EB20 000002F1 void __cdecl QuadBikeDraw(ITEM_INFO *item);
-FS- 0045EE20 00000581 int32_t __cdecl QuadBikeControl(void);
-FS- 0045F3C0 000000CE void __cdecl QuadbikeExplode(ITEM_INFO *v);
-FS- 0045F490 000001AF int32_t __cdecl QuadBikeCheckGetOff(void);
-FS- 0045F640 000000DF int32_t __cdecl QuadBikeTestHeight(ITEM_INFO *item, int32_t z_off, int32_t x_off, PHD_VECTOR *pos);
-FS- 0045F720 00000054 int32_t __cdecl QuadBikeDoDynamics(int32_t height, int32_t fall_speed, int32_t *y);
-FS- 0045F780 0000082E int32_t __cdecl QuadBikeDynamics(ITEM_INFO *v);
-FS- 0045FFB0 000001E9 void __cdecl QuadBikeBaddieCollision(ITEM_INFO *v);
-FS- 004601A0 00000090 int32_t __cdecl QuadBikeGetCollisionAnim(ITEM_INFO *v, PHD_VECTOR *moved);
-FS- 00460230 00000430 void __cdecl AnimateQuadBike(ITEM_INFO *v, int32_t collide, int32_t dead);
-FS- 004606A0 00000100 int32_t __cdecl QuadBikeCanGetOff(int32_t direction);
-FS- 004607A0 00000429 int32_t __cdecl QuadBikeUserControl(ITEM_INFO *v, int32_t height, int32_t *pitch);
+FS- 0045E7E0 0000004B void __cdecl QuadBike_Initialise(int16_t item_num); // InitialiseQuadBike
+FS- 0045E830 000001A8 void __cdecl QuadBike_Collision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll); // QuadBikeCollision
+FS- 0045E9E0 0000013E int32_t __cdecl QuadBike_GetOn(int16_t item_num, COLL_INFO *coll); // GetOnQuadBike
+FS- 0045EB20 000002F1 void __cdecl QuadBike_Draw(ITEM_INFO *item); // QuadBikeDraw
+FSC 0045EE20 00000581 int32_t __cdecl QuadBike_Control(void); // QuadBikeControl
+FS- 0045F3C0 000000CE void __cdecl QuadBike_Explode(ITEM_INFO *v); // QuadbikeExplode
+FS- 0045F490 000001AF int32_t __cdecl QuadBike_CheckGetOff(void); // QuadBikeCheckGetOff
+FS- 0045F640 000000DF int32_t __cdecl QuadBike_TestHeight(ITEM_INFO *item, int32_t z_off, int32_t x_off, PHD_VECTOR *pos); // QuadBikeTestHeight
+FS- 0045F720 00000054 int32_t __cdecl QuadBike_DoDynamics(int32_t height, int32_t fall_speed, int32_t *y); // QuadBikeDoDynamics
+FS- 0045F780 0000082E int32_t __cdecl QuadBike_Dynamics(ITEM_INFO *v); // QuadBikeDynamics
+FS- 0045FFB0 000001E9 void __cdecl QuadBike_BaddieCollision(ITEM_INFO *v); // QuadBikeBaddieCollision
+FS- 004601A0 00000090 int32_t __cdecl QuadBike_GetCollisionAnim(ITEM_INFO *v, PHD_VECTOR *moved); // QuadBikeGetCollisionAnim
+FS- 00460230 00000430 void __cdecl QuadBike_Animate(ITEM_INFO *v, int32_t collide, int32_t dead); // AnimateQuadBike
+FS- 004606A0 00000100 int32_t __cdecl QuadBike_CanGetOff(int32_t direction); // QuadBikeCanGetOff
+FS- 004607A0 00000429 int32_t __cdecl QuadBike_UserControl(ITEM_INFO *v, int32_t height, int32_t *pitch); // QuadBikeUserControl
 FS- 00460BD0 000001C7 void __cdecl TriggerExhaustSmoke(int32_t x, int32_t y, int32_t z, int16_t angle, int32_t speed, int32_t moving);
 FS- 00460DA0 0000026B void __cdecl RaptorEmitterControl(int16_t item_num);
 FS- 00461010 00000025 void __cdecl InitialiseRaptorEmitter(int16_t item_num);
@@ -951,19 +951,19 @@ FS- 00467E40 00000128 int32_t __cdecl TestCollision(ITEM_INFO *item, ITEM_INFO *
 FS- 00467F70 000002DD int32_t __cdecl GetSpheres(ITEM_INFO *item, SPHERE *ptr, int32_t world_space);
 FS- 00468250 0000032F void __cdecl GetJointAbsPosition(ITEM_INFO *item, PHD_VECTOR *vec, int32_t joint);
 FS- 00468580 00000034 void __cdecl InitInterpolate2(int32_t frac, int32_t rate);
-FS- 004685C0 0000004A void __cdecl SubInitialise(int16_t item_num);
-FS- 00468610 00000162 void __cdecl SubCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
-FS- 00468780 000000C8 int32_t __cdecl GetOnSub(int16_t item_num, COLL_INFO *coll);
-FS- 00468850 000003BE void __cdecl SubDraw(ITEM_INFO *item);
-FS- 00468C10 000003F8 int32_t __cdecl SubControl(void);
-FS- 00469010 00000138 void __cdecl FireSubHarpoon(ITEM_INFO *v);
-FS- 00469150 000001CE void __cdecl SubBackgroundCollision(ITEM_INFO *v, ITEM_INFO *l, SUB_INFO *sub);
-FS- 00469320 00000630 void __cdecl SubUserInput(ITEM_INFO *v, ITEM_INFO *l, SUB_INFO *sub);
-FS- 00469980 000000FA int32_t __cdecl SubCanGetOff(ITEM_INFO *v);
-FS- 00469A80 0000026A void __cdecl SubEffects(int16_t item_num);
-FS- 00469CF0 000000E7 void __cdecl SubDoWake(ITEM_INFO *v, int16_t left_right);
-FS- 00469DE0 0000002A void __cdecl UpdateWakeFX(void);
-FS- 00469E10 0000016E void __cdecl TriggerSubMist(int32_t x, int32_t y, int32_t z, int32_t speed, int16_t angle);
+FS- 004685C0 0000004A void __cdecl UPV_Initialise(int16_t item_num); // SubInitialise
+FS- 00468610 00000162 void __cdecl UPV_Collision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll); // SubCollision
+FS- 00468780 000000C8 int32_t __cdecl UPV_GetOn(int16_t item_num, COLL_INFO *coll); // GetOnSub
+FS- 00468850 000003BE void __cdecl UPV_Draw(ITEM_INFO *item); // SubDraw
+FSC 00468C10 000003F8 int32_t __cdecl UPV_Control(void); // SubControl
+FS- 00469010 00000138 void __cdecl UPV_FireHarpoon(ITEM_INFO *v); // FireSubHarpoon
+FS- 00469150 000001CE void __cdecl UPV_BackgroundCollision(ITEM_INFO *v, ITEM_INFO *l, SUB_INFO *sub); // SubBackgroundCollision
+FS- 00469320 00000630 void __cdecl UPV_UserInput(ITEM_INFO *v, ITEM_INFO *l, SUB_INFO *sub); // SubUserInput
+FS- 00469980 000000FA int32_t __cdecl UPV_CanGetOff(ITEM_INFO *v); // SubCanGetOff
+FS- 00469A80 0000026A void __cdecl UPV_Effects(int16_t item_num); // SubEffects
+FS- 00469CF0 000000E7 void __cdecl UPV_DoWake(ITEM_INFO *v, int16_t left_right); // SubDoWake
+FS- 00469DE0 0000002A void __cdecl UPV_UpdateWakeFX(void); // UpdateWakeFX
+FS- 00469E10 0000016E void __cdecl UPV_TriggerMist(int32_t x, int32_t y, int32_t z, int32_t speed, int16_t angle); // TriggerSubMist
 FS- 00469F80 0000005D void __cdecl InitialiseSwat(int16_t item_num);
 FS- 00469FE0 0000089D void __cdecl SwatControl(int16_t item_num);
 FS- 0046A8B0 000000A4 void __cdecl InitialiseTarget(int16_t item_num);
@@ -1488,8 +1488,6 @@ FSC 004B4C5E 0000001B int32_t __cdecl phd_sin(int32_t angle);
 F-- 004B4C79 0000001A void sub_4B4C79();
 FSC 004B4C93 0000002C int32_t __cdecl phd_sqrt(int32_t n);
 
-V-- 0043E8C8 - void (*g_LaraExtraControlRoutines[13])(ITEM_INFO *item, COLL_INFO *coll);
-V-- 0043E8D7 - void (*g_LaraControlRoutines[89])(ITEM_INFO *item, COLL_INFO *coll);
 V-- 004D78F4 - float g_PhdBottomFloat;
 V-- 004D7914 - int32_t g_PhdCenterX;
 V-- 004D7918 - int32_t g_PhdCenterY;
@@ -1526,3 +1524,9 @@ V-- 006E3040 - CAMERA_INFO g_Camera;
 V-- 006E2890 - ROOM_INFO *g_Rooms;
 V-- 006E29A8 - int16_t *g_TriggerIndex;
 V-- 006261A8 - int32_t g_Wibble;
+V-- 006E2A1C - ITEM_INFO *g_Items;
+V-- 006D62A4 - ITEM_INFO *g_LaraItem;
+V-- 006E2A14 - uint8_t g_LaraOnPad;
+V-- 004C75F0 - void (__cdecl *g_LaraCollisionRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
+V-- 004C7450 - void (__cdecl *g_LaraControlRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
+V-- 004C75B8 - void (__cdecl *g_LaraExtraControlRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
