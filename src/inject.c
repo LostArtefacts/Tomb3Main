@@ -22,6 +22,7 @@ void Inject_All(void)
     INJECT(0x0043EA20, Lara_State_Duck, 1);
     INJECT(0x0043EBA0, Lara_State_AllFours, 1);
     INJECT(0x0043F150, Lara_State_AllFoursTurnLeft, 1);
+    INJECT(0x0043F1F0, Lara_State_AllFoursTurnRight, 1);
     INJECT(0x0043EF10, Lara_State_Crawl, 1);
     INJECT(0x00440DB0, Lara_State_ForwardJump, 1);
     INJECT(0x00440E90, Lara_State_Walk, 1);

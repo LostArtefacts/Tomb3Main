@@ -20,6 +20,8 @@ void Lara_State_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_AllFoursTurnLeft(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_AllFoursTurnRight(
+    struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);

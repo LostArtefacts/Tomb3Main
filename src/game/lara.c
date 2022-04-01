@@ -828,6 +828,30 @@ void Lara_State_AllFoursTurnLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_AllFoursTurnRight(
+    struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_ALL_FOURS;
+        return;
+    }
+
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 1;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+    g_Camera.target_elevation = -23 * DEG_1;
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    item->pos.y_rot += DEG_1 + (DEG_1 / 2);
+    if (!(g_Input & IN_RIGHT)) {
+        item->goal_anim_state = LS_ALL_FOURS;
+    }
+}
+
 void Lara_State_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->hit_points <= 0) {
