@@ -1,0 +1,42 @@
+name: Publish development builds
+
+on:
+  push:
+    branch: develop
+
+jobs:
+  publish_release:
+    name: Publish a development build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          path: .
+          fetch-depth: 0
+
+      - name: Extract tag name
+        id: get_version
+        run: echo ::set-output name=VERSION::$(git describe --abbrev=7 --tags||echo '0.0-g'$(git describe --abbrev=7 --tags --always))
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make p7zip-full moby-engine moby-cli
+
+      - name: Build project
+        run: |
+          make clean debug
+
+      - name: Package release
+        run: |
+          7z a Tomb3Main-${{ steps.get_version.outputs.VERSION }}.zip ./bin/* ./build/*.dll
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            Tomb3Main-${{ steps.get_version.outputs.VERSION }}.zip

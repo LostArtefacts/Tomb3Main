@@ -9,7 +9,7 @@ fi
 cd /app/build; meson compile
 
 if [ "$TARGET" = release ]; then
-    for file in *.exe; do
+    for file in *.dll; do
         upx -t "$file" || ( i686-w64-mingw32-strip "$file" && upx "$file" )
     done
 fi

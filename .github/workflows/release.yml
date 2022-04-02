@@ -1,14 +1,14 @@
-name: Publish new release
+name: Publish stable releases
 
 on:
   push:
-    branch: master
+    branch: stable
     tags:
     - 'v?[0-9]*'
 
 jobs:
   publish_release:
-    name: Publish new release
+    name: Publish a new release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,7 +19,7 @@ jobs:
 
       - name: Extract tag name
         id: get_version
-        run: echo ::set-output name=VERSION::$(git describe --abbrev=7 --tags)
+        run: echo ::set-output name=VERSION::$(git describe --abbrev=7 --tags||echo '0.0-g'$(git describe --abbrev=7 --tags --always))
 
       - name: Install dependencies
         run: |
