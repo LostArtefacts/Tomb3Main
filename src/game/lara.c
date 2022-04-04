@@ -1079,6 +1079,26 @@ void Lara_State_MonkeySwing(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_MonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_MONKEY_HANG;
+        return;
+    }
+
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+    g_Camera.target_elevation = 10 * DEG_1;
+
+    if (g_Input & IN_STEP_L) {
+        item->goal_anim_state = LS_MONKEY_L;
+    } else {
+        item->goal_anim_state = LS_MONKEY_HANG;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
@@ -1307,9 +1327,9 @@ void Lara_State_Hang(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_angle = CAMERA_HANG_ANGLE;
     g_Camera.target_elevation = CAMERA_HANG_ELEVATION;
 
-    if ((g_Input & IN_LEFT) || (g_Input & IN_STEPL)) {
+    if ((g_Input & IN_LEFT) || (g_Input & IN_STEP_L)) {
         item->goal_anim_state = LS_HANG_LEFT;
-    } else if ((g_Input & IN_RIGHT) || (g_Input & IN_STEPR)) {
+    } else if ((g_Input & IN_RIGHT) || (g_Input & IN_STEP_R)) {
         item->goal_anim_state = LS_HANG_RIGHT;
     }
 }
@@ -1413,7 +1433,7 @@ void Lara_State_StepRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
         return;
     }
 
-    if (!(g_Input & IN_STEPR)) {
+    if (!(g_Input & IN_STEP_R)) {
         item->goal_anim_state = LS_STOP;
     }
 
@@ -1435,7 +1455,7 @@ void Lara_State_StepLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
         return;
     }
 
-    if (!(g_Input & IN_STEPL)) {
+    if (!(g_Input & IN_STEP_L)) {
         item->goal_anim_state = LS_STOP;
     }
 
@@ -1508,7 +1528,7 @@ void Lara_State_HangLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     coll->enable_baddie_push = 0;
     g_Camera.target_angle = CAMERA_HANG_ANGLE;
     g_Camera.target_elevation = CAMERA_HANG_ELEVATION;
-    if (!(g_Input & IN_LEFT) && !(g_Input & IN_STEPL)) {
+    if (!(g_Input & IN_LEFT) && !(g_Input & IN_STEP_L)) {
         item->goal_anim_state = LS_HANG;
     }
 }
@@ -1519,7 +1539,7 @@ void Lara_State_HangRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
     coll->enable_baddie_push = 0;
     g_Camera.target_angle = CAMERA_HANG_ANGLE;
     g_Camera.target_elevation = CAMERA_HANG_ELEVATION;
-    if (!(g_Input & IN_RIGHT) && !(g_Input & IN_STEPR)) {
+    if (!(g_Input & IN_RIGHT) && !(g_Input & IN_STEP_R)) {
         item->goal_anim_state = LS_HANG;
     }
 }
