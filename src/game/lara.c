@@ -11,12 +11,9 @@
 static PHD_ANGLE m_OldSlopeAngle = 1;
 static bool m_JumpOK = true;
 
+static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap);
+static enum DIRECTION Lara_AngleToDirection(PHD_ANGLE angle);
 static void Lara_State_FastFallFriction(struct ITEM_INFO *item);
-
-static void Lara_State_FastFallFriction(struct ITEM_INFO *item)
-{
-    item->speed = (item->speed * 95) / 100;
-}
 
 static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
 {
@@ -30,6 +27,16 @@ static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
         return -DEG_90;
     }
     return angle;
+}
+
+static enum DIRECTION Lara_AngleToDirection(PHD_ANGLE angle)
+{
+    return (enum DIRECTION)(uint16_t)(angle + DEG_45) / DEG_90;
+}
+
+static void Lara_State_FastFallFriction(struct ITEM_INFO *item)
+{
+    item->speed = (item->speed * 95) / 100;
 }
 
 bool Lara_TestSlide(struct ITEM_INFO *item, struct COLL_INFO *coll)
@@ -370,7 +377,8 @@ bool Lara_TestHangOnClimbWall(struct ITEM_INFO *item, struct COLL_INFO *coll)
         return false;
     }
 
-    switch ((uint16_t)(item->pos.y_rot + DEG_45) / DEG_90) {
+    enum DIRECTION dir = Lara_AngleToDirection(item->pos.y_rot);
+    switch (dir) {
     case DIR_NORTH:
     case DIR_SOUTH:
         item->pos.z += coll->shift.z;
@@ -411,7 +419,7 @@ bool Lara_TestHangOnClimbWall(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
 void Lara_TestHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
-    enum DIRECTION dir = (uint16_t)(item->pos.y_rot + DEG_45) / DEG_90;
+    enum DIRECTION dir = Lara_AngleToDirection(item->pos.y_rot);
 
     coll->bad_pos = NO_BAD_POS;
     coll->bad_neg = NO_BAD_NEG;
@@ -649,6 +657,60 @@ bool Lara_DeflectEdgeDuck(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y_rot -= LARA_DUCK_DEFLECT;
     }
     return false;
+}
+
+int32_t Lara_TestWall(
+    struct ITEM_INFO *item, int32_t front, int32_t right, int32_t down)
+{
+    int32_t x = item->pos.x;
+    int32_t y = item->pos.y + down;
+    int32_t z = item->pos.z;
+    int16_t room_num = item->room_num;
+
+    enum DIRECTION dir = Lara_AngleToDirection(item->pos.y_rot);
+    switch (dir) {
+    case DIR_NORTH:
+        x -= right;
+        break;
+    case DIR_EAST:
+        z -= right;
+        break;
+    case DIR_SOUTH:
+        x += right;
+        break;
+    case DIR_WEST:
+        z += right;
+        break;
+    }
+
+    GetFloor(x, y, z, &room_num);
+
+    switch (dir) {
+    case DIR_NORTH:
+        z += front;
+        break;
+    case DIR_EAST:
+        x += front;
+        break;
+    case DIR_SOUTH:
+        z -= front;
+        break;
+    case DIR_WEST:
+        x -= front;
+        break;
+    }
+
+    struct FLOOR_INFO *floor = GetFloor(x, y, z, &room_num);
+    int32_t h = GetHeight(floor, x, y, z);
+    int32_t c = GetCeiling(floor, x, y, z);
+
+    if (h == NO_HEIGHT) {
+        return 1;
+    }
+    if (h - y <= 0 || c - y >= 0) {
+        return 2;
+    }
+    return 0;
 }
 
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)

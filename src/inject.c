@@ -17,6 +17,8 @@ void Inject_All(void)
     INJECT(0x0043E4E0, Lara_TestHangJump, 1);
     INJECT(0x0043E730, Lara_TestHangSwingIn, 1);
     INJECT(0x0043F0D0, Lara_DeflectEdgeDuck, 1);
+    INJECT(0x0043F870, Lara_TestWall, 1);
+
     INJECT(0x0043E800, Lara_AboveWater, 1);
 
     INJECT(0x0043EA20, Lara_State_Duck, 1);
