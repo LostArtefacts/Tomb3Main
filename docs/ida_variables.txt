@@ -551,7 +551,7 @@ FSD 0043F600 00000119 void __cdecl Lara_State_Dash(ITEM_INFO *item, COLL_INFO *c
 FS- 0043F720 00000149 void __cdecl Lara_Col_Dash(ITEM_INFO *item, COLL_INFO *coll); // lara_col_dash
 FSD 0043F870 000000E1 int32_t __cdecl Lara_TestWall(ITEM_INFO *item, int32_t front, int32_t right, int32_t down); // TestWall
 FS- 0043F980 0000009B void __cdecl Lara_CollideStop(ITEM_INFO *item, COLL_INFO *coll); // LaraCollideStop
-FS- 0043FA40 00000029 void __cdecl Lara_State_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_as_dashdive
+FSD 0043FA40 00000029 void __cdecl Lara_State_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_as_dashdive
 FS- 0043FA70 00000115 void __cdecl Lara_Col_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_dashdive
 FS- 0043FB90 00000078 void __cdecl Lara_State_Hang2(ITEM_INFO *item, COLL_INFO *coll); // lara_as_hang2
 FS- 0043FC10 00000053 void __cdecl Lara_MonkeySwingFall(ITEM_INFO *item); // MonkeySwingFall

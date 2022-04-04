@@ -28,6 +28,7 @@ void Lara_State_AllFoursTurnRight(
 void Lara_State_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_CrawlB(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Dash(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_DashDive(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Run(struct ITEM_INFO *item, struct COLL_INFO *coll);
