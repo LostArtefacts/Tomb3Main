@@ -131,3 +131,36 @@ void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->frame_num = g_Anims[LA_ALL_FOURS_TURN_R].frame_base;
     }
 }
+
+void Lara_Col_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->facing = item->pos.y_rot;
+    coll->radius = LARA_DUCK_RADIUS;
+    coll->bad_pos = +(STEP_L - 1);
+    coll->bad_neg = -(STEP_L - 1);
+    coll->bad_ceiling = LARA_DUCK_HEIGHT;
+    coll->slopes_are_walls = 1;
+    coll->slopes_are_pits = 1;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_DUCK_HEIGHT);
+
+    if (Lara_DeflectEdgeDuck(item, coll)) {
+        item->current_anim_state = LS_ALL_FOURS;
+        item->goal_anim_state = LS_ALL_FOURS;
+        if (item->anim_num != LA_ALL_FOURS) {
+            item->anim_num = LA_ALL_FOURS;
+            item->frame_num = g_Anims[LA_ALL_FOURS].frame_base;
+        }
+    } else if (Lara_Fallen(item, coll)) {
+        g_Lara.gun_status = LGS_ARMLESS;
+    } else {
+        ShiftItem(item, coll);
+        item->pos.y += coll->mid_floor;
+    }
+}
