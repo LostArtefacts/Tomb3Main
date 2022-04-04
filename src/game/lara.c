@@ -1099,6 +1099,26 @@ void Lara_State_MonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_MonkeyRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_MONKEY_HANG;
+        return;
+    }
+
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+    g_Camera.target_elevation = 10 * DEG_1;
+
+    if (g_Input & IN_STEP_R) {
+        item->goal_anim_state = LS_MONKEY_R;
+    } else {
+        item->goal_anim_state = LS_MONKEY_HANG;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

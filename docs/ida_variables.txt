@@ -564,7 +564,7 @@ FSD 004400A0 00000092 void __cdecl Lara_State_MonkeySwing(ITEM_INFO *item, COLL_
 FS- 00440140 000000DE void __cdecl Lara_Col_MonkeySwing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_monkeyswing
 FSD 00440220 00000058 void __cdecl Lara_State_MonkeyLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_monkeyl
 FS- 00440280 00000070 void __cdecl Lara_Col_MonkeyLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_monkeyl
-FS- 004402F0 00000056 void __cdecl Lara_State_MonkeyRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_monkeyr
+FSD 004402F0 00000056 void __cdecl Lara_State_MonkeyRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_monkeyr
 FS- 00440350 00000070 void __cdecl Lara_Col_MonkeyRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_monkeyr
 FS- 004403C0 00000039 void __cdecl Lara_State_HangTurnLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_hangturnl
 FS- 00440400 00000099 void __cdecl Lara_Col_HangTurnLR(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hangturnlr
