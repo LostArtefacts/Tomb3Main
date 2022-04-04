@@ -164,3 +164,10 @@ void Lara_Col_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += coll->mid_floor;
     }
 }
+
+void Lara_Col_AllFoursTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_DUCK_HEIGHT);
+}
