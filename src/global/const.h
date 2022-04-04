@@ -6,6 +6,7 @@
 #define DEG_45                 (DEG_FULL / 8) // = 8192 = 0x2000
 #define DEG_90                 (DEG_FULL / 4) // = 16384 = 0x4000
 #define DEG_180                (DEG_FULL / 2) // = 32768 = 0x8000
+#define DEG_270                (DEG_90 * 3) // = 49152 = 0xC000
 #define DEG_135                (DEG_45 * 3) // = 24576 = 0x6000
 #define DEG_360                (DEG_FULL) // = 65536 = 0x10000
 

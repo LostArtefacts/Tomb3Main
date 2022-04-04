@@ -84,4 +84,5 @@ void Inject_All(void)
     INJECT(0x00441E80, Lara_StateExtra_TrainKill, 1);
 
     INJECT(0x0043EAA0, Lara_Col_Duck, 1);
+    INJECT(0x0043EC20, Lara_Col_AllFours, 1);
 }

@@ -8,7 +8,6 @@
 static PHD_ANGLE m_OldSlopeAngle = 1;
 
 static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap);
-static enum DIRECTION Lara_AngleToDirection(PHD_ANGLE angle);
 
 static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
 {
@@ -24,7 +23,7 @@ static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
     return angle;
 }
 
-static enum DIRECTION Lara_AngleToDirection(PHD_ANGLE angle)
+enum DIRECTION Lara_AngleToDirection(PHD_ANGLE angle)
 {
     return (enum DIRECTION)(uint16_t)(angle + DEG_45) / DEG_90;
 }

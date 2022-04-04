@@ -33,6 +33,7 @@
 #define UpdateLaraRoom        ((void (*)(struct ITEM_INFO *item, int32_t height))0x0041E6D0)
 #define LaraBaddieCollision   ((void (*)(struct ITEM_INFO *lara_item, struct COLL_INFO *coll))0x0041E8D0)
 #define GetCollisionInfo      ((void (*)(struct COLL_INFO *info, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t obj_height))0x0041D500)
+#define GetStaticObjects      ((int32_t (*)(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t height, int32_t radius, int32_t dist))0x00445020)
 #define GetWaterHeight        ((int32_t (*)(int32_t x, int32_t y, int32_t z, int16_t room_num))0x00420C70)
 #define TriggerWaterfallMist  ((void (*)(int32_t x, int32_t y, int32_t z, int32_t angle))0x0042D1F0)
 #define GetHeight             ((int32_t (*)(struct FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z))0x00420E10)

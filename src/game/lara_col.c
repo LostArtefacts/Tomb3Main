@@ -35,3 +35,99 @@ void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_STOP;
     }
 }
+
+void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    if (item->goal_anim_state == LS_CRAWL_TO_HANG) {
+        return;
+    }
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->facing = item->pos.y_rot;
+    coll->radius = LARA_DUCK_RADIUS;
+    coll->bad_pos = +(STEP_L - 1);
+    coll->bad_neg = -(STEP_L - 1);
+    coll->bad_ceiling = LARA_DUCK_HEIGHT;
+    coll->slopes_are_walls = 1;
+    coll->slopes_are_pits = 1;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_DUCK_HEIGHT);
+
+    if (Lara_Fallen(item, coll)) {
+        g_Lara.gun_status = LGS_ARMLESS;
+        return;
+    }
+
+    g_Lara.keep_ducked = coll->mid_ceiling >= -(LARA_HEIGHT - LARA_DUCK_HEIGHT);
+
+    ShiftItem(item, coll);
+    item->pos.y += coll->mid_floor;
+
+    if ((!(g_Input & IN_DUCK) && !g_Lara.keep_ducked) || (g_Input & IN_DRAW)) {
+        item->goal_anim_state = LS_DUCK;
+        return;
+    }
+
+    if (item->anim_num != LA_ALL_FOURS && item->anim_num != LA_ALL_FOURS_2) {
+        return;
+    }
+
+    if (g_Input & IN_FORWARD) {
+        int16_t height = Lara_FloorFront(item, item->pos.y_rot, 256);
+        if (height < +(STEP_L - 1) && height > -(STEP_L - 1)
+            && g_HeightType != HT_BIG_SLOPE) {
+            item->goal_anim_state = LS_CRAWL;
+        }
+    } else if (g_Input & IN_BACK) {
+        int16_t height = Lara_CeilingFront(item, item->pos.y_rot, -300);
+        if (height == NO_HEIGHT || height > 256) {
+            return;
+        }
+
+        height = Lara_FloorFront(item, item->pos.y_rot, -300);
+        if (height < +(STEP_L - 1) && height > -(STEP_L - 1)
+            && g_HeightType != HT_BIG_SLOPE) {
+            item->goal_anim_state = LS_CRAWL_BACK;
+        } else if (
+            g_Input & IN_ACTION && height > 768
+            && !GetStaticObjects(
+                item, item->pos.y_rot + 0x8000, 512, 50, 300)) {
+
+            enum DIRECTION dir = Lara_AngleToDirection(item->pos.y_rot);
+            switch (dir) {
+            case DIR_NORTH:
+                item->pos.z = (item->pos.z & ~(WALL_L - 1)) + 225;
+                item->pos.y_rot = 0;
+                break;
+            case DIR_EAST:
+                item->pos.x = (item->pos.x & ~(WALL_L - 1)) + 225;
+                item->pos.y_rot = DEG_90;
+                break;
+            case DIR_SOUTH:
+                item->pos.z = (item->pos.z | (WALL_L - 1)) - 225;
+                item->pos.y_rot = DEG_180;
+                break;
+            case DIR_WEST:
+                item->pos.x = (item->pos.x | (WALL_L - 1)) - 225;
+                item->pos.y_rot = DEG_270;
+                break;
+            }
+            item->goal_anim_state = LS_CRAWL_TO_HANG;
+        }
+    } else if (g_Input & IN_LEFT) {
+        item->current_anim_state = LS_ALL_FOURS_TURN_L;
+        item->goal_anim_state = LS_ALL_FOURS_TURN_L;
+        item->anim_num = LA_ALL_FOURS_TURN_L;
+        item->frame_num = g_Anims[LA_ALL_FOURS_TURN_L].frame_base;
+    } else if (g_Input & IN_RIGHT) {
+        item->current_anim_state = LS_ALL_FOURS_TURN_R;
+        item->goal_anim_state = LS_ALL_FOURS_TURN_R;
+        item->anim_num = LA_ALL_FOURS_TURN_R;
+        item->frame_num = g_Anims[LA_ALL_FOURS_TURN_R].frame_base;
+    }
+}
