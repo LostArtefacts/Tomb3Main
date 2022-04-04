@@ -17,3 +17,4 @@
 #define g_LaraCollisionRoutines ARR(0x004C75F0, LaraCollisionRoutine, [])
 #define g_LaraControlRoutines ARR(0x004C7450, LaraControlRoutine, [])
 #define g_LaraExtraControlRoutines ARR(0x004C75B8, LaraControlRoutine, [])
+#define g_HeightType VAR(0x006E2A24, int32_t)

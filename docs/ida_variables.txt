@@ -571,7 +571,7 @@ FS- 00440400 00000099 void __cdecl Lara_Col_HangTurnLR(ITEM_INFO *item, COLL_INF
 FSD 004404A0 00000039 void __cdecl Lara_State_HangTurnRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_hangturnr
 FSD 004404E0 00000018 void __cdecl Lara_State_Monkey180(ITEM_INFO *item, COLL_INFO *coll); // lara_as_monkey180
 FS- 00440500 00000013 void __cdecl Lara_Col_Monkey180(ITEM_INFO *item, COLL_INFO *coll); // lara_col_monkey180
-FS- 00440520 00000440 void __cdecl Lara_State_Stop(ITEM_INFO *item, COLL_INFO *coll); // lara_as_stop
+FSD 00440520 00000440 void __cdecl Lara_State_Stop(ITEM_INFO *item, COLL_INFO *coll); // lara_as_stop
 FS- 00440960 000000BF void __cdecl Lara_Col_Stop(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stop
 FS- 00440A20 00000013 void __cdecl Lara_State_JumpUp(ITEM_INFO *item, COLL_INFO *coll); // lara_as_upjump
 FS- 00440A40 0000014F void __cdecl Lara_Col_JumpUp(ITEM_INFO *item, COLL_INFO *coll); // lara_col_upjump
@@ -664,7 +664,7 @@ FS- 00444980 0000029F void __cdecl ControlDeathSlide(int16_t item_num);
 FS- 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
 FSC 00444D10 0000006A int32_t __cdecl Lara_HitCeiling(ITEM_INFO *item, COLL_INFO *coll); // LaraHitCeiling
 FSC 00444D80 00000075 int16_t __cdecl Lara_FloorFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraFloorFront
-FS- 00444E00 0000007E int16_t __cdecl Lara_CeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraCeilingFront
+FSC 00444E00 0000007E int16_t __cdecl Lara_CeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraCeilingFront
 FS- 00444E80 00000054 int32_t __cdecl Lara_Fallen(ITEM_INFO *item, COLL_INFO *coll); // LaraFallen
 FSC 00444EE0 000000AD int32_t __cdecl Lara_TestEdgeCatch(ITEM_INFO *item, COLL_INFO *coll, int32_t *edge); // LaraTestEdgeCatch
 FSC 00444F90 00000082 int32_t __cdecl Lara_DeflectEdge(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdge
@@ -1530,3 +1530,4 @@ V-- 006E2A14 - uint8_t g_LaraOnPad;
 V-- 004C75F0 - void (__cdecl *g_LaraCollisionRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
 V-- 004C7450 - void (__cdecl *g_LaraControlRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
 V-- 004C75B8 - void (__cdecl *g_LaraExtraControlRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
+V-- 006E2A24 - int32_t g_HeightType;

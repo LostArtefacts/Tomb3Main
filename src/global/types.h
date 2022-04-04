@@ -65,6 +65,14 @@ enum COLL_TYPE {
     COLL_CLAMP     = 32,
 };
 
+enum HEIGHT_TYPE {
+    HT_WALL = 0,
+    HT_SMALL_SLOPE = 1,
+    HT_BIG_SLOPE = 2,
+    HT_DIAGONAL = 3,
+    HT_SPLIT_TRI = 4,
+};
+
 enum DIRECTION {
     DIR_NORTH = 0,
     DIR_EAST = 1,
@@ -90,12 +98,26 @@ enum LARA_WATER_STATE {
 };
 
 enum LARA_GUN_STATE {
-    LG_ARMLESS   = 0,
-    LG_HANDSBUSY = 1,
-    LG_DRAW      = 2,
-    LG_UNDRAW    = 3,
-    LG_READY     = 4,
-    LG_SPECIAL   = 5,
+    LGS_ARMLESS    = 0,
+    LGS_HANDS_BUSY = 1,
+    LGS_DRAW       = 2,
+    LGS_UNDRAW     = 3,
+    LGS_READY      = 4,
+    LGS_SPECIAL    = 5,
+};
+
+enum LARA_GUN_TYPE {
+    LGT_UNARMED   = 0,
+    LGT_PISTOLS   = 1,
+    LGT_MAGNUMS   = 2,
+    LGT_UZIS      = 3,
+    LGT_SHOTGUN   = 4,
+    LGT_M16       = 5,
+    LGT_ROCKET    = 6,
+    LGT_GRENADE   = 7,
+    LGT_HARPOON   = 8,
+    LGT_FLARE     = 9,
+    LGT_SKIDOO    = 10,
 };
 
 enum OBJECT_ID {
