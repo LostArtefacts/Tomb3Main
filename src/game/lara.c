@@ -1153,6 +1153,13 @@ void Lara_State_HangTurnRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_Monkey180(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    item->goal_anim_state = LS_MONKEY_HANG;
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE

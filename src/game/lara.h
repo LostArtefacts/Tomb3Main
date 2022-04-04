@@ -35,6 +35,7 @@ void Lara_State_MonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_MonkeyRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_HangTurnLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_HangTurnRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_State_Monkey180(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_State_Run(struct ITEM_INFO *item, struct COLL_INFO *coll);
