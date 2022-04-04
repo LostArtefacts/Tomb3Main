@@ -189,7 +189,7 @@ bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
         && g_Lara.water_status != LWS_WADE
         && coll->left_floor2 <= (-STEP_L * 8 + STEP_L / 2)
         && coll->right_floor2 <= (-STEP_L * 8)
-        && coll->mid_ceiling <= (-STEP_L * 8 + STEP_L / 2 + LARA_HITE)) {
+        && coll->mid_ceiling <= (-STEP_L * 8 + STEP_L / 2 + LARA_HEIGHT)) {
         item->current_anim_state = LS_STOP;
         item->goal_anim_state = LS_UP_JUMP;
         item->anim_num = LA_STOP;
@@ -198,8 +198,8 @@ bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
         Lara_Animate(item);
     } else if (
         g_Lara.climb_status
-        && (hdif < -STEP_L * 4 || coll->front_ceiling >= LARA_HITE - STEP_L)
-        && (coll->mid_ceiling <= -STEP_L * 5 + LARA_HITE)) {
+        && (hdif < -STEP_L * 4 || coll->front_ceiling >= LARA_HEIGHT - STEP_L)
+        && (coll->mid_ceiling <= -STEP_L * 5 + LARA_HEIGHT)) {
         ShiftItem(item, coll);
         if (Lara_TestClimbStance(item, coll)) {
             item->current_anim_state = LS_STOP;
@@ -265,7 +265,8 @@ void Lara_GetCollisionInfo(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->facing = g_Lara.move_angle;
     GetCollisionInfo(
-        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num, LARA_HITE);
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_HEIGHT);
 }
 
 void Lara_DeflectEdgeJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
@@ -797,7 +798,7 @@ void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
         }
     }
 
-    UpdateLaraRoom(item, -LARA_HITE / 2);
+    UpdateLaraRoom(item, -LARA_HEIGHT / 2);
 
     Lara_Gun();
 

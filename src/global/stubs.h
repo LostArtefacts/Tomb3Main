@@ -14,6 +14,7 @@
 #define Lara_Animate          ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
 #define Lara_DeflectEdge      ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444F90)
 #define Lara_TestClimbPos     ((int32_t (*)(struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift))0x00449090)
+#define Lara_Fallen           ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444E80)
 #define Lara_HitCeiling       ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444D10)
 #define Lara_TestEdgeCatch    ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge))0x00444EE0)
 #define Lara_MonkeySwingFall  ((void (*)(struct ITEM_INFO *item))0x0043FC10)

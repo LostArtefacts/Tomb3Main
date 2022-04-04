@@ -23,7 +23,9 @@
 #define FAST_FALL_SPEED        128
 
 #define LARA_RADIUS            100
-#define LARA_HITE              762
+#define LARA_HEIGHT            762
+#define LARA_DUCK_RADIUS       (LARA_RADIUS * 2)
+#define LARA_DUCK_HEIGHT       400
 
 #define LARA_TURN_UNDO         (DEG_1 * 2) // = 364
 #define LARA_TURN_RATE         ((DEG_1 / 4) + LARA_TURN_UNDO) // = 409
