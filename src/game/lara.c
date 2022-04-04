@@ -1302,6 +1302,13 @@ void Lara_State_Stop(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_JumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->fall_speed > LARA_FAST_FALL_SPEED) {
+        item->goal_anim_state = LS_FAST_FALL;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
