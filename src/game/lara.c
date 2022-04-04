@@ -1028,7 +1028,7 @@ void Lara_State_DashDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
-void Lara_State_MonkeySwingHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_State_MonkeyHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->hit_points <= 0) {
         item->goal_anim_state = LS_STOP;
@@ -1049,6 +1049,33 @@ void Lara_State_MonkeySwingHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
         }
     } else if (g_Input & IN_LOOK) {
         Lara_LookUpDown();
+    }
+}
+
+void Lara_State_MonkeySwing(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_MONKEY_HANG;
+        return;
+    }
+
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+
+    if (g_Input & IN_FORWARD) {
+        item->goal_anim_state = LS_MONKEY_SWING;
+    } else {
+        item->goal_anim_state = LS_MONKEY_HANG;
+    }
+
+    if (g_Input & IN_LEFT) {
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        CLAMPL(g_Lara.turn_rate, -LARA_JUMP_TURN);
+    } else if (g_Input & IN_RIGHT) {
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        CLAMPG(g_Lara.turn_rate, LARA_JUMP_TURN);
     }
 }
 
