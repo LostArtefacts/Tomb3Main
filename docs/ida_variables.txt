@@ -553,9 +553,9 @@ FSD 0043F870 000000E1 int32_t __cdecl Lara_TestWall(ITEM_INFO *item, int32_t fro
 FS- 0043F980 0000009B void __cdecl Lara_CollideStop(ITEM_INFO *item, COLL_INFO *coll); // LaraCollideStop
 FSD 0043FA40 00000029 void __cdecl Lara_State_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_as_dashdive
 FS- 0043FA70 00000115 void __cdecl Lara_Col_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_dashdive
-FS- 0043FB90 00000078 void __cdecl Lara_State_Hang2(ITEM_INFO *item, COLL_INFO *coll); // lara_as_hang2
-FS- 0043FC10 00000053 void __cdecl Lara_MonkeySwingFall(ITEM_INFO *item); // MonkeySwingFall
-FS- 0043FC70 00000217 void __cdecl Lara_Col_Hang2(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hang2
+FSD 0043FB90 00000078 void __cdecl Lara_State_MonkeySwingHang(ITEM_INFO *item, COLL_INFO *coll); // lara_as_hang2
+FSC 0043FC10 00000053 void __cdecl Lara_MonkeySwingFall(ITEM_INFO *item); // MonkeySwingFall
+FS- 0043FC70 00000217 void __cdecl Lara_Col_MonkeySwingHang(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hang2
 FS- 0043FE90 00000045 void __cdecl Lara_MonkeySwingSnap(ITEM_INFO *item, COLL_INFO *coll); // MonkeySwingSnap
 FS- 0043FEE0 000000CD int16_t __cdecl Lara_TestMonkeyLeft(ITEM_INFO *item, COLL_INFO *coll); // TestMonkeyLeft
 FS- 0043FFB0 00000020 int16_t __cdecl Lara_TestMonkeyDirOctant(int32_t rot); // GetDirOctant

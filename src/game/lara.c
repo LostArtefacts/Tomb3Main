@@ -855,10 +855,12 @@ void Lara_State_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
     if (g_Input & IN_LOOK) {
         Lara_LookUpDown();
     }
+
     g_Lara.torso_x_rot = 0;
     g_Lara.torso_y_rot = 0;
     coll->enable_spaz = 0;
     coll->enable_baddie_push = 1;
+
     if (item->anim_num == LA_DUCK_TO_CRAWL) {
         g_Lara.gun_status = LG_HANDSBUSY;
     }
@@ -1023,6 +1025,30 @@ void Lara_State_DashDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
         && item->goal_anim_state != LS_RUN
         && item->fall_speed > LARA_FAST_FALL_SPEED) {
         item->goal_anim_state = LS_FAST_FALL;
+    }
+}
+
+void Lara_State_MonkeySwingHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_STOP;
+        return;
+    }
+
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+
+    if (g_Lara.can_monkey_swing) {
+        if (g_Input & IN_ACTION && item->hit_points > 0) {
+            g_Camera.target_angle = CAMERA_HANG_ANGLE;
+            g_Camera.target_elevation = CAMERA_HANG_ELEVATION;
+        } else {
+            Lara_MonkeySwingFall(item);
+        }
+    } else if (g_Input & IN_LOOK) {
+        Lara_LookUpDown();
     }
 }
 
