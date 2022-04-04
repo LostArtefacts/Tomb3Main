@@ -858,15 +858,14 @@ void Lara_State_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_ALL_FOURS;
         return;
     }
-
     if (g_Input & IN_LOOK) {
         Lara_LookUpDown();
     }
 
-    g_Lara.torso_x_rot = 0;
-    g_Lara.torso_y_rot = 0;
     coll->enable_spaz = 0;
     coll->enable_baddie_push = 1;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
     g_Camera.target_elevation = -23 * DEG_1;
 
     if (Lara_TestSlide(item, coll)) {
@@ -880,6 +879,37 @@ void Lara_State_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.turn_rate -= LARA_TURN_RATE;
         CLAMPL(g_Lara.turn_rate, -LARA_JUMP_TURN);
     } else if (g_Input & IN_RIGHT) {
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        CLAMPG(g_Lara.turn_rate, LARA_JUMP_TURN);
+    }
+}
+
+void Lara_State_CrawlB(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_ALL_FOURS;
+        return;
+    }
+    if (g_Input & IN_LOOK) {
+        Lara_LookUpDown();
+    }
+
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 1;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+    g_Camera.target_elevation = -23 * DEG_1;
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    if (!(g_Input & IN_BACK)) {
+        item->goal_anim_state = LS_ALL_FOURS;
+    } else if (g_Input & IN_RIGHT) {
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        CLAMPL(g_Lara.turn_rate, -LARA_JUMP_TURN);
+    } else if (g_Input & IN_LEFT) {
         g_Lara.turn_rate += LARA_TURN_RATE;
         CLAMPG(g_Lara.turn_rate, LARA_JUMP_TURN);
     }
