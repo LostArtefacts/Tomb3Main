@@ -547,7 +547,7 @@ FSD 0043F1F0 00000064 void __cdecl Lara_State_AllFoursTurnRight(ITEM_INFO *item,
 FSD 0043F260 000000C2 void __cdecl Lara_State_CrawlB(ITEM_INFO *item, COLL_INFO *coll); // lara_as_crawlb
 FS- 0043F330 000000F5 void __cdecl Lara_Col_CrawlB(ITEM_INFO *item, COLL_INFO *coll); // lara_col_crawlb
 FS- 0043F430 000001CE void __cdecl Lara_Col_Crawl2Hang(ITEM_INFO *item, COLL_INFO *coll); // lara_col_crawl2hang
-FS- 0043F600 00000119 void __cdecl Lara_State_Dash(ITEM_INFO *item, COLL_INFO *coll); // lara_as_dash
+FSD 0043F600 00000119 void __cdecl Lara_State_Dash(ITEM_INFO *item, COLL_INFO *coll); // lara_as_dash
 FS- 0043F720 00000149 void __cdecl Lara_Col_Dash(ITEM_INFO *item, COLL_INFO *coll); // lara_col_dash
 FS- 0043F870 000000E1 int32_t __cdecl Lara_TestWall(ITEM_INFO *item, int32_t front, int32_t right, int32_t down); // TestWall
 FS- 0043F980 0000009B void __cdecl Lara_CollideStop(ITEM_INFO *item, COLL_INFO *coll); // LaraCollideStop

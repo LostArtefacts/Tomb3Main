@@ -915,6 +915,46 @@ void Lara_State_CrawlB(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_Dash(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_RUN;
+        return;
+    }
+
+    if (!g_DashTimer || !(g_Input & IN_DASH)
+        || g_Lara.water_status == LWS_WADE) {
+        item->goal_anim_state = LS_RUN;
+        return;
+    }
+
+    g_DashTimer--;
+    if (g_Input & IN_DUCK) {
+        item->goal_anim_state = LS_STOP;
+        return;
+    }
+
+    if (g_Input & IN_LEFT) {
+        g_Lara.turn_rate -= LARA_TURN_RATE;
+        item->pos.z_rot -= LARA_LEAN_RATE;
+        CLAMPL(g_Lara.turn_rate, -LARA_SLOW_TURN);
+        CLAMPL(item->pos.z_rot, -LARA_LEAN_MAX_DASH);
+    } else if (g_Input & IN_RIGHT) {
+        g_Lara.turn_rate += LARA_TURN_RATE;
+        item->pos.z_rot += LARA_LEAN_RATE;
+        CLAMPG(g_Lara.turn_rate, LARA_SLOW_TURN);
+        CLAMPG(item->pos.z_rot, LARA_LEAN_MAX_DASH);
+    }
+
+    if ((g_Input & IN_JUMP) && !item->gravity_status) {
+        item->goal_anim_state = LS_DASH_DIVE;
+    } else if (g_Input & IN_FORWARD) {
+        item->goal_anim_state = g_Input & IN_SLOW ? LS_WALK : LS_DASH;
+    } else if (!(g_Input & IN_LEFT) && !(g_Input & IN_RIGHT)) {
+        item->goal_anim_state = LS_STOP;
+    }
+}
+
 void Lara_State_ForwardJump(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     if (item->goal_anim_state == LS_SWAN_DIVE
@@ -1004,12 +1044,12 @@ void Lara_State_Run(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.turn_rate -= LARA_TURN_RATE;
         item->pos.z_rot -= LARA_LEAN_RATE;
         CLAMPL(g_Lara.turn_rate, -LARA_FAST_TURN);
-        CLAMPL(item->pos.z_rot, -LARA_LEAN_MAX_RATE);
+        CLAMPL(item->pos.z_rot, -LARA_LEAN_MAX);
     } else if (g_Input & IN_RIGHT) {
         g_Lara.turn_rate += LARA_TURN_RATE;
         item->pos.z_rot += LARA_LEAN_RATE;
         CLAMPG(g_Lara.turn_rate, +LARA_FAST_TURN);
-        CLAMPG(item->pos.z_rot, +LARA_LEAN_MAX_RATE);
+        CLAMPG(item->pos.z_rot, +LARA_LEAN_MAX);
     }
 
     if (item->anim_num == LA_START_RUN) {
@@ -1487,12 +1527,12 @@ void Lara_State_Wade(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_Lara.turn_rate -= LARA_TURN_RATE;
         item->pos.z_rot -= LARA_LEAN_RATE;
         CLAMPL(g_Lara.turn_rate, -LARA_FAST_TURN / div);
-        CLAMPL(item->pos.z_rot, -LARA_LEAN_MAX_RATE / div);
+        CLAMPL(item->pos.z_rot, -LARA_LEAN_MAX / div);
     } else if (g_Input & IN_RIGHT) {
         g_Lara.turn_rate += LARA_TURN_RATE;
         item->pos.z_rot += LARA_LEAN_RATE;
         CLAMPG(g_Lara.turn_rate, +LARA_FAST_TURN / div);
-        CLAMPG(item->pos.z_rot, +LARA_LEAN_MAX_RATE / div);
+        CLAMPG(item->pos.z_rot, +LARA_LEAN_MAX / div);
     }
 
     if ((g_Input & IN_FORWARD)) {

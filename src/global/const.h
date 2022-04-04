@@ -33,7 +33,8 @@
 
 #define LARA_LEAN_UNDO         (DEG_1) // = 182
 #define LARA_LEAN_RATE         ((DEG_1 / 2) + LARA_LEAN_UNDO) // = 273
-#define LARA_LEAN_MAX_RATE     ((DEG_1 * 10) + LARA_LEAN_UNDO) // = 2002
+#define LARA_LEAN_MAX          ((DEG_1 * 10) + LARA_LEAN_UNDO) // = 2002
+#define LARA_LEAN_MAX_DASH     ((DEG_1 * 15) + LARA_LEAN_UNDO) // =
 
 #define LARA_JUMP_TURN         (DEG_1 + LARA_TURN_UNDO) // = 546
 #define LARA_FAST_FALL_SPEED   (FAST_FALL_SPEED + 3) // = 131
