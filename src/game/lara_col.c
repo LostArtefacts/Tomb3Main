@@ -546,3 +546,35 @@ void Lara_Col_MonkeySwingHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->goal_anim_state = LS_HANG_RIGHT;
     }
 }
+
+void Lara_Col_MonkeySwing(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!(g_Input & IN_ACTION) || !g_Lara.can_monkey_swing) {
+        Lara_MonkeySwingFall(item);
+        return;
+    }
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = NO_BAD_NEG;
+    coll->bad_ceiling = 0;
+    coll->radius = LARA_RADIUS;
+    coll->slopes_are_walls = 0;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_HANG_HEIGHT);
+
+    if (coll->coll_type == COLL_FRONT
+        || ABS(coll->mid_ceiling - coll->front_ceiling) > 50) {
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
+        item->anim_num = LA_MONKEY_HANG;
+        item->frame_num = g_Anims[LA_MONKEY_HANG].frame_base;
+        return;
+    }
+
+    g_Camera.target_elevation = 10 * DEG_1;
+    Lara_MonkeySwingSnap(item, coll);
+}
