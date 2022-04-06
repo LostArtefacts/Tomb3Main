@@ -267,3 +267,57 @@ void Lara_Col_Crawl2Hang(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->fall_speed = 1;
     g_Lara.gun_status = LGS_HANDS_BUSY;
 }
+
+void Lara_Col_Dash(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+
+    if (Lara_HitCeiling(item, coll)) {
+        return;
+    }
+    if (Lara_TestVault(item, coll)) {
+        return;
+    }
+
+    if (Lara_DeflectEdge(item, coll)) {
+        item->pos.z_rot = 0;
+        if (Lara_TestWall(item, 256, 0, -640)) {
+            item->current_anim_state = LS_SPLAT;
+            item->anim_num = LA_HIT_WALL_L;
+            item->frame_num = g_Anims[LA_HIT_WALL_L].frame_base;
+            return;
+        }
+        Lara_CollideStop(item, coll);
+    }
+
+    if (Lara_Fallen(item, coll)) {
+        return;
+    }
+
+    if (coll->mid_floor >= -LARA_STEP_UP_HEIGHT
+        && coll->mid_floor < -STEP_L / 2) {
+        if (item->frame_num >= 3 && item->frame_num <= 14) {
+            item->anim_num = LA_RUN_STEP_UP_L;
+            item->frame_num = g_Anims[LA_RUN_STEP_UP_L].frame_base;
+        } else {
+            item->anim_num = LA_RUN_STEP_UP_R;
+            item->frame_num = g_Anims[LA_RUN_STEP_UP_R].frame_base;
+        }
+    }
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    if (coll->mid_floor >= 50) {
+        item->pos.y += 50;
+    } else {
+        item->pos.y += coll->mid_floor;
+    }
+}
