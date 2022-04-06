@@ -92,4 +92,5 @@ void Inject_All(void)
     INJECT(0x0043F430, Lara_Col_Crawl2Hang, 1);
     INJECT(0x0043F720, Lara_Col_Dash, 1);
     INJECT(0x0043FA70, Lara_Col_DashDive, 1);
+    INJECT(0x0043FC70, Lara_Col_MonkeySwingHang, 1);
 }

@@ -3,6 +3,7 @@
 #include "global/const.h"
 #include "global/stubs.h"
 #include "global/vars.h"
+#include "util.h"
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
@@ -107,14 +108,14 @@ void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 
     if (g_Input & IN_FORWARD) {
-        int16_t height = Lara_FloorFront(item, item->pos.y_rot, 256);
+        int16_t height = Lara_FloorFront(item, item->pos.y_rot, STEP_L);
         if (height < +(STEP_L - 1) && height > -(STEP_L - 1)
             && g_HeightType != HT_BIG_SLOPE) {
             item->goal_anim_state = LS_CRAWL;
         }
     } else if (g_Input & IN_BACK) {
         int16_t height = Lara_CeilingFront(item, item->pos.y_rot, -300);
-        if (height == NO_HEIGHT || height > 256) {
+        if (height == NO_HEIGHT || height > STEP_L) {
             return;
         }
 
@@ -316,7 +317,7 @@ void Lara_Col_Dash(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     if (Lara_DeflectEdge(item, coll)) {
         item->pos.z_rot = 0;
-        if (Lara_TestWall(item, 256, 0, -640)) {
+        if (Lara_TestWall(item, STEP_L, 0, -640)) {
             item->current_anim_state = LS_SPLAT;
             item->anim_num = LA_HIT_WALL_L;
             item->frame_num = g_Anims[LA_HIT_WALL_L].frame_base;
@@ -394,4 +395,69 @@ void Lara_Col_DashDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     ShiftItem(item, coll);
     item->pos.y += coll->mid_floor;
+}
+
+void Lara_Col_MonkeySwingHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (g_Lara.can_monkey_swing) {
+        g_Lara.move_angle = item->pos.y_rot;
+        coll->facing = g_Lara.move_angle;
+        coll->bad_pos = NO_BAD_POS;
+        coll->bad_neg = NO_BAD_NEG;
+        coll->bad_ceiling = 0;
+        coll->radius = LARA_RADIUS;
+        coll->slopes_are_walls = 0;
+
+        GetCollisionInfo(
+            coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+            LARA_HANG_HEIGHT);
+
+        if (g_Input & IN_FORWARD && coll->coll_type != COLL_FRONT
+            && ABS(coll->mid_ceiling - coll->front_ceiling) < 50) {
+            item->goal_anim_state = LS_MONKEY_SWING;
+        } else if (g_Input & IN_STEP_L && Lara_TestMonkeyLeft(item, coll)) {
+            item->goal_anim_state = LS_MONKEY_L;
+        } else if (g_Input & IN_STEP_R && Lara_TestMonkeyRight(item, coll)) {
+            item->goal_anim_state = LS_MONKEY_R;
+        } else if (g_Input & IN_LEFT) {
+            item->goal_anim_state = LS_HANG_TURN_L;
+        } else if (g_Input & IN_RIGHT) {
+            item->goal_anim_state = LS_HANG_TURN_R;
+        }
+
+        Lara_MonkeySwingSnap(item, coll);
+        return;
+    }
+
+    Lara_TestHang(item, coll);
+    if (item->goal_anim_state != LS_MONKEY_HANG) {
+        return;
+    }
+
+    if (g_Input & IN_FORWARD && coll->front_floor > -850
+        && coll->front_floor < -650
+        && coll->front_floor - coll->front_ceiling >= 0
+        && coll->left_floor2 - coll->left_ceiling2 >= 0
+        && coll->right_floor2 - coll->right_ceiling2 >= 0
+        && !coll->hit_static) {
+        item->goal_anim_state = g_Input & IN_SLOW ? LS_GYMNAST : LS_NULL;
+        return;
+    }
+
+    if (((g_Input & IN_DUCK) || (g_Input & IN_FORWARD))
+        && coll->front_floor > -850 && coll->front_floor < -650
+        && coll->front_floor - coll->front_ceiling >= -STEP_L
+        && coll->left_floor2 - coll->left_ceiling2 >= -STEP_L
+        && coll->right_floor2 - coll->right_ceiling2 >= -STEP_L
+        && !coll->hit_static) {
+        item->goal_anim_state = LS_HANG_TO_DUCK;
+        item->required_anim_state = LS_DUCK;
+        return;
+    }
+
+    if (g_Input & IN_LEFT || g_Input & IN_STEP_L) {
+        item->goal_anim_state = LS_HANG_LEFT;
+    } else if (g_Input & IN_RIGHT || g_Input & IN_STEP_R) {
+        item->goal_anim_state = LS_HANG_RIGHT;
+    }
 }
