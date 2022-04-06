@@ -612,3 +612,25 @@ void Lara_Col_MonkeyRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->frame_num = g_Anims[LA_MONKEY_HANG].frame_base;
     }
 }
+
+void Lara_Col_HangTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!(g_Input & IN_ACTION) || !g_Lara.can_monkey_swing) {
+        Lara_MonkeySwingFall(item);
+        return;
+    }
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->radius = LARA_RADIUS;
+    coll->slopes_are_walls = 1;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_HANG_HEIGHT);
+
+    Lara_MonkeySwingSnap(item, coll);
+}
