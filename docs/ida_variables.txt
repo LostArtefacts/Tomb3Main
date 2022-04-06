@@ -1482,11 +1482,11 @@ F-- 004B4335 0000013A void sub_4B4335();
 F-- 004B446F 00000160 void sub_4B446F();
 F-- 004B45CF 000002FD void sub_4B45CF();
 F-- 004B48CC 00000341 void sub_4B48CC();
-FS- 004B4C10 00000048 int32_t __cdecl phd_atan(int32_t x, int32_t y);
-FSC 004B4C58 00000006 int32_t __cdecl phd_cos(int32_t angle);
-FSC 004B4C5E 0000001B int32_t __cdecl phd_sin(int32_t angle);
+FS- 004B4C10 00000048 int32_t __fastcall phd_atan(int32_t x, int32_t y);
+FSC 004B4C58 00000006 int32_t __fastcall phd_cos(int32_t angle);
+FSC 004B4C5E 0000001B int32_t __fastcall phd_sin(int32_t angle);
 F-- 004B4C79 0000001A void sub_4B4C79();
-FSC 004B4C93 0000002C int32_t __cdecl phd_sqrt(int32_t n);
+FSC 004B4C93 0000002C int32_t __fastcall phd_sqrt(int32_t n);
 
 V-- 004D78F4 - float g_PhdBottomFloat;
 V-- 004D7914 - int32_t g_PhdCenterX;

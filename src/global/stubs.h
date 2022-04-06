@@ -42,7 +42,7 @@
 #define TestTriggers          ((void (*)(int16_t *data, int32_t heavy))0x00421460)
 #define ShiftItem             ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0041E690)
 #define GetBoundsAccurate     ((int16_t *(*)(struct ITEM_INFO *item))0x00429E50)
-#define phd_sqrt              ((int32_t (*)(int32_t n))0x004B4C93)
-#define phd_cos               ((int32_t (*)(int32_t angle))0x004B4C58)
-#define phd_sin               ((int32_t (*)(int32_t angle))0x004B4C5E)
+#define phd_sqrt              ((int32_t (__fastcall *)(int32_t n))0x004B4C93)
+#define phd_cos               ((int32_t (__fastcall *)(int32_t angle))0x004B4C58)
+#define phd_sin               ((int32_t (__fastcall *)(int32_t angle))0x004B4C5E)
 // clang-format on
