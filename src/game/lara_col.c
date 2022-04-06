@@ -8,6 +8,7 @@
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static void Lara_MonkeySwingSnap(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
+static bool Lara_TestMonkeyDirOctant(int32_t angle);
 static bool Lara_TestMonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static bool Lara_TestMonkeyRight(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
@@ -46,6 +47,12 @@ static void Lara_MonkeySwingSnap(struct ITEM_INFO *item, struct COLL_INFO *coll)
         GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
     item->pos.y =
         GetCeiling(floor, item->pos.x, item->pos.y, item->pos.z) + 704;
+}
+
+static bool Lara_TestMonkeyDirOctant(int32_t angle)
+{
+    angle = ABS(angle);
+    return angle >= DEG_45 && angle <= DEG_135;
 }
 
 static bool Lara_TestMonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)

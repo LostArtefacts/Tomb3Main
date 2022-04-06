@@ -19,7 +19,6 @@
 #define Lara_LandedBad        ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444C20)
 #define Lara_TestEdgeCatch    ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge))0x00444EE0)
 #define Lara_Gun              ((void (*)(void))0x00449BB0)
-#define Lara_TestMonkeyDirOctant ((int16_t (*)(int32_t rot))0x0043FFB0)
 #define Random_GetControl     ((int32_t (*)(void))0x004841F0)
 #define GetCeiling            ((int32_t (*)(struct FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z))0x00421DE0)
 #define Kayak_Control         ((int32_t (*)(void))0x0043B730)
