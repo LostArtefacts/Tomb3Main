@@ -12,6 +12,7 @@ static bool Lara_TestMonkeyDirOctant(int32_t angle);
 static bool Lara_TestMonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static bool Lara_TestMonkeyRight(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
+static bool Lara_TestHangJumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
@@ -116,6 +117,74 @@ static bool Lara_TestMonkeyRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
     default:
         break;
     }
+    return true;
+}
+
+static bool Lara_TestHangJumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!(g_Input & IN_ACTION) || g_Lara.gun_status != LGS_ARMLESS
+        || coll->hit_static) {
+        return false;
+    }
+
+    if (g_Lara.can_monkey_swing && coll->coll_type == COLL_TOP) {
+        item->gravity_status = 0;
+        item->fall_speed = 0;
+        item->speed = 0;
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
+        item->anim_num = LA_UP_JUMP_GRAB;
+        item->frame_num = g_Anims[LA_UP_JUMP_GRAB].frame_base;
+        g_Lara.gun_status = LGS_HANDS_BUSY;
+        Lara_MonkeySwingSnap(item, coll);
+        return true;
+    }
+
+    if (coll->coll_type != COLL_FRONT
+        || coll->mid_ceiling > -LARA_STEP_UP_HEIGHT) {
+        return false;
+    }
+
+    int32_t edge;
+    int32_t edge_catch = Lara_TestEdgeCatch(item, coll, &edge);
+    if (!edge_catch
+        || (edge_catch < 0 && !Lara_TestHangOnClimbWall(item, coll))) {
+        return false;
+    }
+
+    PHD_ANGLE angle = Lara_SnapAngle(item->pos.y_rot, LARA_HANG_ANGLE);
+    if (angle % DEG_90 != 0) {
+        return false;
+    }
+
+    if (Lara_TestHangSwingIn(item, angle)) {
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
+        item->anim_num = LA_UP_JUMP_GRAB;
+        item->frame_num = g_Anims[LA_UP_JUMP_GRAB].frame_base;
+    } else {
+        item->current_anim_state = LS_HANG;
+        item->goal_anim_state = LS_HANG;
+        item->anim_num = LA_GRAB_LEDGE;
+        item->frame_num = g_Anims[LA_GRAB_LEDGE].frame_base + 12;
+    }
+
+    int16_t *bounds = GetBoundsAccurate(item);
+    if (edge_catch > 0) {
+        item->pos.y += coll->front_floor - bounds[2];
+    } else {
+        item->pos.y = edge - bounds[2];
+    }
+
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    item->speed = 0;
+    item->pos.x += coll->shift.x;
+    item->pos.z += coll->shift.z;
+    item->pos.y_rot = angle;
+    g_Lara.gun_status = LGS_HANDS_BUSY;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
     return true;
 }
 
