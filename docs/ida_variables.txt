@@ -621,7 +621,7 @@ FSD 00441DD0 00000051 void __cdecl Lara_StateExtra_TRexDeath(ITEM_INFO *item, CO
 FSD 00441E30 0000004D void __cdecl Lara_StateExtra_StartAnim(ITEM_INFO *item, COLL_INFO *coll); // extra_as_startanim
 FSD 00441E80 0000007E void __cdecl Lara_StateExtra_TrainKill(ITEM_INFO *item, COLL_INFO *col); // extra_as_trainkill
 FSD 00441F00 00000088 void __cdecl Lara_StateExtra_RapidsDrown(ITEM_INFO *item, COLL_INFO *coll); // extra_as_rapidsdrown
-FS- 00441F90 000001A7 void __cdecl Lara_Col_Walk(ITEM_INFO *item, COLL_INFO *coll); // lara_col_walk
+FSD 00441F90 000001A7 void __cdecl Lara_Col_Walk(ITEM_INFO *item, COLL_INFO *coll); // lara_col_walk
 FS- 00442140 00000189 void __cdecl Lara_Col_Run(ITEM_INFO *item, COLL_INFO *coll); // lara_col_run
 FS- 004422D0 000000DA void __cdecl Lara_Col_JumpForward(ITEM_INFO *item, COLL_INFO *coll); // lara_col_forward_jump
 FS- 004423B0 000000DA void __cdecl Lara_Col_FastBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastback

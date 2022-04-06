@@ -103,3 +103,4 @@ void Lara_Col_HangTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Monkey180(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Stop(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_JumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);

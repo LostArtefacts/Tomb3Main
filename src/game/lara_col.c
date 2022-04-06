@@ -784,3 +784,68 @@ void Lara_Col_JumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += coll->mid_floor;
     }
 }
+
+void Lara_Col_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = LARA_STEP_UP_HEIGHT;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_walls = 1;
+    coll->slopes_are_pits = 1;
+    coll->lava_is_pit = 1;
+    Lara_GetCollisionInfo(item, coll);
+
+    if (Lara_HitCeiling(item, coll) || Lara_TestVault(item, coll)) {
+        return;
+    }
+
+    if (Lara_DeflectEdge(item, coll)) {
+        if (item->frame_num >= 22 && item->frame_num <= 28) {
+            item->anim_num = LA_STOP_L;
+            item->frame_num = g_Anims[LA_STOP_L].frame_base;
+        } else if (item->frame_num >= 29 && item->frame_num <= 47) {
+            item->anim_num = LA_STOP_R;
+            item->frame_num = g_Anims[LA_STOP_R].frame_base;
+        } else if (item->frame_num >= 48 && item->frame_num <= 57) {
+            item->anim_num = LA_STOP_L;
+            item->frame_num = g_Anims[LA_STOP_L].frame_base;
+        } else {
+            Lara_CollideStop(item, coll);
+        }
+    }
+
+    if (Lara_Fallen(item, coll)) {
+        return;
+    }
+
+    if (coll->mid_floor > STEP_L / 2) {
+        if (item->frame_num >= 28 && item->frame_num <= 45) {
+            item->anim_num = LA_WALK_STEP_DOWN_R;
+            item->frame_num = g_Anims[LA_WALK_STEP_DOWN_R].frame_base;
+        } else {
+            item->anim_num = LA_WALK_STEP_DOWN_L;
+            item->frame_num = g_Anims[LA_WALK_STEP_DOWN_L].frame_base;
+        }
+    }
+
+    if (coll->mid_floor >= -LARA_STEP_UP_HEIGHT
+        && coll->mid_floor < -STEP_L / 2) {
+        if (item->frame_num >= 27 && item->frame_num <= 44) {
+            item->anim_num = LA_WALK_STEP_UP_R;
+            item->frame_num = g_Anims[LA_WALK_STEP_UP_R].frame_base;
+        } else {
+            item->anim_num = LA_WALK_STEP_UP_L;
+            item->frame_num = g_Anims[LA_WALK_STEP_UP_L].frame_base;
+        }
+    }
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    item->pos.y += coll->mid_floor;
+}
