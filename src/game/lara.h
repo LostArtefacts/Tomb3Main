@@ -98,3 +98,4 @@ void Lara_Col_DashDive(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_MonkeySwingHang(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_MonkeySwing(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_MonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_MonkeyRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
