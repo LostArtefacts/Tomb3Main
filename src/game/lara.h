@@ -2,7 +2,9 @@
 
 #include "global/types.h"
 
+PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap);
 enum DIRECTION Lara_AngleToDirection(PHD_ANGLE angle);
+
 bool Lara_TestSlide(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll);
 bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll);
@@ -86,6 +88,7 @@ void Lara_StateExtra_TrainKill(struct ITEM_INFO *item, struct COLL_INFO *col);
 
 void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_AllFoursTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_CrawlB(struct ITEM_INFO *item, struct COLL_INFO *coll);
-void Lara_Col_AllFoursTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_Crawl2Hang(struct ITEM_INFO *item, struct COLL_INFO *coll);

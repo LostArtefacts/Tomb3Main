@@ -19,6 +19,7 @@
 #define NO_BAD_POS             32512
 #define NO_BAD_NEG             NO_HEIGHT
 #define NO_ITEM                (-1)
+#define BAD_JUMP_CEILING       ((STEP_L * 3) / 4) // = 192
 
 #define GRAVITY                6
 #define FAST_FALL_SPEED        128

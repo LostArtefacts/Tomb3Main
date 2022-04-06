@@ -85,7 +85,8 @@ void Inject_All(void)
 
     INJECT(0x0043EAA0, Lara_Col_Duck, 1);
     INJECT(0x0043EC20, Lara_Col_AllFours, 1);
+    INJECT(0x0043F1C0, Lara_Col_AllFoursTurnLR, 1);
     INJECT(0x0043EFE0, Lara_Col_Crawl, 1);
     INJECT(0x0043F330, Lara_Col_CrawlB, 1);
-    INJECT(0x0043F1C0, Lara_Col_AllFoursTurnLR, 1);
+    INJECT(0x0043F430, Lara_Col_Crawl2Hang, 1);
 }

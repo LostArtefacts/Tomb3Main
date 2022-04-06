@@ -7,9 +7,7 @@
 
 static PHD_ANGLE m_OldSlopeAngle = 1;
 
-static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap);
-
-static PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
+PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
 {
     if (angle >= -snap && angle <= snap) {
         return 0;

@@ -132,6 +132,13 @@ void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_Col_AllFoursTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_DUCK_HEIGHT);
+}
+
 void Lara_Col_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->gravity_status = 0;
@@ -199,9 +206,64 @@ void Lara_Col_CrawlB(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
-void Lara_Col_AllFoursTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll)
+void Lara_Col_Crawl2Hang(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
+    if (item->anim_num != 302) {
+        return;
+    }
+
+    item->fall_speed = 512;
+    item->pos.y |= (STEP_L - 1);
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+
     GetCollisionInfo(
-        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
-        LARA_DUCK_HEIGHT);
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num, 870);
+
+    int32_t edge;
+    int32_t edge_catch = Lara_TestEdgeCatch(item, coll, &edge);
+    if (!edge_catch
+        || (edge_catch < 0 && !Lara_TestHangOnClimbWall(item, coll))) {
+        return;
+    }
+
+    PHD_ANGLE angle = Lara_SnapAngle(item->pos.y_rot, LARA_HANG_ANGLE);
+    if (angle % DEG_90 != 0) {
+        return;
+    }
+
+    if (Lara_TestHangSwingIn(item, angle)) {
+        g_Lara.head_x_rot = 0;
+        g_Lara.head_y_rot = 0;
+        g_Lara.torso_x_rot = 0;
+        g_Lara.torso_y_rot = 0;
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
+        item->anim_num = LA_GRAB_LEDGE_IN;
+        item->frame_num = g_Anims[LA_GRAB_LEDGE_IN].frame_base;
+    } else {
+        item->current_anim_state = LS_HANG;
+        item->goal_anim_state = LS_HANG;
+        item->anim_num = LA_GRAB_LEDGE;
+        item->frame_num = g_Anims[LA_GRAB_LEDGE].frame_base;
+    }
+
+    int16_t *bounds = GetBoundsAccurate(item);
+    if (edge_catch > 0) {
+        item->pos.y += coll->front_floor - bounds[2];
+        item->pos.x += coll->shift.x;
+        item->pos.z += coll->shift.z;
+    } else {
+        item->pos.y = edge - bounds[2];
+    }
+
+    item->pos.y_rot = angle;
+    item->gravity_status = 1;
+    item->speed = 2;
+    item->fall_speed = 1;
+    g_Lara.gun_status = LGS_HANDS_BUSY;
 }
