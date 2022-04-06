@@ -557,8 +557,8 @@ FSD 0043FB90 00000078 void __cdecl Lara_State_MonkeyHang(ITEM_INFO *item, COLL_I
 FSD 0043FC10 00000053 void __cdecl Lara_MonkeySwingFall(ITEM_INFO *item); // MonkeySwingFall
 FSD 0043FC70 00000217 void __cdecl Lara_Col_MonkeySwingHang(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hang2
 FSD 0043FE90 00000045 void __cdecl Lara_MonkeySwingSnap(ITEM_INFO *item, COLL_INFO *coll); // MonkeySwingSnap
-FSC 0043FEE0 000000CD int16_t __cdecl Lara_TestMonkeyLeft(ITEM_INFO *item, COLL_INFO *coll); // TestMonkeyLeft
-FS- 0043FFB0 00000020 int16_t __cdecl Lara_TestMonkeyDirOctant(int32_t rot); // GetDirOctant
+FSD 0043FEE0 000000CD int16_t __cdecl Lara_TestMonkeyLeft(ITEM_INFO *item, COLL_INFO *coll); // TestMonkeyLeft
+FSC 0043FFB0 00000020 int16_t __cdecl Lara_TestMonkeyDirOctant(int32_t rot); // GetDirOctant
 FSC 0043FFD0 000000C9 int16_t __cdecl Lara_TestMonkeyRight(ITEM_INFO *item, COLL_INFO *coll); // TestMonkeyRight
 FSD 004400A0 00000092 void __cdecl Lara_State_MonkeySwing(ITEM_INFO *item, COLL_INFO *coll); // lara_as_monkeyswing
 FS- 00440140 000000DE void __cdecl Lara_Col_MonkeySwing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_monkeyswing
