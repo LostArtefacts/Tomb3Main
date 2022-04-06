@@ -22,6 +22,7 @@
 #define BAD_JUMP_CEILING       ((STEP_L * 3) / 4) // = 192
 
 #define GRAVITY                6
+#define GRAVITY_SWAMP          2
 #define FAST_FALL_SPEED        128
 
 #define LARA_RADIUS            100

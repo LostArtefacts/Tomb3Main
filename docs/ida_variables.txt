@@ -572,7 +572,7 @@ FSD 004404A0 00000039 void __cdecl Lara_State_HangTurnRight(ITEM_INFO *item, COL
 FSD 004404E0 00000018 void __cdecl Lara_State_Monkey180(ITEM_INFO *item, COLL_INFO *coll); // lara_as_monkey180
 FSD 00440500 00000013 void __cdecl Lara_Col_Monkey180(ITEM_INFO *item, COLL_INFO *coll); // lara_col_monkey180
 FSD 00440520 00000440 void __cdecl Lara_State_Stop(ITEM_INFO *item, COLL_INFO *coll); // lara_as_stop
-FS- 00440960 000000BF void __cdecl Lara_Col_Stop(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stop
+FSD 00440960 000000BF void __cdecl Lara_Col_Stop(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stop
 FSD 00440A20 00000013 void __cdecl Lara_State_JumpUp(ITEM_INFO *item, COLL_INFO *coll); // lara_as_upjump
 FS- 00440A40 0000014F void __cdecl Lara_Col_JumpUp(ITEM_INFO *item, COLL_INFO *coll); // lara_col_upjump
 FS- 00440B90 0000021E int32_t __cdecl Lara_TestHangJumpUp(ITEM_INFO *item, COLL_INFO *coll); // LaraTestHangJumpUp

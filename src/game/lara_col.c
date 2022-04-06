@@ -123,6 +123,7 @@ void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->gravity_status = 0;
     item->fall_speed = 0;
+
     g_Lara.move_angle = item->pos.y_rot;
     coll->facing = g_Lara.move_angle;
     coll->radius = LARA_DUCK_RADIUS;
@@ -638,4 +639,34 @@ void Lara_Col_HangTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll)
 void Lara_Col_Monkey180(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     Lara_Col_MonkeySwing(item, coll);
+}
+
+void Lara_Col_Stop(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = LARA_STEP_UP_HEIGHT;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_pits = 1;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+
+    if (Lara_HitCeiling(item, coll) || Lara_Fallen(item, coll)
+        || Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    ShiftItem(item, coll);
+
+    if (!(g_Rooms[item->room_num].flags & RF_SWAMP)) {
+        item->pos.y += coll->mid_floor;
+    } else if (coll->mid_floor < 0) {
+        item->pos.y += coll->mid_floor;
+    } else if (coll->mid_floor > 0) {
+        item->pos.y += GRAVITY_SWAMP;
+    }
 }
