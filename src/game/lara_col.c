@@ -4,6 +4,35 @@
 #include "global/stubs.h"
 #include "global/vars.h"
 
+static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll);
+
+static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    switch (coll->old_anim_state) {
+    case LS_STOP:
+    case LS_TURN_L:
+    case LS_TURN_R:
+    case LS_FAST_TURN:
+        item->current_anim_state = coll->old_anim_state;
+        item->anim_num = coll->old_anim_num;
+        item->frame_num = coll->old_frame_num;
+        if (g_Input & IN_LEFT) {
+            item->goal_anim_state = LS_TURN_L;
+        } else if (g_Input & IN_RIGHT) {
+            item->goal_anim_state = LS_TURN_R;
+        } else {
+            item->goal_anim_state = LS_STOP;
+        }
+        Lara_Animate(item);
+        break;
+
+    default:
+        item->anim_num = LA_STOP;
+        item->frame_num = g_Anims[LA_STOP].frame_base;
+        break;
+    }
+}
+
 void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->gravity_status = 0;
