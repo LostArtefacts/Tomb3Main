@@ -9,6 +9,8 @@ static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static void Lara_MonkeySwingSnap(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
 static bool Lara_TestMonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
+static bool Lara_TestMonkeyRight(
+    struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
@@ -70,6 +72,38 @@ static bool Lara_TestMonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
         return oct;
     case COLL_LEFT:
         return false;
+    case COLL_RIGHT:
+        return !oct;
+    default:
+        break;
+    }
+    return true;
+}
+
+static bool Lara_TestMonkeyRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot + DEG_90;
+    coll->facing = g_Lara.move_angle;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->radius = LARA_RADIUS;
+    coll->slopes_are_walls = 0;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_HANG_HEIGHT);
+
+    if (ABS(coll->mid_ceiling - coll->front_ceiling) > 50) {
+        return false;
+    }
+
+    bool oct = Lara_TestMonkeyDirOctant(item->pos.y_rot);
+    switch (coll->coll_type) {
+    case COLL_FRONT:
+        return false;
+    case COLL_LEFT:
+        return !oct;
     case COLL_RIGHT:
         return !oct;
     default:
