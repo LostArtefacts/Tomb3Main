@@ -19,7 +19,6 @@
 #define Lara_LandedBad        ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444C20)
 #define Lara_TestEdgeCatch    ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge))0x00444EE0)
 #define Lara_Gun              ((void (*)(void))0x00449BB0)
-#define Lara_MonkeySwingSnap  ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0043FE90)
 #define Lara_TestMonkeyLeft   ((int16_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0043FEE0)
 #define Lara_TestMonkeyRight  ((int16_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0043FFD0)
 #define Random_GetControl     ((int32_t (*)(void))0x004841F0)

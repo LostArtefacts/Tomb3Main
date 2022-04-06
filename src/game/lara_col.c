@@ -6,6 +6,8 @@
 #include "util.h"
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll);
+static void Lara_MonkeySwingSnap(
+    struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
@@ -32,6 +34,15 @@ static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->frame_num = g_Anims[LA_STOP].frame_base;
         break;
     }
+}
+
+static void Lara_MonkeySwingSnap(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    item->pos.y =
+        GetCeiling(floor, item->pos.x, item->pos.y, item->pos.z) + 704;
 }
 
 void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
