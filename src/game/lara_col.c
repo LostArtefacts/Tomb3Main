@@ -578,3 +578,20 @@ void Lara_Col_MonkeySwing(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_elevation = 10 * DEG_1;
     Lara_MonkeySwingSnap(item, coll);
 }
+
+void Lara_Col_MonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (!(g_Input & IN_ACTION) || !g_Lara.can_monkey_swing) {
+        Lara_MonkeySwingFall(item);
+        return;
+    }
+
+    if (Lara_TestMonkeyLeft(item, coll)) {
+        Lara_MonkeySwingSnap(item, coll);
+    } else {
+        item->current_anim_state = LS_MONKEY_HANG;
+        item->goal_anim_state = LS_MONKEY_HANG;
+        item->anim_num = LA_MONKEY_HANG;
+        item->frame_num = g_Anims[LA_MONKEY_HANG].frame_base;
+    }
+}
