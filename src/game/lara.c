@@ -805,3 +805,16 @@ void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_LaraItem->item_flags[1] = 0;
     }
 }
+
+void Lara_MonkeySwingFall(struct ITEM_INFO *item)
+{
+    item->goal_anim_state = LS_UP_JUMP;
+    item->current_anim_state = LS_UP_JUMP;
+    item->anim_num = LA_STOP_HANG;
+    item->frame_num = g_Anims[LA_STOP_HANG].frame_base + 9;
+    item->gravity_status = 1;
+    item->speed = 2;
+    item->fall_speed = 1;
+    item->pos.y += STEP_L;
+    g_Lara.gun_status = LGS_ARMLESS;
+}

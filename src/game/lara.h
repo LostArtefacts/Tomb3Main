@@ -19,6 +19,7 @@ bool Lara_TestHangSwingIn(struct ITEM_INFO *item, PHD_ANGLE angle);
 bool Lara_DeflectEdgeDuck(struct ITEM_INFO *item, struct COLL_INFO *coll);
 int32_t Lara_TestWall(
     struct ITEM_INFO *item, int32_t front, int32_t right, int32_t down);
+void Lara_MonkeySwingFall(struct ITEM_INFO *item);
 
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
