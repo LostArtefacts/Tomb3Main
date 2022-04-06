@@ -623,7 +623,7 @@ FSD 00441E80 0000007E void __cdecl Lara_StateExtra_TrainKill(ITEM_INFO *item, CO
 FSD 00441F00 00000088 void __cdecl Lara_StateExtra_RapidsDrown(ITEM_INFO *item, COLL_INFO *coll); // extra_as_rapidsdrown
 FSD 00441F90 000001A7 void __cdecl Lara_Col_Walk(ITEM_INFO *item, COLL_INFO *coll); // lara_col_walk
 FSD 00442140 00000189 void __cdecl Lara_Col_Run(ITEM_INFO *item, COLL_INFO *coll); // lara_col_run
-FS- 004422D0 000000DA void __cdecl Lara_Col_JumpForward(ITEM_INFO *item, COLL_INFO *coll); // lara_col_forward_jump
+FSD 004422D0 000000DA void __cdecl Lara_Col_JumpForward(ITEM_INFO *item, COLL_INFO *coll); // lara_col_forwardjump
 FS- 004423B0 000000DA void __cdecl Lara_Col_FastBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastback
 FS- 00442490 000000EB void __cdecl Lara_Col_TurnRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_turn_r
 FS- 00442580 00000013 void __cdecl Lara_Col_TurnLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_turn_l

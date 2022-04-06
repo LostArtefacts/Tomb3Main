@@ -105,3 +105,4 @@ void Lara_Col_Stop(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_JumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Run(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_JumpForward(struct ITEM_INFO *item, struct COLL_INFO *coll);
