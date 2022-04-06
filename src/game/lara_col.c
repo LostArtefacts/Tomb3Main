@@ -942,3 +942,41 @@ void Lara_Col_JumpForward(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->speed = 0;
     Lara_Animate(item);
 }
+
+void Lara_Col_FastBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    g_Lara.move_angle = item->pos.y_rot + DEG_180;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_pits = 1;
+    coll->slopes_are_walls = 0;
+    Lara_GetCollisionInfo(item, coll);
+
+    if (Lara_HitCeiling(item, coll)) {
+        return;
+    }
+
+    if (coll->mid_floor > 200) {
+        item->current_anim_state = LS_FALL_BACK;
+        item->goal_anim_state = LS_FALL_BACK;
+        item->anim_num = LA_FALL_BACK;
+        item->frame_num = g_Anims[LA_FALL_BACK].frame_base;
+        item->gravity_status = 1;
+        item->fall_speed = 0;
+        return;
+    }
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    if (Lara_DeflectEdge(item, coll)) {
+        Lara_CollideStop(item, coll);
+    }
+
+    item->pos.y += coll->mid_floor;
+}
