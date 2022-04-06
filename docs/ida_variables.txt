@@ -552,7 +552,7 @@ FSD 0043F720 00000149 void __cdecl Lara_Col_Dash(ITEM_INFO *item, COLL_INFO *col
 FSD 0043F870 000000E1 int32_t __cdecl Lara_TestWall(ITEM_INFO *item, int32_t front, int32_t right, int32_t down); // TestWall
 FSD 0043F980 0000009B void __cdecl Lara_CollideStop(ITEM_INFO *item, COLL_INFO *coll); // LaraCollideStop
 FSD 0043FA40 00000029 void __cdecl Lara_State_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_as_dashdive
-FS- 0043FA70 00000115 void __cdecl Lara_Col_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_dashdive
+FSD 0043FA70 00000115 void __cdecl Lara_Col_DashDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_dashdive
 FSD 0043FB90 00000078 void __cdecl Lara_State_MonkeyHang(ITEM_INFO *item, COLL_INFO *coll); // lara_as_hang2
 FSC 0043FC10 00000053 void __cdecl Lara_MonkeySwingFall(ITEM_INFO *item); // MonkeySwingFall
 FS- 0043FC70 00000217 void __cdecl Lara_Col_MonkeySwingHang(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hang2
@@ -661,7 +661,7 @@ FSC 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
 FSC 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
 FS- 004448A0 000000D4 void __cdecl DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 00444980 0000029F void __cdecl ControlDeathSlide(int16_t item_num);
-FS- 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
+FSC 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
 FSC 00444D10 0000006A int32_t __cdecl Lara_HitCeiling(ITEM_INFO *item, COLL_INFO *coll); // LaraHitCeiling
 FSC 00444D80 00000075 int16_t __cdecl Lara_FloorFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraFloorFront
 FSC 00444E00 0000007E int16_t __cdecl Lara_CeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraCeilingFront

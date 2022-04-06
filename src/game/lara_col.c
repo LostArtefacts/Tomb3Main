@@ -125,7 +125,7 @@ void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
         } else if (
             g_Input & IN_ACTION && height > 768
             && !GetStaticObjects(
-                item, item->pos.y_rot + 0x8000, 512, 50, 300)) {
+                item, item->pos.y_rot + DEG_180, 512, 50, 300)) {
 
             enum DIRECTION dir = Lara_AngleToDirection(item->pos.y_rot);
             switch (dir) {
@@ -349,4 +349,49 @@ void Lara_Col_Dash(struct ITEM_INFO *item, struct COLL_INFO *coll)
     } else {
         item->pos.y += coll->mid_floor;
     }
+}
+
+void Lara_Col_DashDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->speed >= 0) {
+        g_Lara.move_angle = item->pos.y_rot;
+    } else {
+        g_Lara.move_angle = item->pos.y_rot + DEG_180;
+    }
+
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -STEP_L;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+    Lara_DeflectEdgeJump(item, coll);
+
+    if (Lara_Fallen(item, coll)) {
+        return;
+    }
+
+    if (item->speed < 0) {
+        g_Lara.move_angle = item->pos.y_rot;
+    }
+
+    if (coll->mid_floor <= 0 && item->fall_speed > 0) {
+        if (Lara_LandedBad(item, coll)) {
+            item->goal_anim_state = LS_DEATH;
+        } else if (g_Lara.water_status == LWS_WADE) {
+            item->goal_anim_state = LS_STOP;
+        } else if (g_Input & IN_FORWARD && !(g_Input & IN_SLOW)) {
+            item->goal_anim_state = LS_RUN;
+        } else {
+            item->goal_anim_state = LS_STOP;
+        }
+        item->fall_speed = 0;
+        item->pos.y += coll->mid_floor;
+        item->gravity_status = 0;
+        item->speed = 0;
+        Lara_Animate(item);
+    }
+
+    ShiftItem(item, coll);
+    item->pos.y += coll->mid_floor;
 }
