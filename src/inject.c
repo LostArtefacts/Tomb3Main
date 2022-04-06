@@ -101,4 +101,5 @@ void Inject_All(void)
     INJECT(0x00440960, Lara_Col_Stop, 1);
     INJECT(0x00440A40, Lara_Col_JumpUp, 1);
     INJECT(0x00441F90, Lara_Col_Walk, 1);
+    INJECT(0x00442140, Lara_Col_Run, 1);
 }

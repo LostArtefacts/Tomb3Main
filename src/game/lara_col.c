@@ -849,3 +849,61 @@ void Lara_Col_Walk(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_Run(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_walls = 1;
+    Lara_GetCollisionInfo(item, coll);
+
+    if (Lara_HitCeiling(item, coll) || Lara_TestVault(item, coll)) {
+        return;
+    }
+
+    if (Lara_DeflectEdge(item, coll)) {
+        item->pos.z_rot = 0;
+        if (item->anim_num != LA_START_RUN
+            && Lara_TestWall(item, STEP_L, 0, -640)) {
+            item->current_anim_state = LS_SPLAT;
+            if (item->frame_num >= 0 && item->frame_num <= 9) {
+                item->anim_num = LA_HIT_WALL_L;
+                item->frame_num = g_Anims[LA_HIT_WALL_L].frame_base;
+                return;
+            }
+            if (item->frame_num >= 10 && item->frame_num <= 21) {
+                item->anim_num = LA_HIT_WALL_R;
+                item->frame_num = g_Anims[LA_HIT_WALL_R].frame_base;
+                return;
+            }
+        }
+        Lara_CollideStop(item, coll);
+    }
+
+    if (Lara_Fallen(item, coll)) {
+        return;
+    }
+
+    if (coll->mid_floor >= -LARA_STEP_UP_HEIGHT
+        && coll->mid_floor < -STEP_L / 2) {
+        if (item->frame_num >= 3 && item->frame_num <= 14) {
+            item->anim_num = LA_RUN_STEP_UP_L;
+            item->frame_num = g_Anims[LA_RUN_STEP_UP_L].frame_base;
+        } else {
+            item->anim_num = LA_RUN_STEP_UP_R;
+            item->frame_num = g_Anims[LA_RUN_STEP_UP_R].frame_base;
+        }
+    }
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    if (coll->mid_floor >= 50) {
+        item->pos.y += 50;
+    } else {
+        item->pos.y += coll->mid_floor;
+    }
+}
