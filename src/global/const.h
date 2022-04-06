@@ -25,7 +25,8 @@
 
 #define LARA_RADIUS            100
 #define LARA_HEIGHT            762
-#define LARA_DUCK_RADIUS       (LARA_RADIUS * 2)
+#define LARA_DUCK_RADIUS       (LARA_RADIUS * 2) // = 200
+#define LARA_CRAWL_RADIUS      (LARA_RADIUS * 2 + LARA_RADIUS / 2) // = 250
 #define LARA_DUCK_HEIGHT       400
 
 #define LARA_TURN_UNDO         (DEG_1 * 2) // = 364

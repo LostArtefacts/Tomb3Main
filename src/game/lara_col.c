@@ -9,7 +9,7 @@ void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->gravity_status = 0;
     item->fall_speed = 0;
     g_Lara.move_angle = item->pos.y_rot;
-    coll->facing = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle;
     coll->radius = LARA_DUCK_RADIUS;
     coll->bad_pos = LARA_STEP_UP_HEIGHT;
     coll->bad_neg = -LARA_STEP_UP_HEIGHT;
@@ -46,7 +46,7 @@ void Lara_Col_AllFours(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 
     g_Lara.move_angle = item->pos.y_rot;
-    coll->facing = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle;
     coll->radius = LARA_DUCK_RADIUS;
     coll->bad_pos = +(STEP_L - 1);
     coll->bad_neg = -(STEP_L - 1);
@@ -138,7 +138,7 @@ void Lara_Col_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->fall_speed = 0;
 
     g_Lara.move_angle = item->pos.y_rot;
-    coll->facing = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle;
     coll->radius = LARA_DUCK_RADIUS;
     coll->bad_pos = +(STEP_L - 1);
     coll->bad_neg = -(STEP_L - 1);
@@ -162,6 +162,40 @@ void Lara_Col_Crawl(struct ITEM_INFO *item, struct COLL_INFO *coll)
     } else {
         ShiftItem(item, coll);
         item->pos.y += coll->mid_floor;
+    }
+}
+
+void Lara_Col_CrawlB(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->fall_speed = 0;
+    item->gravity_status = 0;
+
+    g_Lara.move_angle = item->pos.y_rot + DEG_180;
+    coll->facing = g_Lara.move_angle;
+    coll->radius = LARA_CRAWL_RADIUS;
+    coll->bad_pos = STEP_L - 1;
+    coll->bad_neg = -(STEP_L - 1);
+    coll->bad_ceiling = LARA_DUCK_HEIGHT;
+    coll->slopes_are_walls = 1;
+    coll->slopes_are_pits = 1;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num,
+        LARA_DUCK_HEIGHT);
+
+    if (Lara_DeflectEdgeDuck(item, coll)) {
+        item->current_anim_state = LS_ALL_FOURS;
+        item->goal_anim_state = LS_ALL_FOURS;
+        if (item->anim_num != LA_ALL_FOURS) {
+            item->anim_num = LA_ALL_FOURS;
+            item->frame_num = g_Anims[LA_ALL_FOURS].frame_base;
+        }
+    } else if (Lara_Fallen(item, coll)) {
+        g_Lara.gun_status = LGS_ARMLESS;
+    } else {
+        ShiftItem(item, coll);
+        item->pos.y += coll->mid_floor;
+        g_Lara.move_angle = item->pos.y_rot;
     }
 }
 
