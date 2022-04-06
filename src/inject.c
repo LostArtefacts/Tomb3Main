@@ -99,4 +99,5 @@ void Inject_All(void)
     INJECT(0x00440400, Lara_Col_HangTurnLR, 1);
     INJECT(0x00440500, Lara_Col_Monkey180, 1);
     INJECT(0x00440960, Lara_Col_Stop, 1);
+    INJECT(0x00440A40, Lara_Col_JumpUp, 1);
 }

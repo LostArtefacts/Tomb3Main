@@ -998,6 +998,7 @@ struct COLL_INFO {
     uint16_t lava_is_pit : 1;
     uint16_t enable_baddie_push : 1;
     uint16_t enable_spaz : 1;
+    uint16_t hit_ceiling : 1;
 };
 
 struct SPLASH_SETUP {

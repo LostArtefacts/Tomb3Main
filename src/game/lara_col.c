@@ -670,3 +670,48 @@ void Lara_Col_Stop(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += GRAVITY_SWAMP;
     }
 }
+
+void Lara_Col_JumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (item->hit_points <= 0) {
+        item->goal_anim_state = LS_STOP;
+        return;
+    }
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->facing = g_Lara.move_angle + (item->speed < 0 ? DEG_180 : 0);
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+    coll->hit_ceiling = 0;
+
+    GetCollisionInfo(
+        coll, item->pos.x, item->pos.y, item->pos.z, item->room_num, 870);
+
+    if (Lara_TestHangJumpUp(item, coll)) {
+        return;
+    }
+
+    ShiftItem(item, coll);
+    if (coll->coll_type == COLL_CLAMP || coll->coll_type == COLL_TOP
+        || coll->coll_type == COLL_TOP_FRONT || coll->hit_ceiling) {
+        item->fall_speed = 1;
+    }
+
+    if (coll->coll_type != COLL_NONE) {
+        item->speed = item->speed > 0 ? 2 : -2;
+    } else if (item->fall_speed < -70) {
+        if (g_Input & IN_FORWARD && item->speed < 5) {
+            item->speed++;
+        } else if (g_Input & IN_BACK && item->speed > -5) {
+            item->speed -= 2;
+        }
+    }
+
+    if (item->fall_speed > 0 && coll->mid_floor <= 0) {
+        item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
+        item->gravity_status = 0;
+        item->fall_speed = 0;
+        item->pos.y += coll->mid_floor;
+    }
+}
