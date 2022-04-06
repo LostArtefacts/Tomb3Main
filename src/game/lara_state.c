@@ -36,7 +36,7 @@ void Lara_State_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
         Lara_LookUpDown();
     }
 
-    if (g_Input & IN_FORWARD && g_Input & IN_BACK
+    if (((g_Input & IN_FORWARD) || (g_Input & IN_BACK))
         && g_Lara.gun_status == LGS_ARMLESS
         && item->frame_num > g_Anims[LA_DUCK_BREATHE].frame_base + 10) {
         g_Lara.torso_x_rot = 0;
