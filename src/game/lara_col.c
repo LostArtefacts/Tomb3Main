@@ -634,3 +634,8 @@ void Lara_Col_HangTurnLR(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     Lara_MonkeySwingSnap(item, coll);
 }
+
+void Lara_Col_Monkey180(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Lara_Col_MonkeySwing(item, coll);
+}
