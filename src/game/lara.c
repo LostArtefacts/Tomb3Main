@@ -715,6 +715,32 @@ int32_t Lara_TestWall(
     return 0;
 }
 
+void Lara_ResetLook(void)
+{
+    if (g_Camera.type == CT_LOOK) {
+        return;
+    }
+
+    if (g_Lara.head_x_rot > -LARA_HEAD_TURN
+        && g_Lara.head_x_rot < LARA_HEAD_TURN) {
+        g_Lara.head_x_rot = 0;
+    } else {
+        g_Lara.head_x_rot -= g_Lara.head_x_rot / 8;
+    }
+
+    if (g_Lara.head_y_rot > -LARA_HEAD_TURN
+        && g_Lara.head_y_rot < LARA_HEAD_TURN) {
+        g_Lara.head_y_rot = 0;
+    } else {
+        g_Lara.head_y_rot -= g_Lara.head_y_rot / 8;
+    }
+
+    if (g_Lara.gun_status != LGS_HANDS_BUSY && g_Lara.skidoo == NO_ITEM) {
+        g_Lara.torso_x_rot = g_Lara.head_x_rot;
+        g_Lara.torso_y_rot = g_Lara.head_y_rot;
+    }
+}
+
 void Lara_LookUpDown(void)
 {
     g_Camera.type = CT_LOOK;

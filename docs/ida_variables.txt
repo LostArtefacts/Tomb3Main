@@ -658,7 +658,7 @@ FSD 00443C10 00000083 void __cdecl Lara_AddJointPos(ITEM_INFO *item, int32_t mes
 FSD 00443CA0 000009FD void __cdecl Lara_GetHandAbsPosition_I(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, enum LARA_BODY_PART body_part); // GetLHAInt
 FSD 004446E0 00000084 void __cdecl Lara_LookUpDown(void); // LookUpDown
 FSD 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
-FSC 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
+FSD 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
 FS- 004448A0 000000D4 void __cdecl DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 00444980 0000029F void __cdecl ControlDeathSlide(int16_t item_num);
 FSC 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
