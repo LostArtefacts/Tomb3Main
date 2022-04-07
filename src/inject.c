@@ -113,4 +113,5 @@ void Inject_All(void)
     INJECT(0x004428E0, Lara_Col_Splat, 1);
     INJECT(0x00442950, Lara_Col_Land, 1);
     INJECT(0x00442970, Lara_Col_Compress, 1);
+    INJECT(0x00442A10, Lara_Col_Back, 1);
 }
