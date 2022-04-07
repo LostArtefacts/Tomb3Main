@@ -6,7 +6,6 @@
 #define Shell_ExitSystem         ((void (*)(const char *exit_message))0x004B37C0)
 #define Sound_StopEffect         ((void (*)(int32_t sfx_num))0x00467D00)
 #define Sound_PlayEffect         ((int32_t (*)(int32_t sfx_num, struct PHD_3DPOS *pos, int32_t flags))0x00467840)
-#define Lara_LookLeftRight       ((void (*)(void))0x00444770)
 #define Lara_ResetLook           ((void (*)(void))0x00444800)
 #define Lara_FloorFront          ((int16_t (*)(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist))0x00444D80)
 #define Lara_CeilingFront        ((int16_t (*)(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist))0x00444E00)

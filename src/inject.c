@@ -24,6 +24,7 @@ void Inject_All(void)
     INJECT(0x00443CA0, Lara_GetHandAbsPosition_I, 1);
 
     INJECT(0x004446E0, Lara_LookUpDown, 1);
+    INJECT(0x00444770, Lara_LookLeftRight, 1);
     INJECT(0x0043E800, Lara_AboveWater, 1);
 
     INJECT(0x0043EA20, Lara_State_Duck, 1);
