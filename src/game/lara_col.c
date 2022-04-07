@@ -1143,3 +1143,20 @@ void Lara_Col_Reach(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_Splat(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = LARA_STEP_UP_HEIGHT;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_pits = 1;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+    ShiftItem(item, coll);
+
+    if (coll->mid_floor > -STEP_L && coll->mid_floor < STEP_L) {
+        item->pos.y += coll->mid_floor;
+    }
+}

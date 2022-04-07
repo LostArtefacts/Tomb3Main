@@ -110,4 +110,5 @@ void Inject_All(void)
     INJECT(0x00442610, Lara_Col_FastFall, 1);
     INJECT(0x004426B0, Lara_Col_Hang, 1);
     INJECT(0x00442830, Lara_Col_Reach, 1);
+    INJECT(0x004428E0, Lara_Col_Splat, 1);
 }
