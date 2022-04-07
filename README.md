@@ -9,7 +9,7 @@ Reverse engineer the game, ahoy!
 
 Progress:
 
-![](https://tmp.sakuya.pl/tomb3main/progress.svg)
+![](https://tmp.sakuya.pl/tomb3main/progress.svg?)
 
 ## Importing data to IDA
 
