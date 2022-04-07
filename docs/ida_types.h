@@ -518,6 +518,34 @@ enum LARA_GUN_TYPE {
     LGT_SKIDOO = 10,
 };
 
+enum LARA_BODY_PART {
+    LBT_LEFT_HAND = 0,
+    LBT_RIGHT_HAND = 1,
+    LBT_LARA_HIPS = 2,
+    LBT_LARA_TORSO = 3,
+    LBT_LARA_HEAD = 4,
+    LBT_LEFT_FOOT = 5,
+    LBT_RIGHT_FOOT = 6,
+};
+
+enum LARA_MESH {
+    LM_HIPS = 0,
+    LM_THIGH_L = 1,
+    LM_CALF_L = 2,
+    LM_FOOT_L = 3,
+    LM_THIGH_R = 4,
+    LM_CALF_R = 5,
+    LM_FOOT_R = 6,
+    LM_TORSO = 7,
+    LM_UARM_R = 8,
+    LM_LARM_R = 9,
+    LM_HAND_R = 10,
+    LM_UARM_L = 11,
+    LM_LARM_L = 12,
+    LM_HAND_L = 13,
+    LM_HEAD = 14,
+};
+
 enum LARA_ANIM {
     LA_RUN = 0,
     LA_WALK = 1,
@@ -558,8 +586,8 @@ enum LARA_ANIM {
     LA_SURF_DIVE = 119,
     LA_SPAZ_FORWARD = 125,
     LA_SPAZ_BACK = 126,
-    LA_SPAZ_R = 127,
-    LA_SPAZ_L = 128,
+    LA_SPAZ_RIGHT = 127,
+    LA_SPAZ_LEFT = 128,
     LA_ROLLING_BALL_DEATH = 139,
     LA_SURF_TREAD_BACK = 140,
     LA_SURF_BACK = 141,
@@ -732,7 +760,7 @@ struct SPHERE {
     int32_t r;
 };
 
-struct PHD_MATRIX {
+struct MATRIX {
     int32_t _00;
     int32_t _01;
     int32_t _02;
@@ -1417,7 +1445,7 @@ struct OBJECT_INFO {
     void (*ceiling)(
         struct ITEM_INFO *item, int32_t x, int32_t y, int32_t z,
         int32_t *height);
-    void (*draw_routine)(ITEM_INFO *item);
+    void (*draw_routine)(struct ITEM_INFO *item);
     void (*collision)(
         int16_t item_num, struct ITEM_INFO *lara_item, struct COLL_INFO *coll);
     int16_t anim_index;

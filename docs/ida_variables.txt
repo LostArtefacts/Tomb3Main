@@ -15,13 +15,13 @@ FS- 00401000 000001D0 void __cdecl phd_GenerateW2V(PHD_3DPOS *viewpos);
 FS- 004012D0 000000F7 void __cdecl phd_GetVectorAngles(int32_t x, int32_t y, int32_t z, PHD_ANGLE *dest);
 FS- 004011D0 00000078 void __cdecl phd_LookAt(int32_t xsrc, int32_t ysrc, int32_t zsrc, int32_t xtar, int32_t ytar, int32_t ztar, PHD_ANGLE roll);
 FS- 00401350 0000008F void __cdecl phd_NormaliseVector(int32_t x, int32_t y, int32_t z, int32_t *dest);
-FS- 004013E0 000000AA void __cdecl phd_RotX(PHD_ANGLE rx);
-FS- 00401490 000000A8 void __cdecl phd_RotY(PHD_ANGLE ry);
-FS- 00401540 000000A8 void __cdecl phd_RotZ(PHD_ANGLE rz);
-FS- 004015F0 000001DC void __cdecl phd_RotYXZ(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz);
-FS- 004017D0 000001E7 void __cdecl phd_RotYXZpack(int32_t rots);
-FS- 004019C0 000000AB bool __cdecl phd_TranslateRel(int32_t x, int32_t y, int32_t z);
-FS- 00401A70 0000007A void __cdecl phd_TranslateAbs(int32_t x, int32_t y, int32_t z);
+FS- 004013E0 000000AA void __cdecl Matrix_RotX(PHD_ANGLE rx); // phd_RotX
+FS- 00401490 000000A8 void __cdecl Matrix_RotY(PHD_ANGLE ry); // phd_RotY
+FS- 00401540 000000A8 void __cdecl Matrix_RotZ(PHD_ANGLE rz); // phd_RotZ
+FS- 004015F0 000001DC void __cdecl Matrix_RotYXZ(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz); // phd_RotYXZ
+FS- 004017D0 000001E7 void __cdecl Matrix_RotYXZpack(int32_t rots); // phd_RotYXZpack
+FS- 004019C0 000000AB bool __cdecl Matrix_TranslateRel(int32_t x, int32_t y, int32_t z); // phd_TranslateRel
+FS- 00401A70 0000007A void __cdecl Matrix_TranslateAbs(int32_t x, int32_t y, int32_t z); // phd_TranslateAbs
 FS- 00401AF0 000000F7 void __cdecl phd_PutPolygons(int16_t *obj_ptr, int32_t clip_status);
 FS- 00401BF0 000000E7 void __cdecl S_InsertRoom(int16_t *obj_ptr, bool outside);
 FS- 00401CE0 00000032 int16_t *__cdecl calc_back_light(int16_t *obj_ptr);
@@ -270,15 +270,15 @@ FS- 00429470 00000031 void __cdecl phd_RotZ_I(int16_t ang);
 FS- 004294B0 00000041 void __cdecl phd_TranslateRel_I(int32_t x, int32_t y, int32_t z);
 FS- 00429500 00000047 void __cdecl phd_TranslateRel_ID(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2);
 FS- 00429550 00000041 void __cdecl phd_RotYXZ_I(int16_t y, int16_t x, int16_t z);
-FS- 004295A0 0000003D void __cdecl gar_RotYXZsuperpack_I(int16_t **pprot1, int16_t **pprot2, int32_t skip);
-FS- 004295E0 000000A1 void __cdecl gar_RotYXZsuperpack(int16_t **pprot, int32_t skip);
+FS- 004295A0 0000003D void __cdecl Matrix_RotYXZSuperpackI(int16_t **pprot1, int16_t **pprot2, int32_t skip); // gar_RotYXZsuperpack_I
+FS- 004295E0 000000A1 void __cdecl Matrix_RotYXZSuperpack(int16_t **pprot, int32_t skip); // gar_RotYXZsuperpack
 FS- 00429690 0000002A void __cdecl phd_PutPolygons_I(int16_t *ptr, int32_t clip);
 FS- 004296C0 0000026D void __cdecl InterpolateMatrix(void);
 FS- 00429930 000000F8 void __cdecl InterpolateArmMatrix(void);
 FS- 00429A30 00000141 void __cdecl DrawGunFlash(int32_t weapon_type, int32_t clip);
 FS- 00429BA0 00000160 void __cdecl CalculateObjectLighting(ITEM_INFO *item, int16_t *frame);
 FS- 00429D00 000000A6 void __cdecl CalculateObjectLightingLara(void);
-FS- 00429DB0 00000092 int32_t __cdecl GetFrames(ITEM_INFO *item, int16_t *frm[], int32_t *rate);
+FSC 00429DB0 00000092 int32_t __cdecl GetFrames(ITEM_INFO *item, int16_t *frm[], int32_t *rate);
 FSC 00429E50 0000007C int16_t *__cdecl GetBoundsAccurate(ITEM_INFO *item);
 FS- 00429ED0 00000030 int16_t *__cdecl GetBestFrame(ITEM_INFO *item);
 FS- 00429F00 000000D9 void __cdecl DetatchSpark(int32_t num, int32_t type);
@@ -653,9 +653,9 @@ FSD 00443040 0000007C void __cdecl Lara_Col_FastDive(ITEM_INFO *item, COLL_INFO 
 FSD 004430C0 000001C4 void __cdecl Lara_Col_Wade(ITEM_INFO *item, COLL_INFO *coll); // lara_col_wade
 FSD 00443290 00000049 void __cdecl Lara_Col_Default(ITEM_INFO *item, COLL_INFO *coll); // lara_default_col
 FSD 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
-FS- 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, int32_t left_right); // GetLaraHandAbsPosition
-FS- 00443C10 00000083 void __cdecl AddJointPos(ITEM_INFO *item, int32_t mesh);
-FS- 00443CA0 000009FD void __cdecl GetLHAInt(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, int32_t left_right);
+FSD 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, enum LARA_BODY_PART body_part); // GetLaraHandAbsPosition
+FS- 00443C10 00000083 void __cdecl Lara_AddJointPos(ITEM_INFO *item, int32_t mesh); // AddJointPos
+FSC 00443CA0 000009FD void __cdecl Lara_GetHandAbsPosition_I(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, enum LARA_BODY_PART body_part); // GetLHAInt
 FSC 004446E0 00000084 void __cdecl Lara_LookUpDown(void); // LookUpDown
 FSC 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
 FSC 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
@@ -1475,8 +1475,8 @@ FS- 004B3C50 000000BF bool __cdecl DX_CheckForLostSurfaces(void);
 FS- 004B3D10 0000032A bool __cdecl DX_UpdateFrame(bool tSpinMessageLoop, RECT *prcWindow);
 F-- 004B4040 0000005C void sub_4B4040();
 FS- 004B40A0 000001D3 void __cdecl SaveDDBuffer(IDirectDrawSurface3 *pSurf);
-FS- 004B4280 0000001E void __cdecl phd_PushMatrix(void);
-FS- 004B429E 00000033 void __cdecl phd_PushUnitMatrix(void);
+FS- 004B4280 0000001E void __cdecl Matrix_Push(void); // phd_PushMatrix
+FS- 004B429E 00000033 void __cdecl Matrix_PushUnit(void); // phd_PushUnitMatrix
 F-- 004B42D4 00000061 void sub_4B42D4();
 F-- 004B4335 0000013A void sub_4B4335();
 F-- 004B446F 00000160 void sub_4B446F();
@@ -1499,13 +1499,13 @@ V-- 005316F8 - float g_FCenterX;
 V-- 005316FC - float g_FCenterY;
 V-- 00531708 - int16_t g_PhdWinXMin;
 V-- 00531714 - int16_t g_PhdWinYMax;
-V-- 005A6A2C - PHD_MATRIX *g_PhdMatrixPtr;
+V-- 005A6A2C - MATRIX *g_MatrixPtr;
 V-- 005A6A30 - int16_t *(*g_InsertObjectGT3)(int16_t* obj_ptr, int32_t number, SORT_TYPE sort_routine);
 V-- 005A6A34 - int16_t *(*g_InsertObjectGT4)(int16_t* obj_ptr, int32_t number, SORT_TYPE sort_routine);
-V-- 005A6AC0 - PHD_MATRIX g_W2VMatrix;
+V-- 005A6AC0 - MATRIX g_W2VMatrix;
 V-- 005BAB0C - int16_t *(*g_InsertObjectG4)(int16_t* obj_ptr, int32_t number, SORT_TYPE sort_routine);
 V-- 005BAB50 - int16_t *(*g_InsertObjectG3)(int16_t* obj_ptr, int32_t number, SORT_TYPE sort_routine);
-V-- 005BAB58 - PHD_MATRIX g_MatrixStack[40];
+V-- 005BAB58 - MATRIX g_MatrixStack[40];
 V-- 005D7A48 - float g_PhdRightFloat;
 V-- 00633F50 - int32_t g_CurrentLevel;
 V-- 0069FDF0 - uint32_t g_Input;
@@ -1531,3 +1531,5 @@ V-- 004C75F0 - void (__cdecl *g_LaraCollisionRoutines[])(ITEM_INFO *item, COLL_I
 V-- 004C7450 - void (__cdecl *g_LaraControlRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
 V-- 004C75B8 - void (__cdecl *g_LaraExtraControlRoutines[])(ITEM_INFO *item, COLL_INFO *coll);
 V-- 006E2A24 - int32_t g_HeightType;
+V-- 006E22E8 - int32_t *g_Bones;
+V-- 006D6190 - uint8_t g_GotJointPos[15];
