@@ -1115,3 +1115,31 @@ void Lara_Col_Hang(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->frame_num = g_Anims[LA_HANG_DOWN].frame_base;
     }
 }
+
+void Lara_Col_Reach(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 1;
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = 0;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+
+    Lara_GetCollisionInfo(item, coll);
+    if (Lara_TestHangJump(item, coll)) {
+        return;
+    }
+
+    Lara_SlideEdgeJump(item, coll);
+    Lara_GetCollisionInfo(item, coll);
+    ShiftItem(item, coll);
+
+    if (item->fall_speed <= 0 || coll->mid_floor > 0) {
+        return;
+    }
+
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
+    item->pos.y += coll->mid_floor;
+}
