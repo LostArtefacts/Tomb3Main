@@ -106,4 +106,5 @@ void Inject_All(void)
     INJECT(0x004423B0, Lara_Col_FastBack, 1);
     INJECT(0x00442490, Lara_Col_TurnRight, 1);
     INJECT(0x00442580, Lara_Col_TurnLeft, 1);
+    INJECT(0x004425A0, Lara_Col_Death, 1);
 }

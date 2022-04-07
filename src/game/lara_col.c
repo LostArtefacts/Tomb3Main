@@ -1022,3 +1022,20 @@ void Lara_Col_TurnLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     Lara_Col_TurnRight(item, coll);
 }
+
+void Lara_Col_Death(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Sound_StopEffect(SFX_LARA_FALL);
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = LARA_STEP_UP_HEIGHT;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->radius = LARA_RADIUS * 4;
+
+    Lara_GetCollisionInfo(item, coll);
+
+    ShiftItem(item, coll);
+    item->pos.y += coll->mid_floor;
+    item->hit_points = -1;
+    g_Lara.air = -1;
+}
