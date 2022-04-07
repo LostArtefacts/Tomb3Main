@@ -261,20 +261,20 @@ FS- 00425D10 00000182 void __cdecl DrawEffect(int16_t fx_num);
 FS- 00425EA0 00000734 void __cdecl DrawAnimatingItem(ITEM_INFO *item);
 FS- 004265E0 00001810 void __cdecl DrawLara(ITEM_INFO *item);
 FS- 00427E20 000014FF void __cdecl DrawLaraInt(ITEM_INFO *item, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate);
-FS- 00429350 00000034 void __cdecl InitInterpolate(int32_t frac, int32_t rate);
-FS- 00429390 00000022 void __cdecl phd_PopMatrix_I(void);
-FS- 004293C0 00000027 void __cdecl phd_PushMatrix_I(void);
-FS- 004293F0 00000031 void __cdecl phd_RotY_I(int16_t ang);
-FS- 00429430 00000031 void __cdecl phd_RotX_I(int16_t ang);
-FS- 00429470 00000031 void __cdecl phd_RotZ_I(int16_t ang);
-FS- 004294B0 00000041 void __cdecl phd_TranslateRel_I(int32_t x, int32_t y, int32_t z);
-FS- 00429500 00000047 void __cdecl phd_TranslateRel_ID(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2);
-FS- 00429550 00000041 void __cdecl phd_RotYXZ_I(int16_t y, int16_t x, int16_t z);
+FS- 00429350 00000034 void __cdecl Matrix_InitInterpolate(int32_t frac, int32_t rate); // InitInterpolate
+FS- 00429390 00000022 void __cdecl Matrix_PopMatrix_I(void); // phd_PopMatrix_I
+FS- 004293C0 00000027 void __cdecl Matrix_PushMatrix_I(void); // phd_PushMatrix_I
+FS- 004293F0 00000031 void __cdecl Matrix_RotY_I(int16_t ang); // phd_RotY_I
+FS- 00429430 00000031 void __cdecl Matrix_RotX_I(int16_t ang); // phd_RotX_I
+FS- 00429470 00000031 void __cdecl Matrix_RotZ_I(int16_t ang); // phd_RotZ_I
+FS- 004294B0 00000041 void __cdecl Matrix_TranslateRel_I(int32_t x, int32_t y, int32_t z); // phd_TranslateRel_I
+FS- 00429500 00000047 void __cdecl Matrix_TranslateRel_ID(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2); // phd_TranslateRel_ID
+FS- 00429550 00000041 void __cdecl Matrix_RotYXZ_I(int16_t y, int16_t x, int16_t z); // phd_RotYXZ_I
 FS- 004295A0 0000003D void __cdecl Matrix_RotYXZSuperpack_I(int16_t **pprot1, int16_t **pprot2, int32_t skip); // gar_RotYXZsuperpack_I
 FS- 004295E0 000000A1 void __cdecl Matrix_RotYXZSuperpack(int16_t **pprot, int32_t skip); // gar_RotYXZsuperpack
 FS- 00429690 0000002A void __cdecl phd_PutPolygons_I(int16_t *ptr, int32_t clip);
-FS- 004296C0 0000026D void __cdecl InterpolateMatrix(void);
-FS- 00429930 000000F8 void __cdecl InterpolateArmMatrix(void);
+FS- 004296C0 0000026D void __cdecl Matrix_Interpolate(void); // InterpolateMatrix
+FS- 00429930 000000F8 void __cdecl Matrix_InterpolateArms(void); // InterpolateArmMatrix
 FS- 00429A30 00000141 void __cdecl DrawGunFlash(int32_t weapon_type, int32_t clip);
 FS- 00429BA0 00000160 void __cdecl CalculateObjectLighting(ITEM_INFO *item, int16_t *frame);
 FS- 00429D00 000000A6 void __cdecl CalculateObjectLightingLara(void);
@@ -655,7 +655,7 @@ FSD 00443290 00000049 void __cdecl Lara_Col_Default(ITEM_INFO *item, COLL_INFO *
 FSD 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
 FSD 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, enum LARA_BODY_PART body_part); // GetLaraHandAbsPosition
 FSD 00443C10 00000083 void __cdecl Lara_AddJointPos(ITEM_INFO *item, int32_t mesh); // AddJointPos
-FSC 00443CA0 000009FD void __cdecl Lara_GetHandAbsPosition_I(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, enum LARA_BODY_PART body_part); // GetLHAInt
+FSD 00443CA0 000009FD void __cdecl Lara_GetHandAbsPosition_I(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, enum LARA_BODY_PART body_part); // GetLHAInt
 FSC 004446E0 00000084 void __cdecl Lara_LookUpDown(void); // LookUpDown
 FSC 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
 FSC 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook

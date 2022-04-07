@@ -519,13 +519,13 @@ enum LARA_GUN_TYPE {
 };
 
 enum LARA_BODY_PART {
-    LBT_LEFT_HAND = 0,
-    LBT_RIGHT_HAND = 1,
-    LBT_LARA_HIPS = 2,
-    LBT_LARA_TORSO = 3,
-    LBT_LARA_HEAD = 4,
-    LBT_LEFT_FOOT = 5,
-    LBT_RIGHT_FOOT = 6,
+    LBP_LEFT_HAND = 0,
+    LBP_RIGHT_HAND = 1,
+    LBP_LARA_HIPS = 2,
+    LBP_LARA_TORSO = 3,
+    LBP_LARA_HEAD = 4,
+    LBP_LEFT_FOOT = 5,
+    LBP_RIGHT_FOOT = 6,
 };
 
 enum LARA_MESH {
