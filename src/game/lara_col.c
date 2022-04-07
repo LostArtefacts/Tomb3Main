@@ -1068,3 +1068,50 @@ void Lara_Col_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->fall_speed = 0;
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_Hang(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Lara_TestHang(item, coll);
+
+    if (item->goal_anim_state != LS_HANG) {
+        return;
+    }
+
+    if (g_Input & IN_FORWARD) {
+        if (coll->front_floor > -850 && coll->front_floor < -650
+            && coll->front_floor - coll->front_ceiling >= 0
+            && coll->left_floor2 - coll->left_ceiling2 >= 0
+            && coll->right_floor2 - coll->right_ceiling2 >= 0
+            && !coll->hit_static) {
+            item->goal_anim_state = g_Input & IN_SLOW ? LS_GYMNAST : LS_NULL;
+            return;
+        } else if (
+            g_Lara.climb_status && item->anim_num == LA_GRAB_LEDGE
+            && item->frame_num == g_Anims[LA_GRAB_LEDGE].frame_base + 21
+            && coll->mid_ceiling <= -STEP_L) {
+            item->current_anim_state = LS_HANG;
+            item->goal_anim_state = LS_HANG;
+            item->anim_num = LA_HANG_UP;
+            item->frame_num = g_Anims[LA_HANG_UP].frame_base;
+            return;
+        }
+    }
+
+    if (((g_Input & IN_DUCK) || (g_Input & IN_FORWARD))
+        && coll->front_floor > -850 && coll->front_floor < -650
+        && coll->front_floor - coll->front_ceiling >= -STEP_L
+        && coll->left_floor2 - coll->left_ceiling2 >= -STEP_L
+        && coll->right_floor2 - coll->right_ceiling2 >= -STEP_L
+        && !coll->hit_static) {
+        item->goal_anim_state = LS_HANG_TO_DUCK;
+        item->required_anim_state = LS_DUCK;
+    } else if (
+        (g_Input & IN_BACK) && g_Lara.climb_status
+        && item->anim_num == LA_GRAB_LEDGE
+        && item->frame_num == g_Anims[LA_GRAB_LEDGE].frame_base + 21) {
+        item->current_anim_state = LS_HANG;
+        item->goal_anim_state = LS_HANG;
+        item->anim_num = LA_HANG_DOWN;
+        item->frame_num = g_Anims[LA_HANG_DOWN].frame_base;
+    }
+}
