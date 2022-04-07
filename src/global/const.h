@@ -37,6 +37,10 @@
 #define LARA_SLOW_TURN         ((DEG_1 * 2) + LARA_TURN_UNDO) // = 728
 #define LARA_MED_TURN          ((DEG_1 * 4) + LARA_TURN_UNDO) // = 1092
 #define LARA_FAST_TURN         ((DEG_1 * 6) + LARA_TURN_UNDO) // = 1456
+#define LARA_MAX_HEAD_ROTATION (DEG_1 * 44) // = 8008
+#define LARA_MAX_HEAD_TILT     (DEG_1 * 30) // = 5460
+#define LARA_MIN_HEAD_TILT     (DEG_1 * -35) // = -6370
+#define LARA_HEAD_TURN         (DEG_1 * 2) // = 364
 
 #define LARA_LEAN_UNDO         (DEG_1) // = 182
 #define LARA_LEAN_RATE         ((DEG_1 / 2) + LARA_LEAN_UNDO) // = 273
