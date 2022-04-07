@@ -649,7 +649,7 @@ FSD 00442E40 00000013 void __cdecl Lara_Col_Null(ITEM_INFO *item, COLL_INFO *col
 FSD 00442E60 00000097 void __cdecl Lara_Col_Roll(ITEM_INFO *item, COLL_INFO *coll); // lara_col_roll
 FSD 00442F00 000000CC void __cdecl Lara_Col_Roll2(ITEM_INFO *item, COLL_INFO *coll); // lara_col_roll2
 FSD 00442FD0 0000006C void __cdecl Lara_Col_SwanDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_swandive
-FS- 00443040 0000007C void __cdecl Lara_Col_FastDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastdive
+FSD 00443040 0000007C void __cdecl Lara_Col_FastDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastdive
 FS- 004430C0 000001C4 void __cdecl Lara_Col_Wade(ITEM_INFO *item, COLL_INFO *coll); // lara_col_wade
 FS- 00443290 00000049 void __cdecl Lara_Col_Default(ITEM_INFO *item, COLL_INFO *coll); // lara_default_col
 FSC 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper

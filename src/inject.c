@@ -128,4 +128,5 @@ void Inject_All(void)
     INJECT(0x00442E60, Lara_Col_Roll, 1);
     INJECT(0x00442F00, Lara_Col_Roll2, 1);
     INJECT(0x00442FD0, Lara_Col_SwanDive, 1);
+    INJECT(0x00443040, Lara_Col_FastDive, 1);
 }
