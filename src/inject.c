@@ -124,4 +124,5 @@ void Inject_All(void)
     INJECT(0x00442D90, Lara_Col_HangLeft, 1);
     INJECT(0x00442DD0, Lara_Col_HangRight, 1);
     INJECT(0x00442E10, Lara_Col_SlideBack, 1);
+    INJECT(0x00442E40, Lara_Col_Null, 1);
 }

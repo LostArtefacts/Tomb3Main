@@ -645,7 +645,7 @@ FSD 00442D00 00000086 void __cdecl Lara_Col_FallBack(ITEM_INFO *item, COLL_INFO 
 FSD 00442D90 00000033 void __cdecl Lara_Col_HangLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hangleft
 FSD 00442DD0 00000033 void __cdecl Lara_Col_HangRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_hangright
 FSD 00442E10 00000023 void __cdecl Lara_Col_SlideBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_slideback
-FS- 00442E40 00000013 void __cdecl Lara_Col_Null(ITEM_INFO *item, COLL_INFO *coll); // lara_col_null
+FSD 00442E40 00000013 void __cdecl Lara_Col_Null(ITEM_INFO *item, COLL_INFO *coll); // lara_col_null
 FS- 00442E60 00000097 void __cdecl Lara_Col_Roll(ITEM_INFO *item, COLL_INFO *coll); // lara_col_roll
 FS- 00442F00 000000CC void __cdecl Lara_Col_Roll2(ITEM_INFO *item, COLL_INFO *coll); // lara_col_roll2
 FS- 00442FD0 0000006C void __cdecl Lara_Col_SwanDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_swandive
