@@ -1285,3 +1285,9 @@ void Lara_Col_Slide(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Lara.move_angle = item->pos.y_rot;
     Lara_SlideSlope(item, coll);
 }
+
+void Lara_Col_JumpBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot + DEG_180;
+    Lara_Col_Jumper(item, coll);
+}

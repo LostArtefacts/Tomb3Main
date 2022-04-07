@@ -638,7 +638,7 @@ FSD 00442A10 0000013D void __cdecl Lara_Col_Back(ITEM_INFO *item, COLL_INFO *col
 FSD 00442B50 000000D4 void __cdecl Lara_Col_StepRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stepright
 FSD 00442C30 00000013 void __cdecl Lara_Col_StepLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stepleft
 FSD 00442C50 0000001E void __cdecl Lara_Col_Slide(ITEM_INFO *item, COLL_INFO *coll); // lara_col_slide
-FS- 00442C70 00000023 void __cdecl Lara_Col_JumpBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_backjump
+FSD 00442C70 00000023 void __cdecl Lara_Col_JumpBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_backjump
 FS- 00442CA0 00000023 void __cdecl Lara_Col_JumpRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_rightjump
 FS- 00442CD0 00000023 void __cdecl Lara_Col_JumpLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_leftjump
 FS- 00442D00 00000086 void __cdecl Lara_Col_FallBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fallback
@@ -652,7 +652,7 @@ FS- 00442FD0 0000006C void __cdecl Lara_Col_SwanDive(ITEM_INFO *item, COLL_INFO 
 FS- 00443040 0000007C void __cdecl Lara_Col_FastDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastdive
 FS- 004430C0 000001C4 void __cdecl Lara_Col_Wade(ITEM_INFO *item, COLL_INFO *coll); // lara_col_wade
 FS- 00443290 00000049 void __cdecl Lara_Col_Default(ITEM_INFO *item, COLL_INFO *coll); // lara_default_col
-FS- 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
+FSC 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
 FS- 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, int32_t left_right); // GetLaraHandAbsPosition
 FS- 00443C10 00000083 void __cdecl AddJointPos(ITEM_INFO *item, int32_t mesh);
 FS- 00443CA0 000009FD void __cdecl GetLHAInt(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, int32_t left_right);
