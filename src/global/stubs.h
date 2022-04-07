@@ -32,7 +32,6 @@
 #define Matrix_TranslateRel       ((bool (*)(int32_t x, int32_t y, int32_t z))0x004019C0)
 #define Matrix_RotYXZSuperpack    ((void (*)(int16_t **pprot, int32_t skip))0x004295E0)
 #define Matrix_RotYXZ             ((void (*)(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz))0x004015F0)
-#define Lara_AddJointPos          ((void (*)(struct ITEM_INFO *item, int32_t mesh))0x00443C10)
 // clang-format on
 
 // clang-format off

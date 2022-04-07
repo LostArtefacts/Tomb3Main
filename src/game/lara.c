@@ -820,6 +820,17 @@ void Lara_MonkeySwingFall(struct ITEM_INFO *item)
     g_Lara.gun_status = LGS_ARMLESS;
 }
 
+void Lara_AddJointPos(struct ITEM_INFO *item, int32_t mesh)
+{
+    int16_t room_num = item->room_num;
+    GetFloor(
+        (g_MatrixPtr->_03 >> W2V_SHIFT) + item->pos.x,
+        (g_MatrixPtr->_13 >> W2V_SHIFT) + item->pos.y,
+        (g_MatrixPtr->_23 >> W2V_SHIFT) + item->pos.z, &room_num);
+    g_IsJointUnderwater[mesh] = (g_Rooms[room_num].flags & RF_UNDERWATER) != 0;
+    g_GotJointPos[mesh] = 1;
+}
+
 void Lara_GetHandAbsPosition(
     struct PHD_VECTOR *vec, enum LARA_BODY_PART body_part)
 {

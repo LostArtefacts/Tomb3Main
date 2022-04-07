@@ -21,6 +21,9 @@ int32_t Lara_TestWall(
     struct ITEM_INFO *item, int32_t front, int32_t right, int32_t down);
 void Lara_MonkeySwingFall(struct ITEM_INFO *item);
 
+// TODO: make this static
+void Lara_AddJointPos(struct ITEM_INFO *item, int32_t mesh);
+
 void Lara_GetHandAbsPosition(
     struct PHD_VECTOR *vec, enum LARA_BODY_PART body_part);
 

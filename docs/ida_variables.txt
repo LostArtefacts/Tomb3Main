@@ -270,7 +270,7 @@ FS- 00429470 00000031 void __cdecl phd_RotZ_I(int16_t ang);
 FS- 004294B0 00000041 void __cdecl phd_TranslateRel_I(int32_t x, int32_t y, int32_t z);
 FS- 00429500 00000047 void __cdecl phd_TranslateRel_ID(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2);
 FS- 00429550 00000041 void __cdecl phd_RotYXZ_I(int16_t y, int16_t x, int16_t z);
-FS- 004295A0 0000003D void __cdecl Matrix_RotYXZSuperpackI(int16_t **pprot1, int16_t **pprot2, int32_t skip); // gar_RotYXZsuperpack_I
+FS- 004295A0 0000003D void __cdecl Matrix_RotYXZSuperpack_I(int16_t **pprot1, int16_t **pprot2, int32_t skip); // gar_RotYXZsuperpack_I
 FS- 004295E0 000000A1 void __cdecl Matrix_RotYXZSuperpack(int16_t **pprot, int32_t skip); // gar_RotYXZsuperpack
 FS- 00429690 0000002A void __cdecl phd_PutPolygons_I(int16_t *ptr, int32_t clip);
 FS- 004296C0 0000026D void __cdecl InterpolateMatrix(void);
@@ -654,7 +654,7 @@ FSD 004430C0 000001C4 void __cdecl Lara_Col_Wade(ITEM_INFO *item, COLL_INFO *col
 FSD 00443290 00000049 void __cdecl Lara_Col_Default(ITEM_INFO *item, COLL_INFO *coll); // lara_default_col
 FSD 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
 FSD 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, enum LARA_BODY_PART body_part); // GetLaraHandAbsPosition
-FS- 00443C10 00000083 void __cdecl Lara_AddJointPos(ITEM_INFO *item, int32_t mesh); // AddJointPos
+FSD 00443C10 00000083 void __cdecl Lara_AddJointPos(ITEM_INFO *item, int32_t mesh); // AddJointPos
 FSC 00443CA0 000009FD void __cdecl Lara_GetHandAbsPosition_I(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, enum LARA_BODY_PART body_part); // GetLHAInt
 FSC 004446E0 00000084 void __cdecl Lara_LookUpDown(void); // LookUpDown
 FSC 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
@@ -1533,3 +1533,4 @@ V-- 004C75B8 - void (__cdecl *g_LaraExtraControlRoutines[])(ITEM_INFO *item, COL
 V-- 006E2A24 - int32_t g_HeightType;
 V-- 006E22E8 - int32_t *g_Bones;
 V-- 006D6190 - uint8_t g_GotJointPos[15];
+V-- 006D6290 - uint8_t g_IsJointUnderwater[15];
