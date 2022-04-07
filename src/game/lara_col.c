@@ -1297,3 +1297,9 @@ void Lara_Col_JumpRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Lara.move_angle = item->pos.y_rot + DEG_90;
     Lara_Col_Jumper(item, coll);
 }
+
+void Lara_Col_JumpLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot - DEG_90;
+    Lara_Col_Jumper(item, coll);
+}
