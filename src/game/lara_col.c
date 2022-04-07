@@ -1160,3 +1160,8 @@ void Lara_Col_Splat(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += coll->mid_floor;
     }
 }
+
+void Lara_Col_Land(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Lara_Col_Stop(item, coll);
+}

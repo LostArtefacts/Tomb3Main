@@ -114,3 +114,4 @@ void Lara_Col_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Hang(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Reach(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Splat(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_Land(struct ITEM_INFO *item, struct COLL_INFO *coll);
