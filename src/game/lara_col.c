@@ -980,3 +980,40 @@ void Lara_Col_FastBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_TurnRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = LARA_STEP_UP_HEIGHT;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_pits = 1;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+
+    if (coll->mid_floor > 100 && !(g_Rooms[item->room_num].flags & RF_SWAMP)) {
+        item->gravity_status = 1;
+        item->fall_speed = 0;
+        item->current_anim_state = LS_FORWARD_JUMP;
+        item->goal_anim_state = LS_FORWARD_JUMP;
+        item->anim_num = LA_FALL_DOWN;
+        item->frame_num = g_Anims[LA_FALL_DOWN].frame_base;
+        return;
+    }
+
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    if (!(g_Rooms[item->room_num].flags & RF_SWAMP)) {
+        item->pos.y += coll->mid_floor;
+    } else if (coll->mid_floor < 0) {
+        item->pos.y += coll->mid_floor;
+    } else if (coll->mid_floor > 0) {
+        item->pos.y += GRAVITY_SWAMP;
+    }
+}

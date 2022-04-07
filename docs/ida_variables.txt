@@ -625,7 +625,7 @@ FSD 00441F90 000001A7 void __cdecl Lara_Col_Walk(ITEM_INFO *item, COLL_INFO *col
 FSD 00442140 00000189 void __cdecl Lara_Col_Run(ITEM_INFO *item, COLL_INFO *coll); // lara_col_run
 FSD 004422D0 000000DA void __cdecl Lara_Col_JumpForward(ITEM_INFO *item, COLL_INFO *coll); // lara_col_forwardjump
 FSD 004423B0 000000DA void __cdecl Lara_Col_FastBack(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastback
-FS- 00442490 000000EB void __cdecl Lara_Col_TurnRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_turn_r
+FSD 00442490 000000EB void __cdecl Lara_Col_TurnRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_turn_r
 FS- 00442580 00000013 void __cdecl Lara_Col_TurnLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_turn_l
 FS- 004425A0 00000068 void __cdecl Lara_Col_Death(ITEM_INFO *item, COLL_INFO *coll); // lara_col_death
 FS- 00442610 0000009F void __cdecl Lara_Col_FastFall(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastfall
