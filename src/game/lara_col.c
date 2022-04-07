@@ -1017,3 +1017,8 @@ void Lara_Col_TurnRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += GRAVITY_SWAMP;
     }
 }
+
+void Lara_Col_TurnLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Lara_Col_TurnRight(item, coll);
+}
