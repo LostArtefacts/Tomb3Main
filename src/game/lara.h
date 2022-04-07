@@ -117,3 +117,4 @@ void Lara_Col_Splat(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Land(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Compress(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Back(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_StepRight(struct ITEM_INFO *item, struct COLL_INFO *coll);

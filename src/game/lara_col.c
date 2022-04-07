@@ -1243,3 +1243,34 @@ void Lara_Col_Back(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item->pos.y += GRAVITY_SWAMP;
     }
 }
+
+void Lara_Col_StepRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    g_Lara.move_angle = item->pos.y_rot
+        + (item->current_anim_state == LS_STEP_RIGHT ? DEG_90 : -DEG_90);
+    coll->bad_pos = g_Lara.water_status == LWS_WADE ? NO_BAD_POS : STEP_L / 2;
+    coll->bad_neg = -STEP_L / 2;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_pits = 1;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+    if (Lara_HitCeiling(item, coll)) {
+        return;
+    }
+
+    if (Lara_DeflectEdge(item, coll)) {
+        Lara_CollideStop(item, coll);
+    }
+    if (Lara_Fallen(item, coll)) {
+        return;
+    }
+    if (Lara_TestSlide(item, coll)) {
+        return;
+    }
+
+    item->pos.y += coll->mid_floor;
+}
