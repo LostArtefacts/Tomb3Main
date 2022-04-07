@@ -1274,3 +1274,8 @@ void Lara_Col_StepRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_StepLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    Lara_Col_StepRight(item, coll);
+}
