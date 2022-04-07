@@ -1039,3 +1039,32 @@ void Lara_Col_Death(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->hit_points = -1;
     g_Lara.air = -1;
 }
+
+void Lara_Col_FastFall(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 1;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+
+    Lara_GetCollisionInfo(item, coll);
+    Lara_SlideEdgeJump(item, coll);
+
+    if (coll->mid_floor > 0) {
+        return;
+    }
+
+    if (Lara_LandedBad(item, coll)) {
+        item->goal_anim_state = LS_DEATH;
+    } else {
+        item->current_anim_state = LS_STOP;
+        item->goal_anim_state = LS_STOP;
+        item->anim_num = LA_LAND_FAR;
+        item->frame_num = g_Anims[LA_LAND_FAR].frame_base;
+    }
+
+    Sound_StopEffect(SFX_LARA_FALL);
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    item->pos.y += coll->mid_floor;
+}
