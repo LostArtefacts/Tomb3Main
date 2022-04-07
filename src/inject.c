@@ -116,4 +116,5 @@ void Inject_All(void)
     INJECT(0x00442A10, Lara_Col_Back, 1);
     INJECT(0x00442B50, Lara_Col_StepRight, 1);
     INJECT(0x00442C30, Lara_Col_StepLeft, 1);
+    INJECT(0x00442C50, Lara_Col_Slide, 1);
 }
