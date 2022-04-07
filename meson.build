@@ -65,6 +65,7 @@ sources = [
   'src/filesystem_win.c',
   'src/game/lara.c',
   'src/game/lara_col.c',
+  'src/game/lara_hands.c',
   'src/game/lara_state.c',
   'src/game/matrix.c',
   'src/init.c',
