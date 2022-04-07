@@ -13,6 +13,7 @@ static bool Lara_TestMonkeyLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static bool Lara_TestMonkeyRight(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
 static bool Lara_TestHangJumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll);
+static void Lara_Col_Jumper(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
@@ -186,6 +187,25 @@ static bool Lara_TestHangJumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Lara.torso_x_rot = 0;
     g_Lara.torso_y_rot = 0;
     return true;
+}
+
+static void Lara_Col_Jumper(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+
+    Lara_GetCollisionInfo(item, coll);
+    Lara_DeflectEdgeJump(item, coll);
+
+    if (item->fall_speed <= 0 || coll->mid_floor > 0) {
+        return;
+    }
+
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
+    item->pos.y += coll->mid_floor;
 }
 
 void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)

@@ -652,7 +652,7 @@ FSD 00442FD0 0000006C void __cdecl Lara_Col_SwanDive(ITEM_INFO *item, COLL_INFO 
 FSD 00443040 0000007C void __cdecl Lara_Col_FastDive(ITEM_INFO *item, COLL_INFO *coll); // lara_col_fastdive
 FSD 004430C0 000001C4 void __cdecl Lara_Col_Wade(ITEM_INFO *item, COLL_INFO *coll); // lara_col_wade
 FSD 00443290 00000049 void __cdecl Lara_Col_Default(ITEM_INFO *item, COLL_INFO *coll); // lara_default_col
-FSC 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
+FSD 004432E0 00000077 void __cdecl Lara_Col_Jumper(ITEM_INFO *item, COLL_INFO *coll); // lara_col_jumper
 FS- 00443360 00000863 void __cdecl Lara_GetHandAbsPosition(PHD_VECTOR *vec, int32_t left_right); // GetLaraHandAbsPosition
 FS- 00443C10 00000083 void __cdecl AddJointPos(ITEM_INFO *item, int32_t mesh);
 FS- 00443CA0 000009FD void __cdecl GetLHAInt(ITEM_INFO *item, PHD_VECTOR *vec, int16_t *frame1, int16_t *frame2, int32_t frac, int32_t rate, int32_t left_right);
