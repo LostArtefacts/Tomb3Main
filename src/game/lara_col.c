@@ -1448,3 +1448,64 @@ void Lara_Col_FastDive(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->goal_anim_state = item->fall_speed > 133 ? LS_DEATH : LS_STOP;
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_Wade(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = 0;
+    coll->slopes_are_walls = 1;
+
+    Lara_GetCollisionInfo(item, coll);
+    if (Lara_HitCeiling(item, coll)) {
+        return;
+    }
+
+    if (Lara_TestVault(item, coll)) {
+        return;
+    }
+
+    if (Lara_DeflectEdge(item, coll)) {
+        item->pos.z_rot = 0;
+        if ((coll->front_type == HT_WALL || coll->front_type == HT_SPLIT_TRI)
+            && coll->front_floor < -(STEP_L * 5) / 2
+            && !(g_Rooms[item->room_num].flags & RF_SWAMP)) {
+            item->current_anim_state = LS_SPLAT;
+            if (item->frame_num >= 0 && item->frame_num <= 9) {
+                item->anim_num = LA_HIT_WALL_L;
+                item->frame_num = g_Anims[LA_HIT_WALL_L].frame_base;
+                return;
+            }
+            if (item->frame_num >= 10 && item->frame_num <= 21) {
+                item->anim_num = LA_HIT_WALL_R;
+                item->frame_num = g_Anims[LA_HIT_WALL_R].frame_base;
+                return;
+            }
+        }
+        Lara_CollideStop(item, coll);
+    }
+
+    if (coll->mid_floor >= -LARA_STEP_UP_HEIGHT && coll->mid_floor < -STEP_L / 2
+        && !(g_Rooms[item->room_num].flags & RF_SWAMP)) {
+        if (item->frame_num >= 3 && item->frame_num <= 14) {
+            item->anim_num = LA_RUN_STEP_UP_L;
+            item->frame_num = g_Anims[LA_RUN_STEP_UP_L].frame_base;
+        } else {
+            item->anim_num = LA_RUN_STEP_UP_R;
+            item->frame_num = g_Anims[LA_RUN_STEP_UP_R].frame_base;
+        }
+    }
+
+    if (!(g_Rooms[item->room_num].flags & RF_SWAMP)) {
+        if (coll->mid_floor >= 50) {
+            item->pos.y += 50;
+        } else {
+            item->pos.y += coll->mid_floor;
+        }
+    } else if (coll->mid_floor < 0) {
+        item->pos.y += coll->mid_floor;
+    } else if (coll->mid_floor > 0) {
+        item->pos.y += GRAVITY_SWAMP;
+    }
+}
