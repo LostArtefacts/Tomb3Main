@@ -1303,3 +1303,23 @@ void Lara_Col_JumpLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Lara.move_angle = item->pos.y_rot - DEG_90;
     Lara_Col_Jumper(item, coll);
 }
+
+void Lara_Col_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot + DEG_180;
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_STEP_UP_HEIGHT;
+    coll->bad_ceiling = BAD_JUMP_CEILING;
+
+    Lara_GetCollisionInfo(item, coll);
+    Lara_DeflectEdgeJump(item, coll);
+
+    if (coll->mid_floor > 0 || item->fall_speed <= 0) {
+        return;
+    }
+
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
+    item->pos.y += coll->mid_floor;
+}
