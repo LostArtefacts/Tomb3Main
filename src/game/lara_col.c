@@ -1330,3 +1330,10 @@ void Lara_Col_HangLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     Lara_TestHang(item, coll);
     g_Lara.move_angle = item->pos.y_rot - DEG_90;
 }
+
+void Lara_Col_HangRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot + DEG_90;
+    Lara_TestHang(item, coll);
+    g_Lara.move_angle = item->pos.y_rot + DEG_90;
+}

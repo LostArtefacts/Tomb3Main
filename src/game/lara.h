@@ -125,3 +125,4 @@ void Lara_Col_JumpRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_JumpLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_HangLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_HangRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
