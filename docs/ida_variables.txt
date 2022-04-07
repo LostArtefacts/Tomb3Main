@@ -633,7 +633,7 @@ FSD 004426B0 0000017E void __cdecl Lara_Col_Hang(ITEM_INFO *item, COLL_INFO *col
 FSD 00442830 000000AA void __cdecl Lara_Col_Reach(ITEM_INFO *item, COLL_INFO *coll); // lara_col_reach
 FSD 004428E0 0000006C void __cdecl Lara_Col_Splat(ITEM_INFO *item, COLL_INFO *coll); // lara_col_splat
 FSD 00442950 00000013 void __cdecl Lara_Col_Land(ITEM_INFO *item, COLL_INFO *coll); // lara_col_land
-FS- 00442970 0000009C void __cdecl Lara_Col_Compress(ITEM_INFO *item, COLL_INFO *coll); // lara_col_compress
+FSD 00442970 0000009C void __cdecl Lara_Col_Compress(ITEM_INFO *item, COLL_INFO *coll); // lara_col_compress
 FS- 00442A10 0000013D void __cdecl Lara_Col_Back(ITEM_INFO *item, COLL_INFO *coll); // lara_col_back
 FS- 00442B50 000000D4 void __cdecl Lara_Col_StepRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stepright
 FS- 00442C30 00000013 void __cdecl Lara_Col_StepLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_stepleft

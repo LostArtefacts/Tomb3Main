@@ -1165,3 +1165,32 @@ void Lara_Col_Land(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     Lara_Col_Stop(item, coll);
 }
+
+void Lara_Col_Compress(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = NO_BAD_NEG;
+    coll->bad_ceiling = 0;
+
+    Lara_GetCollisionInfo(item, coll);
+
+    if (coll->mid_ceiling > -100) {
+        item->gravity_status = 0;
+        item->fall_speed = 0;
+        item->speed = 0;
+        item->pos.x = coll->old.x;
+        item->pos.y = coll->old.y;
+        item->pos.z = coll->old.z;
+        item->current_anim_state = LS_STOP;
+        item->goal_anim_state = LS_STOP;
+        item->anim_num = LA_STOP;
+        item->frame_num = g_Anims[LA_STOP].frame_base;
+    }
+
+    if (coll->mid_floor > -STEP_L && coll->mid_floor < STEP_L) {
+        item->pos.y += coll->mid_floor;
+    }
+}
