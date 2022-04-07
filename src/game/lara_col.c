@@ -1323,3 +1323,10 @@ void Lara_Col_FallBack(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
     item->pos.y += coll->mid_floor;
 }
+
+void Lara_Col_HangLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Lara.move_angle = item->pos.y_rot - DEG_90;
+    Lara_TestHang(item, coll);
+    g_Lara.move_angle = item->pos.y_rot - DEG_90;
+}
