@@ -1,6 +1,7 @@
 #include "inject.h"
 
 #include "game/lara.h"
+#include "game/matrix.h"
 #include "inject_util.h"
 
 void Inject_All(void)
@@ -137,4 +138,5 @@ void Inject_All(void)
     INJECT(0x00443040, Lara_Col_FastDive, 1);
     INJECT(0x004430C0, Lara_Col_Wade, 1);
     INJECT(0x00443290, Lara_Col_Default, 1);
+    INJECT(0x004B4280, Matrix_Push, 1);
 }
