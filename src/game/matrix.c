@@ -147,3 +147,33 @@ void Matrix_RotYXZPack(int32_t rots)
     Matrix_RotX((rots >> 14) & 0xFFC0);
     Matrix_RotZ((rots & 0x3FF) << 6);
 }
+
+void Matrix_RotYXZSuperpack(int16_t **pprot, int32_t skip)
+{
+    uint16_t *prot = *(uint16_t **)pprot;
+    while (skip--) {
+        if ((*prot >> 14) == 0) {
+            prot += 2;
+        } else {
+            prot += 1;
+        }
+    }
+
+    switch (*prot >> 14) {
+    case 0:
+        Matrix_RotYXZPack((prot[0] << 16) + prot[1]);
+        prot += 2;
+        break;
+    case 1:
+        Matrix_RotX((*prot++ & 1023) << 6);
+        break;
+    case 2:
+        Matrix_RotY((*prot++ & 1023) << 6);
+        break;
+    default:
+        Matrix_RotZ((*prot++ & 1023) << 6);
+        break;
+    }
+
+    *pprot = (int16_t *)prot;
+}

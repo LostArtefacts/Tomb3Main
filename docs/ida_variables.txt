@@ -271,7 +271,7 @@ FS- 004294B0 00000041 void __cdecl Matrix_TranslateRel_I(int32_t x, int32_t y, i
 FS- 00429500 00000047 void __cdecl Matrix_TranslateRel_ID(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2); // phd_TranslateRel_ID
 FS- 00429550 00000041 void __cdecl Matrix_RotYXZ_I(int16_t y, int16_t x, int16_t z); // phd_RotYXZ_I
 FS- 004295A0 0000003D void __cdecl Matrix_RotYXZSuperpack_I(int16_t **pprot1, int16_t **pprot2, int32_t skip); // gar_RotYXZsuperpack_I
-FS- 004295E0 000000A1 void __cdecl Matrix_RotYXZSuperpack(int16_t **pprot, int32_t skip); // gar_RotYXZsuperpack
+FSD 004295E0 000000A1 void __cdecl Matrix_RotYXZSuperpack(int16_t **pprot, int32_t skip); // gar_RotYXZsuperpack
 FS- 00429690 0000002A void __cdecl phd_PutPolygons_I(int16_t *ptr, int32_t clip);
 FS- 004296C0 0000026D void __cdecl Matrix_Interpolate(void); // InterpolateMatrix
 FS- 00429930 000000F8 void __cdecl Matrix_InterpolateArms(void); // InterpolateArmMatrix
