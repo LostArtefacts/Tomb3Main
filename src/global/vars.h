@@ -19,6 +19,7 @@
 #define g_LaraExtraControlRoutines ARR(0x004C75B8, LaraControlRoutine, [])
 #define g_HeightType VAR(0x006E2A24, int32_t)
 #define g_MatrixPtr VAR(0x005A6A2C, struct MATRIX *)
+#define g_W2VMatrix VAR(0x005A6AC0, struct MATRIX)
 #define g_Objects VAR(0x006E22E8, struct OBJECT_INFO *)
 #define g_Bones VAR(0x006E22E8, int32_t *)
 #define g_GotJointPos ARR(0x006D6190, uint8_t, [15])

@@ -40,3 +40,14 @@ bool Matrix_TranslateRel(int32_t x, int32_t y, int32_t z)
     return ABS(m->_03) <= g_ZFar && ABS(m->_13) <= g_ZFar
         && ABS(m->_23) <= g_ZFar;
 }
+
+void Matrix_TranslateAbs(int32_t x, int32_t y, int32_t z)
+{
+    struct MATRIX *m = g_MatrixPtr;
+    x -= g_W2VMatrix._03;
+    z -= g_W2VMatrix._23;
+    y -= g_W2VMatrix._13;
+    m->_03 = x * m->_00 + y * m->_01 + z * m->_02;
+    m->_13 = x * m->_10 + y * m->_11 + z * m->_12;
+    m->_23 = x * m->_20 + y * m->_21 + z * m->_22;
+}
