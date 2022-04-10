@@ -1476,7 +1476,7 @@ FS- 004B3D10 0000032A bool __cdecl DX_UpdateFrame(bool tSpinMessageLoop, RECT *p
 F-- 004B4040 0000005C void sub_4B4040();
 FS- 004B40A0 000001D3 void __cdecl SaveDDBuffer(IDirectDrawSurface3 *pSurf);
 FSD 004B4280 0000001E void __cdecl Matrix_Push(void); // phd_PushMatrix
-FS- 004B429E 00000033 void __cdecl Matrix_PushUnit(void); // phd_PushUnitMatrix
+FSD 004B429E 00000033 void __cdecl Matrix_PushUnit(void); // phd_PushUnitMatrix
 F-- 004B42D4 00000061 void sub_4B42D4();
 F-- 004B4335 0000013A void sub_4B4335();
 F-- 004B446F 00000160 void sub_4B446F();

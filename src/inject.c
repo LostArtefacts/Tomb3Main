@@ -139,4 +139,5 @@ void Inject_All(void)
     INJECT(0x004430C0, Lara_Col_Wade, 1);
     INJECT(0x00443290, Lara_Col_Default, 1);
     INJECT(0x004B4280, Matrix_Push, 1);
+    INJECT(0x004B429E, Matrix_PushUnit, 1);
 }

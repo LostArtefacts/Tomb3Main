@@ -23,7 +23,6 @@
 #define UPV_Control              ((int32_t (*)(void))0x00468C10)
 #define BigGun_Control           ((int32_t (*)(struct COLL_INFO *coll))0x00411100)
 #define MineCart_Control         ((int32_t (*)(void))0x00453B80)
-#define Matrix_PushUnit          ((void (*)(void))0x004B429E)
 #define Matrix_TranslateRel      ((bool (*)(int32_t x, int32_t y, int32_t z))0x004019C0)
 #define Matrix_RotYXZSuperpack   ((void (*)(int16_t **pprot, int32_t skip))0x004295E0)
 #define Matrix_RotYXZ            ((void (*)(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz))0x004015F0)
