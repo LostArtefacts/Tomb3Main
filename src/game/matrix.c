@@ -140,3 +140,10 @@ void Matrix_RotYXZ(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz)
     Matrix_RotX(rx);
     Matrix_RotZ(rz);
 }
+
+void Matrix_RotYXZPack(int32_t rots)
+{
+    Matrix_RotY((rots >> 4) & 0xFFC0);
+    Matrix_RotX((rots >> 14) & 0xFFC0);
+    Matrix_RotZ((rots & 0x3FF) << 6);
+}

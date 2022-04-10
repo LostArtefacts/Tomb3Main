@@ -11,3 +11,4 @@ void Matrix_RotX(PHD_ANGLE rx);
 void Matrix_RotY(PHD_ANGLE ry);
 void Matrix_RotZ(PHD_ANGLE rz);
 void Matrix_RotYXZ(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz);
+void Matrix_RotYXZPack(int32_t rots);
