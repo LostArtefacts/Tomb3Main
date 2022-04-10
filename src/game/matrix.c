@@ -133,3 +133,10 @@ void __cdecl Matrix_RotZ(PHD_ANGLE rz)
     m->_20 = r0 >> W2V_SHIFT;
     m->_21 = r1 >> W2V_SHIFT;
 }
+
+void Matrix_RotYXZ(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz)
+{
+    Matrix_RotY(ry);
+    Matrix_RotX(rx);
+    Matrix_RotZ(rz);
+}

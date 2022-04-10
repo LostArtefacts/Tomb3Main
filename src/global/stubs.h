@@ -24,7 +24,6 @@
 #define BigGun_Control           ((int32_t (*)(struct COLL_INFO *coll))0x00411100)
 #define MineCart_Control         ((int32_t (*)(void))0x00453B80)
 #define Matrix_RotYXZSuperpack   ((void (*)(int16_t **pprot, int32_t skip))0x004295E0)
-#define Matrix_RotYXZ            ((void (*)(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz))0x004015F0)
 #define Matrix_TranslateRel_ID   ((void (*)(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2))0x00429500)
 #define Matrix_TranslateRel_I    ((void (*)(int32_t x, int32_t y, int32_t z))0x004294B0)
 #define Matrix_RotYXZSuperpack_I ((void (*)(int16_t **pprot1, int16_t **pprot2, int32_t skip))0x004295A0)

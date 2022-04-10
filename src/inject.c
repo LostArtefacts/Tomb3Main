@@ -146,4 +146,5 @@ void Inject_All(void)
     INJECT(0x004013E0, Matrix_RotX, 1);
     INJECT(0x00401490, Matrix_RotY, 1);
     INJECT(0x00401540, Matrix_RotZ, 1);
+    INJECT(0x004015F0, Matrix_RotYXZ, 1);
 }
