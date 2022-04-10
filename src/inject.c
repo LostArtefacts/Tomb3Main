@@ -140,4 +140,5 @@ void Inject_All(void)
     INJECT(0x00443290, Lara_Col_Default, 1);
     INJECT(0x004B4280, Matrix_Push, 1);
     INJECT(0x004B429E, Matrix_PushUnit, 1);
+    INJECT(0x004019C0, Matrix_TranslateRel, 1);
 }

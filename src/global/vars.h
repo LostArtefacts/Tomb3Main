@@ -22,4 +22,5 @@
 #define g_Objects VAR(0x006E22E8, struct OBJECT_INFO *)
 #define g_Bones VAR(0x006E22E8, int32_t *)
 #define g_GotJointPos ARR(0x006D6190, uint8_t, [15])
+#define g_ZFar VAR(0x004F6D44, int32_t)
 #define g_IsJointUnderwater ARR(0x006D6290, uint8_t, [15])
