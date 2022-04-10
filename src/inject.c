@@ -144,4 +144,5 @@ void Inject_All(void)
     INJECT(0x004019C0, Matrix_TranslateRel, 1);
     INJECT(0x00401A70, Matrix_TranslateAbs, 1);
     INJECT(0x004013E0, Matrix_RotX, 1);
+    INJECT(0x00401490, Matrix_RotY, 1);
 }

@@ -79,3 +79,30 @@ void Matrix_RotX(PHD_ANGLE rx)
     m->_21 = r0 >> W2V_SHIFT;
     m->_22 = r1 >> W2V_SHIFT;
 }
+
+void Matrix_RotY(PHD_ANGLE ry)
+{
+    if (!ry) {
+        return;
+    }
+
+    struct MATRIX *m = g_MatrixPtr;
+    int32_t sy = phd_sin(ry);
+    int32_t cy = phd_cos(ry);
+    int32_t r0, r1;
+
+    r0 = cy * m->_00 - sy * m->_02;
+    r1 = cy * m->_02 + sy * m->_00;
+    m->_00 = r0 >> W2V_SHIFT;
+    m->_02 = r1 >> W2V_SHIFT;
+
+    r0 = cy * m->_10 - sy * m->_12;
+    r1 = cy * m->_12 + sy * m->_10;
+    m->_10 = r0 >> W2V_SHIFT;
+    m->_12 = r1 >> W2V_SHIFT;
+
+    r0 = cy * m->_20 - sy * m->_22;
+    r1 = cy * m->_22 + sy * m->_20;
+    m->_20 = r0 >> W2V_SHIFT;
+    m->_22 = r1 >> W2V_SHIFT;
+}
