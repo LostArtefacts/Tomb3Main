@@ -15,7 +15,7 @@ FS- 00401000 000001D0 void __cdecl phd_GenerateW2V(PHD_3DPOS *viewpos);
 FS- 004012D0 000000F7 void __cdecl phd_GetVectorAngles(int32_t x, int32_t y, int32_t z, PHD_ANGLE *dest);
 FS- 004011D0 00000078 void __cdecl phd_LookAt(int32_t xsrc, int32_t ysrc, int32_t zsrc, int32_t xtar, int32_t ytar, int32_t ztar, PHD_ANGLE roll);
 FS- 00401350 0000008F void __cdecl phd_NormaliseVector(int32_t x, int32_t y, int32_t z, int32_t *dest);
-FS- 004013E0 000000AA void __cdecl Matrix_RotX(PHD_ANGLE rx); // phd_RotX
+FSD 004013E0 000000AA void __cdecl Matrix_RotX(PHD_ANGLE rx); // phd_RotX
 FS- 00401490 000000A8 void __cdecl Matrix_RotY(PHD_ANGLE ry); // phd_RotY
 FS- 00401540 000000A8 void __cdecl Matrix_RotZ(PHD_ANGLE rz); // phd_RotZ
 FS- 004015F0 000001DC void __cdecl Matrix_RotYXZ(PHD_ANGLE ry, PHD_ANGLE rx, PHD_ANGLE rz); // phd_RotYXZ
