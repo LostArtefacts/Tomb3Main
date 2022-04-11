@@ -856,6 +856,23 @@ int16_t Lara_FloorFront(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist)
     return height;
 }
 
+int16_t Lara_CeilingFront(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist)
+{
+    int32_t x = item->pos.x + ((dist * phd_sin(ang)) >> W2V_SHIFT);
+    int32_t y = item->pos.y - LARA_HEIGHT;
+    int32_t z = item->pos.z + ((dist * phd_cos(ang)) >> W2V_SHIFT);
+    int16_t room_num = item->room_num;
+
+    struct FLOOR_INFO *floor = GetFloor(x, y, z, &room_num);
+    int32_t height = GetCeiling(floor, x, y, z);
+
+    if (height != NO_HEIGHT) {
+        height -= item->pos.y - LARA_HEIGHT;
+    }
+
+    return height;
+}
+
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->old.x = item->pos.x;
