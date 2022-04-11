@@ -25,6 +25,7 @@ void Inject_All(void)
     INJECT(0x00444D80, Lara_FloorFront, 1);
     INJECT(0x00444E00, Lara_CeilingFront, 1);
     INJECT(0x00444E80, Lara_Fallen, 1);
+    INJECT(0x00444EE0, Lara_TestEdgeCatch, 1);
 
     INJECT(0x00443360, Lara_GetHandAbsPosition, 1);
     INJECT(0x00443CA0, Lara_GetHandAbsPosition_I, 1);

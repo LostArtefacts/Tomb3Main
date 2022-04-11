@@ -25,6 +25,8 @@ bool Lara_HitCeiling(struct ITEM_INFO *item, struct COLL_INFO *coll);
 int16_t Lara_FloorFront(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist);
 int16_t Lara_CeilingFront(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist);
 bool Lara_Fallen(struct ITEM_INFO *item, struct COLL_INFO *coll);
+int32_t Lara_TestEdgeCatch(
+    struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge);
 
 void Lara_GetHandAbsPosition(
     struct PHD_VECTOR *vec, enum LARA_BODY_PART body_part);

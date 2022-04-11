@@ -889,6 +889,32 @@ bool Lara_Fallen(struct ITEM_INFO *item, struct COLL_INFO *coll)
     return true;
 }
 
+int32_t Lara_TestEdgeCatch(
+    struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge)
+{
+    int16_t *bounds = GetBoundsAccurate(item);
+    int32_t hdif = coll->front_floor - bounds[2];
+
+    if ((hdif < 0 && hdif + item->fall_speed < 0)
+        || (hdif > 0 && hdif + item->fall_speed > 0)) {
+        hdif = item->pos.y + bounds[2];
+
+        if (!(((hdif + item->fall_speed) ^ hdif) & ~(STEP_L - 1))) {
+            return 0;
+        }
+
+        if (item->fall_speed > 0) {
+            *edge = (hdif + item->fall_speed) & ~(STEP_L - 1);
+        } else {
+            *edge = hdif & ~(STEP_L - 1);
+        }
+
+        return -1;
+    }
+
+    return ABS(coll->left_floor2 - coll->right_floor2) < LARA_SLOPE_DIF ? 1 : 0;
+}
+
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->old.x = item->pos.x;
