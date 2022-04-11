@@ -873,6 +873,22 @@ int16_t Lara_CeilingFront(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist)
     return height;
 }
 
+bool Lara_Fallen(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (coll->mid_floor <= LARA_STEP_UP_HEIGHT
+        || g_Lara.water_status == LWS_WADE) {
+        return false;
+    }
+
+    item->gravity_status = 1;
+    item->fall_speed = 0;
+    item->current_anim_state = LS_FORWARD_JUMP;
+    item->goal_anim_state = LS_FORWARD_JUMP;
+    item->anim_num = LA_FALL_DOWN;
+    item->frame_num = g_Anims[LA_FALL_DOWN].frame_base;
+    return true;
+}
+
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->old.x = item->pos.x;
