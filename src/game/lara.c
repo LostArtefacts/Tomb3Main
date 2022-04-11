@@ -820,6 +820,25 @@ bool Lara_LandedBad(struct ITEM_INFO *item, struct COLL_INFO *coll)
     return item->hit_points <= 0;
 }
 
+bool Lara_HitCeiling(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (coll->coll_type != COLL_TOP && coll->coll_type != COLL_CLAMP) {
+        return false;
+    }
+
+    item->pos.x = coll->old.x;
+    item->pos.y = coll->old.y;
+    item->pos.z = coll->old.z;
+    item->current_anim_state = LS_STOP;
+    item->goal_anim_state = LS_STOP;
+    item->anim_num = LA_STOP;
+    item->frame_num = g_Anims[LA_STOP].frame_base;
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+    item->speed = 0;
+    return true;
+}
+
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->old.x = item->pos.x;
