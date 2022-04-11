@@ -20,6 +20,7 @@ bool Lara_DeflectEdgeDuck(struct ITEM_INFO *item, struct COLL_INFO *coll);
 int32_t Lara_TestWall(
     struct ITEM_INFO *item, int32_t front, int32_t right, int32_t down);
 void Lara_MonkeySwingFall(struct ITEM_INFO *item);
+bool Lara_LandedBad(struct ITEM_INFO *item, struct COLL_INFO *coll);
 
 void Lara_GetHandAbsPosition(
     struct PHD_VECTOR *vec, enum LARA_BODY_PART body_part);

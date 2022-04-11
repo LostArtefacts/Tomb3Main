@@ -5,9 +5,6 @@
 #include "global/vars.h"
 #include "util.h"
 
-#define LARA_FALL_DAMAGE_START 140
-#define LARA_FALL_DAMAGE_LENGTH 14
-
 static bool m_JumpOK = true;
 
 static void Lara_State_FastFallFriction(struct ITEM_INFO *item);

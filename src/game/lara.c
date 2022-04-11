@@ -784,6 +784,42 @@ void Lara_LookLeftRight(void)
     }
 }
 
+bool Lara_LandedBad(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    int32_t old_y = item->pos.y;
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    int32_t height =
+        GetHeight(floor, item->pos.x, item->pos.y - LARA_HEIGHT, item->pos.z);
+    item->floor = height;
+    item->pos.y = height;
+    if (ABS(old_y - item->pos.y) > STEP_L) {
+        item->pos.y = old_y;
+    }
+
+    g_LaraOnPad = 0;
+    TestTriggers(g_TriggerIndex, 0);
+    if (!g_LaraOnPad) {
+        g_LaraItem->item_flags[1] = 0;
+    }
+    item->pos.y = old_y;
+
+    int32_t land_speed = item->fall_speed - LARA_FALL_DAMAGE_START;
+    if (land_speed <= 0) {
+        return false;
+    }
+
+    if (land_speed > LARA_FALL_DAMAGE_LENGTH) {
+        item->hit_points = -1;
+    } else {
+        item->hit_points -= (LARA_HIT_POINTS * land_speed * land_speed)
+            / (LARA_FALL_DAMAGE_LENGTH * LARA_FALL_DAMAGE_LENGTH);
+    }
+
+    return item->hit_points <= 0;
+}
+
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->old.x = item->pos.x;

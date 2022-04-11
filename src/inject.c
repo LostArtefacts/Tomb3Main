@@ -20,6 +20,7 @@ void Inject_All(void)
     INJECT(0x0043F0D0, Lara_DeflectEdgeDuck, 1);
     INJECT(0x0043F870, Lara_TestWall, 1);
     INJECT(0x0043FC10, Lara_MonkeySwingFall, 1);
+    INJECT(0x00444C20, Lara_LandedBad, 1);
 
     INJECT(0x00443360, Lara_GetHandAbsPosition, 1);
     INJECT(0x00443CA0, Lara_GetHandAbsPosition_I, 1);

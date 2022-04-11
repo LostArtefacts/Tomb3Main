@@ -661,7 +661,7 @@ FSD 00444770 00000086 void __cdecl Lara_LookLeftRight(void); // LookLeftRight
 FSD 00444800 00000097 void __cdecl Lara_ResetLook(void); // ResetLook
 FS- 004448A0 000000D4 void __cdecl DeathSlideCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 00444980 0000029F void __cdecl ControlDeathSlide(int16_t item_num);
-FSC 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
+FSD 00444C20 000000EB int32_t __cdecl Lara_LandedBad(ITEM_INFO *item, COLL_INFO *coll); // LaraLandedBad
 FSC 00444D10 0000006A int32_t __cdecl Lara_HitCeiling(ITEM_INFO *item, COLL_INFO *coll); // LaraHitCeiling
 FSC 00444D80 00000075 int16_t __cdecl Lara_FloorFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraFloorFront
 FSC 00444E00 0000007E int16_t __cdecl Lara_CeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraCeilingFront

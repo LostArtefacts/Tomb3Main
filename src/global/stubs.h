@@ -13,7 +13,6 @@
 #define Lara_TestClimbPos        ((int32_t (*)(struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift))0x00449090)
 #define Lara_Fallen              ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444E80)
 #define Lara_HitCeiling          ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444D10)
-#define Lara_LandedBad           ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00444C20)
 #define Lara_TestEdgeCatch       ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge))0x00444EE0)
 #define Lara_Gun                 ((void (*)(void))0x00449BB0)
 #define Random_GetControl        ((int32_t (*)(void))0x004841F0)
