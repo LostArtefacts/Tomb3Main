@@ -915,6 +915,33 @@ int32_t Lara_TestEdgeCatch(
     return ABS(coll->left_floor2 - coll->right_floor2) < LARA_SLOPE_DIF ? 1 : 0;
 }
 
+bool Lara_DeflectEdge(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    switch (coll->coll_type) {
+    case COLL_FRONT:
+    case COLL_TOP_FRONT:
+        ShiftItem(item, coll);
+        item->current_anim_state = LS_STOP;
+        item->goal_anim_state = LS_STOP;
+        item->gravity_status = 0;
+        item->speed = 0;
+        return true;
+
+    case COLL_LEFT:
+        ShiftItem(item, coll);
+        item->pos.y_rot += LARA_DEF_ADD_EDGE;
+        return false;
+
+    case COLL_RIGHT:
+        ShiftItem(item, coll);
+        item->pos.y_rot -= LARA_DEF_ADD_EDGE;
+        return false;
+
+    default:
+        return false;
+    }
+}
+
 void Lara_AboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     coll->old.x = item->pos.x;

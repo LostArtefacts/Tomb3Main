@@ -667,7 +667,7 @@ FSD 00444D80 00000075 int16_t __cdecl Lara_FloorFront(ITEM_INFO *item, PHD_ANGLE
 FSD 00444E00 0000007E int16_t __cdecl Lara_CeilingFront(ITEM_INFO *item, PHD_ANGLE ang, int32_t dist); // LaraCeilingFront
 FSD 00444E80 00000054 int32_t __cdecl Lara_Fallen(ITEM_INFO *item, COLL_INFO *coll); // LaraFallen
 FSD 00444EE0 000000AD int32_t __cdecl Lara_TestEdgeCatch(ITEM_INFO *item, COLL_INFO *coll, int32_t *edge); // LaraTestEdgeCatch
-FSC 00444F90 00000082 int32_t __cdecl Lara_DeflectEdge(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdge
+FSD 00444F90 00000082 int32_t __cdecl Lara_DeflectEdge(ITEM_INFO *item, COLL_INFO *coll); // LaraDeflectEdge
 FSC 00445020 00000222 int32_t __cdecl GetStaticObjects(ITEM_INFO *item, PHD_ANGLE ang, int32_t height, int32_t radius, int32_t dist);
 FS- 00445250 00000034 void __cdecl draw_shotgun_meshes(int32_t weapon_type);
 FS- 00445290 0000002B void __cdecl undraw_shotgun_meshes(int32_t weapon_type);
