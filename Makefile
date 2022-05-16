@@ -25,7 +25,10 @@ clean:
 	-find build/ -type f -delete
 	-find build/ -mindepth 1 -empty -type d -delete
 
+imports:
+	tools/sort_imports
+
 lint:
 	bash -c 'shopt -s globstar; clang-format -i **/*.c **/*.h'
 
-.PHONY: debug debugopt release clean lint
+.PHONY: debug debugopt release clean imports lint

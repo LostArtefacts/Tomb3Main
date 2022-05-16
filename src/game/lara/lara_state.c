@@ -1,9 +1,15 @@
-#include "game/lara.h"
+#include "game/lara/lara_state.h"
 
+#include "game/lara/lara_look.h"
+#include "game/lara/lara_misc.h"
 #include "global/const.h"
 #include "global/stubs.h"
+#include "global/types.h"
 #include "global/vars.h"
 #include "util.h"
+
+#include <stdbool.h>
+#include <stdint.h>
 
 static bool m_JumpOK = true;
 

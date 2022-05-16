@@ -44,13 +44,13 @@ python3 = find_program('python3', required: true)
 custom_target(
 'fake_init',
 output: ['fake_init'],
-command: [python3, meson.source_root() + '/scripts/generate_init'],
+command: [python3, meson.source_root() + '/tools/generate_init'],
 build_by_default: true
 )
 version_rc = custom_target(
 'fake_version',
 output: ['version.rc'],
-command: [python3, meson.source_root() + '/scripts/generate_version', '--version', version_pretty, '--output', '@OUTPUT0@'],
+command: [python3, meson.source_root() + '/tools/generate_version', '--version', version_pretty, '--output', '@OUTPUT0@'],
 build_always: true
 )
 if host_machine.system() == 'windows'
@@ -63,10 +63,12 @@ endif
 sources = [
   'src/filesystem.c',
   'src/filesystem_win.c',
-  'src/game/lara.c',
-  'src/game/lara_col.c',
-  'src/game/lara_hands.c',
-  'src/game/lara_state.c',
+  'src/game/lara/lara_col.c',
+  'src/game/lara/lara_control.c',
+  'src/game/lara/lara_hands.c',
+  'src/game/lara/lara_look.c',
+  'src/game/lara/lara_misc.c',
+  'src/game/lara/lara_state.c',
   'src/game/matrix.c',
   'src/init.c',
   'src/inject.c',

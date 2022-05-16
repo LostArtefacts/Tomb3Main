@@ -2,6 +2,9 @@
 
 #include "global/types.h"
 
+#include <stdbool.h>
+#include <stdint.h>
+
 void Matrix_Push(void);
 void Matrix_PushUnit(void);
 void Matrix_Pop(void);

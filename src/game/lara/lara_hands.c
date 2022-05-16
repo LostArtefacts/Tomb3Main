@@ -1,9 +1,12 @@
-#include "game/lara.h"
+#include "game/lara/lara_hands.h"
 
 #include "game/matrix.h"
 #include "global/const.h"
 #include "global/stubs.h"
+#include "global/types.h"
 #include "global/vars.h"
+
+#include <stdint.h>
 
 static void Lara_AddJointPos(struct ITEM_INFO *item, int32_t mesh);
 

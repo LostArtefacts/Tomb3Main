@@ -1,9 +1,14 @@
-#include "game/lara.h"
+#include "game/lara/lara_col.h"
 
+#include "game/lara/lara_misc.h"
 #include "global/const.h"
 #include "global/stubs.h"
+#include "global/types.h"
 #include "global/vars.h"
 #include "util.h"
+
+#include <stdbool.h>
+#include <stdint.h>
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static void Lara_MonkeySwingSnap(

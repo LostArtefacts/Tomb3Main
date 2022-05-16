@@ -808,6 +808,64 @@ struct OBJECT_VECTOR {
     int16_t flags;
 };
 
+struct RGB888 {
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+};
+
+struct ITEM_LIGHT {
+    struct PHD_VECTOR sun_pos;
+    struct PHD_VECTOR bulb_pos;
+    struct PHD_VECTOR dynamic_pos;
+    struct RGB888 sun_color;
+    int8_t init;
+    struct RGB888 bulb_color;
+    uint8_t ambient;
+    struct RGB888 dynamic_color;
+    uint8_t pad2;
+};
+
+struct ITEM_INFO {
+    int32_t floor;
+    uint32_t touch_bits;
+    uint32_t mesh_bits;
+    int16_t object_num;
+    int16_t current_anim_state;
+    int16_t goal_anim_state;
+    int16_t required_anim_state;
+    int16_t anim_num;
+    int16_t frame_num;
+    int16_t room_num;
+    int16_t next_item;
+    int16_t next_active;
+    int16_t speed;
+    int16_t fall_speed;
+    int16_t hit_points;
+    uint16_t box_num;
+    int16_t timer;
+    int16_t flags;
+    int16_t shade;
+    int16_t shade_b;
+    int16_t carried_item;
+    int16_t after_death;
+    uint16_t fired_weapon;
+    int16_t item_flags[4];
+    void *data;
+    struct PHD_3DPOS pos;
+    struct ITEM_LIGHT il;
+    uint16_t active : 1;
+    uint16_t status : 2;
+    uint16_t gravity_status : 1;
+    uint16_t hit_status : 1;
+    uint16_t collidable : 1;
+    uint16_t looked_at : 1;
+    uint16_t dynamic_light : 1;
+    uint16_t clear_body : 1;
+    uint16_t ai_bits : 5;
+    uint16_t really_active : 1;
+};
+
 struct CAMERA_INFO {
     struct GAME_VECTOR pos;
     struct GAME_VECTOR target;
@@ -881,12 +939,6 @@ struct COLL_INFO {
     uint16_t hit_ceiling : 1;
 };
 
-struct RGB888 {
-    uint8_t r;
-    uint8_t g;
-    uint8_t b;
-};
-
 struct ANIM_INFO {
     int16_t *frame_ptr;
     int16_t interpolation;
@@ -901,18 +953,6 @@ struct ANIM_INFO {
     int16_t change_index;
     int16_t number_commands;
     int16_t command_index;
-};
-
-struct ITEM_LIGHT {
-    struct PHD_VECTOR sun_pos;
-    struct PHD_VECTOR bulb_pos;
-    struct PHD_VECTOR dynamic_pos;
-    struct RGB888 sun_color;
-    int8_t init;
-    struct RGB888 bulb_color;
-    uint8_t ambient;
-    struct RGB888 dynamic_color;
-    uint8_t pad2;
 };
 
 struct FX_INFO {
@@ -961,46 +1001,6 @@ struct OBJECT_INFO {
     uint16_t save_anim : 1;
     uint16_t semi_transparent : 1;
     uint16_t water_creature : 1;
-};
-
-struct ITEM_INFO {
-    int32_t floor;
-    uint32_t touch_bits;
-    uint32_t mesh_bits;
-    int16_t object_num;
-    int16_t current_anim_state;
-    int16_t goal_anim_state;
-    int16_t required_anim_state;
-    int16_t anim_num;
-    int16_t frame_num;
-    int16_t room_num;
-    int16_t next_item;
-    int16_t next_active;
-    int16_t speed;
-    int16_t fall_speed;
-    int16_t hit_points;
-    uint16_t box_num;
-    int16_t timer;
-    int16_t flags;
-    int16_t shade;
-    int16_t shade_b;
-    int16_t carried_item;
-    int16_t after_death;
-    uint16_t fired_weapon;
-    int16_t item_flags[4];
-    void *data;
-    struct PHD_3DPOS pos;
-    struct ITEM_LIGHT il;
-    uint16_t active : 1;
-    uint16_t status : 2;
-    uint16_t gravity_status : 1;
-    uint16_t hit_status : 1;
-    uint16_t collidable : 1;
-    uint16_t looked_at : 1;
-    uint16_t dynamic_light : 1;
-    uint16_t clear_body : 1;
-    uint16_t ai_bits : 5;
-    uint16_t really_active : 1;
 };
 
 struct AI_INFO {

@@ -1,6 +1,11 @@
 #include "inject.h"
 
-#include "game/lara.h"
+#include "game/lara/lara_col.h"
+#include "game/lara/lara_control.h"
+#include "game/lara/lara_hands.h"
+#include "game/lara/lara_look.h"
+#include "game/lara/lara_misc.h"
+#include "game/lara/lara_state.h"
 #include "game/matrix.h"
 #include "inject_util.h"
 
@@ -34,7 +39,7 @@ void Inject_All(void)
     INJECT(0x00444800, Lara_ResetLook, 1);
     INJECT(0x004446E0, Lara_LookUpDown, 1);
     INJECT(0x00444770, Lara_LookLeftRight, 1);
-    INJECT(0x0043E800, Lara_AboveWater, 1);
+    INJECT(0x0043E800, Lara_HandleAboveWater, 1);
 
     INJECT(0x0043EA20, Lara_State_Duck, 1);
     INJECT(0x0043EBA0, Lara_State_AllFours, 1);
