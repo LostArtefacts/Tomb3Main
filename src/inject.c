@@ -165,4 +165,5 @@ void Inject_All(void)
 
     INJECT(0x00484210, Random_SeedControl, 1);
     INJECT(0x004841F0, Random_GetControl, 1);
+    INJECT(0x00484220, Random_GetDraw, 1);
 }
