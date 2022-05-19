@@ -212,7 +212,7 @@ FS- 0041F730 00000018 void __cdecl InitialiseCompy(int16_t item_num);
 FS- 0041F750 000005D1 void __cdecl CompyControl(int16_t item_num);
 FS- 0041FD50 0000024B void __cdecl CarcassControl(int16_t item_num);
 FS- 0041FFA0 000005EC int32_t __cdecl ControlPhase(int32_t nframes, int32_t demo_mode);
-FS- 00420590 000003A3 void __cdecl AnimateItem(ITEM_INFO *item);
+FS- 00420590 000003A3 void __cdecl Item_Animate(ITEM_INFO *item); // ItemAnimate
 FS- 00420970 000000AB int32_t __cdecl GetChange(ITEM_INFO *item, ANIM_INFO *anim);
 FS- 00420A20 0000005F void __cdecl TranslateItem(ITEM_INFO *item, int32_t x, int32_t y, int32_t z);
 FSC 00420A80 000001E1 FLOOR_INFO *__cdecl GetFloor(int32_t x, int32_t y, int32_t z, int16_t *room_num);
@@ -705,7 +705,7 @@ FSD 00449260 00000021 void __cdecl Lara_State_ClimbEnd(ITEM_INFO *item, COLL_INF
 FSD 00449290 00000017 void __cdecl Lara_State_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbdown
 FSD 004492B0 0000005D void __cdecl Lara_Col_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbleft
 FSD 00449310 000000CC int32_t __cdecl Lara_TestLetGo(ITEM_INFO *item, COLL_INFO *coll); // LaraCheckForLetGo
-FSC 004493E0 000000EF void __cdecl Lara_ClimbLeftRight(ITEM_INFO *item, COLL_INFO *coll, int32_t result, int32_t shift); // LaraDoClimbLeftRight
+FSD 004493E0 000000EF void __cdecl Lara_Col_ClimbLeftRight(ITEM_INFO *item, COLL_INFO *coll, int32_t result, int32_t shift); // LaraDoClimbLeftRight
 FSD 004494D0 00000059 void __cdecl Lara_Col_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbright
 FSD 00449530 0000020D void __cdecl Lara_Col_ClimbStance(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbstnc
 FSD 00449740 0000014C void __cdecl Lara_Col_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbing

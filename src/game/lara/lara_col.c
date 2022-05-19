@@ -19,6 +19,9 @@ static bool Lara_TestMonkeyRight(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
 static bool Lara_TestHangJumpUp(struct ITEM_INFO *item, struct COLL_INFO *coll);
 static void Lara_Col_Jumper(struct ITEM_INFO *item, struct COLL_INFO *coll);
+static void Lara_Col_ClimbLeftRight(
+    struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t result,
+    int32_t shift);
 
 static void Lara_CollideStop(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
@@ -211,6 +214,48 @@ static void Lara_Col_Jumper(struct ITEM_INFO *item, struct COLL_INFO *coll)
     item->fall_speed = 0;
     item->goal_anim_state = Lara_LandedBad(item, coll) ? LS_DEATH : LS_STOP;
     item->pos.y += coll->mid_floor;
+}
+
+static void Lara_Col_ClimbLeftRight(
+    struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t result,
+    int32_t shift)
+{
+    switch (result) {
+    case 1:
+        if (g_Input & IN_LEFT) {
+            item->goal_anim_state = LS_CLIMB_LEFT;
+        } else if (g_Input & IN_RIGHT) {
+            item->goal_anim_state = LS_CLIMB_RIGHT;
+        } else {
+            item->goal_anim_state = LS_CLIMB_STANCE;
+        }
+        item->pos.y += shift;
+        break;
+
+    case 0:
+        item->pos.x = coll->old.x;
+        item->pos.z = coll->old.z;
+        item->goal_anim_state = LS_CLIMB_STANCE;
+        item->current_anim_state = LS_CLIMB_STANCE;
+        if (coll->old_anim_state != LS_CLIMB_STANCE) {
+            item->anim_num = LA_CLIMB_STANCE;
+            item->frame_num = g_Anims[item->anim_num].frame_base;
+        } else {
+            item->frame_num = coll->old_frame_num;
+            item->anim_num = coll->old_anim_num;
+            Lara_Animate(item);
+        }
+        break;
+
+    default:
+        item->goal_anim_state = LS_HANG;
+        do {
+            Item_Animate(item);
+        } while (item->current_anim_state != LS_HANG);
+        item->pos.x = coll->old.x;
+        item->pos.z = coll->old.z;
+        break;
+    }
 }
 
 void Lara_Col_Duck(struct ITEM_INFO *item, struct COLL_INFO *coll)
@@ -1548,7 +1593,7 @@ void Lara_Col_ClimbLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item, coll->radius, -coll->radius - LARA_CLIMB_WIDTH_L,
         -LARA_CLIMB_HEIGHT, LARA_CLIMB_HEIGHT, &shift);
 
-    Lara_ClimbLeftRight(item, coll, result, shift);
+    Lara_Col_ClimbLeftRight(item, coll, result, shift);
 }
 
 void Lara_Col_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
@@ -1564,7 +1609,7 @@ void Lara_Col_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
         item, coll->radius, coll->radius + LARA_CLIMB_WIDTH_R,
         -LARA_CLIMB_HEIGHT, LARA_CLIMB_HEIGHT, &shift);
 
-    Lara_ClimbLeftRight(item, coll, result, shift);
+    Lara_Col_ClimbLeftRight(item, coll, result, shift);
 }
 
 void Lara_Col_ClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll)
