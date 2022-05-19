@@ -7,7 +7,7 @@
 # F - Function
 # V - Variable
 # S - Signature known
-# R - Decompiled
+# D - Decompiled
 # X - No reverse engineering needed or inlined in one of the decompiled functions
 # C - Called from within one or more of the decompiled functions
 
@@ -1189,7 +1189,7 @@ FS- 00483B60 00000435 int32_t __cdecl LevelStats(int32_t level_num);
 F-- 00483FA0 00000033 void sub_483FA0();
 F-- 00483FE0 00000030 void sub_483FE0();
 FS- 00484010 000001D4 int32_t __cdecl GameStats(int32_t level_num, int32_t type);
-FSC 004841F0 0000001E int32_t __cdecl Random_GetControl(void); // GetRandomControl
+FSD 004841F0 0000001E int32_t __cdecl Random_GetControl(void); // GetRandomControl
 FS- 00484210 0000000A void __cdecl Random_SeedControl(int32_t seed); // SeedRandomControl
 FS- 00484220 0000001E int32_t __cdecl Random_GetDraw(void); // GetRandomDraw
 FS- 00484240 0000000A void __cdecl Random_SeetDraw(int32_t seed); // SeedRandomDraw
@@ -1535,3 +1535,5 @@ V-- 006E22E8 - int32_t *g_Bones;
 V-- 006D6190 - uint8_t g_GotJointPos[15];
 V-- 006D6290 - uint8_t g_IsJointUnderwater[15];
 V-- 004F6D44 - int32_t g_ZFar;
+V-- 004CD8A8 - int32_t g_RandControl;
+V-- 004CD8AC - int32_t g_RandDraw;

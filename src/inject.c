@@ -7,6 +7,7 @@
 #include "game/lara/lara_misc.h"
 #include "game/lara/lara_state.h"
 #include "game/matrix.h"
+#include "game/random.h"
 #include "inject_util.h"
 
 void Inject_All(void)
@@ -161,4 +162,6 @@ void Inject_All(void)
     INJECT(0x004015F0, Matrix_RotYXZ, 1);
     INJECT(0x004017D0, Matrix_RotYXZPack, 1);
     INJECT(0x004295E0, Matrix_RotYXZSuperpack, 1);
+
+    INJECT(0x004841F0, Random_GetControl, 1);
 }

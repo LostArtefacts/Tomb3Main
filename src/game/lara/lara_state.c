@@ -2,6 +2,7 @@
 
 #include "game/lara/lara_look.h"
 #include "game/lara/lara_misc.h"
+#include "game/random.h"
 #include "global/const.h"
 #include "global/stubs.h"
 #include "global/types.h"
