@@ -698,7 +698,7 @@ FSD 00448BE0 00000280 int32_t __cdecl Lara_TestClimb(int32_t x, int32_t y, int32
 FSD 00448E60 00000229 int32_t __cdecl Lara_TestClimbUpPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t *shift, int32_t *ledge); // LaraTestClimbUpPos
 FSD 00449090 000000B0 int32_t __cdecl Lara_TestClimbPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift); // LaraTestClimbPos
 FSD 00449140 00000038 void __cdecl Lara_State_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbleft
-FS- 00449180 00000038 void __cdecl Lara_State_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbright
+FSD 00449180 00000038 void __cdecl Lara_State_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbright
 FS- 004491C0 00000078 void __cdecl Lara_State_ClimbSTNC(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbstnc
 FS- 00449240 00000017 void __cdecl Lara_State_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbing
 FS- 00449260 00000021 void __cdecl Lara_State_ClimbEnd(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbend

@@ -1134,6 +1134,17 @@ void Lara_State_ClimbLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_State_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_angle = 30 * DEG_1;
+    g_Camera.target_elevation = -15 * DEG_1;
+    if (!(g_Input & IN_RIGHT) && !(g_Input & IN_STEP_R)) {
+        item->goal_anim_state = LS_CLIMB_STNC;
+    }
+}
+
 void Lara_StateExtra_Breath(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->goal_anim_state = LS_STOP;
