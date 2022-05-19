@@ -36,3 +36,6 @@ int32_t Lara_TestEdgeCatch(
 int32_t Lara_TestClimb(
     int32_t x, int32_t y, int32_t z, int32_t x_front, int32_t z_front,
     int32_t item_height, int16_t item_room, int32_t *shift);
+int32_t Lara_TestClimbUpPos(
+    struct ITEM_INFO *item, int32_t front, int32_t right, int32_t *shift,
+    int32_t *ledge);

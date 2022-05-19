@@ -972,3 +972,89 @@ int32_t Lara_TestClimb(
         return hang ? -1 : 0;
     }
 }
+
+int32_t Lara_TestClimbUpPos(
+    struct ITEM_INFO *item, int32_t front, int32_t right, int32_t *shift,
+    int32_t *ledge)
+{
+    int32_t x;
+    int32_t y;
+    int32_t z;
+    int32_t x_front = 0;
+    int32_t z_front = 0;
+
+    y = item->pos.y - CLIMB_HEIGHT - STEP_L;
+
+    switch ((uint16_t)(item->pos.y_rot + DEG_45) / DEG_90) {
+    case DIR_NORTH:
+        z = item->pos.z + front;
+        x = item->pos.x + right;
+        z_front = 4;
+        break;
+    case DIR_EAST:
+        x = item->pos.x + front;
+        z = item->pos.z - right;
+        x_front = 4;
+        break;
+    case DIR_SOUTH:
+        z = item->pos.z - front;
+        x = item->pos.x - right;
+        z_front = -4;
+        break;
+    default:
+        x = item->pos.x - front;
+        z = item->pos.z + right;
+        x_front = -4;
+        break;
+    }
+
+    *shift = 0;
+
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor = GetFloor(x, y, z, &room_num);
+    int32_t ceiling = GetCeiling(floor, x, y, z) - (y - STEP_L);
+
+    if (ceiling > CLIMB_SHIFT) {
+        return 0;
+    } else if (ceiling > 0) {
+        *shift = ceiling;
+    }
+
+    floor = GetFloor(x + x_front, y, z + z_front, &room_num);
+    int32_t height = GetHeight(floor, x + x_front, y, z + z_front);
+    if (height == NO_HEIGHT) {
+        *ledge = NO_HEIGHT;
+        return 1;
+    }
+
+    height -= y;
+    *ledge = height;
+
+    if (height > STEP_L / 2) {
+        ceiling = GetCeiling(floor, x + x_front, y, z + z_front) - y;
+        if (ceiling >= CLIMB_HEIGHT) {
+            return 1;
+        } else if (height - ceiling > LARA_HEIGHT) {
+            *shift = height;
+            return -1;
+        } else {
+            return 0;
+        }
+    } else if (height > 0 && height > *shift) {
+        *shift = height;
+    }
+
+    room_num = item->room_num;
+    floor = GetFloor(x, y + CLIMB_HEIGHT, z, &room_num);
+    floor = GetFloor(x + x_front, y + CLIMB_HEIGHT, z + z_front, &room_num);
+    ceiling = GetCeiling(floor, x + x_front, y + CLIMB_HEIGHT, z + z_front) - y;
+    if (ceiling <= height) {
+        return 1;
+    }
+
+    if (ceiling >= CLIMB_HEIGHT) {
+        return 1;
+    }
+
+    return 0;
+}

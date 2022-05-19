@@ -34,6 +34,7 @@ void Inject_All(void)
     INJECT(0x00444EE0, Lara_TestEdgeCatch, 1);
     INJECT(0x00444F90, Lara_DeflectEdge, 1);
     INJECT(0x00448BE0, Lara_TestClimb, 1);
+    INJECT(0x00448E60, Lara_TestClimbUpPos, 1);
 
     INJECT(0x00443360, Lara_GetHandAbsPosition, 1);
     INJECT(0x00443CA0, Lara_GetHandAbsPosition_I, 1);
