@@ -7,7 +7,6 @@
 #define Sound_StopEffect         ((void (*)(int32_t sfx_num))0x00467D00)
 #define Sound_PlayEffect         ((int32_t (*)(int32_t sfx_num, struct PHD_3DPOS *pos, int32_t flags))0x00467840)
 #define Lara_Animate             ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
-#define Lara_TestClimbPos        ((int32_t (*)(struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift))0x00449090)
 #define Lara_Gun                 ((void (*)(void))0x00449BB0)
 #define GetCeiling               ((int32_t (*)(struct FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z))0x00421DE0)
 #define Kayak_Control            ((int32_t (*)(void))0x0043B730)

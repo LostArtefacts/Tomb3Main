@@ -39,3 +39,6 @@ int32_t Lara_TestClimb(
 int32_t Lara_TestClimbUpPos(
     struct ITEM_INFO *item, int32_t front, int32_t right, int32_t *shift,
     int32_t *ledge);
+int32_t Lara_TestClimbPos(
+    struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin,
+    int32_t height, int32_t *shift);

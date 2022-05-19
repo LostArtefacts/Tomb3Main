@@ -1058,3 +1058,42 @@ int32_t Lara_TestClimbUpPos(
 
     return 0;
 }
+
+int32_t Lara_TestClimbPos(
+    struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin,
+    int32_t height, int32_t *shift)
+{
+    int32_t x;
+    int32_t y;
+    int32_t z;
+    int32_t x_front = 0;
+    int32_t z_front = 0;
+
+    y = item->pos.y + origin;
+
+    switch ((uint16_t)(item->pos.y_rot + DEG_45) / DEG_90) {
+    case DIR_NORTH:
+        z = item->pos.z + front;
+        x = item->pos.x + right;
+        z_front = 4;
+        break;
+    case DIR_EAST:
+        x = item->pos.x + front;
+        z = item->pos.z - right;
+        x_front = 4;
+        break;
+    case DIR_SOUTH:
+        z = item->pos.z - front;
+        x = item->pos.x - right;
+        z_front = -4;
+        break;
+    default:
+        x = item->pos.x - front;
+        z = item->pos.z + right;
+        x_front = -4;
+        break;
+    }
+
+    return Lara_TestClimb(
+        x, y, z, x_front, z_front, height, item->room_num, shift);
+}
