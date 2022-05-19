@@ -5,6 +5,10 @@
 #include "global/vars.h"
 #include "util.h"
 
+#define CLIMB_HEIGHT (STEP_L * 2) // = 512
+#define CLIMB_SHIFT 70
+#define CLIMB_HANG 900
+
 static PHD_ANGLE m_OldSlopeAngle = 1;
 
 PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
@@ -870,4 +874,101 @@ int32_t Lara_TestEdgeCatch(
     }
 
     return ABS(coll->left_floor2 - coll->right_floor2) < LARA_SLOPE_DIF ? 1 : 0;
+}
+
+int32_t Lara_TestClimb(
+    int32_t x, int32_t y, int32_t z, int32_t x_front, int32_t z_front,
+    int32_t item_height, int16_t item_room, int32_t *shift)
+{
+    bool hang = true;
+
+    *shift = 0;
+    if (!g_Lara.climb_status) {
+        return 0;
+    }
+
+    int16_t room_num = item_room;
+    struct FLOOR_INFO *floor = GetFloor(x, y - STEP_L / 2, z, &room_num);
+    int32_t height = GetHeight(floor, x, y, z);
+    if (height == NO_HEIGHT) {
+        return 0;
+    }
+
+    height -= y + item_height + STEP_L / 2;
+    if (height < -CLIMB_SHIFT) {
+        return 0;
+    } else if (height < 0) {
+        *shift = height;
+    }
+
+    int32_t ceiling = GetCeiling(floor, x, y, z) - y;
+    if (ceiling > CLIMB_SHIFT) {
+        return 0;
+    } else if (ceiling > 0) {
+        if (*shift) {
+            return 0;
+        }
+        *shift = ceiling;
+    }
+
+    if (item_height + height < CLIMB_HANG) {
+        hang = false;
+    }
+
+    floor = GetFloor(x + x_front, y, z + z_front, &room_num);
+    height = GetHeight(floor, x + x_front, y, z + z_front);
+    if (height != NO_HEIGHT) {
+        height -= y;
+    }
+
+    if (height > CLIMB_SHIFT) {
+        ceiling = GetCeiling(floor, x + x_front, y, z + z_front) - y;
+        if (ceiling >= CLIMB_HEIGHT) {
+            return 1;
+        } else if (ceiling > CLIMB_HEIGHT - CLIMB_SHIFT) {
+            if (*shift > 0) {
+                return hang ? -1 : 0;
+            }
+            *shift = ceiling - CLIMB_HEIGHT;
+            return 1;
+        } else if (ceiling > 0) {
+            return hang ? -1 : 0;
+        } else if (ceiling > -CLIMB_SHIFT && hang && *shift <= 0) {
+            if (*shift > ceiling) {
+                *shift = ceiling;
+            }
+            return -1;
+        } else {
+            return 0;
+        }
+    } else if (height > 0) {
+        if (*shift < 0) {
+            return 0;
+        }
+        if (height > *shift) {
+            *shift = height;
+        }
+    }
+
+    room_num = item_room;
+    floor = GetFloor(x, y + item_height, z, &room_num);
+    floor = GetFloor(x + x_front, y + item_height, z + z_front, &room_num);
+    ceiling = GetCeiling(floor, x + x_front, y + item_height, z + z_front);
+    if (ceiling == NO_HEIGHT) {
+        return 1;
+    }
+
+    ceiling -= y;
+    if (ceiling <= height) {
+        return 1;
+    }
+
+    if (ceiling >= CLIMB_HEIGHT) {
+        return 1;
+    } else if (ceiling > CLIMB_HEIGHT - CLIMB_SHIFT && *shift <= 0) {
+        *shift = ceiling - CLIMB_HEIGHT;
+        return 1;
+    } else {
+        return hang ? -1 : 0;
+    }
 }

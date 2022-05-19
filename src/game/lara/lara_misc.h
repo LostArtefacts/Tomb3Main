@@ -33,3 +33,6 @@ int16_t Lara_CeilingFront(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t dist);
 bool Lara_Fallen(struct ITEM_INFO *item, struct COLL_INFO *coll);
 int32_t Lara_TestEdgeCatch(
     struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t *edge);
+int32_t Lara_TestClimb(
+    int32_t x, int32_t y, int32_t z, int32_t x_front, int32_t z_front,
+    int32_t item_height, int16_t item_room, int32_t *shift);
