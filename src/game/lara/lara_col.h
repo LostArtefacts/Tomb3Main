@@ -51,4 +51,5 @@ void Lara_Col_SwanDive(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_FastDive(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Wade(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_ClimbLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Default(struct ITEM_INFO *item, struct COLL_INFO *coll);

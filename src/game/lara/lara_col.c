@@ -1551,6 +1551,22 @@ void Lara_Col_ClimbLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     Lara_ClimbLeftRight(item, coll, result, shift);
 }
 
+void Lara_Col_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (Lara_TestLetGo(item, coll)) {
+        return;
+    }
+
+    g_Lara.move_angle = item->pos.y_rot + DEG_90;
+
+    int32_t shift;
+    int32_t result = Lara_TestClimbPos(
+        item, coll->radius, coll->radius + LARA_CLIMB_WIDTH_R,
+        -LARA_CLIMB_HEIGHT, LARA_CLIMB_HEIGHT, &shift);
+
+    Lara_ClimbLeftRight(item, coll, result, shift);
+}
+
 void Lara_Col_Default(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Lara.move_angle = item->pos.y_rot;

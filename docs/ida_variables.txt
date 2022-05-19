@@ -706,7 +706,7 @@ FSD 00449290 00000017 void __cdecl Lara_State_ClimbDown(ITEM_INFO *item, COLL_IN
 FSD 004492B0 0000005D void __cdecl Lara_Col_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbleft
 FSC 00449310 000000CC int32_t __cdecl Lara_TestLetGo(ITEM_INFO *item, COLL_INFO *coll); // LaraCheckForLetGo
 FSC 004493E0 000000EF void __cdecl Lara_ClimbLeftRight(ITEM_INFO *item, COLL_INFO *coll, int32_t result, int32_t shift); // LaraDoClimbLeftRight
-FS- 004494D0 00000059 void __cdecl Lara_Col_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbright
+FSD 004494D0 00000059 void __cdecl Lara_Col_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbright
 FS- 00449530 0000020D void __cdecl Lara_Col_ClimbStance(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbstnc
 FS- 00449740 0000014C void __cdecl Lara_Col_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbing
 FS- 00449890 0000019D void __cdecl Lara_Col_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbdown
