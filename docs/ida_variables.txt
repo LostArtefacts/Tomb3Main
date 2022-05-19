@@ -1190,7 +1190,7 @@ F-- 00483FA0 00000033 void sub_483FA0();
 F-- 00483FE0 00000030 void sub_483FE0();
 FS- 00484010 000001D4 int32_t __cdecl GameStats(int32_t level_num, int32_t type);
 FSD 004841F0 0000001E int32_t __cdecl Random_GetControl(void); // GetRandomControl
-FS- 00484210 0000000A void __cdecl Random_SeedControl(int32_t seed); // SeedRandomControl
+FSD 00484210 0000000A void __cdecl Random_SeedControl(int32_t seed); // SeedRandomControl
 FS- 00484220 0000001E int32_t __cdecl Random_GetDraw(void); // GetRandomDraw
 FS- 00484240 0000000A void __cdecl Random_SeetDraw(int32_t seed); // SeedRandomDraw
 FS- 00484250 00000044 void __cdecl GetValidLevelsList(REQUEST_INFO *req);

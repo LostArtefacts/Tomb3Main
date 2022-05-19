@@ -163,5 +163,6 @@ void Inject_All(void)
     INJECT(0x004017D0, Matrix_RotYXZPack, 1);
     INJECT(0x004295E0, Matrix_RotYXZSuperpack, 1);
 
+    INJECT(0x00484210, Random_SeedControl, 1);
     INJECT(0x004841F0, Random_GetControl, 1);
 }
