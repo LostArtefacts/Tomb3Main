@@ -699,7 +699,7 @@ FSD 00448E60 00000229 int32_t __cdecl Lara_TestClimbUpPos(ITEM_INFO *item, int32
 FSD 00449090 000000B0 int32_t __cdecl Lara_TestClimbPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift); // LaraTestClimbPos
 FSD 00449140 00000038 void __cdecl Lara_State_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbleft
 FSD 00449180 00000038 void __cdecl Lara_State_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbright
-FS- 004491C0 00000078 void __cdecl Lara_State_ClimbSTNC(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbstnc
+FSD 004491C0 00000078 void __cdecl Lara_State_ClimbStance(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbstnc
 FS- 00449240 00000017 void __cdecl Lara_State_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbing
 FS- 00449260 00000021 void __cdecl Lara_State_ClimbEnd(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbend
 FS- 00449290 00000017 void __cdecl Lara_State_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbdown
@@ -707,7 +707,7 @@ FS- 004492B0 0000005D void __cdecl Lara_Col_ClimbLeft(ITEM_INFO *item, COLL_INFO
 FS- 00449310 000000CC int32_t __cdecl Lara_TestLetGo(ITEM_INFO *item, COLL_INFO *coll); // LaraCheckForLetGo
 FS- 004493E0 000000EF void __cdecl Lara_ClimbLeftRight(ITEM_INFO *item, COLL_INFO *coll, int32_t result, int32_t shift); // LaraDoClimbLeftRight
 FS- 004494D0 00000059 void __cdecl Lara_Col_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbright
-FS- 00449530 0000020D void __cdecl Lara_Col_ClimbSTNC(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbstnc
+FS- 00449530 0000020D void __cdecl Lara_Col_ClimbStance(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbstnc
 FS- 00449740 0000014C void __cdecl Lara_Col_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbing
 FS- 00449890 0000019D void __cdecl Lara_Col_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbdown
 FS- 00449A30 0000017F void __cdecl UpdateElectricityPoints(void);

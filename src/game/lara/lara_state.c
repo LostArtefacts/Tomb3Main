@@ -1130,7 +1130,7 @@ void Lara_State_ClimbLeft(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_angle = -30 * DEG_1;
     g_Camera.target_elevation = -15 * DEG_1;
     if (!(g_Input & IN_LEFT) && !(g_Input & IN_STEP_L)) {
-        item->goal_anim_state = LS_CLIMB_STNC;
+        item->goal_anim_state = LS_CLIMB_STANCE;
     }
 }
 
@@ -1141,7 +1141,28 @@ void Lara_State_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_angle = 30 * DEG_1;
     g_Camera.target_elevation = -15 * DEG_1;
     if (!(g_Input & IN_RIGHT) && !(g_Input & IN_STEP_R)) {
-        item->goal_anim_state = LS_CLIMB_STNC;
+        item->goal_anim_state = LS_CLIMB_STANCE;
+    }
+}
+
+void Lara_State_ClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.target_elevation = -20 * DEG_1;
+
+    if (g_Input & IN_LOOK) {
+        Lara_LookUpDown();
+    }
+
+    if ((g_Input & IN_LEFT) || (g_Input & IN_STEP_L)) {
+        item->goal_anim_state = LS_CLIMB_LEFT;
+    } else if ((g_Input & IN_RIGHT) || (g_Input & IN_STEP_R)) {
+        item->goal_anim_state = LS_CLIMB_RIGHT;
+    } else if (g_Input & IN_JUMP) {
+        item->goal_anim_state = LS_BACK_JUMP;
+        g_Lara.move_angle = item->pos.y_rot + DEG_180;
+        g_Lara.gun_status = LGS_ARMLESS;
     }
 }
 

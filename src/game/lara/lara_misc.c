@@ -321,7 +321,7 @@ bool Lara_TestVault(struct ITEM_INFO *item, struct COLL_INFO *coll)
         ShiftItem(item, coll);
         if (Lara_TestClimbStance(item, coll)) {
             item->current_anim_state = LS_STOP;
-            item->goal_anim_state = LS_CLIMB_STNC;
+            item->goal_anim_state = LS_CLIMB_STANCE;
             item->anim_num = LA_STOP;
             item->frame_num = g_Anims[LA_STOP].frame_base;
             Lara_Animate(item);
@@ -404,7 +404,7 @@ void Lara_TestHang(struct ITEM_INFO *item, struct COLL_INFO *coll)
         if (item->anim_num == LA_GRAB_LEDGE
             && item->frame_num == g_Anims[LA_GRAB_LEDGE].frame_base + 21) {
             if (Lara_TestClimbStance(item, coll)) {
-                item->goal_anim_state = LS_CLIMB_STNC;
+                item->goal_anim_state = LS_CLIMB_STANCE;
             }
         }
         return;
