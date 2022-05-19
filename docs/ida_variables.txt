@@ -697,12 +697,12 @@ FS- 00448650 00000582 void __cdecl AnimatePistols(int32_t weapon_type);
 FSD 00448BE0 00000280 int32_t __cdecl Lara_TestClimb(int32_t x, int32_t y, int32_t z, int32_t x_front, int32_t z_front, int32_t item_height, int16_t item_room, int32_t *shift); // LaraTestClimb
 FSD 00448E60 00000229 int32_t __cdecl Lara_TestClimbUpPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t *shift, int32_t *ledge); // LaraTestClimbUpPos
 FSD 00449090 000000B0 int32_t __cdecl Lara_TestClimbPos(ITEM_INFO *item, int32_t front, int32_t right, int32_t origin, int32_t height, int32_t *shift); // LaraTestClimbPos
-FS- 00449140 00000038 void __cdecl Lara_State_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbleft
+FSD 00449140 00000038 void __cdecl Lara_State_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbleft
 FS- 00449180 00000038 void __cdecl Lara_State_ClimbRight(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbright
 FS- 004491C0 00000078 void __cdecl Lara_State_ClimbSTNC(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbstnc
 FS- 00449240 00000017 void __cdecl Lara_State_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbing
 FS- 00449260 00000021 void __cdecl Lara_State_ClimbEnd(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbend
-FS- 00449290 00000017 void __cdecl Lara_State_climbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbdown
+FS- 00449290 00000017 void __cdecl Lara_State_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_as_climbdown
 FS- 004492B0 0000005D void __cdecl Lara_Col_ClimbLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbleft
 FS- 00449310 000000CC int32_t __cdecl Lara_TestLetGo(ITEM_INFO *item, COLL_INFO *coll); // LaraCheckForLetGo
 FS- 004493E0 000000EF void __cdecl Lara_ClimbLeftRight(ITEM_INFO *item, COLL_INFO *coll, int32_t result, int32_t shift); // LaraDoClimbLeftRight
