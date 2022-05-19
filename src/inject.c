@@ -162,6 +162,7 @@ void Inject_All(void)
     INJECT(0x004492B0, Lara_Col_ClimbLeft, 1);
     INJECT(0x004494D0, Lara_Col_ClimbRight, 1);
     INJECT(0x00449530, Lara_Col_ClimbStance, 1);
+    INJECT(0x00449740, Lara_Col_Climbing, 1);
     INJECT(0x00443290, Lara_Col_Default, 1);
 
     INJECT(0x004B4280, Matrix_Push, 1);

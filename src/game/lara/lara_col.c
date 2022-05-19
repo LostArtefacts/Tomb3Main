@@ -1670,6 +1670,62 @@ void Lara_Col_ClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 }
 
+void Lara_Col_Climbing(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    if (Lara_TestLetGo(item, coll)) {
+        return;
+    }
+
+    if (item->anim_num != LA_CLIMBING) {
+        return;
+    }
+
+    int32_t shift;
+    int32_t frame = item->frame_num - g_Anims[LA_CLIMBING].frame_base;
+    if (frame == 0) {
+        shift = 0;
+    } else if (frame == 28 || frame == 29) {
+        shift = -STEP_L;
+    } else if (frame == 57) {
+        shift = -STEP_L * 2;
+    } else {
+        return;
+    }
+
+    item->pos.y += shift - STEP_L;
+    int32_t shift_l;
+    int32_t shift_r;
+    int32_t ledge_l;
+    int32_t ledge_r;
+    int32_t result_r = Lara_TestClimbUpPos(
+        item, coll->radius, coll->radius + LARA_CLIMB_WIDTH_R, &shift_r,
+        &ledge_r);
+    int32_t result_l = Lara_TestClimbUpPos(
+        item, coll->radius, -coll->radius - LARA_CLIMB_WIDTH_L, &shift_l,
+        &ledge_l);
+    item->pos.y += STEP_L;
+
+    if (!result_r || !result_l || !(g_Input & IN_FORWARD)) {
+        item->goal_anim_state = LS_CLIMB_STANCE;
+        if (shift) {
+            Lara_Animate(item);
+        }
+        return;
+    }
+
+    if (result_r < 0 || result_l < 0) {
+        item->goal_anim_state = LS_CLIMB_STANCE;
+        Lara_Animate(item);
+        if (ABS(ledge_l - ledge_r) <= LARA_CLIMB_WIDTH_L) {
+            item->goal_anim_state = LS_NULL;
+            item->pos.y += (ledge_l + ledge_r) / 2 - STEP_L;
+        }
+    } else {
+        item->goal_anim_state = LS_CLIMBING;
+        item->pos.y -= shift;
+    }
+}
+
 void Lara_Col_Default(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     g_Lara.move_angle = item->pos.y_rot;
