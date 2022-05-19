@@ -102,6 +102,7 @@ void Inject_All(void)
     INJECT(0x00449140, Lara_State_ClimbLeft, 1);
     INJECT(0x00449180, Lara_State_ClimbRight, 1);
     INJECT(0x004491C0, Lara_State_ClimbStance, 1);
+    INJECT(0x00449240, Lara_State_Climbing, 1);
     INJECT(0x00441CA0, Lara_StateExtra_Breath, 1);
     INJECT(0x00441CF0, Lara_StateExtra_SharkKill, 1);
     INJECT(0x00441D90, Lara_StateExtra_AirLock, 1);
