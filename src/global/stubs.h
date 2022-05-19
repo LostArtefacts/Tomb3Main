@@ -8,6 +8,8 @@
 #define Sound_PlayEffect         ((int32_t (*)(int32_t sfx_num, struct PHD_3DPOS *pos, int32_t flags))0x00467840)
 #define Lara_Animate             ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
 #define Lara_Gun                 ((void (*)(void))0x00449BB0)
+#define Lara_TestLetGo           ((int32_t (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x00449310)
+#define Lara_ClimbLeftRight      ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll, int32_t result, int32_t shift))0x004493E0)
 #define GetCeiling               ((int32_t (*)(struct FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z))0x00421DE0)
 #define Kayak_Control            ((int32_t (*)(void))0x0043B730)
 #define QuadBike_Control         ((int32_t (*)(void))0x0045EE20)

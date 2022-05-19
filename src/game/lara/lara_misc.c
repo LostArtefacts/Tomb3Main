@@ -5,10 +5,6 @@
 #include "global/vars.h"
 #include "util.h"
 
-#define CLIMB_HEIGHT (STEP_L * 2) // = 512
-#define CLIMB_SHIFT 70
-#define CLIMB_HANG 900
-
 static PHD_ANGLE m_OldSlopeAngle = 1;
 
 PHD_ANGLE Lara_SnapAngle(PHD_ANGLE angle, PHD_ANGLE snap)
@@ -895,14 +891,14 @@ int32_t Lara_TestClimb(
     }
 
     height -= y + item_height + STEP_L / 2;
-    if (height < -CLIMB_SHIFT) {
+    if (height < -LARA_CLIMB_SHIFT) {
         return 0;
     } else if (height < 0) {
         *shift = height;
     }
 
     int32_t ceiling = GetCeiling(floor, x, y, z) - y;
-    if (ceiling > CLIMB_SHIFT) {
+    if (ceiling > LARA_CLIMB_SHIFT) {
         return 0;
     } else if (ceiling > 0) {
         if (*shift) {
@@ -911,7 +907,7 @@ int32_t Lara_TestClimb(
         *shift = ceiling;
     }
 
-    if (item_height + height < CLIMB_HANG) {
+    if (item_height + height < LARA_CLIMB_HANG) {
         hang = false;
     }
 
@@ -921,19 +917,19 @@ int32_t Lara_TestClimb(
         height -= y;
     }
 
-    if (height > CLIMB_SHIFT) {
+    if (height > LARA_CLIMB_SHIFT) {
         ceiling = GetCeiling(floor, x + x_front, y, z + z_front) - y;
-        if (ceiling >= CLIMB_HEIGHT) {
+        if (ceiling >= LARA_CLIMB_HEIGHT) {
             return 1;
-        } else if (ceiling > CLIMB_HEIGHT - CLIMB_SHIFT) {
+        } else if (ceiling > LARA_CLIMB_HEIGHT - LARA_CLIMB_SHIFT) {
             if (*shift > 0) {
                 return hang ? -1 : 0;
             }
-            *shift = ceiling - CLIMB_HEIGHT;
+            *shift = ceiling - LARA_CLIMB_HEIGHT;
             return 1;
         } else if (ceiling > 0) {
             return hang ? -1 : 0;
-        } else if (ceiling > -CLIMB_SHIFT && hang && *shift <= 0) {
+        } else if (ceiling > -LARA_CLIMB_SHIFT && hang && *shift <= 0) {
             if (*shift > ceiling) {
                 *shift = ceiling;
             }
@@ -963,10 +959,10 @@ int32_t Lara_TestClimb(
         return 1;
     }
 
-    if (ceiling >= CLIMB_HEIGHT) {
+    if (ceiling >= LARA_CLIMB_HEIGHT) {
         return 1;
-    } else if (ceiling > CLIMB_HEIGHT - CLIMB_SHIFT && *shift <= 0) {
-        *shift = ceiling - CLIMB_HEIGHT;
+    } else if (ceiling > LARA_CLIMB_HEIGHT - LARA_CLIMB_SHIFT && *shift <= 0) {
+        *shift = ceiling - LARA_CLIMB_HEIGHT;
         return 1;
     } else {
         return hang ? -1 : 0;
@@ -983,7 +979,7 @@ int32_t Lara_TestClimbUpPos(
     int32_t x_front = 0;
     int32_t z_front = 0;
 
-    y = item->pos.y - CLIMB_HEIGHT - STEP_L;
+    y = item->pos.y - LARA_CLIMB_HEIGHT - STEP_L;
 
     switch ((uint16_t)(item->pos.y_rot + DEG_45) / DEG_90) {
     case DIR_NORTH:
@@ -1014,7 +1010,7 @@ int32_t Lara_TestClimbUpPos(
     struct FLOOR_INFO *floor = GetFloor(x, y, z, &room_num);
     int32_t ceiling = GetCeiling(floor, x, y, z) - (y - STEP_L);
 
-    if (ceiling > CLIMB_SHIFT) {
+    if (ceiling > LARA_CLIMB_SHIFT) {
         return 0;
     } else if (ceiling > 0) {
         *shift = ceiling;
@@ -1032,7 +1028,7 @@ int32_t Lara_TestClimbUpPos(
 
     if (height > STEP_L / 2) {
         ceiling = GetCeiling(floor, x + x_front, y, z + z_front) - y;
-        if (ceiling >= CLIMB_HEIGHT) {
+        if (ceiling >= LARA_CLIMB_HEIGHT) {
             return 1;
         } else if (height - ceiling > LARA_HEIGHT) {
             *shift = height;
@@ -1045,14 +1041,16 @@ int32_t Lara_TestClimbUpPos(
     }
 
     room_num = item->room_num;
-    floor = GetFloor(x, y + CLIMB_HEIGHT, z, &room_num);
-    floor = GetFloor(x + x_front, y + CLIMB_HEIGHT, z + z_front, &room_num);
-    ceiling = GetCeiling(floor, x + x_front, y + CLIMB_HEIGHT, z + z_front) - y;
+    floor = GetFloor(x, y + LARA_CLIMB_HEIGHT, z, &room_num);
+    floor =
+        GetFloor(x + x_front, y + LARA_CLIMB_HEIGHT, z + z_front, &room_num);
+    ceiling =
+        GetCeiling(floor, x + x_front, y + LARA_CLIMB_HEIGHT, z + z_front) - y;
     if (ceiling <= height) {
         return 1;
     }
 
-    if (ceiling >= CLIMB_HEIGHT) {
+    if (ceiling >= LARA_CLIMB_HEIGHT) {
         return 1;
     }
 

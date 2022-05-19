@@ -56,6 +56,9 @@
 #define LARA_STEP_UP_HEIGHT          ((STEP_L * 3) / 2) // = 384
 #define LARA_CLIMB_WIDTH_R           120
 #define LARA_CLIMB_WIDTH_L           120
+#define LARA_CLIMB_HEIGHT            (STEP_L * 2) // = 512
+#define LARA_CLIMB_SHIFT             70
+#define LARA_CLIMB_HANG              900
 #define LARA_VAULT_ANGLE             (DEG_1 * 30) // = 5460
 #define LARA_SLOPE_DIF               60
 #define LARA_DEF_ADD_EDGE            (DEG_1 * 5) // = 910
