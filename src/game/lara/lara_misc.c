@@ -1095,3 +1095,34 @@ int32_t Lara_TestClimbPos(
     return Lara_TestClimb(
         x, y, z, x_front, z_front, height, item->room_num, shift);
 }
+
+bool Lara_TestLetGo(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    item->gravity_status = 0;
+    item->fall_speed = 0;
+
+    int16_t room_num = item->room_num;
+    struct FLOOR_INFO *floor =
+        GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
+    GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
+    coll->trigger = g_TriggerIndex;
+
+    if ((g_Input & IN_ACTION) && item->hit_points > 0) {
+        return false;
+    }
+
+    g_Lara.head_x_rot = 0;
+    g_Lara.head_y_rot = 0;
+    g_Lara.torso_x_rot = 0;
+    g_Lara.torso_y_rot = 0;
+
+    item->current_anim_state = LS_FORWARD_JUMP;
+    item->goal_anim_state = LS_FORWARD_JUMP;
+    item->anim_num = LA_FALL_DOWN;
+    item->frame_num = g_Anims[item->anim_num].frame_base;
+    item->gravity_status = 1;
+    item->speed = 2;
+    item->fall_speed = 1;
+    g_Lara.gun_status = LGS_ARMLESS;
+    return true;
+}

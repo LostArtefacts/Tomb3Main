@@ -42,3 +42,4 @@ int32_t Lara_TestClimbUpPos(
 int32_t Lara_TestClimbPos(
     struct ITEM_INFO *item, int32_t front, int32_t right, int32_t origin,
     int32_t height, int32_t *shift);
+bool Lara_TestLetGo(struct ITEM_INFO *item, struct COLL_INFO *coll);
