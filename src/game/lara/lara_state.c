@@ -1173,6 +1173,14 @@ void Lara_State_Climbing(struct ITEM_INFO *item, struct COLL_INFO *coll)
     g_Camera.target_elevation = 30 * DEG_1;
 }
 
+void Lara_State_ClimbEnd(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+    g_Camera.flags = CAMERA_FOLLOW_CENTRE;
+    g_Camera.target_angle = -45 * DEG_1;
+}
+
 void Lara_StateExtra_Breath(struct ITEM_INFO *item, struct COLL_INFO *coll)
 {
     item->goal_anim_state = LS_STOP;
