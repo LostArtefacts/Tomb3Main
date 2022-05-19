@@ -54,4 +54,5 @@ void Lara_Col_ClimbLeft(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_ClimbRight(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_ClimbStance(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Climbing(struct ITEM_INFO *item, struct COLL_INFO *coll);
+void Lara_Col_ClimbDown(struct ITEM_INFO *item, struct COLL_INFO *coll);
 void Lara_Col_Default(struct ITEM_INFO *item, struct COLL_INFO *coll);
