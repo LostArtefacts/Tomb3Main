@@ -25,4 +25,3 @@
 #define g_GotJointPos ARR(0x006D6190, uint8_t, [15])
 #define g_ZFar VAR(0x004F6D44, int32_t)
 #define g_IsJointUnderwater ARR(0x006D6290, uint8_t, [15])
-#define g_RandDraw VAR(0x004CD8AC, int32_t)
