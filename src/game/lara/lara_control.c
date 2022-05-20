@@ -109,3 +109,24 @@ void Lara_HandleAboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
         g_LaraItem->item_flags[1] = 0;
     }
 }
+
+void Lara_CheatGetStuff(void)
+{
+    Inv_AddItem(O_M16_ITEM);
+    Inv_AddItem(O_SHOTGUN_ITEM);
+    Inv_AddItem(O_UZI_ITEM);
+    Inv_AddItem(O_MAGNUM_ITEM);
+    Inv_AddItem(O_GUN_ITEM);
+    Inv_AddItem(O_ROCKET_GUN_ITEM);
+    Inv_AddItem(O_GRENADE_GUN_ITEM);
+
+    Inv_AddItem(O_FLAREBOX_ITEM);
+    Inv_AddItem(O_MEDI_ITEM);
+    Inv_AddItem(O_BIGMEDI_ITEM);
+
+    g_Lara.magnums.ammo = 250;
+    g_Lara.uzis.ammo = 1000;
+    g_Lara.shotgun.ammo = 300;
+    g_Lara.m16.ammo = 300;
+    g_Lara.grenade.ammo = 1000;
+}

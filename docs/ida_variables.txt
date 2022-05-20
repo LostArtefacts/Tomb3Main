@@ -449,7 +449,7 @@ FS- 00437160 00000177 void __cdecl RingIsOpen(RING_INFO *ring);
 FS- 004372F0 00000081 void __cdecl RingIsNotOpen(RING_INFO *ring);
 FS- 00437380 000003CA void __cdecl RingNotActive(INVENTORY_ITEM *inv_item);
 FS- 00437870 00000032 void __cdecl RingActive(void);
-FS- 004378B0 00000811 int32_t __cdecl Inv_AddItem(int32_t item_num);
+FSC 004378B0 00000811 int32_t __cdecl Inv_AddItem(int32_t item_num);
 FS- 00438250 00000129 void __cdecl Inv_InsertItem(INVENTORY_ITEM *inv_item);
 FS- 00438380 00000077 int32_t __cdecl Inv_RequestItem(int32_t item_num);
 FS- 00438400 0000001B void __cdecl Inv_RemoveAllItems(void);
@@ -734,7 +734,7 @@ FS- 0044C3C0 00000018 void __cdecl draw_flare_meshes(void);
 FS- 0044C3E0 00000018 void __cdecl undraw_flare_meshes(void);
 FS- 0044C400 0000003E void __cdecl ready_flare(void);
 FS- 0044C440 000001E5 void __cdecl FlareControl(int16_t item_num);
-FS- 0044C630 000000B7 void __cdecl Lara_CheatGetStuff(void); // LaraCheatGetStuff
+FSD 0044C630 000000B7 void __cdecl Lara_CheatGetStuff(void); // LaraCheatGetStuff
 FS- 0044C6F0 000008A4 void __cdecl Lara_Control(int16_t item_num); // LaraControl
 FS- 0044CFC0 0000009C void __cdecl Lara_Cheat(ITEM_INFO *item, COLL_INFO *coll); // LaraCheat
 FS- 0044D060 00000129 void __cdecl Lara_InitialiseMeshes(int32_t level_num); // LaraInitialiseMeshes

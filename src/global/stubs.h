@@ -21,6 +21,7 @@
 #define Matrix_InitInterpolate   ((void (*)(int32_t frac, int32_t rate))0x00429350)
 #define Matrix_Interpolate       ((void (*)(void))0x004296C0)
 #define Matrix_InterpolateArms   ((void (*)(void))0x00429930)
+#define Inv_AddItem              ((int32_t (*)(int32_t item_num))0x004378B0)
 // clang-format on
 
 // clang-format off
