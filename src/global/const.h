@@ -27,7 +27,9 @@
 
 #define LARA_HIT_POINTS              1000
 #define LARA_RADIUS                  100
+#define LARA_RADIUS_UW               300
 #define LARA_HEIGHT                  762
+#define LARA_HEIGHT_UW               400
 #define LARA_HANG_HEIGHT             600
 #define LARA_DUCK_RADIUS             (LARA_RADIUS * 2) // = 200
 #define LARA_CRAWL_RADIUS            (LARA_RADIUS * 2 + LARA_RADIUS / 2) // = 250
@@ -47,6 +49,7 @@
 #define LARA_LEAN_RATE               ((DEG_1 / 2) + LARA_LEAN_UNDO) // = 273
 #define LARA_LEAN_MAX                ((DEG_1 * 10) + LARA_LEAN_UNDO) // = 2002
 #define LARA_LEAN_MAX_DASH           ((DEG_1 * 15) + LARA_LEAN_UNDO) // = 2912
+#define LARA_LEAN_MAX_UW             (LARA_LEAN_MAX * 2) // = 4004
 
 #define LARA_JUMP_TURN               (DEG_1 + LARA_TURN_UNDO) // = 546
 #define LARA_FALL_DAMAGE_START       140

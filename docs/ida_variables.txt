@@ -194,7 +194,7 @@ FS- 0041E170 000003DB int32_t __cdecl CollideStaticObjects(COLL_INFO *coll, int3
 FS- 0041E560 000000C8 void __cdecl GetNearByRooms(int32_t x, int32_t y, int32_t z, int32_t r, int32_t h, int16_t room_num);
 FS- 0041E630 00000055 void __cdecl GetNewRoom(int32_t x, int32_t y, int32_t z, int16_t room_num);
 FSC 0041E690 00000037 void __cdecl ShiftItem(ITEM_INFO *item, COLL_INFO *coll);
-FSC 0041E6D0 0000005D void __cdecl UpdateLaraRoom(ITEM_INFO *item, int32_t height);
+FSC 0041E6D0 0000005D void __cdecl Item_UpdateRoom(ITEM_INFO *item, int32_t height); // UpdateLaraRoom
 FS- 0041E730 0000019A int16_t __cdecl GetTiltType(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FSC 0041E8D0 0000018C void __cdecl LaraBaddieCollision(ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 0041EA60 00000170 void __cdecl CreatureCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
@@ -219,7 +219,7 @@ FSC 00420A80 000001E1 FLOOR_INFO *__cdecl GetFloor(int32_t x, int32_t y, int32_t
 FSC 00420C70 00000192 int32_t __cdecl GetWaterHeight(int32_t x, int32_t y, int32_t z, int16_t room_num);
 FSC 00420E10 00000514 int32_t __cdecl GetHeight(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 00421370 000000EE void __cdecl RefreshCamera(int16_t type, int16_t *data);
-FSC 00421460 000008C7 void __cdecl TestTriggers(int16_t *data, int32_t heavy);
+FSC 00421460 000008C7 void __cdecl Room_TestTriggers(int16_t *data, int32_t heavy); // TestTriggers
 FS- 00421D80 00000055 int32_t __cdecl TriggerActive(ITEM_INFO *item);
 FSC 00421DE0 0000049F int32_t __cdecl GetCeiling(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
 FS- 004222B0 000000B2 int16_t __cdecl GetDoor(FLOOR_INFO *floor);
@@ -711,7 +711,7 @@ FSD 00449530 0000020D void __cdecl Lara_Col_ClimbStance(ITEM_INFO *item, COLL_IN
 FSD 00449740 0000014C void __cdecl Lara_Col_Climbing(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbing
 FSD 00449890 0000019D void __cdecl Lara_Col_ClimbDown(ITEM_INFO *item, COLL_INFO *coll); // lara_col_climbdown
 FS- 00449A30 0000017F void __cdecl UpdateElectricityPoints(void);
-FSC 00449BB0 0000055A void __cdecl Lara_Gun(void); // LaraGun
+FSC 00449BB0 0000055A void __cdecl Gun_Control(void); // LaraGun
 FS- 0044A1A0 0000003B int32_t __cdecl CheckForHoldingState(int32_t state);
 FS- 0044A1E0 0000011D void __cdecl InitialiseNewWeapon(void);
 FS- 0044A330 00000194 void __cdecl LaraTargetInfo(WEAPON_INFO *winfo);
@@ -759,7 +759,7 @@ FS- 0044E860 00000023 void __cdecl Lara_Col_SurfBack(ITEM_INFO *item, COLL_INFO 
 FS- 0044E890 00000023 void __cdecl Lara_Col_SurfLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_col_surfleft
 FS- 0044E8C0 00000023 void __cdecl Lara_Col_SurfRight(ITEM_INFO *item, COLL_INFO *coll); // lara_col_surfright
 FS- 0044E8F0 00000057 void __cdecl Lara_Col_SurfTread(ITEM_INFO *item, COLL_INFO *coll); // lara_col_surftread
-FS- 0044E950 0000024B void __cdecl Lara_Underwater(ITEM_INFO *item, COLL_INFO *coll); // LaraUnderWater
+FSD 0044E950 0000024B void __cdecl Lara_HandleUnderwater(ITEM_INFO *item, COLL_INFO *coll); // LaraUnderWater
 FS- 0044EBA0 0000006B void __cdecl Lara_State_Swim(ITEM_INFO *item, COLL_INFO *coll); // lara_as_swim
 FS- 0044EC10 00000086 void __cdecl Lara_SwimTurn(ITEM_INFO *item); // SwimTurn
 FS- 0044ECA0 00000076 void __cdecl Lara_State_Glide(ITEM_INFO *item, COLL_INFO *coll); // lara_as_glide
@@ -776,7 +776,7 @@ FS- 0044F0E0 00000013 void __cdecl Lara_Col_Dive(ITEM_INFO *item, COLL_INFO *col
 FS- 0044F100 0000005B void __cdecl Lara_Col_UWDeath(ITEM_INFO *item, COLL_INFO *coll); // lara_col_uwdeath
 FS- 0044F160 00000013 void __cdecl Lara_Col_WaterRoll(ITEM_INFO *item, COLL_INFO *coll); // lara_col_waterroll
 FS- 0044F180 0000018F int32_t __cdecl GetWaterDepth(int32_t x, int32_t y, int32_t z, int16_t room_num);
-FS- 0044F310 0000026D void __cdecl Lara_WaterCurrent(COLL_INFO *coll); // LaraWaterCurrent
+FSC 0044F310 0000026D void __cdecl Lara_WaterCurrent(COLL_INFO *coll); // LaraWaterCurrent
 FS- 0044F580 00000213 int32_t __cdecl Lara_IsOnLOS(GAME_VECTOR *start, GAME_VECTOR *target); // LaraOnLOS
 FS- 0044F7A0 00000063 void __cdecl UpdateLaserShades(void);
 FS- 0044F810 0000001F void __cdecl LaserControl(int16_t item_num);

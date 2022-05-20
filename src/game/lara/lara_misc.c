@@ -708,7 +708,7 @@ bool Lara_LandedBad(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 
     g_LaraOnPad = 0;
-    TestTriggers(g_TriggerIndex, 0);
+    Room_TestTriggers(g_TriggerIndex, 0);
     if (!g_LaraOnPad) {
         g_LaraItem->item_flags[1] = 0;
     }

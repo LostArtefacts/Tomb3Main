@@ -45,6 +45,7 @@ void Inject_All(void)
     INJECT(0x00444770, Lara_LookLeftRight, 1);
 
     INJECT(0x0043E800, Lara_HandleAboveWater, 1);
+    INJECT(0x0044E950, Lara_HandleUnderwater, 1);
     INJECT(0x0044C630, Lara_CheatGetStuff, 1);
 
     INJECT(0x0043EA20, Lara_State_Duck, 1);

@@ -62,7 +62,7 @@ void Lara_HandleAboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
             break;
 
         default:
-            Lara_Gun();
+            Gun_Control();
             return;
         }
     }
@@ -99,12 +99,107 @@ void Lara_HandleAboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
         }
     }
 
-    UpdateLaraRoom(item, -LARA_HEIGHT / 2);
+    Item_UpdateRoom(item, -LARA_HEIGHT / 2);
 
-    Lara_Gun();
+    Gun_Control();
 
     g_LaraOnPad = 0;
-    TestTriggers(coll->trigger, 0);
+    Room_TestTriggers(coll->trigger, 0);
+    if (!g_LaraOnPad) {
+        g_LaraItem->item_flags[1] = 0;
+    }
+}
+
+void Lara_HandleUnderwater(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -LARA_HEIGHT_UW;
+    coll->bad_ceiling = LARA_HEIGHT_UW;
+    coll->old.x = item->pos.x;
+    coll->old.y = item->pos.y;
+    coll->old.z = item->pos.z;
+    coll->radius = LARA_RADIUS_UW;
+    coll->trigger = NULL;
+    coll->slopes_are_walls = 0;
+    coll->slopes_are_pits = 0;
+    coll->lava_is_pit = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 1;
+
+    if ((g_Input & IN_LOOK) && g_Lara.look) {
+        Lara_LookLeftRight();
+    } else {
+        Lara_ResetLook();
+    }
+    g_Lara.look = 1;
+
+    if (g_Lara.extra_anim) {
+        g_LaraExtraControlRoutines[item->current_anim_state](item, coll);
+    } else {
+        g_LaraControlRoutines[item->current_anim_state](item, coll);
+    }
+
+    if (item->pos.z_rot < -2 * LARA_LEAN_UNDO) {
+        item->pos.z_rot += 2 * LARA_LEAN_UNDO;
+    } else if (item->pos.z_rot > 2 * LARA_LEAN_UNDO) {
+        item->pos.z_rot -= 2 * LARA_LEAN_UNDO;
+    } else {
+        item->pos.z_rot = 0;
+    }
+
+    if (item->pos.x_rot < -85 * DEG_1) {
+        item->pos.x_rot = -85 * DEG_1;
+    } else if (item->pos.x_rot > 85 * DEG_1) {
+        item->pos.x_rot = 85 * DEG_1;
+    }
+
+    if (item->pos.z_rot < -LARA_LEAN_MAX_UW) {
+        item->pos.z_rot = -LARA_LEAN_MAX_UW;
+    } else if (item->pos.z_rot > LARA_LEAN_MAX_UW) {
+        item->pos.z_rot = LARA_LEAN_MAX_UW;
+    }
+
+    if (g_Lara.turn_rate < -LARA_TURN_UNDO) {
+        g_Lara.turn_rate += LARA_TURN_UNDO;
+    } else if (g_Lara.turn_rate > LARA_TURN_UNDO) {
+        g_Lara.turn_rate -= LARA_TURN_UNDO;
+    } else {
+        g_Lara.turn_rate = 0;
+    }
+    item->pos.y_rot += g_Lara.turn_rate;
+
+    if (g_Lara.current_active && g_Lara.water_status != LWS_CHEAT) {
+        Lara_WaterCurrent(coll);
+    }
+
+    Lara_Animate(item);
+
+    item->pos.y -=
+        (phd_sin(item->pos.x_rot) * item->fall_speed) >> (W2V_SHIFT + 2);
+    item->pos.x +=
+        (((phd_sin(item->pos.y_rot) * item->fall_speed) >> (W2V_SHIFT + 2))
+         * phd_cos(item->pos.x_rot))
+        >> W2V_SHIFT;
+    item->pos.z +=
+        (((phd_cos(item->pos.y_rot) * item->fall_speed) >> (W2V_SHIFT + 2))
+         * phd_cos(item->pos.x_rot))
+        >> W2V_SHIFT;
+
+    if (!g_Lara.extra_anim) {
+        if (g_Lara.water_status != LWS_CHEAT) {
+            LaraBaddieCollision(item, coll);
+        }
+        if (g_Lara.skidoo == NO_ITEM) {
+            g_LaraCollisionRoutines[item->current_anim_state](item, coll);
+        }
+    }
+
+    Item_UpdateRoom(item, 0);
+
+    Gun_Control();
+
+    g_LaraOnPad = 0;
+    Room_TestTriggers(coll->trigger, 0);
     if (!g_LaraOnPad) {
         g_LaraItem->item_flags[1] = 0;
     }

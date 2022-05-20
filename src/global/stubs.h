@@ -7,7 +7,8 @@
 #define Sound_StopEffect         ((void (*)(int32_t sfx_num))0x00467D00)
 #define Sound_PlayEffect         ((int32_t (*)(int32_t sfx_num, struct PHD_3DPOS *pos, int32_t flags))0x00467840)
 #define Lara_Animate             ((void (*)(struct ITEM_INFO *item))0x0044D2A0)
-#define Lara_Gun                 ((void (*)(void))0x00449BB0)
+#define Lara_WaterCurrent        ((void (*)(struct COLL_INFO *coll))0x0044F310)
+#define Gun_Control              ((void (*)(void))0x00449BB0)
 #define Item_Animate             ((void (*)(struct ITEM_INFO *item))0x00420590)
 #define Kayak_Control            ((int32_t (*)(void))0x0043B730)
 #define QuadBike_Control         ((int32_t (*)(void))0x0045EE20)
@@ -22,11 +23,12 @@
 #define Matrix_Interpolate       ((void (*)(void))0x004296C0)
 #define Matrix_InterpolateArms   ((void (*)(void))0x00429930)
 #define Inv_AddItem              ((int32_t (*)(int32_t item_num))0x004378B0)
+#define Item_UpdateRoom          ((void (*)(struct ITEM_INFO *item, int32_t height))0x0041E6D0)
+#define Room_TestTriggers        ((void (*)(int16_t *data, int32_t heavy))0x00421460)
 // clang-format on
 
 // clang-format off
 // TODO: apply naming conventions
-#define UpdateLaraRoom           ((void (*)(struct ITEM_INFO *item, int32_t height))0x0041E6D0)
 #define LaraBaddieCollision      ((void (*)(struct ITEM_INFO *lara_item, struct COLL_INFO *coll))0x0041E8D0)
 #define GetCollisionInfo         ((void (*)(struct COLL_INFO *info, int32_t x, int32_t y, int32_t z, int16_t room_num, int32_t obj_height))0x0041D500)
 #define GetStaticObjects         ((int32_t (*)(struct ITEM_INFO *item, PHD_ANGLE ang, int32_t height, int32_t radius, int32_t dist))0x00445020)
@@ -37,7 +39,6 @@
 #define GetFloor                 ((struct FLOOR_INFO *(*)(int32_t x, int32_t y, int32_t z, int16_t *room_num))0x00420A80)
 #define AlterFOV                 ((void (*)(PHD_ANGLE fov))0x00402030)
 #define GetFrames                ((int32_t (*)(struct ITEM_INFO *item, int16_t *frm[], int32_t *rate))0x00429DB0)
-#define TestTriggers             ((void (*)(int16_t *data, int32_t heavy))0x00421460)
 #define ShiftItem                ((void (*)(struct ITEM_INFO *item, struct COLL_INFO *coll))0x0041E690)
 #define GetBoundsAccurate        ((int16_t *(*)(struct ITEM_INFO *item))0x00429E50)
 #define phd_sqrt                 ((int32_t (__fastcall *)(int32_t n))0x004B4C93)

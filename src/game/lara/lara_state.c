@@ -1251,7 +1251,7 @@ void Lara_StateExtra_StartAnim(struct ITEM_INFO *item, struct COLL_INFO *coll)
     struct FLOOR_INFO *floor =
         GetFloor(item->pos.x, item->pos.y, item->pos.z, &room_num);
     GetHeight(floor, item->pos.x, item->pos.y, item->pos.z);
-    TestTriggers(g_TriggerIndex, 0);
+    Room_TestTriggers(g_TriggerIndex, 0);
 }
 
 void Lara_StateExtra_TrainKill(struct ITEM_INFO *item, struct COLL_INFO *col)
