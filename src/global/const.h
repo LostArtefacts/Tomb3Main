@@ -28,6 +28,7 @@
 #define LARA_HIT_POINTS              1000
 #define LARA_RADIUS                  100
 #define LARA_RADIUS_UW               300
+#define LARA_RADIUS_SURF             LARA_RADIUS
 #define LARA_HEIGHT                  762
 #define LARA_HEIGHT_UW               400
 #define LARA_HANG_HEIGHT             600

@@ -196,7 +196,7 @@ FS- 0041E630 00000055 void __cdecl GetNewRoom(int32_t x, int32_t y, int32_t z, i
 FSC 0041E690 00000037 void __cdecl ShiftItem(ITEM_INFO *item, COLL_INFO *coll);
 FSC 0041E6D0 0000005D void __cdecl Item_UpdateRoom(ITEM_INFO *item, int32_t height); // UpdateLaraRoom
 FS- 0041E730 0000019A int16_t __cdecl GetTiltType(FLOOR_INFO *floor, int32_t x, int32_t y, int32_t z);
-FSC 0041E8D0 0000018C void __cdecl LaraBaddieCollision(ITEM_INFO *lara_item, COLL_INFO *coll);
+FSC 0041E8D0 0000018C void __cdecl Lara_BaddieCollision(ITEM_INFO *lara_item, COLL_INFO *coll); // LaraBaddieCollision
 FS- 0041EA60 00000170 void __cdecl CreatureCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 0041EBD0 0000005C void __cdecl ObjectCollision(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
 FS- 0041EC30 00000053 void __cdecl ObjectCollisionSub(int16_t item_num, ITEM_INFO *lara_item, COLL_INFO *coll);
@@ -745,7 +745,7 @@ FS- 0044D880 0000001F void __cdecl ControlLaraExtra(int16_t item_num);
 FS- 0044D8A0 00000024 void __cdecl Lara_InitialiseLoad(int16_t item_num); // InitialiseLaraLoad
 FS- 0044D8D0 0000032C void __cdecl Lara_Initialise(int32_t type); // InitialiseLara
 FS- 0044DC00 00000443 void __cdecl Lara_InitialiseInventory(int32_t level_num); // InitialiseLaraInventory
-FS- 0044E050 00000170 void __cdecl Lara_Surface(ITEM_INFO *item, COLL_INFO *coll); // LaraSurface
+FSD 0044E050 00000170 void __cdecl Lara_HandleSurface(ITEM_INFO *item, COLL_INFO *coll); // LaraSurface
 FS- 0044E1C0 00000070 void __cdecl Lara_State_SurfSwim(ITEM_INFO *item, COLL_INFO *coll); // lara_as_surfswim
 FS- 0044E230 0000005E void __cdecl Lara_State_SurfBack(ITEM_INFO *item, COLL_INFO *coll); // lara_as_surfback
 FS- 0044E290 00000060 void __cdecl Lara_State_SurfLeft(ITEM_INFO *item, COLL_INFO *coll); // lara_as_surfleft

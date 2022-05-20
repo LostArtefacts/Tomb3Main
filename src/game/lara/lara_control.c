@@ -93,7 +93,7 @@ void Lara_HandleAboveWater(struct ITEM_INFO *item, struct COLL_INFO *coll)
     Lara_Animate(item);
 
     if (!g_Lara.extra_anim) {
-        LaraBaddieCollision(item, coll);
+        Lara_BaddieCollision(item, coll);
         if (g_Lara.skidoo == NO_ITEM) {
             g_LaraCollisionRoutines[item->current_anim_state](item, coll);
         }
@@ -171,7 +171,6 @@ void Lara_HandleUnderwater(struct ITEM_INFO *item, struct COLL_INFO *coll)
     if (g_Lara.current_active && g_Lara.water_status != LWS_CHEAT) {
         Lara_WaterCurrent(coll);
     }
-
     Lara_Animate(item);
 
     item->pos.y -=
@@ -187,7 +186,7 @@ void Lara_HandleUnderwater(struct ITEM_INFO *item, struct COLL_INFO *coll)
 
     if (!g_Lara.extra_anim) {
         if (g_Lara.water_status != LWS_CHEAT) {
-            LaraBaddieCollision(item, coll);
+            Lara_BaddieCollision(item, coll);
         }
         if (g_Lara.skidoo == NO_ITEM) {
             g_LaraCollisionRoutines[item->current_anim_state](item, coll);
@@ -195,6 +194,67 @@ void Lara_HandleUnderwater(struct ITEM_INFO *item, struct COLL_INFO *coll)
     }
 
     Item_UpdateRoom(item, 0);
+
+    Gun_Control();
+
+    g_LaraOnPad = 0;
+    Room_TestTriggers(coll->trigger, 0);
+    if (!g_LaraOnPad) {
+        g_LaraItem->item_flags[1] = 0;
+    }
+}
+
+void Lara_HandleSurface(struct ITEM_INFO *item, struct COLL_INFO *coll)
+{
+    g_Camera.target_elevation = -22 * DEG_1;
+
+    coll->bad_pos = NO_BAD_POS;
+    coll->bad_neg = -STEP_L / 2;
+    coll->bad_ceiling = 100;
+    coll->old.x = item->pos.x;
+    coll->old.y = item->pos.y;
+    coll->old.z = item->pos.z;
+    coll->radius = LARA_RADIUS_SURF;
+    coll->trigger = NULL;
+    coll->slopes_are_walls = 0;
+    coll->slopes_are_pits = 0;
+    coll->lava_is_pit = 0;
+    coll->enable_spaz = 0;
+    coll->enable_baddie_push = 0;
+
+    if ((g_Input & IN_LOOK) && g_Lara.look) {
+        Lara_LookLeftRight();
+    } else {
+        Lara_ResetLook();
+    }
+    g_Lara.look = 1;
+
+    g_LaraControlRoutines[item->current_anim_state](item, coll);
+
+    if (item->pos.z_rot < -2 * LARA_LEAN_UNDO) {
+        item->pos.z_rot += 2 * LARA_LEAN_UNDO;
+    } else if (item->pos.z_rot > 2 * LARA_LEAN_UNDO) {
+        item->pos.z_rot -= 2 * LARA_LEAN_UNDO;
+    } else {
+        item->pos.z_rot = 0;
+    }
+
+    if (g_Lara.current_active && g_Lara.water_status != LWS_CHEAT) {
+        Lara_WaterCurrent(coll);
+    }
+    Lara_Animate(item);
+
+    item->pos.x +=
+        (phd_sin(g_Lara.move_angle) * item->fall_speed) >> (W2V_SHIFT + 2);
+    item->pos.z +=
+        (phd_cos(g_Lara.move_angle) * item->fall_speed) >> (W2V_SHIFT + 2);
+
+    Lara_BaddieCollision(item, coll);
+    if (g_Lara.skidoo == NO_ITEM) {
+        g_LaraCollisionRoutines[item->current_anim_state](item, coll);
+    }
+
+    Item_UpdateRoom(item, 100);
 
     Gun_Control();
 
