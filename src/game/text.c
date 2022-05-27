@@ -109,3 +109,11 @@ void Text_AddBackground(
     txt->bgnd_colour = colour;
     txt->bgnd_flags = flags;
 }
+
+void Text_RemoveBackground(struct TEXTSTRING *txt)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.background = 0;
+}
