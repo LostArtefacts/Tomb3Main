@@ -228,3 +228,12 @@ int32_t Text_GetWidth(struct TEXTSTRING *txt)
     width &= 0xFFFE;
     return width;
 }
+
+void Text_RemovePrint(struct TEXTSTRING *txt)
+{
+    if (!txt || !txt->flags.active) {
+        return;
+    }
+    txt->flags.active = false;
+    g_TextstringCount--;
+}

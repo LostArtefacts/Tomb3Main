@@ -200,4 +200,5 @@ void Inject_All(void)
     INJECT(0x0046AF20, Text_AlignRight, 1);
     INJECT(0x0046AF40, Text_AlignBottom, 1);
     INJECT(0x0046AF60, Text_GetWidth, 1);
+    INJECT(0x0046B090, Text_RemovePrint, 1);
 }
