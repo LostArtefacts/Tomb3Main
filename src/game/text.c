@@ -237,3 +237,13 @@ void Text_RemovePrint(struct TEXTSTRING *txt)
     txt->flags.active = false;
     g_TextstringCount--;
 }
+
+void Text_Draw(void)
+{
+    for (int i = 0; i < TEXT_MAX_STRINGS; i++) {
+        struct TEXTSTRING *textstring = &g_TextstringTable[i];
+        if (textstring->flags.active) {
+            Text_DrawText(textstring);
+        }
+    }
+}
