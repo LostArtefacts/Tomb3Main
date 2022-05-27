@@ -154,3 +154,11 @@ void Text_CentreV(struct TEXTSTRING *txt, bool enable)
     }
     txt->flags.centre_v = enable ? 1 : 0;
 }
+
+void Text_AlignRight(struct TEXTSTRING *txt, bool enable)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.right_align = enable ? 1 : 0;
+}
