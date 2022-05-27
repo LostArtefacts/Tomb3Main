@@ -58,12 +58,20 @@ struct TEXTSTRING *Text_Create(
     result->bgnd_off.z = 0;
     result->flags.all = 0;
     result->flags.active = 1;
-    int32_t length = Text_GetLength(string);
-    if (length >= TEXT_MAX_STRING_SIZE) {
-        length = TEXT_MAX_STRING_SIZE - 1;
-    }
-    memcpy(result->string, string, length + 1);
+    Text_Change(result, string);
     g_TextstringCount++;
 
     return result;
+}
+
+void Text_Change(struct TEXTSTRING *txt, const char *string)
+{
+    if (!string || !txt->flags.active) {
+        return;
+    }
+    size_t length = strlen(string) + 1;
+    strncpy(txt->string, string, TEXT_MAX_STRING_SIZE - 1);
+    if (length >= TEXT_MAX_STRING_SIZE) {
+        txt->string[TEXT_MAX_STRING_SIZE - 1] = '\0';
+    }
 }
