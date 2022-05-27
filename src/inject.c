@@ -204,4 +204,5 @@ void Inject_All(void)
     INJECT(0x0046B0F0, Text_Draw, 1);
     INJECT(0x0046B120, Text_DrawBorder, 1);
     INJECT(0x0046B340, Text_DrawText, 1);
+    INJECT(0x0046B6F0, Text_GetScaleH, 1);
 }

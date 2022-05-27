@@ -24,3 +24,4 @@ void Text_RemovePrint(struct TEXTSTRING *txt);
 void Text_Draw(void);
 void Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h);
 void Text_DrawText(struct TEXTSTRING *txt);
+uint32_t Text_GetScaleH(uint32_t scale_h);

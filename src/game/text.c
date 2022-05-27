@@ -3,6 +3,7 @@
 #include "global/const.h"
 #include "global/stubs.h"
 #include "global/vars.h"
+#include "util.h"
 
 #include <string.h>
 
@@ -398,4 +399,11 @@ void Text_DrawText(struct TEXTSTRING *txt)
     if (txt->flags.outline) {
         Text_DrawBorder(bx, by, 0, bw, bh);
     }
+}
+
+uint32_t Text_GetScaleH(uint32_t scale_h)
+{
+    int32_t w = Screen_GetResWidth();
+    CLAMPL(w, 640);
+    return (scale_h >> 8) * (((w << 16) / w) >> 8);
 }
