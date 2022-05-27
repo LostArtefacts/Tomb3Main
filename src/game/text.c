@@ -138,3 +138,11 @@ void Text_RemoveOutline(struct TEXTSTRING *txt)
     }
     txt->flags.outline = 0;
 }
+
+void Text_CentreH(struct TEXTSTRING *txt, bool enable)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.centre_h = enable ? 1 : 0;
+}
