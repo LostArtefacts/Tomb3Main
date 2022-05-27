@@ -981,7 +981,7 @@ FSD 0046AEE0 0000001E void __cdecl Text_CentreH(TEXTSTRING *txt, int16_t enabled
 FSD 0046AF00 0000001E void __cdecl Text_CentreV(TEXTSTRING *txt, int16_t enabled); // T_CentreV
 FSD 0046AF20 0000001E void __cdecl Text_AlignRight(TEXTSTRING *txt, int16_t enabled); // T_RightAlign
 FSD 0046AF40 0000001E void __cdecl Text_AlignBottom(TEXTSTRING *txt, int16_t enabled); // T_BottomAlign
-FS- 0046AF60 0000012E int32_t __cdecl Text_GetTextWidth(TEXTSTRING *txt); // T_GetTextWidth
+FSD 0046AF60 0000012E int32_t __cdecl Text_GetWidth(TEXTSTRING *txt); // T_GetTextWidth
 FS- 0046B090 00000025 int32_t __cdecl Text_RemovePrint(TEXTSTRING *txt); // T_RemovePrint
 FS- 0046B0C0 00000024 int32_t __cdecl Text_GetLength(const char *string); // T_GetStringLength
 FS- 0046B0F0 00000027 void __cdecl Text_Draw(void); // T_DrawText
@@ -1540,3 +1540,5 @@ V-- 004CD8AC - int32_t g_RandDraw;
 V-- 006D0F00 - int16_t g_TextstringCount;
 V-- 006D0000 - TEXTSTRING g_TextstringTable[64]; // TEXT_MAX_STRINGS
 V-- 006D0F20 - char g_TextstringBuffers[64][64]; // TEXT_MAX_STRINGS TEXT_MAX_STRING_SIZE
+V-- 004C7CC8 - char g_TextASCIIMap[95];
+V-- 004C7C78 - char g_TextSpacing[110];

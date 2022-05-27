@@ -29,3 +29,5 @@
 #define g_TextstringTable ARR(0x006D0000, struct TEXTSTRING, [TEXT_MAX_STRINGS])
 #define g_TextstringBuffers                                                    \
     ARR(0x006D0F20, char, [TEXT_MAX_STRINGS][TEXT_MAX_STRING_SIZE])
+#define g_TextASCIIMap ARR(0x004C7CC8, char, [95])
+#define g_TextSpacing ARR(0x004C7C78, char, [110])

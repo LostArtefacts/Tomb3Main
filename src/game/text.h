@@ -19,3 +19,4 @@ void Text_CentreH(struct TEXTSTRING *txt, bool enable);
 void Text_CentreV(struct TEXTSTRING *txt, bool enable);
 void Text_AlignRight(struct TEXTSTRING *txt, bool enable);
 void Text_AlignBottom(struct TEXTSTRING *txt, bool enable);
+int32_t Text_GetWidth(struct TEXTSTRING *txt);
