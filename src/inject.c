@@ -193,4 +193,5 @@ void Inject_All(void)
     INJECT(0x0046ADD0, Text_Flash, 1);
     INJECT(0x0046AE00, Text_AddBackground, 1);
     INJECT(0x0046AE90, Text_RemoveBackground, 1);
+    INJECT(0x0046AEA0, Text_AddOutline, 1);
 }

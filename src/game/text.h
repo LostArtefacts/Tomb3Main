@@ -11,3 +11,6 @@ void Text_AddBackground(
     struct TEXTSTRING *txt, int16_t w, int16_t h, int16_t x, int16_t y,
     int16_t z, int16_t colour, uint16_t *gourptr, uint16_t flags);
 void Text_RemoveBackground(struct TEXTSTRING *txt);
+void Text_AddOutline(
+    struct TEXTSTRING *txt, bool enable, int16_t colour, uint16_t *gourptr,
+    uint16_t flags);

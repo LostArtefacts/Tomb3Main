@@ -117,3 +117,16 @@ void Text_RemoveBackground(struct TEXTSTRING *txt)
     }
     txt->flags.background = 0;
 }
+
+void Text_AddOutline(
+    struct TEXTSTRING *txt, bool enable, int16_t colour, uint16_t *gourptr,
+    uint16_t flags)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.outline = 1;
+    txt->outl_gour = gourptr;
+    txt->outl_colour = colour;
+    txt->outl_flags = flags;
+}
