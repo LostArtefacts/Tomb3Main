@@ -188,4 +188,5 @@ void Inject_All(void)
     INJECT(0x00484220, Random_GetDraw, 1);
 
     INJECT(0x0046AC70, Text_Init, 1);
+    INJECT(0x0046ACA0, Text_Create, 1);
 }

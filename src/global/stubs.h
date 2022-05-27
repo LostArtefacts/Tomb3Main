@@ -26,6 +26,7 @@
 #define Item_UpdateRoom          ((void (*)(struct ITEM_INFO *item, int32_t height))0x0041E6D0)
 #define Room_TestTriggers        ((void (*)(int16_t *data, int32_t heavy))0x00421460)
 #define Overlay_DisplayModeInfo  ((void (*)(char *string))0x00434DB0)
+#define Text_GetLength           ((int32_t (*)(const char *string))0x0046B0C0)
 // clang-format on
 
 // clang-format off
