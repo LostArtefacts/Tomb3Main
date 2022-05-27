@@ -791,6 +791,7 @@ struct TEXTSTRING {
             uint32_t rotate_v : 1;
             uint32_t centre_h : 1;
             uint32_t centre_v : 1;
+            uint32_t dummy : 1;
             uint32_t right_align : 1;
             uint32_t bottom_align : 1;
             uint32_t background : 1;

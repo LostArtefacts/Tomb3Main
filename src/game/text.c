@@ -162,3 +162,11 @@ void Text_AlignRight(struct TEXTSTRING *txt, bool enable)
     }
     txt->flags.right_align = enable ? 1 : 0;
 }
+
+void Text_AlignBottom(struct TEXTSTRING *txt, bool enable)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.bottom_align = enable ? 1 : 0;
+}

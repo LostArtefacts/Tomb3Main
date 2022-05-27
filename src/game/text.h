@@ -18,3 +18,4 @@ void Text_RemoveOutline(struct TEXTSTRING *txt);
 void Text_CentreH(struct TEXTSTRING *txt, bool enable);
 void Text_CentreV(struct TEXTSTRING *txt, bool enable);
 void Text_AlignRight(struct TEXTSTRING *txt, bool enable);
+void Text_AlignBottom(struct TEXTSTRING *txt, bool enable);

@@ -198,4 +198,5 @@ void Inject_All(void)
     INJECT(0x0046AEE0, Text_CentreH, 1);
     INJECT(0x0046AF00, Text_CentreV, 1);
     INJECT(0x0046AF20, Text_AlignRight, 1);
+    INJECT(0x0046AF40, Text_AlignBottom, 1);
 }

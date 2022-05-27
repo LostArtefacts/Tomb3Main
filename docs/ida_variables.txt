@@ -980,7 +980,7 @@ FSD 0046AED0 00000010 void __cdecl Text_RemoveOutline(TEXTSTRING *txt); // T_Rem
 FSD 0046AEE0 0000001E void __cdecl Text_CentreH(TEXTSTRING *txt, int16_t enabled); // T_CentreH
 FSD 0046AF00 0000001E void __cdecl Text_CentreV(TEXTSTRING *txt, int16_t enabled); // T_CentreV
 FSD 0046AF20 0000001E void __cdecl Text_AlignRight(TEXTSTRING *txt, int16_t enabled); // T_RightAlign
-FS- 0046AF40 0000001E void __cdecl Text_AlignBottom(TEXTSTRING *txt, int16_t enabled); // T_BottomAlign
+FSD 0046AF40 0000001E void __cdecl Text_AlignBottom(TEXTSTRING *txt, int16_t enabled); // T_BottomAlign
 FS- 0046AF60 0000012E int32_t __cdecl Text_GetTextWidth(TEXTSTRING *txt); // T_GetTextWidth
 FS- 0046B090 00000025 int32_t __cdecl Text_RemovePrint(TEXTSTRING *txt); // T_RemovePrint
 FS- 0046B0C0 00000024 int32_t __cdecl Text_GetLength(const char *string); // T_GetStringLength
