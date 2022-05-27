@@ -26,7 +26,6 @@
 #define Item_UpdateRoom           ((void (*)(struct ITEM_INFO *item, int32_t height))0x0041E6D0)
 #define Room_TestTriggers         ((void (*)(int16_t *data, int32_t heavy))0x00421460)
 #define Overlay_DisplayModeInfo   ((void (*)(char *string))0x00434DB0)
-#define Text_GetScaleV            ((uint32_t (*)(uint32_t scale_v))0x0046B720)
 #define Screen_GetResHeight       ((int32_t (*)(void))0x0048A1F0)
 #define Screen_GetResWidth        ((int32_t (*)(void))0x0048A200)
 #define Output_DrawScreenSprite2D ((void (*)(int32_t sx, int32_t sy, int32_t z, int32_t scale_h, int32_t scale_v, int16_t spr_num, int16_t shade, uint16_t flags))0x0040D1C0)

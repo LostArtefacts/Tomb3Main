@@ -407,3 +407,10 @@ uint32_t Text_GetScaleH(uint32_t scale_h)
     CLAMPL(w, 640);
     return (scale_h >> 8) * (((w << 16) / w) >> 8);
 }
+
+uint32_t Text_GetScaleV(uint32_t scale_v)
+{
+    int32_t h = Screen_GetResHeight();
+    CLAMPL(h, 480);
+    return (scale_v >> 8) * (((h << 16) / h) >> 8);
+}

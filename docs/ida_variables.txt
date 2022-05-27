@@ -988,7 +988,7 @@ FSD 0046B0F0 00000027 void __cdecl Text_Draw(void); // T_DrawText
 FSD 0046B120 0000021F void __cdecl Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h); // T_DrawBorder
 FSD 0046B340 000003A6 void __cdecl Text_DrawText(TEXTSTRING *txt); // T_DrawThisText
 FSD 0046B6F0 0000002A uint32_t __cdecl Text_GetScaleH(uint32_t scale_h); // GetTextScaleH
-FSC 0046B720 0000002A uint32_t __cdecl Text_GetScaleV(uint32_t scale_v); // GetTextScaleV
+FSD 0046B720 0000002A uint32_t __cdecl Text_GetScaleV(uint32_t scale_v); // GetTextScaleV
 FS- 0046B750 000002F0 void __cdecl TigerControl(int16_t item_num);
 FS- 0046BA60 00000603 void __cdecl TonyBossControl(int16_t item_num);
 FS- 0046C080 00000041 void __cdecl S_DrawTonyBoss(ITEM_INFO *item);
