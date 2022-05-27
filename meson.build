@@ -71,6 +71,7 @@ sources = [
   'src/game/lara/lara_state.c',
   'src/game/matrix.c',
   'src/game/random.c',
+  'src/game/text.c',
   'src/init.c',
   'src/inject.c',
   'src/inject_util.c',

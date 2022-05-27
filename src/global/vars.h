@@ -25,3 +25,7 @@
 #define g_GotJointPos ARR(0x006D6190, uint8_t, [15])
 #define g_ZFar VAR(0x004F6D44, int32_t)
 #define g_IsJointUnderwater ARR(0x006D6290, uint8_t, [15])
+#define g_TextstringCount VAR(0x006D0F00, int16_t)
+#define g_TextstringTable ARR(0x006D0000, struct TEXTSTRING, [TEXT_MAX_STRINGS])
+#define g_TextstringBuffers                                                    \
+    ARR(0x006D0F20, char, [TEXT_MAX_STRINGS][TEXT_MAX_STRING_SIZE])

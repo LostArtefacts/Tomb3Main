@@ -1126,4 +1126,31 @@ typedef void (*LaraCollisionRoutine)(
 typedef void (*LaraControlRoutine)(
     struct ITEM_INFO *item, struct COLL_INFO *coll);
 
+struct TEXTSTRING {
+    uint32_t flags;
+    uint16_t text_flags;
+    uint16_t bgnd_flags;
+    uint16_t outl_flags;
+    int16_t xpos;
+    int16_t ypos;
+    int16_t zpos;
+    int16_t letter_spacing;
+    int16_t word_spacing;
+    int16_t flash_rate;
+    int16_t flash_count;
+    int16_t bgnd_colour;
+    uint16_t *bgnd_gour;
+    int16_t outl_colour;
+    uint16_t *outl_gour;
+    int16_t bgnd_size_x;
+    int16_t bgnd_size_y;
+    int16_t bgnd_off_x;
+    int16_t bgnd_off_y;
+    int16_t bgnd_off_z;
+    int32_t scale_h;
+    int32_t scale_v;
+    int16_t colour;
+    char *string;
+};
+
 #pragma pack(pop)

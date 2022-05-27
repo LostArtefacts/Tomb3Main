@@ -8,6 +8,7 @@
 #include "game/lara/lara_state.h"
 #include "game/matrix.h"
 #include "game/random.h"
+#include "game/text.h"
 #include "inject_util.h"
 
 void Inject_All(void)
@@ -185,4 +186,6 @@ void Inject_All(void)
     INJECT(0x00484240, Random_SeedDraw, 1);
     INJECT(0x004841F0, Random_GetControl, 1);
     INJECT(0x00484220, Random_GetDraw, 1);
+
+    INJECT(0x0046AC70, Text_Init, 1);
 }

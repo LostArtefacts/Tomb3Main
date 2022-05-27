@@ -95,4 +95,7 @@
 #define CAMERA_FOLLOW_CENTRE         1
 #define CAMERA_NO_CHUNKY             2
 #define CAMERA_BACKJUMP_ANGLE        (DEG_1 * 135) // = 24570
+
+#define TEXT_MAX_STRINGS             64
+#define TEXT_MAX_STRING_SIZE         64
 // clang-format on

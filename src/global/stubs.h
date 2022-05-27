@@ -25,6 +25,7 @@
 #define Inv_AddItem              ((int32_t (*)(int32_t item_num))0x004378B0)
 #define Item_UpdateRoom          ((void (*)(struct ITEM_INFO *item, int32_t height))0x0041E6D0)
 #define Room_TestTriggers        ((void (*)(int16_t *data, int32_t heavy))0x00421460)
+#define Overlay_DisplayModeInfo  ((void (*)(char *string))0x00434DB0)
 // clang-format on
 
 // clang-format off

@@ -434,8 +434,8 @@ FS- 00434BD0 0000001D void __cdecl RemoveAmmoText(void);
 FS- 00434BF0 00000131 void __cdecl DrawAmmoInfo(void);
 FS- 00434D50 00000015 void __cdecl InitialisePickUpDisplay(void);
 FS- 00434D70 0000003F void __cdecl AddDisplayPickup(int16_t obj_num);
-FS- 00434DB0 0000007A void __cdecl DisplayModeInfo(char *string);
-FS- 00434E30 0000002C void __cdecl DrawModeInfo(void);
+FS- 00434DB0 0000007A void __cdecl Overlay_DisplayModeInfo(char *string); // DisplayModeInfo
+FS- 00434E30 0000002C void __cdecl Overlay_DrawModeInfo(void); // DrawModeInfo
 FS- 00434E60 00000571 void __cdecl HybridControl(int16_t item_num);
 FS- 00435400 00001372 int32_t __cdecl Display_Inventory(int32_t inventory_mode);
 FS- 00436840 00000179 void __cdecl Construct_Inventory(void);
@@ -969,26 +969,26 @@ FS- 00469FE0 0000089D void __cdecl SwatControl(int16_t item_num);
 FS- 0046A8B0 000000A4 void __cdecl InitialiseTarget(int16_t item_num);
 FS- 0046A960 00000289 void __cdecl TargetControl(int16_t item_num);
 FS- 0046AC00 00000062 void __cdecl ResetTargets(void);
-FS- 0046AC70 0000002C void __cdecl T_InitPrint(void);
-FS- 0046ACA0 000000E2 TEXTSTRING *__cdecl T_Print(int32_t x, int32_t y, int32_t z, const char *string);
-FS- 0046AD90 00000037 void __cdecl T_ChangeText(TEXTSTRING *txt, const char *string);
-FS- 0046ADD0 0000002B void __cdecl T_FlashText(TEXTSTRING *txt, int16_t enabled, int16_t rate);
-FS- 0046AE00 00000090 void __cdecl T_AddBackground(TEXTSTRING *txt, int16_t x_size, int16_t y_size, int16_t x_off, int16_t y_off, int16_t z_off, int16_t colour, SG_COL *gourptr, uint16_t flags);
-FS- 0046AE90 00000010 void __cdecl T_RemoveBackground(TEXTSTRING *txt);
-FS- 0046AEA0 00000029 void __cdecl T_AddOutline(TEXTSTRING *txt, int16_t enabled, int16_t colour, SG_COL *gourptr, uint16_t flags);
-FS- 0046AED0 00000010 void __cdecl T_RemoveOutline(TEXTSTRING *txt);
-FS- 0046AEE0 0000001E void __cdecl T_CentreH(TEXTSTRING *txt, int16_t enabled);
-FS- 0046AF00 0000001E void __cdecl T_CentreV(TEXTSTRING *txt, int16_t enabled);
-FS- 0046AF20 0000001E void __cdecl T_RightAlign(TEXTSTRING *txt, int16_t enabled);
-FS- 0046AF40 0000001E void __cdecl T_BottomAlign(TEXTSTRING *txt, int16_t enabled);
-FS- 0046AF60 0000012E int32_t __cdecl T_GetTextWidth(TEXTSTRING *txt);
-FS- 0046B090 00000025 int32_t __cdecl T_RemovePrint(TEXTSTRING *txt);
-FS- 0046B0C0 00000024 void __cdecl T_RemoveAllPrints(void);
-FS- 0046B0F0 00000027 void __cdecl T_DrawText(void);
-FS- 0046B120 0000021F void __cdecl T_DrawBorder(int32_t xpos, int32_t ypos, int32_t zpos, int32_t width, int32_t height);
-FS- 0046B340 000003A6 void __cdecl T_DrawThisText(TEXTSTRING *txt);
-FS- 0046B6F0 0000002A uint32_t __cdecl GetTextScaleH(uint32_t scale_h);
-FS- 0046B720 0000002A uint32_t __cdecl GetTextScaleV(uint32_t scale_v);
+FSD 0046AC70 0000002C void __cdecl Text_Init(void); // T_InitPrint
+FS- 0046ACA0 000000E2 TEXTSTRING *__cdecl Text_Create(int32_t x, int32_t y, int32_t z, const char *string); // T_Print
+FS- 0046AD90 00000037 void __cdecl Text_Change(TEXTSTRING *txt, const char *string); // T_ChangeText
+FS- 0046ADD0 0000002B void __cdecl Text_Flash(TEXTSTRING *txt, int16_t enabled, int16_t rate); // T_FlashText
+FS- 0046AE00 00000090 void __cdecl Text_AddBackground(TEXTSTRING *txt, int16_t x_size, int16_t y_size, int16_t x_off, int16_t y_off, int16_t z_off, int16_t colour, SG_COL *gourptr, uint16_t flags); // T_AddBackground
+FS- 0046AE90 00000010 void __cdecl Text_RemoveBackground(TEXTSTRING *txt); // T_RemoveBackground
+FS- 0046AEA0 00000029 void __cdecl Text_AddOutline(TEXTSTRING *txt, int16_t enabled, int16_t colour, SG_COL *gourptr, uint16_t flags); // T_AddOutline
+FS- 0046AED0 00000010 void __cdecl Text_RemoveOutline(TEXTSTRING *txt); // T_RemoveOutline
+FS- 0046AEE0 0000001E void __cdecl Text_CentreH(TEXTSTRING *txt, int16_t enabled); // T_CentreH
+FS- 0046AF00 0000001E void __cdecl Text_CentreV(TEXTSTRING *txt, int16_t enabled); // T_CentreV
+FS- 0046AF20 0000001E void __cdecl Text_RightAlign(TEXTSTRING *txt, int16_t enabled); // T_RightAlign
+FS- 0046AF40 0000001E void __cdecl Text_BottomAlign(TEXTSTRING *txt, int16_t enabled); // T_BottomAlign
+FS- 0046AF60 0000012E int32_t __cdecl Text_GetTextWidth(TEXTSTRING *txt); // T_GetTextWidth
+FS- 0046B090 00000025 int32_t __cdecl Text_RemovePrint(TEXTSTRING *txt); // T_RemovePrint
+FS- 0046B0C0 00000024 void __cdecl Text_RemoveAllPrints(void); // T_RemoveAllPrints
+FS- 0046B0F0 00000027 void __cdecl Text_Draw(void); // T_DrawText
+FS- 0046B120 0000021F void __cdecl Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t width, int32_t height); // T_DrawBorder
+FS- 0046B340 000003A6 void __cdecl Text_DrawText(TEXTSTRING *txt); // T_DrawThisText
+FS- 0046B6F0 0000002A uint32_t __cdecl Text_GetScaleH(uint32_t scale_h); // GetTextScaleH
+FS- 0046B720 0000002A uint32_t __cdecl Text_GetScaleV(uint32_t scale_v); // GetTextScaleV
 FS- 0046B750 000002F0 void __cdecl TigerControl(int16_t item_num);
 FS- 0046BA60 00000603 void __cdecl TonyBossControl(int16_t item_num);
 FS- 0046C080 00000041 void __cdecl S_DrawTonyBoss(ITEM_INFO *item);
@@ -1537,3 +1537,6 @@ V-- 006D6290 - uint8_t g_IsJointUnderwater[15];
 V-- 004F6D44 - int32_t g_ZFar;
 V-- 004CD8A8 - int32_t g_RandControl;
 V-- 004CD8AC - int32_t g_RandDraw;
+V-- 006D0F00 - int16_t g_TextstringCount;
+V-- 006D0000 - TEXTSTRING g_TextstringTable[64]; // TEXT_MAX_STRINGS
+V-- 006D0F20 - char g_TextstringBuffers[64][64]; // TEXT_MAX_STRINGS TEXT_MAX_STRING_SIZE
