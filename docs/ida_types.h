@@ -808,8 +808,10 @@ struct TEXTSTRING {
     } pos;
     int16_t letter_spacing;
     int16_t word_spacing;
-    int16_t flash_rate;
-    int16_t flash_count;
+    struct {
+        int16_t rate;
+        int16_t count;
+    } flash;
     int16_t bgnd_colour;
     uint16_t *bgnd_gour;
     int16_t outl_colour;

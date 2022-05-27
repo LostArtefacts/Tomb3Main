@@ -75,3 +75,17 @@ void Text_Change(struct TEXTSTRING *txt, const char *string)
         txt->string[TEXT_MAX_STRING_SIZE - 1] = '\0';
     }
 }
+
+void Text_Flash(struct TEXTSTRING *txt, bool enable, int16_t rate)
+{
+    if (!txt) {
+        return;
+    }
+    if (enable) {
+        txt->flags.flash = 1;
+        txt->flash.rate = rate;
+        txt->flash.count = rate;
+    } else {
+        txt->flags.flash = 0;
+    }
+}
