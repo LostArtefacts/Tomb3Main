@@ -241,9 +241,9 @@ void Text_RemovePrint(struct TEXTSTRING *txt)
 void Text_Draw(void)
 {
     for (int i = 0; i < TEXT_MAX_STRINGS; i++) {
-        struct TEXTSTRING *textstring = &g_TextstringTable[i];
-        if (textstring->flags.active) {
-            Text_DrawText(textstring);
+        struct TEXTSTRING *txt = &g_TextstringTable[i];
+        if (txt->flags.active) {
+            Text_DrawText(txt);
         }
     }
 }
@@ -271,4 +271,131 @@ void Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h)
     g_InsertLine(x - 1, y + h - 1, x + w + 1, y + h - 1, z, c1, c1);
     g_InsertLine(x, y + h, x + w + 1, y + h, z, c2, c2);
     g_InsertLine(x, y + h + 1, x + w + 2, y + h + 1, z, c1, c1);
+}
+
+void Text_DrawText(struct TEXTSTRING *txt)
+{
+    int32_t sprite;
+
+    uint32_t h = Text_GetScaleH(txt->scale.h);
+    uint32_t v = Text_GetScaleV(txt->scale.v);
+    int32_t bw = 0;
+    int32_t bh = 0;
+
+    if (txt->flags.flash) {
+        txt->flash.count -= (int16_t)g_Camera.number_frames;
+
+        if (txt->flash.count <= -txt->flash.rate) {
+            txt->flash.count = txt->flash.rate;
+        } else if (txt->flash.count < 0) {
+            return;
+        }
+    }
+
+    int32_t x = txt->pos.x;
+    int32_t y = txt->pos.y;
+    int32_t z = txt->pos.z;
+    int32_t w = Text_GetWidth(txt);
+
+    if (txt->flags.centre_h) {
+        x += (Screen_GetResWidth() - w) / 2;
+    } else if (txt->flags.right_align) {
+        x += Screen_GetResWidth() - w;
+    } else if (txt->flags.right_justify) {
+        x -= w;
+    }
+
+    if (txt->flags.centre_v) {
+        y += Screen_GetResHeight() / 2;
+    } else if (txt->flags.bottom_align) {
+        y += Screen_GetResHeight();
+    }
+
+    int32_t bx = x + txt->bgnd_off.x - ((2 * h) / TEXT_SCALE_NEUTRAL);
+    int32_t by = y + txt->bgnd_off.y - ((4 * v) / TEXT_SCALE_NEUTRAL)
+        - ((11 * v) / TEXT_SCALE_NEUTRAL);
+
+    char *string = txt->string;
+    while (*string) {
+        uint32_t letter = *string++;
+
+        if (letter > 0x12 && letter < ' ') {
+            continue;
+        }
+
+        if (letter == ' ') {
+            x += (h * txt->word_spacing) / TEXT_SCALE_NEUTRAL;
+            continue;
+        }
+
+        if (letter >= 0x7F) {
+            if (letter <= '\x81') {
+                x += (16 * h) / TEXT_SCALE_NEUTRAL;
+            }
+            continue;
+        }
+
+        if (letter < 0x0B) {
+            sprite = letter + 81;
+        } else if (letter <= 0x12) {
+            sprite = letter + 91;
+        } else {
+            sprite = g_TextASCIIMap[letter];
+        }
+
+        if (letter >= '0' && letter <= '9') {
+            x += (h * ((12 - g_TextSpacing[sprite]) / 2)) / TEXT_SCALE_NEUTRAL;
+        }
+
+        if (x > 0 && x < Screen_GetResWidth() && y > 0
+            && y < Screen_GetResHeight()) {
+            Output_DrawScreenSprite2D(
+                x, y, z, h, v, g_Objects[O_ALPHABET].mesh_index + sprite,
+                txt->colour, txt->text_flags);
+        }
+
+        if (letter == '(' || letter == ')' || letter == '$' || letter == '~') {
+            continue;
+        }
+
+        if (letter >= '0' && letter <= '9') {
+            x += (h * (12 - (12 - g_TextSpacing[sprite]) / 2))
+                / TEXT_SCALE_NEUTRAL;
+            continue;
+        }
+
+        if (h != TEXT_SCALE_NEUTRAL) {
+            x += h * (txt->letter_spacing + g_TextSpacing[sprite]);
+        } else if (sprite == 108 || sprite == 109) {
+            x += 14;
+        } else {
+            x += txt->letter_spacing + g_TextSpacing[sprite];
+        }
+    }
+
+    if (txt->flags.background || txt->flags.outline) {
+        if (txt->bgnd_size.x) {
+            bx += w / 2;
+            w = txt->bgnd_size.x;
+            bx -= w / 2;
+        }
+
+        bw = w + 4;
+
+        if (txt->bgnd_size.y) {
+            bh = txt->bgnd_size.y - 2;
+        } else {
+            bh = (16 * v) / TEXT_SCALE_NEUTRAL;
+        }
+    }
+
+    if (txt->flags.background) {
+        Output_DrawScreenFBox(
+            bx, by, txt->bgnd_off.z + z + 2, bw, bh, txt->bgnd_colour,
+            txt->bgnd_gour, txt->bgnd_flags);
+    }
+
+    if (txt->flags.outline) {
+        Text_DrawBorder(bx, by, 0, bw, bh);
+    }
 }

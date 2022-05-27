@@ -80,7 +80,7 @@ FS- 0040C0B0 0000099B int32_t __cdecl XYGClipper(int32_t number, VERTEX_INFO *in
 FS- 0040CA50 000002D0 int32_t __cdecl XYClipper(int32_t number, VERTEX_INFO *input);
 FS- 0040CD20 0000033A void __cdecl S_DrawSprite(uint32_t flags, int32_t x, int32_t y, int32_t z, int16_t sprite, int16_t shade, int16_t scale);
 FS- 0040D060 0000015D int16_t *__cdecl ins_room_sprite(int16_t *obj_ptr, int32_t num);
-FS- 0040D1C0 00000152 void __cdecl S_DrawScreenSprite2d(int32_t sx, int32_t sy, int32_t z, int32_t scale_h, int32_t scale_v, int16_t spr_num, int16_t shade, uint16_t flags);
+FSC 0040D1C0 00000152 void __cdecl Output_DrawScreenSprite2D(int32_t sx, int32_t sy, int32_t z, int32_t scale_h, int32_t scale_v, int16_t spr_num, int16_t shade, uint16_t flags); // S_DrawScreenSprite2d
 FS- 0040D320 000000A3 void __cdecl S_DrawScreenSprite(int32_t sx, int32_t sy, int32_t z, int32_t scale_h, int32_t scale_v, int16_t spr_num, int16_t shade, uint16_t flags);
 FS- 0040D5F0 00000052 void __cdecl InitialiseBaton(int16_t item_num);
 FS- 0040D650 00000CA6 void __cdecl BatonControl(int16_t item_num);
@@ -434,7 +434,7 @@ FS- 00434BD0 0000001D void __cdecl RemoveAmmoText(void);
 FS- 00434BF0 00000131 void __cdecl DrawAmmoInfo(void);
 FS- 00434D50 00000015 void __cdecl InitialisePickUpDisplay(void);
 FS- 00434D70 0000003F void __cdecl AddDisplayPickup(int16_t obj_num);
-FS- 00434DB0 0000007A void __cdecl Overlay_DisplayModeInfo(char *string); // DisplayModeInfo
+FSC 00434DB0 0000007A void __cdecl Overlay_DisplayModeInfo(char *string); // DisplayModeInfo
 FS- 00434E30 0000002C void __cdecl Overlay_DrawModeInfo(void); // DrawModeInfo
 FS- 00434E60 00000571 void __cdecl HybridControl(int16_t item_num);
 FS- 00435400 00001372 int32_t __cdecl Display_Inventory(int32_t inventory_mode);
@@ -986,9 +986,9 @@ FSD 0046B090 00000025 void __cdecl Text_RemovePrint(TEXTSTRING *txt); // T_Remov
 FSX 0046B0C0 00000024 int32_t __cdecl Text_GetLength(const char *string); // T_GetStringLength
 FSD 0046B0F0 00000027 void __cdecl Text_Draw(void); // T_DrawText
 FSD 0046B120 0000021F void __cdecl Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h); // T_DrawBorder
-FS- 0046B340 000003A6 void __cdecl Text_DrawText(TEXTSTRING *txt); // T_DrawThisText
-FS- 0046B6F0 0000002A uint32_t __cdecl Text_GetScaleH(uint32_t scale_h); // GetTextScaleH
-FS- 0046B720 0000002A uint32_t __cdecl Text_GetScaleV(uint32_t scale_v); // GetTextScaleV
+FSD 0046B340 000003A6 void __cdecl Text_DrawText(TEXTSTRING *txt); // T_DrawThisText
+FSC 0046B6F0 0000002A uint32_t __cdecl Text_GetScaleH(uint32_t scale_h); // GetTextScaleH
+FSC 0046B720 0000002A uint32_t __cdecl Text_GetScaleV(uint32_t scale_v); // GetTextScaleV
 FS- 0046B750 000002F0 void __cdecl TigerControl(int16_t item_num);
 FS- 0046BA60 00000603 void __cdecl TonyBossControl(int16_t item_num);
 FS- 0046C080 00000041 void __cdecl S_DrawTonyBoss(ITEM_INFO *item);
@@ -1172,9 +1172,9 @@ FS- 00483470 00000048 void __cdecl Escape_Cleanup(bool return_playbackmode);
 FS- 004834C0 0000007A int32_t __cdecl FMV_Play(char* movie);
 FS- 00483540 00000097 int32_t __cdecl FMV_PlayIntro(char *movie1, char *movie2);
 FS- 004835E0 00000023 SG_COL __cdecl S_COLOUR(int32_t r, int32_t g, int32_t b);
-FS- 00483610 00000039 void __cdecl S_DrawScreenLine(int32_t sx, int32_t sy, int32_t z, int32_t w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags);
-FS- 00483650 00000116 void __cdecl S_DrawScreenBox(int32_t sx, int32_t sy, int32_t z, int32_t    w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags);
-FS- 00483770 0000003D void __cdecl S_DrawScreenFBox(int32_t sx, int32_t sy, int32_t z, int32_t    w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags);
+FS- 00483610 00000039 void __cdecl Output_DrawScreenLine(int32_t sx, int32_t sy, int32_t z, int32_t w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags); // S_DrawScreenLine
+FS- 00483650 00000116 void __cdecl Output_DrawScreenBox(int32_t sx, int32_t sy, int32_t z, int32_t    w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags); // S_DrawScreenBox
+FSC 00483770 0000003D void __cdecl Output_DrawScreenFBox(int32_t sx, int32_t sy, int32_t z, int32_t    w, int32_t h, int32_t col, uint16_t *grdptr, uint16_t flags); // S_DrawScreenFBox
 F-- 004837B0 0000000F void S_FinishInventory(void);
 F-- 004837C0 00000001 void nullsub_1();
 FS- 004837D0 00000057 void __cdecl S_Wait(int32_t frames, int32_t any_key);
@@ -1248,8 +1248,8 @@ FS- 00489550 00000706 void __cdecl do_control_option(INVENTORY_ITEM *inv_item);
 FS- 00489C70 0000048D void __cdecl S_ShowControls(void);
 FS- 0048A100 00000096 void __cdecl S_ChangeCtrlText(void);
 FS- 0048A1A0 00000043 void __cdecl S_RemoveCtrlText(void);
-FS- 0048A1F0 00000006 int32_t __cdecl GetRenderHeight(void);
-FS- 0048A200 00000006 int32_t __cdecl GetRenderWidth(void);
+FSC 0048A1F0 00000006 int32_t __cdecl Screen_GetResHeight(void); // GetRenderHeight
+FSC 0048A200 00000006 int32_t __cdecl Screen_GetResWidth(void); // GetRenderWidth
 FS- 0048A210 0000008C void __cdecl S_InitialisePolyList(int32_t clear_screen);
 FS- 0048A2A0 0000002D int32_t __cdecl S_DumpCine(void);
 FS- 0048A2D0 0000004E int32_t __cdecl S_DumpScreen(void);
