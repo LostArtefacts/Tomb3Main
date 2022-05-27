@@ -130,3 +130,11 @@ void Text_AddOutline(
     txt->outl_colour = colour;
     txt->outl_flags = flags;
 }
+
+void Text_RemoveOutline(struct TEXTSTRING *txt)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.outline = 0;
+}
