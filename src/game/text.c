@@ -146,3 +146,11 @@ void Text_CentreH(struct TEXTSTRING *txt, bool enable)
     }
     txt->flags.centre_h = enable ? 1 : 0;
 }
+
+void Text_CentreV(struct TEXTSTRING *txt, bool enable)
+{
+    if (!txt) {
+        return;
+    }
+    txt->flags.centre_v = enable ? 1 : 0;
+}

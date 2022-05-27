@@ -978,7 +978,7 @@ FSD 0046AE90 00000010 void __cdecl Text_RemoveBackground(TEXTSTRING *txt); // T_
 FSD 0046AEA0 00000029 void __cdecl Text_AddOutline(TEXTSTRING *txt, int16_t enabled, int16_t colour, SG_COL *gourptr, uint16_t flags); // T_AddOutline
 FSD 0046AED0 00000010 void __cdecl Text_RemoveOutline(TEXTSTRING *txt); // T_RemoveOutline
 FSD 0046AEE0 0000001E void __cdecl Text_CentreH(TEXTSTRING *txt, int16_t enabled); // T_CentreH
-FS- 0046AF00 0000001E void __cdecl Text_CentreV(TEXTSTRING *txt, int16_t enabled); // T_CentreV
+FSD 0046AF00 0000001E void __cdecl Text_CentreV(TEXTSTRING *txt, int16_t enabled); // T_CentreV
 FS- 0046AF20 0000001E void __cdecl Text_RightAlign(TEXTSTRING *txt, int16_t enabled); // T_RightAlign
 FS- 0046AF40 0000001E void __cdecl Text_BottomAlign(TEXTSTRING *txt, int16_t enabled); // T_BottomAlign
 FS- 0046AF60 0000012E int32_t __cdecl Text_GetTextWidth(TEXTSTRING *txt); // T_GetTextWidth

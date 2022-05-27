@@ -16,3 +16,4 @@ void Text_AddOutline(
     uint16_t flags);
 void Text_RemoveOutline(struct TEXTSTRING *txt);
 void Text_CentreH(struct TEXTSTRING *txt, bool enable);
+void Text_CentreV(struct TEXTSTRING *txt, bool enable);
