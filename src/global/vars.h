@@ -31,3 +31,28 @@
     ARR(0x006D0F20, char, [TEXT_MAX_STRINGS][TEXT_MAX_STRING_SIZE])
 #define g_TextASCIIMap ARR(0x004C7CC8, char, [95])
 #define g_TextSpacing ARR(0x004C7C78, char, [110])
+#define g_ZFar VAR(0x004F6D44, int32_t)
+#define g_ZNear VAR(0x005316E8, int32_t)
+
+#define g_InsertLine                                                           \
+    (*(void(__cdecl **)(                                                       \
+        int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t z, int32_t c0, \
+        int32_t c1))0x005A6AF8)
+#define g_InsertObjectGT4                                                      \
+    (*(int16_t * (__cdecl **)(int16_t *, int32_t, int32_t))0x005A6A34)
+#define g_InsertObjectGT3                                                      \
+    (*(int16_t * (__cdecl **)(int16_t *, int32_t, int32_t))0x005A6A30)
+#define g_InsertObjectG4                                                       \
+    (*(int16_t * (__cdecl **)(int16_t *, int32_t, int32_t))0x005BAB0C)
+#define g_InsertObjectG3                                                       \
+    (*(int16_t * (__cdecl **)(int16_t *, int32_t, int32_t))0x005BAB50)
+#define g_InsertFlatRect                                                       \
+    (*(int16_t                                                                 \
+       * (__cdecl *                                                            \
+              *)(int32_t, int32_t, int32_t, int32_t, int32_t, int32_t))0x004F6D5C)
+#define g_InsertTrans8                                                         \
+    (*(void(__cdecl **)(struct PHD_VBUF *, int16_t))0x004E34A4)
+#define g_InsertSprite                                                         \
+    (*(void(__cdecl **)(                                                       \
+        int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t,         \
+        int32_t, int32_t, int32_t))0x00531718)

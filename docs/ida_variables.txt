@@ -985,7 +985,7 @@ FSD 0046AF60 0000012E int32_t __cdecl Text_GetWidth(TEXTSTRING *txt); // T_GetTe
 FSD 0046B090 00000025 void __cdecl Text_RemovePrint(TEXTSTRING *txt); // T_RemovePrint
 FSX 0046B0C0 00000024 int32_t __cdecl Text_GetLength(const char *string); // T_GetStringLength
 FSD 0046B0F0 00000027 void __cdecl Text_Draw(void); // T_DrawText
-FS- 0046B120 0000021F void __cdecl Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t width, int32_t height); // T_DrawBorder
+FSD 0046B120 0000021F void __cdecl Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h); // T_DrawBorder
 FS- 0046B340 000003A6 void __cdecl Text_DrawText(TEXTSTRING *txt); // T_DrawThisText
 FS- 0046B6F0 0000002A uint32_t __cdecl Text_GetScaleH(uint32_t scale_h); // GetTextScaleH
 FS- 0046B720 0000002A uint32_t __cdecl Text_GetScaleV(uint32_t scale_v); // GetTextScaleV
@@ -1542,3 +1542,13 @@ V-- 006D0000 - TEXTSTRING g_TextstringTable[64]; // TEXT_MAX_STRINGS
 V-- 006D0F20 - char g_TextstringBuffers[64][64]; // TEXT_MAX_STRINGS TEXT_MAX_STRING_SIZE
 V-- 004C7CC8 - char g_TextASCIIMap[95];
 V-- 004C7C78 - char g_TextSpacing[110];
+V-- 0x005A6AF8 - void (__cdecl *g_InsertLine)(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t z, int32_t c0, int32_t c1);
+V-- 0x005A6A34 - int16_t* (__cdecl *g_InsertObjectGT4)(int16_t*, int32_t, int32_t);
+V-- 0x005A6A30 - int16_t* (__cdecl *g_InsertObjectGT3)(int16_t*, int32_t, int32_t);
+V-- 0x005BAB0C - int16_t* (__cdecl *g_InsertObjectG4)(int16_t*, int32_t, int32_t);
+V-- 0x005BAB50 - int16_t* (__cdecl *g_InsertObjectG3)(int16_t*, int32_t, int32_t);
+V-- 0x004F6D5C - int16_t* (__cdecl *g_InsertFlatRect)(int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
+V-- 0x004E34A4 - void (__cdecl *g_InsertTrans8)(struct PHD_VBUF*, int16_t);
+V-- 0x00531718 - void (__cdecl *g_InsertSprite)(int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
+V-- 0x004F6D44 - int32_t g_ZFar;
+V-- 0x005316E8 - int32_t g_ZNear;

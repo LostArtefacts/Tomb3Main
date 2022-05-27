@@ -247,3 +247,28 @@ void Text_Draw(void)
         }
     }
 }
+
+void Text_DrawBorder(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h)
+{
+    z = g_ZNear + 49152;
+    uint32_t c1 = 0x001040;
+    uint32_t c2 = 0x4080C0;
+
+    x -= 2;
+    y -= 2;
+    w += 4;
+    h += 4;
+
+    g_InsertLine(x - 1, y - 1, x + w + 2, y - 1, z, c1, c1);
+    g_InsertLine(x, y, x + w, y, z, c2, c2);
+    g_InsertLine(x + 1, y + 1, x + w, y + 1, z, c1, c1);
+    g_InsertLine(x - 1, y, x - 1, y + h + 2, z, c1, c1);
+    g_InsertLine(x, y, x, y + h, z, c2, c2);
+    g_InsertLine(x + 1, y, x + 1, y + h - 1, z, c1, c1);
+    g_InsertLine(x + w - 1, y, x + w - 1, y + h, z, c1, c1);
+    g_InsertLine(x + w, y, x + w, y + h + 1, z, c2, c2);
+    g_InsertLine(x + w + 1, y, x + w + 1, y + h + 2, z, c1, c1);
+    g_InsertLine(x - 1, y + h - 1, x + w + 1, y + h - 1, z, c1, c1);
+    g_InsertLine(x, y + h, x + w + 1, y + h, z, c2, c2);
+    g_InsertLine(x, y + h + 1, x + w + 2, y + h + 1, z, c1, c1);
+}
