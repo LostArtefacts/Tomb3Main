@@ -89,3 +89,23 @@ void Text_Flash(struct TEXTSTRING *txt, bool enable, int16_t rate)
         txt->flags.flash = 0;
     }
 }
+
+void Text_AddBackground(
+    struct TEXTSTRING *txt, int16_t w, int16_t h, int16_t x, int16_t y,
+    int16_t z, int16_t colour, uint16_t *gourptr, uint16_t flags)
+{
+    if (!txt) {
+        return;
+    }
+    uint32_t scale_h = Text_GetScaleH(txt->scale.h);
+    uint32_t scale_v = Text_GetScaleV(txt->scale.v);
+    txt->flags.background = 1;
+    txt->bgnd_size.x = (w * scale_h) >> 16;
+    txt->bgnd_size.y = (h * scale_v) >> 16;
+    txt->bgnd_off.x = (x * scale_h) >> 16;
+    txt->bgnd_off.y = (y * scale_v) >> 16;
+    txt->bgnd_off.z = z;
+    txt->bgnd_gour = gourptr;
+    txt->bgnd_colour = colour;
+    txt->bgnd_flags = flags;
+}
