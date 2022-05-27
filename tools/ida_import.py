@@ -71,6 +71,8 @@ def import_variables() -> None:
                         # BGR
                         if "D" in flags:
                             func_struct.color = 0x0080FF
+                        elif "X" in flags:
+                            func_struct.color = 0x80D0FF
                         else:
                             func_struct.color = 0xFFFFFF
                         idaapi.update_func(func_struct)
