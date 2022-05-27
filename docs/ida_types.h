@@ -1550,6 +1550,21 @@ struct PHD_VBUF {
     int32_t dynamic;
 };
 
+struct POINT_INFO {
+    float xv;
+    float yv;
+    float zv;
+    float ooz;
+    float xs;
+    float ys;
+    float u;
+    float v;
+    float g;
+    long vr;
+    long vg;
+    long vb;
+};
+
 struct VERTEX_INFO {
     float x;
     float y;
@@ -1560,6 +1575,20 @@ struct VERTEX_INFO {
     int32_t vr;
     int32_t vg;
     int32_t vb;
+};
+
+typedef DWORD D3DTEXTUREHANDLE;
+
+struct DXTEXTURE {
+    IDirectDrawSurface3 *system_surface;
+    IDirectDrawSurface3 *device_surface;
+    IDirectDrawPalette *palette;
+    /*IDirect3DTexture2**/ IDirect3DTexture9 *texture;
+    D3DTEXTUREHANDLE texture_handle;
+    int32_t hidth;
+    int32_t height;
+    uint32_t flags;
+    uint16_t *software_surface;
 };
 
 #pragma pack(pop)
