@@ -5,7 +5,8 @@ game with the hope of eventually becoming a fully open source implementation.
 
 ## Current road map
 
-Reverse engineer the game, ahoy!
+~~Reverse engineer the game, ahoy!~~  
+This project is **abandoned** :bone:. Make sure to check out Troye's [TOMB3](https://github.com/Trxyebeep/tomb3), a project with similar mission.
 
 Progress:
 
